@@ -49,23 +49,27 @@
         .telegram-link-btn { display: inline-block; padding: 12px 35px; border: 2px solid #f76b6b; color: #f76b6b; text-decoration: none; font-size: 1.3rem; font-weight: 700; }
         .telegram-link-btn:hover { background-color: #f76b6b; color: #1a1a1a; }
         
-        /* قسم البلبل العراقي */
+        /* قسم البلبل العراقي المطور */
         .bulbul-section { margin-top: 60px; padding-top: 40px; border-top: 1px solid #333; text-align: center; }
         .bulbul-card { background: #222; max-width: 500px; margin: 30px auto; border-radius: 16px; border: 1px solid #333; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.5); }
         
-        .bulbul-img-container { width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background-color: #151515; }
-        .bulbul-img-container img { width: 100%; height: 100%; object-fit: cover; }
+        .bulbul-img-container { width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background-color: #151515; position: relative; }
+        .bulbul-img-container img { width: 100%; height: 100%; object-fit: cover; display: block; }
         
         .bulbul-content { padding: 25px; text-align: right; }
         .bulbul-title { font-family: 'Cairo', sans-serif; font-size: 1.6rem; color: #f76b6b; font-weight: 700; margin-bottom: 10px; text-align: center; }
         .bulbul-scientific { font-size: 0.95rem; color: #888; text-align: center; margin-bottom: 20px; font-style: italic; display: block; }
         
-        .audio-player-wrapper { background: #1a1a1a; padding: 15px; border-radius: 30px; display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 20px; border: 1px solid #333; }
+        .audio-player-wrapper { background: #1a1a1a; padding: 15px; border-radius: 30px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; margin-bottom: 20px; border: 1px solid #333; }
+        .custom-controls { display: flex; align-items: center; gap: 15px; width: 100%; justify-content: center; }
         .play-btn { background: #f76b6b; border: none; width: 45px; height: 45px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
         .play-btn:hover { transform: scale(1.05); background: #ff7b7b; }
         .play-btn svg { width: 18px; height: 18px; fill: #1a1a1a; margin-left: -2px; }
         .play-btn.playing svg { margin-left: 0; fill: #1a1a1a; }
         .audio-status { font-family: 'Cairo', sans-serif; font-size: 0.95rem; color: #ccc; }
+        
+        /* مشغل متصفح احتياطي يظهر فقط إذا تعطل الجافاسكريبت أو المسار */
+        audio.fallback-player { width: 100%; max-width: 280px; margin-top: 5px; height: 30px; display: block; }
         
         .bulbul-desc { font-size: 1.15rem; color: #e5e7eb; line-height: 1.8; text-align: justify; border-top: 1px solid #333; padding-top: 15px; }
         .database-warning { margin-top: 15px; background: rgba(247, 107, 107, 0.1); border-right: 4px solid #f76b6b; padding: 12px; border-radius: 4px; font-size: 1.1rem; color: #f76b6b; line-height: 1.6; }
@@ -109,21 +113,23 @@
                     
                     <div class="bulbul-card">
                         <div class="bulbul-img-container">
-                            <!-- تم ربط الصورة محلياً بملفك المخصص المذكور verbatim -->
-                            <img src="Gemini_Generated_Image_ssiilissiilissii.jpg" alt="البلبل العراقي - رسم مائي">
+                            <!-- استدعاء مباشر لاسم ملف الصورة المائية بدقة وحذر -->
+                            <img src="./Gemini_Generated_Image_ssiilissiilissii.jpg" alt="البلبل العراقي - رسم مائي" onerror="this.src='Gemini_Generated_Image_ssiilissiilissii.jpg'">
                         </div>
                         <div class="bulbul-content">
                             <h3 class="bulbul-title" id="bulbul-card-title">البلبل العراقي (أبيض الخدين)</h3>
                             <span class="bulbul-scientific">Pycnonotus leucotis</span>
                             
-                            <!-- مشغل الصوت التفاعلي المربوط محلياً -->
+                            <!-- مشغل الصوت التفاعلي المطور -->
                             <div class="audio-player-wrapper">
-                                <button class="play-btn" id="play-button" onclick="toggleAudio()">
-                                    <svg id="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                                </button>
-                                <span class="audio-status" id="audio-text">اضغط للاستماع إلى تغريد البلبل</span>
-                                <!-- مسار محلي آمن ومستقر للصوت -->
-                                <audio id="bulbul-audio" src="bulbul.mp3" preload="auto"></audio>
+                                <div class="custom-controls">
+                                    <button class="play-btn" id="play-button" onclick="toggleAudio()">
+                                        <svg id="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                    </button>
+                                    <span class="audio-status" id="audio-text">اضغط للاستماع إلى تغريد البلبل</span>
+                                </div>
+                                <!-- مشغل احتياطي إضافي بميزات المتصفح لضمان التشغيل المباشر -->
+                                <audio id="bulbul-audio" class="fallback-player" src="./bulbul.mp3" controls preload="auto"></audio>
                             </div>
 
                             <p class="bulbul-desc" id="bulbul-card-desc">يُعد البلبل أبيض الخدين الطائر المستوطن الأبرز في بساتين النخيل والمناطق الحضرية في العراق. ارتبط صوته عبر الأجيال بصباحات القرى والمدن العراقية، لكنه اليوم يواجه تناقصاً حاداً صامتاً نتيجة التجريف المستمر للمساحات الخضراء، قطع النخيل، والصيد الجائر لغرض التجارة.</p>
@@ -162,7 +168,7 @@
                 bulbulTitle: "البلبل العراقي (أبيض الخدين)", bulbulDesc: "يُعد البلبل أبيض الخدين الطائر المستوطن الأبرز في بساتين النخيل والمناطق الحضرية في العراق. ارتبط صوته عبر الأجيال بصباحات القرى والمدن العراقية، لكنه اليوم يواجه تناقصاً حاداً صامتاً نتيجة التجريف المستمر للمساحات الخضراء، قطع النخيل، والصيد الجائر لغرض التجارة.",
                 bulbulWarning: "<strong>⚠️ حقيقة بيئية صادمة:</strong> الطائر يواجه خطراً حقيقياً، ولكن بسبب غياب وافتقار العراق إلى قاعدة بيانات (Database) بيئية متكاملة ومحدثة، لا أحد يعلم حتى الآن حجم الكارثة الحقيقي والأرقام الدقيقة لتراجع أعداد هذا الطائر الوطني.",
                 audioPlay: "اضغط للاستماع إلى تغريد البلبل", audioPlaying: "جاري تشغيل صوت البلبل الآن...",
-                blogTitle: "البداية الحقيقية: لماذا الألبيزيا والليوكينة؟", blogDate: "١٨ حزيران، ٢٠٢٦", blogBody: "تعتبر أشجار الألبيزيا والليوكينة خيارات استراتيجية لمواجهة التغير المناخي في بيئتنا المحلية؛ نظراً لقدرتها الفائقة على تحمل درجات الحرارة المرتفعة, ومقاومة الجفاف، بالإضافة إلى دورها الحيوي في تثبيت النيتروجين في التربة وتحسين خصوبتها، مما يجعلها حجر الأساس في مشروعنا للتحول من التشجير المؤقت إلى الاستدامة الدائمة.",
+                blogTitle: "البداية الحقيقية: لماذا الألبيزيا والليوكينة؟", blogDate: "١٨ حزيران، ٢٠٢٦", blogBody: "تعتبر أشجار الألبيزيا والليوكينة خيارات استراتيجية لمواجهة التغير المناخي في بيئتنا المحلية؛ نظراً لقدرتها الفائقة على تحمل درجات الحرارة المرتفعة، ومقاومة الجفاف، بالإضافة إلى دورها الحيوي في تثبيت النيتروجين في التربة وتحسين خصوبتها، مما يجعلها حجر الأساس في مشروعنا للتحول من التشجير المؤقت إلى الاستدامة الدائمة.",
                 telegramBtn: "الانضمام إلى القناة الرسمية في تليغرام ←", footer: "جميع الحقوق محفوظة © أرض السَّواد ٢٠٢٦"
             },
             en: {
@@ -215,7 +221,7 @@
             document.getElementById('nav-blog').classList.toggle('active', page === 'blog');
         }
 
-        // التحكم التفاعلي بالصوت والزر
+        // التحكم التفاعلي بالصوت
         function toggleAudio() {
             const audio = document.getElementById('bulbul-audio');
             const playIcon = document.getElementById('play-icon');
@@ -224,7 +230,7 @@
 
             if (audio.paused) {
                 audio.play().catch(function(error) {
-                    console.log("تأكد من تسمية ملف الصوت bulbul.mp3 ووضعه بجانب ملف الـ html");
+                    console.log("برجاء التحقق من وجود ملف bulbul.mp3 في المجلد الرئيسي.");
                 });
                 playIcon.innerHTML = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
                 document.getElementById('play-button').classList.add('playing');
@@ -237,11 +243,28 @@
             }
         }
 
+        document.getElementById('bulbul-audio').addEventListener('playing', function() {
+            const playIcon = document.getElementById('play-icon');
+            const audioText = document.getElementById('audio-text');
+            const data = languages[currentLang];
+            playIcon.innerHTML = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
+            document.getElementById('play-button').classList.add('playing');
+            audioText.innerText = data.audioPlaying;
+        });
+
+        document.getElementById('bulbul-audio').addEventListener('pause', function() {
+            const playIcon = document.getElementById('play-icon');
+            const audioText = document.getElementById('audio-text');
+            const data = languages[currentLang];
+            playIcon.innerHTML = '<path d="M8 5v14l11-7z"/>';
+            document.getElementById('play-button').classList.remove('playing');
+            audioText.innerText = data.audioPlay;
+        });
+
         document.getElementById('bulbul-audio').addEventListener('ended', function() {
             const playIcon = document.getElementById('play-icon');
             const audioText = document.getElementById('audio-text');
             const data = languages[currentLang];
-            
             playIcon.innerHTML = '<path d="M8 5v14l11-7z"/>';
             document.getElementById('play-button').classList.remove('playing');
             audioText.innerText = data.audioPlay;
