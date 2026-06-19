@@ -81,6 +81,41 @@
         .alert-content h4 { font-family: 'Cairo', sans-serif; font-size: 1.2rem; color: #f76b6b; margin-bottom: 5px; }
         .alert-content p { font-size: 1.15rem; color: #ccc; line-height: 1.7; text-align: justify; }
 
+        /* ميزة المقارنة البصرية التفاعلية المتطورة */
+        .eco-slider-box { border: 1px solid #333; background: #222; border-radius: 16px; padding: 25px; margin-top: 50px; }
+        .slider-ui-container { position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 12px; background: #151515; margin-top: 20px; user-select: none; }
+        .slider-side { position: absolute; top: 0; bottom: 0; left: 0; right: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 30px; text-align: center; transition: width 0.1s ease, opacity 0.4s; }
+        .side-desert { background: linear-gradient(135deg, #2c1a1a 0%, #151010 100%); width: 100%; z-index: 1; right: 0; left: auto; border-left: 2px dashed #f76b6b; }
+        .side-forest { background: linear-gradient(135deg, #11261d 0%, #0a120f 100%); width: 0%; z-index: 2; overflow: hidden; right: auto; left: 0; }
+        .slider-interactive-bar { position: absolute; width: 100%; bottom: 25px; left: 0; padding: 0 30px; z-index: 10; display: flex; flex-direction: column; gap: 8px; }
+        .slider-interactive-bar input { width: 100%; cursor: pointer; accent-color: #f76b6b; height: 6px; }
+        .badge-slider { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 5px 15px; font-family: 'Cairo', sans-serif; font-size: 0.9rem; border-radius: 20px; margin-bottom: 15px; display: inline-block; }
+        
+        /* ميزة السجل الأخضر التفاعلي والعداد المتقدم */
+        .green-registry-box { border: 1px solid #333; background: #222; border-radius: 16px; padding: 30px; margin-top: 50px; }
+        .counter-layout { display: flex; justify-content: center; align-items: center; gap: 15px; margin: 25px 0; }
+        .counter-block { background: #151515; border: 1px solid #444; font-size: 3rem; font-weight: bold; padding: 5px 20px; border-radius: 8px; font-family: monospace; color: #f76b6b; letter-spacing: 4px; }
+        .registry-form { background: #1a1a1a; padding: 20px; border-radius: 12px; border: 1px solid #2d2d2d; margin-top: 25px; }
+        .form-grid-inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px; }
+        @media(max-width: 600px){ .form-grid-inputs { grid-template-columns: 1fr; } }
+        .input-element { background: #252525; border: 1px solid #3a3a3a; padding: 12px; border-radius: 6px; color: #fff; font-family: 'Cairo', sans-serif; font-size: 0.95rem; width: 100%; }
+        .input-element:focus { border-color: #f76b6b; outline: none; }
+        .form-submit-btn { background: #f76b6b; border: none; padding: 12px 30px; font-family: 'Cairo', sans-serif; font-weight: 700; color: #1a1a1a; border-radius: 6px; cursor: pointer; width: 100%; font-size: 1rem; transition: background 0.2s; }
+        .form-submit-btn:hover { background: #ff8585; }
+        .recent-shares-list { margin-top: 20px; display: flex; flex-direction: column; gap: 10px; }
+        .share-row-item { background: #151515; padding: 12px 20px; border-radius: 6px; border-right: 4px solid #f76b6b; display: flex; justify-content: space-between; font-size: 1.05rem; }
+        body.lang-en .share-row-item { border-right: none; border-left: 4px solid #f76b6b; }
+
+        /* ميزة دليل الإنبات المعرفي */
+        .growth-guide-box { border: 1px solid #333; background: #222; border-radius: 16px; padding: 25px; margin-top: 50px; }
+        .guide-steps-ol { margin: 20px 25px 30px 25px; font-size: 1.25rem; line-height: 1.9; }
+        .guide-steps-ol li { margin-bottom: 12px; color: #e5e7eb; }
+        .guide-steps-ol strong { color: #f76b6b; font-family: 'Cairo', sans-serif; font-size: 1.1rem; }
+        .growth-table { width: 100%; border-collapse: collapse; margin-top: 15px; font-family: 'Cairo', sans-serif; font-size: 0.95rem; background: #151515; border-radius: 8px; overflow: hidden; }
+        .growth-table th, .growth-table td { padding: 12px 15px; text-align: right; border-bottom: 1px solid #2d2d2d; }
+        body.lang-en .growth-table th, body.lang-en .growth-table td { text-align: left; }
+        .growth-table th { background: #2c2c2c; color: #f76b6b; }
+
         .site-footer { margin-top: 60px; border-top: 1px solid #333; padding-top: 30px; color: #666; }
     </style>
 </head>
@@ -103,27 +138,23 @@
     <main class="dark-content-section">
         <div class="content-container">
             
-            <!-- الصفحة الرئيسية -->
             <div id="home-content-area" class="home-content active">
                 <h1 class="section-title" id="text-home-title">تنهض رؤيتنا من مفارقة معاصرة</h1>
                 <div id="text-home-body">
                     <p class="main-text">"نلتقي كرابطة رقمية موحدة خلف الشاشات، لكننا نتحرك كإرادات فردية تغير أرض الواقع. إن أزمة المناخ والتصحر التي يعيشها العراق اليوم تفرض علينا كشباب أن نترك عاطفة 'التشجير الموسمي' المحدودة بالمكان والميزانيات، وننتقل فوراً إلى فضاء 'التنمية المستدامة' المبني على خطط علمية حقيقية."</p>
                     <p class="main-text">"فبناء المدن الخضراء يحتاج وعياً معرفياً يتجاوز الحلول الترقيعية العابرة ليصبح إرثاً حياً تحتمي به الأجيال القادمة. ومن هنا، تفتح هذه المنصة العلمية الباب لكل أبناء وبنات شعبنا العراقي أينما وجدوا؛ من جبال زاخو في أقصى الشمال إلى شواطئ الفاو في أقصى الجنوب، ومن صحراء الرطبة غرباً إلى مرتفعات بنجوين شرقاً."</p>
-                    <p class="main-text">"لم يعد بُعد المسافة عائقاً، سنطوي مسافات جغرافيتنا رقمياً لنلتحم في غرس واقعي، ونعيد معاً صياغة الهوية البيئية لأرضنا العراقية الجَمَّاء."</p>
+                    <p class="main-text">"لم يعد بُعد المسافة عائقاً، سنطوي مسافات جغرافيتنا رقمياً لنلتحم in غرس واقعي، ونعيد معاً صياغة الهوية البيئية لأرضنا العراقية الجَمَّاء."</p>
                     <p class="main-text highlight">الفكرة علمية.. والتنفيذ بسواعدنا.</p>
                 </div>
 
-                <!-- خانة الطيور المهددة بالانقراض (البطاقات البصرية العلمية) -->
                 <div class="birds-registry-section">
                     <h2 class="section-title" style="font-size: 2.3rem; margin-bottom: 10px; color: #f76b6b;" id="birds-sec-title">سجل الموائل: طيور في مهب الغياب</h2>
                     <p class="main-text" style="color: #aaa; font-size: 1.2rem; margin-bottom: 25px;" id="birds-sec-subtitle">نرصد التقاطع الحرج بين انحسار الغطاء النباتي العراقي واختفاء الرموز الحية لبيئتنا.</p>
                     
                     <div class="birds-grid">
                         
-                        <!-- بطاقة البلبل العراقي: صورة ومعلومة مستقرة وثابتة -->
                         <div class="bird-status-card">
                             <div class="bird-card-image-wrapper">
-                                <!-- استدعاء اسم الملف بدقة تامة وحساسية أحرف كاملة -->
                                 <img src="Gemini_Generated_Image_ssiilissiilissii.jpg" 
                                      alt="البلبل العراقي - رسم مائي تعبيري" 
                                      id="bulbul-main-img"
@@ -151,7 +182,6 @@
                             </div>
                         </div>
 
-                        <!-- بطاقة مكملة لربط الأثر البيئي بالتصحر -->
                         <div class="bird-status-card">
                             <div class="bird-card-details">
                                 <div class="bird-header">
@@ -177,7 +207,6 @@
 
                     </div>
 
-                    <!-- صندوق صرخة غياب البيانات البيئية (Database Warning) -->
                     <div class="database-alert-box">
                         <div class="alert-icon">⚠️</div>
                         <div class="alert-content">
@@ -185,11 +214,97 @@
                             <p id="alert-desc">إن الحقيقة البيئية الصادمة التي تطلقها منصتنا اليوم هي أننا لا نملك أرقاماً رسمية دقيقة تحدد حجم الكارثة ومعدل التراجع السنوي لأعداد طيورنا الوطنية كالبلبل العراقي؛ وذلك بسبب افتقار المؤسسات المعنية إلى قاعدة بيانات (Database) رقمية متكاملة ومحدثة. غرسنا للأشجار مثل الألبيزيا ليس مجرد تشجير، بل هو محاولة حثيثة لإعادة بناء الملاذ البيئي المفقود قبل أن تصمت هذه الأصوات للأبد.</p>
                         </div>
                     </div>
-                </div>
 
+                    <div class="eco-slider-box">
+                        <h3 id="slider-main-title" style="font-family: 'Cairo', sans-serif; color: #f76b6b;">المحاكاة المستقبلية: أثر الغرس المستدام</h3>
+                        <p id="slider-main-desc" style="color: #ccc; margin-top: 5px;">حرك المؤشر بالأسفل لترى كيف يعيد شجر الألبيزيا بناء الغطاء النباتي ويخلق ملاذاً آمناً لطيورنا الوطنية.</p>
+                        
+                        <div class="slider-ui-container">
+                            <div class="slider-side side-forest" id="forest-side">
+                                <span class="badge-slider" style="color: #81c784;" id="slider-badge-green">مستقبل أخضر مستدام</span>
+                                <h4 style="font-size: 2rem; color: #fff; margin-bottom: 10px;" id="slider-title-green">عَوْدَة المَلاذ الطبيعي</h4>
+                                <p style="max-width: 500px; color: #e0e0e0;" id="slider-desc-green">عند زراعة الألبيزيا والليوكينة بكثافة علمية، تنخفض الحرارة وتتحسن التربة، ليعود البلبل العراقي إلى موائله الطبيعية آمناً.</p>
+                            </div>
+                            <div class="slider-side side-desert" id="desert-side">
+                                <span class="badge-slider" style="color: #ff8a80;" id="slider-badge-red">واقع جاف متصحر</span>
+                                <h4 style="font-size: 2rem; color: #fff; margin-bottom: 10px;" id="slider-title-red">صَمْت الموائل وبِيد خالية</h4>
+                                <p style="max-width: 500px; color: #e0e0e0;" id="slider-desc-red">تجريف البساتين وغياب التوثيق الرقمي يترك أراضينا عرضة للعواصف الترابية، ويقود طيورنا الوطنية نحو الهجرة والغياب التام.</p>
+                            </div>
+                            
+                            <div class="slider-interactive-bar">
+                                <input type="range" min="0" max="100" value="0" id="eco-range-slider" oninput="updateEcoSlider(this.value)">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="green-registry-box">
+                        <h3 id="reg-main-title" style="font-family: 'Cairo', sans-serif; color: #f76b6b;">السجل الأخضر الرقمي • Green Register</h3>
+                        <p id="reg-main-desc" style="color: #ccc; margin-top: 5px;">توثيق جماعي مبني على الشفافية؛ نرصد غرس الشباب الفعلي على جغرافية الوطن.</p>
+                        
+                        <div class="counter-layout">
+                            <div class="counter-block" id="live-tree-counter">001240</div>
+                            <span id="reg-counter-label" style="font-family: 'Cairo', sans-serif; font-size: 1.1rem; color: #aaa;">شجرة تم توثيق غرسها</span>
+                        </div>
+
+                        <div class="registry-form">
+                            <h4 id="reg-form-title" style="font-family: 'Cairo', sans-serif; font-size: 1.1rem; margin-bottom: 15px; color: #f76b6b;">سجل مساهمتك الواقعية في الغرس العلمي:</h4>
+                            <div class="form-grid-inputs">
+                                <input type="text" id="form-input-name" class="input-element" placeholder="اسم المساهم أو الرابطة">
+                                <input type="text" id="form-input-city" class="input-element" placeholder="المحافظة / المنطقة البيئية">
+                                <input type="number" id="form-input-count" class="input-element" placeholder="عدد الأشجار (ألبيزيا / ليوكينة)">
+                            </div>
+                            <button class="form-submit-btn" id="reg-btn-submit" onclick="addRegistryShare()">توثيق الغرس في السجل الحركي ←</button>
+                        </div>
+
+                        <div class="recent-shares-list" id="shares-dynamic-container">
+                            <div class="share-row-item">
+                                <span style="font-weight: bold; color: #e5e7eb;">رابطة شباب بغداد المستدامة (الوزيرية)</span>
+                                <span style="color: #f76b6b; font-weight: bold;">+٤5 شتلة ألبيزيا</span>
+                            </div>
+                            <div class="share-row-item">
+                                <span style="font-weight: bold; color: #e5e7eb;">متطوع بيئي (صحراء غرب الأنبار)</span>
+                                <span style="color: #f76b6b; font-weight: bold;">+١٢٠ بذرة ليوكينة معالجة</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="growth-guide-box">
+                        <h3 id="guide-main-title" style="font-family: 'Cairo', sans-serif; color: #f76b6b;">دليل الإنبات العلمي (Scarification Guide)</h3>
+                        <p id="guide-main-desc" style="color: #ccc; margin-top: 5px;">كيف ننتقل من العاطفة العابرة إلى المعرفة الاستراتيجية لرفع نسب نجاح البذور القاسية؟</p>
+                        
+                        <ol class="guide-steps-ol" id="guide-steps-list">
+                            <li><strong>١. المعالجة والخدش (Scarification):</strong> بذور الألبيزيا والليوكينة تمتلك غلافاً شمعياً سميكاً يمنع دخول الماء. يجب نقع البذور في ماء ساخن (وليس مغلي) لمدة ١٢-٢٤ ساعة حتى تتفتح وتنتفخ.</li>
+                            <li><strong>٢. عمق الغرس العلمي:</strong> تُزرع البذور المنتفخة على عمق لا يتجاوز ١ إلى ٢ سم في تربة جيدة التصريف لتأمين الأكسجين الكافي للجنين.</li>
+                            <li><strong>٣. مراقبة الرطوبة الحذرة:</strong> الحفاظ على رطوبة التربة خفيفة وبدون إغراق، لتفادي تعفن الجذور في مراحل الإنبات الحرجة الأولى.</li>
+                        </ol>
+
+                        <h4 id="guide-table-title" style="font-family: 'Cairo', sans-serif; font-size: 1.1rem; color: #f76b6b; margin-bottom: 10px;">جدول المراقبة المعرفي ومعدلات النمو المتوقعة:</h4>
+                        <table class="growth-table">
+                            <thead>
+                                <tr>
+                                    <th id="th-period">المرحلة الزمنية</th>
+                                    <th id="th-albizia">معدل نمو الألبيزيا المتوقع</th>
+                                    <th id="th-leucaena">معدل نمو الليوكينة المتوقع</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td id="td-w1">الأسبوع الأول</td>
+                                    <td id="td-a1">بروز الجذير وانشقاق التربة (٢-٤ سم)</td>
+                                    <td id="td-l1">ظهور الأوراق الفلقية الأولى (٣-٥ سم)</td>
+                                </tr>
+                                <tr>
+                                    <td id="td-w2">الأسبوع الثاني</td>
+                                    <td id="td-a2">ظهور الأوراق الريشية المركبة (٦-١٠ سم)</td>
+                                    <td id="td-l2">استطالة الساق وزيادة التفرع (٨-١٤ سم)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
             </div>
 
-            <!-- صفحة المدونة -->
             <div id="blog-content-area" class="blog-posts-list">
                 <div class="blog-item">
                     <h2 class="blog-item-title" id="text-blog-title">البداية الحقيقية: لماذا الألبيزيا والليوكينة؟</h2>
@@ -215,6 +330,47 @@
             }
         }
 
+        // تحريك نظام المحاكاة البصري التفاعلي
+        function updateEcoSlider(val) {
+            const forestSide = document.getElementById('forest-side');
+            forestSide.style.width = val + '%';
+        }
+
+        // إضافة مشاركات حية إلى السجل الأخضر التفاعلي
+        let baseCount = 1240;
+        function addRegistryShare() {
+            const name = document.getElementById('form-input-name').value.trim();
+            const city = document.getElementById('form-input-city').value.trim();
+            const countVal = parseInt(document.getElementById('form-input-count').value);
+
+            if(!name || !city || isNaN(countVal) || countVal <= 0) {
+                alert(currentLang === 'ar' ? 'الرجاء ملء الخانات بشكل صحيح لتوثيق الغرس علمياً.' : 'Please fill all inputs correctly to document planting.');
+                return;
+            }
+
+            baseCount += countVal;
+            // تحديث العداد مع صياغة أصفار الحشو الجمالية
+            document.getElementById('live-tree-counter').innerText = String(baseCount).padStart(6, '0');
+
+            // إضافة الصف برمجياً للواجهة
+            const container = document.getElementById('shares-dynamic-container');
+            const row = document.createElement('div');
+            row.className = 'share-row-item';
+            
+            if(currentLang === 'ar') {
+                row.innerHTML = `<span style="font-weight: bold; color: #e5e7eb;">${name} (${city})</span><span style="color: #f76b6b; font-weight: bold;">+${countVal} شجرة علمية</span>`;
+            } else {
+                row.innerHTML = `<span style="font-weight: bold; color: #e5e7eb;">${name} (${city})</span><span style="color: #f76b6b; font-weight: bold;">+${countVal} Trees</span>`;
+            }
+            
+            container.insertBefore(row, container.firstChild);
+
+            // مسح الخانات بعد الإرسال
+            document.getElementById('form-input-name').value = '';
+            document.getElementById('form-input-city').value = '';
+            document.getElementById('form-input-count').value = '';
+        }
+
         const languages = {
             ar: {
                 brandTop: "أرْض", brandBottom: "السَّــــــــــــــــــــــــوَاد", navHome: "الرئيسية", navBlog: "المدونة",
@@ -223,6 +379,18 @@
                 card1Title: "البلبل العراقي (أبيض الخدين)", card1Badge: "تهديد مجهول الأبعاد", card1Desc: "يُعتبر الرمز الصوتي المستوطن لبساتين النخيل والمناطق الحضرية في العراق. ارتبط صوته تاريخياً بصباحاتنا، لكنه يواجه اليوم ضغطاً حاداً صامتاً نتيجة التجريف العشوائي للبساتين, قطع أشجار الحمضيات، والصيد الجائر غير المنظم للتجارة المحلية.", card1IndText: "حجم البيانات المتوفرة لرصد الأعداد",
                 card2Title: "طائر أبو منجل الأصلع الشمالي", card2Badge: "مهدد بالانقراض حرج", card2Desc: "أحد أندر الطيور في العالم، والذي كان يتخذ من البادية العراقية ومناطق الحَماد محطة أساسية وحيوية خلال خطوط هجرته السنوية الفاصلة. اختفى تقريباً من سماء المنطقة بسبب تدمير البيئة الطبيعية واستمرار الجفاف والتصحر الممتد.", card2IndText: "مستوى الخطر البيئي الحركي",
                 alertTitle: "منصة علمية تواجه غياب الـ Database البيئية", alertDesc: "إن الحقيقة البيئية الصادمة التي تطلقها منصتنا اليوم هي أننا لا نملك أرقاماً رسمية دقيقة تحدد حجم الكارثة ومعدل التراجع السنوي لأعداد طيورنا الوطنية كالبلبل العراقي؛ وذلك بسبب افتقار المؤسسات المعنية إلى قاعدة بيانات (Database) رقمية متكاملة ومحدثة. غرسنا للأشجار مثل الألبيزيا ليس مجرد تشجير، بل هو محاولة حثيثة لإعادة بناء الملاذ البيئي المفقود قبل أن تصمت هذه الأصوات للأبد.",
+                sliderMainTitle: "المحاكاة المستقبلية: أثر الغرس المستدام", sliderMainDesc: "حرك المؤشر بالأسفل لترى كيف يعيد شجر الألبيزيا بناء الغطاء النباتي ويخلق ملاذاً آمناً لطيورنا الوطنية.",
+                sliderBadgeGreen: "مستقبل أخضر مستدام", sliderTitleGreen: "عَوْدَة المَلاذ الطبيعي", sliderDescGreen: "عند زراعة الألبيزيا والليوكينة بكثافة علمية، تنخفض الحرارة وتتحسن التربة، ليعود البلبل العراقي إلى موائله الطبيعية آمناً.",
+                sliderBadgeRed: "واقع جاف متصحر", sliderTitleRed: "صَمْت الموائل وبِيد خالية", sliderDescRed: "تجريف البساتين وغياب التوثيق الرقمي يترك أراضينا عرضة للعواصف الترابية، ويقود طيورنا الوطنية نحو الهجرة والغياب التام.",
+                regMainTitle: "السجل الأخضر الرقمي • Green Register", regMainDesc: "توثيق جماعي مبني على الشفافية؛ نرصد غرس الشباب الفعلي على جغرافية الوطن.", regCounterLabel: "شجرة تم توثيق غرسها",
+                regFormTitle: "سجل مساهمتك الواقعية في الغرس العلمي:", regBtnSubmit: "توثيق الغرس في السجل الحركي ←",
+                formPlName: "اسم المساهم أو الرابطة", formPlCity: "المحافظة / المنطقة البيئية", formPlCount: "عدد الأشجار (ألبيزيا / ليوكينة)",
+                guideMainTitle: "دليل الإنبات العلمي (Scarification Guide)", guideMainDesc: "كيف ننتقل من العاطفة العابرة إلى المعرفة الاستراتيجية لرفع نسب نجاح البذور القاسية؟",
+                guideSteps: `<li><strong>١. المعالجة والخدش (Scarification):</strong> بذور الألبيزيا والليوكينة تمتلك غلافاً شمعياً سميكاً يمنع دخول الماء. يجب نقع البذور في ماء ساخن (وليس مغلي) لمدة ١٢-٢٤ ساعة حتى تتفتح وتنتفخ.</li><li><strong>٢. عمق الغرس العلمي:</strong> تُزرع البذور المنتفخة على عمق لا يتجاوز ١ إلى ٢ سم في تربة جيدة التصريف لتأمين الأكسجين الكافي للجنين.</li><li><strong>٣. مراقبة الرطوبة الحذرة:</strong> الحفاظ على رطوبة التربة خفيفة وبدون إغراق، لتفادي تعفن الجذور في مراحل الإنبات الحرجة الأولى.</li>`,
+                guideTableTitle: "جدول المراقبة المعرفي ومعدلات النمو المتوقعة:",
+                thPeriod: "المرحلة الزمنية", thAlbizia: "معدل نمو الألبيزيا المتوقع", thLeucaena: "معدل نمو الليوكينة المتوقع",
+                tdW1: "الأسبوع الأول", tdA1: "بروز الجذير وانشقاق التربة (٢-٤ سم)", tdL1: "ظهور الأوراق الفلقية الأولى (٣-٥ سم)",
+                tdW2: "الأسبوع الثاني", tdA2: "ظهور الأوراق الريشية المركبة (٦-١٠ سم)", tdL2: "استطالة الساق وزيادة التفرع (٨-١٠ سم)",
                 blogTitle: "البداية الحقيقية: لماذا الألبيزيا والليوكينة؟", blogDate: "١٨ حزيران، ٢٠٢٦", blogBody: "تعتبر أشجار الألبيزيا والليوكينة خيارات استراتيجية لمواجهة التغير المناخي في بيئتنا المحلية؛ نظراً لقدرتها الفائقة على تحمل درجات الحرارة المرتفعة، ومقاومة الجفاف، بالإضافة إلى دورها الحيوي في تثبيت النيتروجين في التربة وتحسين خصوبتها، مما يجعلها حجر الأساس في مشروعنا للتحول من التشجير المؤقت إلى الاستدامة الدائمة.",
                 telegramBtn: "الانضمام إلى القناة الرسمية في تليغرام ←", footer: "جميع الحقوق محفوظة © أرض السَّواد ٢٠٢٦"
             },
@@ -233,6 +401,18 @@
                 card1Title: "The Iraqi Bulbul (White-eared Bulbul)", card1Badge: "Threat Dimensions Unknown", card1Desc: "The iconic acoustic symbol of palm groves and urban environments across Iraq. Historically tied to our mornings, it now faces a sharp, silent pressure driven by erratic agricultural clearing, destruction of citrus trees, and unsustainable trapping for trade.", card1IndText: "Available data volume for monitoring population",
                 card2Title: "Northern Bald Ibis", card2Badge: "Critically Endangered", card2Desc: "One of the rarest birds globally, which utilized the Iraqi badia and Al-Hamad regions as a critical sanctuary along its cross-continental migratory route. It has virtually vanished from local skies due to severe habitat degradation and expanding desertification.", card2IndText: "Active Ecological Threat Level",
                 alertTitle: "A Scientific Platform Facing an Ecological Database Void", alertDesc: "The stark scientific reality underscored by our platform today is the complete absence of reliable, official data to quantify annual decline rates for domestic wildlife like the Iraqi Bulbul; an issue rooted in the state's severe deficiency of functional, unified ecological databases. Our cultivation of robust flora like Albizia is an active attempt to restore these lost shelters before these voices drop into absolute silence.",
+                sliderMainTitle: "Future Simulation: Sustainable Planting Impact", sliderMainDesc: "Move the slider below to witness how Albizia trees rebuild green canopies and restore vital shelters for domestic birds.",
+                sliderBadgeGreen: "Sustainable Green Future", sliderTitleGreen: "Return of Living Sanctuaries", sliderDescGreen: "When planting Albizia and Leucaena with systematic density, micro-temperatures drop and soils heal, allowing the Iraqi Bulbul to return safely.",
+                sliderBadgeRed: "Arid Desertified Reality", sliderTitleRed: "Silenced Habitats & Barren Lands", sliderDescRed: "Unregulated grove clearance and a lack of digital databases leave our terrain vulnerable to severe dust storms, pushing native fauna into absolute displacement.",
+                regMainTitle: "Green Register • Digital Logging", regMainDesc: "A crowdsourced, transparent ledger tracking real, on-the-ground youth planting efforts across the nation.", regCounterLabel: "Verified Trees Documented",
+                regFormTitle: "Log your real-world contribution to systematic planting:", regBtnSubmit: "Submit to Active Register ←",
+                formPlName: "Contributor or Group Name", formPlCity: "Governorate / Ecological Region", formPlCount: "Tree Count (Albizia / Leucaena)",
+                guideMainTitle: "Scarification & Growth Guide", guideMainDesc: "How do we move from passing sentiment into structural blueprints to secure high seed-germination rates?",
+                guideSteps: `<li><strong>1. Seed Scarification:</strong> Albizia and Leucaena seeds possess a thick, waxy coat. Soak seeds in hot (not boiling) water for 12–24 hours until they visibly swell.</li><li><strong>2. Systematic Depth:</strong> Plant swollen seeds at a depth of 1 to 2 cm maximum in well-drained soil to secure adequate embryonic oxygen.</li><li><strong>3. Measured Watering:</strong> Keep soil moisture consistent but light, preventing root rot during critical initial sprout stages.</li>`,
+                guideTableTitle: "Scientific Tracking Matrix & Expected Growth Rates:",
+                thPeriod: "Timeframe", thAlbizia: "Expected Albizia Growth", thLeucaena: "Expected Leucaena Growth",
+                tdW1: "Week 1", tdA1: "Radicle emergence and soil cracking (2-4 cm)", tdL1: "First cotyledon leaf display (3-5 cm)",
+                tdW2: "Week 2", tdA2: "Compound pinnate leaf formation (6-10 cm)", tdL2: "Stem elongation and active branching (8-14 cm)",
                 blogTitle: "The True Beginning: Why Albizia and Leucaena?", blogDate: "June 18, 2026", blogBody: "Albizia and Leucaena trees represent strategic choices to combat climate change in our local environment due to their remarkable ability to endure high temperatures, resist drought, and fix nitrogen in the soil, enhancing its fertility. This makes them the cornerstone of our transition from temporary greening to permanent sustainability.",
                 telegramBtn: "Join the Official Telegram Channel →", footer: "All Rights Reserved © Ard Al-Sawad 2026"
             }
@@ -268,8 +448,42 @@
             document.getElementById('alert-title').innerText = data.alertTitle;
             document.getElementById('alert-desc').innerText = data.alertDesc;
 
+            // تحديث الميزات التفاعلية المدمجة
+            document.getElementById('slider-main-title').innerText = data.sliderMainTitle;
+            document.getElementById('slider-main-desc').innerText = data.sliderMainDesc;
+            document.getElementById('slider-badge-green').innerText = data.sliderBadgeGreen;
+            document.getElementById('slider-title-green').innerText = data.sliderTitleGreen;
+            document.getElementById('slider-desc-green').innerText = data.sliderDescGreen;
+            document.getElementById('slider-badge-red').innerText = data.sliderBadgeRed;
+            document.getElementById('slider-title-red').innerText = data.sliderTitleRed;
+            document.getElementById('slider-desc-red').innerText = data.sliderDescRed;
+
+            document.getElementById('reg-main-title').innerText = data.regMainTitle;
+            document.getElementById('reg-main-desc').innerText = data.regMainDesc;
+            document.getElementById('reg-counter-label').innerText = data.regCounterLabel;
+            document.getElementById('reg-form-title').innerText = data.regFormTitle;
+            document.getElementById('reg-btn-submit').innerText = data.regBtnSubmit;
+            
+            document.getElementById('form-input-name').placeholder = data.formPlName || "اسم المساهم أو الرابطة";
+            document.getElementById('form-input-city').placeholder = data.formPlCity || "المحافظة / المنطقة البيئية";
+            document.getElementById('form-input-count').placeholder = data.formPlCount || "عدد الأشجار (ألبيزيا / ليوكينة)";
+
+            document.getElementById('guide-main-title').innerText = data.guideMainTitle;
+            document.getElementById('guide-main-desc').innerText = data.guideMainDesc;
+            document.getElementById('guide-steps-list').innerHTML = data.guideSteps;
+            document.getElementById('guide-table-title').innerText = data.guideTableTitle;
+            document.getElementById('th-period').innerText = data.thPeriod;
+            document.getElementById('th-albizia').innerText = data.thAlbizia;
+            document.getElementById('th-leucaena').innerText = data.thLeucaena;
+            document.getElementById('td-w1').innerText = data.tdW1;
+            document.getElementById('td-a1').innerText = data.tdA1;
+            document.getElementById('td-l1').innerText = data.tdL1;
+            document.getElementById('td-w2').innerText = data.tdW2;
+            document.getElementById('td-a2').innerText = data.tdA2;
+            document.getElementById('td-l2').innerText = data.tdL2;
+
             document.getElementById('text-blog-title').innerText = data.blogTitle;
-            document.getElementById('text-blog-date').innerText = data.brandTop === "أرْض" ? "١٨ حزيران، ٢٠٢٦" : "June 18, 2026";
+            document.getElementById('text-blog-date').innerText = currentLang === 'ar' ? "١٨ حزيران، ٢٠٢٦" : "June 18, 2026";
             document.getElementById('text-blog-body').innerText = data.blogBody;
             document.getElementById('text-telegram-btn').innerText = data.telegramBtn;
             document.getElementById('text-footer').innerText = data.footer;
