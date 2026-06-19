@@ -49,24 +49,22 @@
         .telegram-link-btn { display: inline-block; padding: 12px 35px; border: 2px solid #f76b6b; color: #f76b6b; text-decoration: none; font-size: 1.3rem; font-weight: 700; }
         .telegram-link-btn:hover { background-color: #f76b6b; color: #1a1a1a; }
         
-        /* قسم الطيور المهددة بالانقراض الجديد */
+        /* قسم الطيور المهددة بالانقراض */
         .birds-section-container { margin-top: 60px; padding-top: 40px; border-top: 1px solid #333; text-align: center; }
         
-        /* شبكة عرض كروت الطيور */
         .birds-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px; margin: 30px 0; width: 100%; }
         
         .bird-card { background: #222; border-radius: 12px; overflow: hidden; border: 1px solid #333; cursor: pointer; transition: all 0.3s ease; position: relative; }
         .bird-card:hover { transform: translateY(-5px); border-color: #f76b6b; box-shadow: 0 8px 20px rgba(247, 107, 107, 0.2); }
         .bird-card.selected { border-color: #f76b6b; background: #2a2a2a; box-shadow: 0 0 15px rgba(247, 107, 107, 0.3); }
         
-        /* حاوي الصورة المتناسق */
         .bird-img-wrapper { width: 100%; aspect-ratio: 1 / 1; background-color: #151515; overflow: hidden; position: relative; }
         .bird-img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
         .bird-card:hover .bird-img-wrapper img { transform: scale(1.05); }
         
         .bird-card-title { padding: 12px; font-family: 'Cairo', sans-serif; font-size: 1.05rem; color: #fff; font-weight: 700; text-align: center; }
         
-        /* لوحة معلومات الطيور */
+        /* لوحة عرض التفاصيل */
         .info-panel { width: 100%; background: #222222; padding: 25px; border-radius: 12px; border-right: 5px solid #f76b6b; text-align: right; box-shadow: 0 10px 25px rgba(0,0,0,0.4); margin-top: 25px; }
         .info-details { margin-top: 18px; font-size: 1.1rem; color: #ccc; line-height: 1.9; border-top: 1px solid #333; padding-top: 15px; }
         .info-details p { margin-bottom: 6px; display: flex; gap: 8px; }
@@ -95,41 +93,47 @@
     <main class="dark-content-section">
         <div class="content-container">
             
+            <!-- الصفحة الرئيسية -->
             <div id="home-content-area" class="home-content active">
                 <h1 class="section-title" id="text-home-title">تنهض رؤيتنا من مفارقة معاصرة</h1>
                 <div id="text-home-body">
                     <p class="main-text">"نلتقي كرابطة رقمية موحدة خلف الشاشات، لكننا نتحرك كإرادات فردية تغير أرض الواقع. إن أزمة المناخ والتصحر التي يعيشها العراق اليوم تفرض علينا كشباب أن نترك عاطفة 'التشجير الموسمي' المحدودة بالمكان والميزانيات، وننتقل فوراً إلى فضاء 'التنمية المستدامة' المبني على خطط علمية حقيقية."</p>
                     <p class="main-text">"فبناء المدن الخضراء يحتاج وعياً معرفياً يتجاوز الحلول الترقيعية العابرة ليصبح إرثاً حياً تحتمي به الأجيال القادمة. ومن هنا، تفتح هذه المنصة العلمية الباب لكل أبناء وبنات شعبنا العراقي أينما وجدوا؛ من جبال زاخو في أقصى الشمال إلى شواطئ الفاو في أقصى الجنوب، ومن صحراء الرطبة غرباً إلى مرتفعات بنجوين شرقاً."</p>
-                    <p class="main-text">"لم يعد بُعد المسافة عائقاً، سنطوي مسافات جغرافيتنا رقمياً لنلتحم في غرس واقعي، ونعيد معاً صياغة الهوية البيئية لأرضنا العراقية الجَمَّاء."</p>
+                    <p class="main-text">"لم يعد بُعد المسافة عائقاً، سنطوي مسافات جغرافيتنا رقمياً لنلتحم in غرس واقعي، ونعيد معاً صياغة الهوية البيئية لأرضنا العراقية الجَمَّاء."</p>
                     <p class="main-text highlight">الفكرة علمية.. والتنفيذ بسواعدنا.</p>
                 </div>
 
+                <!-- قسم الحياة البرية: الطيور المهددة بالانقراض في العراق -->
                 <div class="birds-section-container">
                     <h2 style="color: #f76b6b; font-size: 2.2rem; margin-bottom: 5px;" id="birds-heading">طيور مهددة بالانقراض في العراق</h2>
                     <p style="color: #aaa; font-size: 1.1rem;">اضغط على أي طائر للاطلاع على حالته البيئية وأسباب تراجعه نتيجة الجفاف والتصحر.</p>
                     
                     <div class="birds-grid">
+                        <!-- طائر 1 -->
                         <div class="bird-card" id="card-heron" onclick="showBirdData('heron')">
                             <div class="bird-img-wrapper">
-                                <img src="https://images.unsplash.com/photo-1574068468668-a05a11f871da?auto=format&fit=crop&w=300&q=80" alt="مالك الحزين الأرجواني">
+                                <img src="https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=300&q=80" alt="بلشون مستنقعات الأهوار">
                             </div>
                             <div class="bird-card-title">بلشون مستنقعات الأهوار</div>
                         </div>
 
+                        <!-- طائر 2 -->
                         <div class="bird-card" id="card-ibis" onclick="showBirdData('ibis')">
                             <div class="bird-img-wrapper">
-                                <img src="https://images.unsplash.com/photo-1628522672004-94071ec26792?auto=format&fit=crop&w=300&q=80" alt="أبو منجل">
+                                <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&w=300&q=80" alt="أبو منجل">
                             </div>
                             <div class="bird-card-title">أبو منجل المقدس</div>
                         </div>
 
+                        <!-- طائر 3 -->
                         <div class="bird-card" id="card-grebe" onclick="showBirdData('grebe')">
                             <div class="bird-img-wrapper">
-                                <img src="https://images.unsplash.com/photo-1601379124403-1cf018a1a36c?auto=format&fit=crop&w=300&q=80" alt="الغطاس العراقي">
+                                <img src="https://images.unsplash.com/photo-1606567595334-d399a55560bd?auto=format&fit=crop&w=300&q=80" alt="الثرثارة العراقية">
                             </div>
-                            <div class="bird-card-title">الغطاس العراقي</div>
+                            <div class="bird-card-title">الثرثارة العراقية</div>
                         </div>
 
+                        <!-- طائر 4 -->
                         <div class="bird-card" id="card-falcon" onclick="showBirdData('falcon')">
                             <div class="bird-img-wrapper">
                                 <img src="https://images.unsplash.com/photo-1611689342806-0863700ce1e4?auto=format&fit=crop&w=300&q=80" alt="الصقر الحر">
@@ -138,6 +142,7 @@
                         </div>
                     </div>
 
+                    <!-- لوحة عرض تفاصيل الطائر تفاعلياً -->
                     <div class="info-panel" id="info">
                         <h2 id="title" style="color: #f76b6b; margin-bottom: 10px; font-size: 1.6rem;">اختر كائناً حياً</h2>
                         <p id="desc" style="font-size: 1.1rem; line-height: 1.6; color: #dfdfdf;">تتأثر الطيور المستوطنة والمهاجرة في العراق مباشرة بتراجع المسطحات الخضراء وجفاف الأهوار. اضغط على أي كارت بالأعلى لمعاينة تفاصيل التهديد البيئي.</p>
@@ -151,6 +156,7 @@
                 </div>
             </div>
 
+            <!-- صفحة المدونة -->
             <div id="blog-content-area" class="blog-posts-list">
                 <div class="blog-item">
                     <h2 class="blog-item-title" id="text-blog-title">البداية الحقيقية: لماذا الألبيزيا والليوكينة؟</h2>
@@ -211,32 +217,32 @@
             document.getElementById('nav-blog').classList.toggle('active', page === 'blog');
         }
 
-        // قاعدة بيانات الطيور العراقية المهددة بالانقراض
+        // قاعدة بيانات دقيقة ومصححة علمياً
         const birdsDatabase = {
             "heron": {
                 title: "بلشون مستنقعات الأهوار (Basra Reed Warbler)",
                 desc: "من الطيور النادرة جداً التي تتخذ من قصب أهوار جنوب العراق موطناً رئيسياً وحصرياً للتكاثر والاستقرار.",
                 danger: "مهدد بالانقراض بشكل حرج (CR)",
-                habitat: "أهوار الجبايش، الحمار، والحويزة في جنوب العراق",
+                habitat: "أهوار الجبايش والحمار والحويزة في جنوب العراق",
                 reason: "التجفيف المتكرر للأهوار، انخفاض مناسيب مياه نهري دجلة والفرات، وتدمير بيئة القصب الطبيعية."
             },
             "ibis": {
                 title: "أبو منجل المقدس (Sacred Ibis)",
-                desc: "طائر تاريخي ارتبط بالحضارات الرافدينية القديمة، يمتلك مكانة بيئية هامة في تنظيف النظم المائية.",
+                desc: "طائر مائي تاريخي ارتبط بالحضارات الرافدينية القديمة، يمتلك مكانة بيئية هامة في النظم المائية للأهوار.",
                 danger: "مهدد بالانقراض محلياً بشكل كبير (EN)",
                 habitat: "المسطحات المائية الضحلة وضفاف الأنهار في الوسط والجنوب",
                 reason: "تلوث المياه الزائدة، الصيد العشوائي الجائر، وانحسار الواحات المائية العذبة."
             },
             "grebe": {
-                title: "الغطاس العراقي (Iraq Babbler / Little Grebe)",
-                desc: "طائر مائي فريد ومستوطن، يُعَدّ مؤشراً بيئياً حقيقياً على سلامة وصحة النظام المائي العراقي.",
+                title: "الثرثارة العراقية (Iraq Babbler)",
+                desc: "طائر بري صغير فريد ومستوطن حصرياً في العراق، ويُعَدّ مؤشراً بيئياً حقيقياً على سلامة وصحة كثافة أحواش القصب.",
                 danger: "قريب من التهديد الحرج (NT)",
                 habitat: "البرك المائية الكثيفة ومستنقعات وسط وجنوب العراق",
-                reason: "ارتفاع درجات الحرارة الحاد وتملح التربة والمياه نتيجة تصاعد أزمة جفاف الأنهار."
+                reason: "ارتفاع درجات الحرارة الحاد وتملح التربة والمياه نتيجة تصاعد أزمة جفاف الأنهار وجرف القصب."
             },
             "falcon": {
                 title: "الصقر الحر العراقي (Saker Falcon)",
-                desc: "من الجوارح الفاخرة التي تستخدم الصحاري العراقية كمناطق صيد وممرات هجرة أساسية عبر آسيا.",
+                desc: "من الجوارح الفاخرة التي تستخدم الصحاري والسهول العراقية كمناطق صيد وممرات هجرة أساسية عبر آسيا.",
                 danger: "مهدد بالانقراض (EN)",
                 habitat: "بادية الأنبار، صحراء النجف، والسهول المفتوحة",
                 reason: "الصيد الجائر لغرض التجارة غير القانونية، واختفاء الموائل الطبيعية نتيجة الزحف الصحراوي وتراجع الغطاء النباتي."
@@ -244,10 +250,7 @@
         };
 
         function showBirdData(birdKey) {
-            // إزالة التحديد من الكروت الأخرى
             document.querySelectorAll('.bird-card').forEach(el => el.classList.remove('selected'));
-            
-            // إضافة التحديد للكارت الحالي
             document.getElementById('card-' + birdKey).classList.add('selected');
 
             const bird = birdsDatabase[birdKey];
