@@ -49,11 +49,11 @@
         .telegram-link-btn { display: inline-block; padding: 12px 35px; border: 2px solid #f76b6b; color: #f76b6b; text-decoration: none; font-size: 1.3rem; font-weight: 700; }
         .telegram-link-btn:hover { background-color: #f76b6b; color: #1a1a1a; }
         
-        /* قسم أصوات الطبيعة المفقودة الجديد */
+        /* قسم البلبل العراقي */
         .bulbul-section { margin-top: 60px; padding-top: 40px; border-top: 1px solid #333; text-align: center; }
-        .bulbul-card { background: #222; max-width: 450px; margin: 30px auto; border-radius: 16px; border: 1px solid #333; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.5); }
+        .bulbul-card { background: #222; max-width: 500px; margin: 30px auto; border-radius: 16px; border: 1px solid #333; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.5); }
         
-        .bulbul-img-container { width: 100%; aspect-ratio: 4 / 3; overflow: hidden; background-color: #151515; }
+        .bulbul-img-container { width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background-color: #151515; }
         .bulbul-img-container img { width: 100%; height: 100%; object-fit: cover; }
         
         .bulbul-content { padding: 25px; text-align: right; }
@@ -97,7 +97,7 @@
                 <h1 class="section-title" id="text-home-title">تنهض رؤيتنا من مفارقة معاصرة</h1>
                 <div id="text-home-body">
                     <p class="main-text">"نلتقي كرابطة رقمية موحدة خلف الشاشات، لكننا نتحرك كإرادات فردية تغير أرض الواقع. إن أزمة المناخ والتصحر التي يعيشها العراق اليوم تفرض علينا كشباب أن نترك عاطفة 'التشجير الموسمي' المحدودة بالمكان والميزانيات، وننتقل فوراً إلى فضاء 'التنمية المستدامة' المبني على خطط علمية حقيقية."</p>
-                    <p class="main-text">"فبناء المدن الخضراء يحتاج وعياً معرفياً يتجاوز الحلول الترقيعية العابرة ليصبح إرثاً حياً تحتمي به الأجيال القادمة. ومن هنا، تفتح هذه المنصة العلمية الباب لكل أبناء وبنات شعبنا العراقي أينما وجدوا؛ من جبال زاخو in أقصى الشمال إلى شواطئ الفاو في أقصى الجنوب، ومن صحراء الرطبة غرباً إلى مرتفعات بنجوين شرقاً."</p>
+                    <p class="main-text">"فبناء المدن الخضراء يحتاج وعياً معرفياً يتجاوز الحلول الترقيعية العابرة ليصبح إرثاً حياً تحتمي به الأجيال القادمة. ومن هنا، تفتح هذه المنصة العلمية الباب لكل أبناء وبنات شعبنا العراقي أينما وجدوا؛ من جبال زاخو في أقصى الشمال إلى شواطئ الفاو في أقصى الجنوب، ومن صحراء الرطبة غرباً إلى مرتفعات بنجوين شرقاً."</p>
                     <p class="main-text">"لم يعد بُعد المسافة عائقاً، سنطوي مسافات جغرافيتنا رقمياً لنلتحم في غرس واقعي، ونعيد معاً صياغة الهوية البيئية لأرضنا العراقية الجَمَّاء."</p>
                     <p class="main-text highlight">الفكرة علمية.. والتنفيذ بسواعدنا.</p>
                 </div>
@@ -109,21 +109,21 @@
                     
                     <div class="bulbul-card">
                         <div class="bulbul-img-container">
-                            <!-- رابط صورة حقيقي ومستقر للبلبل أبيض الخدين -->
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/White-eared_Bulbul_%28Pycnonotus_leucotis%29_in_Kuwait.jpg" alt="البلبل العراقي">
+                            <!-- تم ربط الصورة محلياً بملفك المخصص المذكور verbatim -->
+                            <img src="Gemini_Generated_Image_ssiilissiilissii.jpg" alt="البلبل العراقي - رسم مائي">
                         </div>
                         <div class="bulbul-content">
                             <h3 class="bulbul-title" id="bulbul-card-title">البلبل العراقي (أبيض الخدين)</h3>
                             <span class="bulbul-scientific">Pycnonotus leucotis</span>
                             
-                            <!-- مشغل الصوت التفاعلي المخصص -->
+                            <!-- مشغل الصوت التفاعلي المربوط محلياً -->
                             <div class="audio-player-wrapper">
                                 <button class="play-btn" id="play-button" onclick="toggleAudio()">
                                     <svg id="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                                 </button>
                                 <span class="audio-status" id="audio-text">اضغط للاستماع إلى تغريد البلبل</span>
-                                <!-- رابط ملف صوتي حقيقي ومباشر لتغريد البلبل من خوادم ويكيميديا -->
-                                <audio id="bulbul-audio" src="https://upload.wikimedia.org/wikipedia/commons/2/23/Pycnonotus_leucotis_-_White-eared_bulbul_XC395897.mp3" preload="auto"></audio>
+                                <!-- مسار محلي آمن ومستقر للصوت -->
+                                <audio id="bulbul-audio" src="bulbul.mp3" preload="auto"></audio>
                             </div>
 
                             <p class="bulbul-desc" id="bulbul-card-desc">يُعد البلبل أبيض الخدين الطائر المستوطن الأبرز في بساتين النخيل والمناطق الحضرية في العراق. ارتبط صوته عبر الأجيال بصباحات القرى والمدن العراقية، لكنه اليوم يواجه تناقصاً حاداً صامتاً نتيجة التجريف المستمر للمساحات الخضراء، قطع النخيل، والصيد الجائر لغرض التجارة.</p>
@@ -162,7 +162,7 @@
                 bulbulTitle: "البلبل العراقي (أبيض الخدين)", bulbulDesc: "يُعد البلبل أبيض الخدين الطائر المستوطن الأبرز في بساتين النخيل والمناطق الحضرية في العراق. ارتبط صوته عبر الأجيال بصباحات القرى والمدن العراقية، لكنه اليوم يواجه تناقصاً حاداً صامتاً نتيجة التجريف المستمر للمساحات الخضراء، قطع النخيل، والصيد الجائر لغرض التجارة.",
                 bulbulWarning: "<strong>⚠️ حقيقة بيئية صادمة:</strong> الطائر يواجه خطراً حقيقياً، ولكن بسبب غياب وافتقار العراق إلى قاعدة بيانات (Database) بيئية متكاملة ومحدثة، لا أحد يعلم حتى الآن حجم الكارثة الحقيقي والأرقام الدقيقة لتراجع أعداد هذا الطائر الوطني.",
                 audioPlay: "اضغط للاستماع إلى تغريد البلبل", audioPlaying: "جاري تشغيل صوت البلبل الآن...",
-                blogTitle: "البداية الحقيقية: لماذا الألبيزيا والليوكينة؟", blogDate: "١٨ حزيران، ٢٠٢٦", blogBody: "تعتبر أشجار الألبيزيا والليوكينة خيارات استراتيجية لمواجهة التغير المناخي في بيئتنا المحلية؛ نظراً لقدرتها الفائقة على تحمل درجات الحرارة المرتفعة، ومقاومة الجفاف، بالإضافة إلى دورها الحيوي في تثبيت النيتروجين في التربة وتحسين خصوبتها، مما يجعلها حجر الأساس في مشروعنا للتحول من التشجير المؤقت إلى الاستدامة الدائمة.",
+                blogTitle: "البداية الحقيقية: لماذا الألبيزيا والليوكينة؟", blogDate: "١٨ حزيران، ٢٠٢٦", blogBody: "تعتبر أشجار الألبيزيا والليوكينة خيارات استراتيجية لمواجهة التغير المناخي في بيئتنا المحلية؛ نظراً لقدرتها الفائقة على تحمل درجات الحرارة المرتفعة, ومقاومة الجفاف، بالإضافة إلى دورها الحيوي في تثبيت النيتروجين في التربة وتحسين خصوبتها، مما يجعلها حجر الأساس في مشروعنا للتحول من التشجير المؤقت إلى الاستدامة الدائمة.",
                 telegramBtn: "الانضمام إلى القناة الرسمية في تليغرام ←", footer: "جميع الحقوق محفوظة © أرض السَّواد ٢٠٢٦"
             },
             en: {
@@ -192,7 +192,6 @@
             document.getElementById('text-home-title').innerText = data.homeTitle;
             document.getElementById('text-home-body').innerHTML = data.homeBody;
             
-            // تحديث نصوص قسم الصوت المترجمة
             document.getElementById('audio-heading').innerText = data.audioHeading;
             document.getElementById('audio-subheading').innerText = data.audioSubheading;
             document.getElementById('bulbul-card-title').innerText = data.bulbulTitle;
@@ -224,21 +223,20 @@
             const data = languages[currentLang];
 
             if (audio.paused) {
-                audio.play();
-                // تغيير الأيقونة إلى كود باوز (Pause)
+                audio.play().catch(function(error) {
+                    console.log("تأكد من تسمية ملف الصوت bulbul.mp3 ووضعه بجانب ملف الـ html");
+                });
                 playIcon.innerHTML = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
                 document.getElementById('play-button').classList.add('playing');
                 audioText.innerText = data.audioPlaying;
             } else {
                 audio.pause();
-                // إعادة الأيقونة إلى بلاي (Play)
                 playIcon.innerHTML = '<path d="M8 5v14l11-7z"/>';
                 document.getElementById('play-button').classList.remove('playing');
                 audioText.innerText = data.audioPlay;
             }
         }
 
-        // إعادة تشكيل الأزرار عند انتهاء المقطع الصوتي تلقائياً
         document.getElementById('bulbul-audio').addEventListener('ended', function() {
             const playIcon = document.getElementById('play-icon');
             const audioText = document.getElementById('audio-text');
