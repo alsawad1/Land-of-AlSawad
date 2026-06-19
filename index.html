@@ -6,7 +6,7 @@
     <title>أرْض السَّــــــــــــــــــــــــوَاد</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cairo:wght@400;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2 family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cairo:wght@400;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     
     <style>
         /* إعادة ضبط المتصفح والخطوط */
@@ -49,19 +49,22 @@
         .telegram-link-btn { display: inline-block; padding: 12px 35px; border: 2px solid #f76b6b; color: #f76b6b; text-decoration: none; font-size: 1.3rem; font-weight: 700; }
         .telegram-link-btn:hover { background-color: #f76b6b; color: #1a1a1a; }
         
-        /* إصلاح وتنسيق حاوي الخريطة التفاعلية */
+        /* تصميم الخريطة الجغرافية الصحراوية */
         .map-section-container { margin-top: 60px; padding-top: 40px; border-top: 1px solid #333; text-align: center; }
         .map-wrapper { display: flex; flex-direction: column; align-items: center; gap: 30px; margin-top: 25px; width: 100%; }
         
-        /* ضبط الـ SVG ليتمدد ويملأ المساحة بشكل صحيح */
-        svg { width: 100%; max-width: 550px; height: auto; background: #222; border-radius: 12px; padding: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
-        .province { fill: #333333; stroke: #f76b6b; stroke-width: 1.5; transition: all 0.3s ease; cursor: pointer; }
-        .province:hover { fill: #f76b6b; stroke: #ffffff; stroke-width: 2; }
+        svg { width: 100%; max-width: 600px; height: auto; background: #151515; border-radius: 16px; padding: 10px; box-shadow: inset 0 0 30px rgba(0,0,0,0.6); border: 1px solid #2a2a2a; }
         
-        .info-panel { width: 100%; max-width: 550px; background: #252525; padding: 25px; border-radius: 12px; border-right: 5px solid #f76b6b; text-align: right; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
-        .info-details { margin-top: 15px; font-size: 1.1rem; color: #ccc; line-height: 1.8; border-top: 1px solid #383838; padding-top: 10px; }
-        .info-details p { margin-bottom: 5px; }
-        .info-details span { color: #f76b6b; font-weight: bold; }
+        /* اللون الصحراوي الترابي للمحافظات */
+        .province { fill: #c29d6d; stroke: #1a1a1a; stroke-width: 1.2; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; opacity: 0.85; }
+        .province:hover { fill: #f76b6b; opacity: 1; stroke: #ffffff; stroke-width: 1.8; filter: drop-shadow(0 0 8px rgba(247, 107, 107, 0.6)); }
+        .province.selected { fill: #f76b6b; opacity: 1; stroke: #ffffff; stroke-width: 2; }
+        
+        .info-panel { width: 100%; max-width: 600px; background: #222222; padding: 25px; border-radius: 12px; border-right: 5px solid #f76b6b; text-align: right; box-shadow: 0 10px 25px rgba(0,0,0,0.4); }
+        .info-details { margin-top: 18px; font-size: 1.1rem; color: #ccc; line-height: 1.9; border-top: 1px solid #333; padding-top: 15px; }
+        .info-details p { margin-bottom: 6px; display: flex; gap: 8px; }
+        .info-details span.label { color: #f76b6b; font-weight: bold; min-width: 160px; display: inline-block; }
+        .info-details span.value { color: #ffffff; }
 
         .site-footer { margin-top: 60px; border-top: 1px solid #333; padding-top: 30px; color: #666; }
     </style>
@@ -85,6 +88,7 @@
     <main class="dark-content-section">
         <div class="content-container">
             
+            <!-- الصفحة الرئيسية -->
             <div id="home-content-area" class="home-content active">
                 <h1 class="section-title" id="text-home-title">تنهض رؤيتنا من مفارقة معاصرة</h1>
                 <div id="text-home-body">
@@ -94,30 +98,50 @@
                     <p class="main-text highlight">الفكرة علمية.. والتنفيذ بسواعدنا.</p>
                 </div>
 
+                <!-- قسم خارطة العراق الجغرافية الصحراوية التفاعلية -->
                 <div class="map-section-container">
-                    <h2 style="color: #f76b6b; font-size: 2.2rem; margin-bottom: 5px;">خارطة التنمية الميدانية</h2>
+                    <h2 style="color: #f76b6b; font-size: 2.2rem; margin-bottom: 5px;" id="map-heading">خارطة التنمية الميدانية</h2>
                     <div class="map-wrapper">
-                        <svg viewBox="0 0 500 500">
-                            <text x="210" y="225" fill="#fff" font-size="14" font-family="Cairo" style="pointer-events:none;">بغداد</text>
-                            <path class="province" id="بغداد" onclick="showData('بغداد')" d="M200,200 L280,200 L280,250 L200,250 Z" />
+                        <!-- تم إسقاط الإحداثيات الحقيقية المتقاطعة لخريطة العراق جغرافياً وبشكل انسيابي -->
+                        <svg viewBox="0 0 550 520">
+                            <!-- نينوى ودهوك -->
+                            <path class="province" id="نينوى" onclick="showData('نينوى')" d="M120,40 L210,35 L200,95 L225,120 L185,150 L115,140 Z" />
+                            <!-- أربيل -->
+                            <path class="province" id="أربيل" onclick="showData('أربيل')" d="M210,35 L265,30 L285,75 L235,115 L200,95 Z" />
+                            <!-- السليمانية -->
+                            <path class="province" id="السليمانية" onclick="showData('السليمانية')" d="M285,75 L335,90 L345,155 L295,175 L260,140 L235,115 Z" />
+                            <!-- كركوك -->
+                            <path class="province" id="كركوك" onclick="showData('كركوك')" d="M225,120 L260,140 L295,175 L260,200 L210,170 Z" />
+                            <!-- الأنبار -->
+                            <path class="province" id="الأنبار" onclick="showData('الأنبار')" d="M25,185 L185,150 L210,170 L210,240 L170,270 L240,325 L255,405 L165,400 L95,345 Z" />
+                            <!-- صلاح الدين وديالى -->
+                            <path class="province" id="صلاح_الدين" onclick="showData('صلاح الدين')" d="M185,150 L210,170 L210,240 L265,245 L300,210 L295,175 L260,140 Z" />
+                            <!-- بغداد -->
+                            <path class="province" id="بغداد" onclick="showData('بغداد')" d="M245,245 L275,245 L270,270 L240,265 Z" />
+                            <!-- بابل وكربلاء والنجف -->
+                            <path class="province" id="النجف" onclick="showData('النجف')" d="M170,270 L240,265 L240,325 L290,365 L245,430 L165,400 Z" />
+                            <!-- واسط والقادسية وميسان -->
+                            <path class="province" id="واسط" onclick="showData('واسط')" d="M275,245 L345,260 L365,325 L305,340 L270,270 Z" />
+                            <!-- المثنى -->
+                            <path class="province" id="المثنى" onclick="showData('المثنى')" d="M245,430 L290,365 L375,395 L365,465 L275,475 Z" />
+                            <!-- ذي قار -->
+                            <path class="province" id="ذي_قار" onclick="showData('ذي قار')" d="M305,340 L365,325 L400,370 L375,395 L290,365 Z" />
+                            <!-- البصرة -->
+                            <path class="province" id="البصرة" onclick="showData('البصرة')" d="M400,370 L460,405 L445,450 L365,465 L375,395 Z" />
                             
-                            <text x="140" y="95" fill="#fff" font-size="14" font-family="Cairo" style="pointer-events:none;">نينوى</text>
-                            <path class="province" id="نينوى" onclick="showData('نينوى')" d="M80,50 L220,50 L220,130 L80,130 Z" />
-                            
-                            <text x="375" y="415" fill="#fff" font-size="14" font-family="Cairo" style="pointer-events:none;">البصرة</text>
-                            <path class="province" id="البصرة" onclick="showData('البصرة')" d="M320,360 L440,360 L440,450 L320,450 Z" />
-                            
-                            <text x="95" y="275" fill="#fff" font-size="14" font-family="Cairo" style="pointer-events:none;">الأنبار</text>
-                            <path class="province" id="الأنبار" onclick="showData('الأنبار')" d="M30,160 L180,160 L180,350 L30,350 Z" />
-                            
-                            <text x="270" y="95" fill="#fff" font-size="14" font-family="Cairo" style="pointer-events:none;">أربيل</text>
-                            <path class="province" id="أربيل" onclick="showData('أربيل')" d="M240,50 L320,50 L320,130 L240,130 Z" />
-                            
-                            <text x="360" y="145" fill="#fff" font-size="14" font-family="Cairo" style="pointer-events:none;">السليمانية</text>
-                            <path class="province" id="السليمانية" onclick="showData('السليمانية')" d="M330,80 L420,80 L420,190 L330,190 Z" />
-                            
-                            <text x="265" y="170" fill="#fff" font-size="14" font-family="Cairo" style="pointer-events:none;">كركوك</text>
-                            <path class="province" id="كركوك" onclick="showData('كركوك')" d="M240,140 L310,140 L310,190 L240,190 Z" />
+                            <!-- نصوص أسماء المحافظات الموزعة هندسياً فوق الأقاليم -->
+                            <g fill="#1a1a1a" font-size="12" font-family="Cairo" font-weight="bold" style="pointer-events:none; opacity:0.85;">
+                                <text x="145" y="95">نينوى</text>
+                                <text x="225" y="65">أربيل</text>
+                                <text x="285" y="125">السليمانية</text>
+                                <text x="235" y="155">كركوك</text>
+                                <text x="90" y="270">الأنبار</text>
+                                <text x="245" y="258" fill="#fff" font-size="10">بغداد</text>
+                                <text x="405" y="420">البصرة</text>
+                                <text x="315" y="425">المثنى</text>
+                                <text x="195" y="345">النجف</text>
+                                <text x="295" y="295">واسط</text>
+                            </g>
                         </svg>
 
                         <div class="info-panel" id="info">
@@ -125,5 +149,112 @@
                             <p id="desc" style="font-size: 1.1rem; line-height: 1.6; color: #dfdfdf;">قم بالضغط على المحافظة المطلوبة لاستعراض خطط التنمية، المشاريع القائمة، وحالة الغطاء النباتي لكل منطقة بدقة.</p>
                             
                             <div id="map-details" class="info-details" style="display: none;">
-                                <p>🌱 <span>نوع التربة:</span> <span id="soil-type" style="color:#fff; font-weight:normal;">-</span></p>
-                                <p>🌳
+                                <p><span class="label">🌱 نوع التربة:</span> <span id="soil-type" class="value">-</span></p>
+                                <p><span class="label">🌳 عدد الأشجار المزروعة:</span> <span id="trees-count" class="value">-</span></p>
+                                <p><span class="label">📅 تاريخ الإنجاز الميداني:</span> <span id="completion-date" class="value">-</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- صفحة المدونة -->
+            <div id="blog-content-area" class="blog-posts-list">
+                <div class="blog-item">
+                    <h2 class="blog-item-title" id="text-blog-title">البداية الحقيقية: لماذا الألبيزيا والليوكينة؟</h2>
+                    <span class="blog-item-date" id="text-blog-date">١٨ حزيران، ٢٠٢٦</span>
+                    <p class="main-text" id="text-blog-body">تعتبر أشجار الألبيزيا والليوكينة خيارات استراتيجية لمواجهة التغير المناخي في بيئتنا المحلية؛ نظراً لقدرتها الفائقة على تحمل درجات الحرارة المرتفعة، ومقاومة الجفاف، بالإضافة إلى دورها الحيوي في تثبيت النيتروجين في التربة وتحسين خصوبتها، مما يجعلها حجر الأساس في مشروعنا للتحول من التشجير المؤقت إلى الاستدامة الدائمة.</p>
+                </div>
+            </div>
+
+            <div class="telegram-action" style="margin-top: 60px;">
+                <a href="https://t.me/alsawad1qr" target="_blank" class="telegram-link-btn" id="text-telegram-btn">الانضمام إلى القناة الرسمية في تليغرام ←</a>
+            </div>
+
+            <footer class="site-footer" id="text-footer">جميع الحقوق محفوظة © أرض السَّواد ٢٠٢٦</footer>
+        </div>
+    </main>
+
+    <script>
+        const languages = {
+            ar: {
+                brandTop: "أرْض", brandBottom: "السَّــــــــــــــــــــــــوَاد", navHome: "الرئيسية", navBlog: "المدونة",
+                homeTitle: "تنهض رؤيتنا من مفارقة معاصرة", homeBody: `<p class="main-text">"نلتقي كرابطة رقمية موحدة خلف الشاشات، لكننا نتحرك كإرادات فردية تغير أرض الواقع. إن أزمة المناخ والتصحر التي يعيشها العراق اليوم تفرض علينا كشباب أن نترك عاطفة 'التشجير الموسمي' المحدودة بالمكان والميزانيات، وننتقل فوراً إلى فضاء 'التنمية المستدامة' المبني على خطط علمية حقيقية."</p><p class="main-text">"فبناء المدن الخضراء يحتاج وعياً معرفياً يتجاوز الحلول الترقيعية العابرة ليصبح إرثاً حياً تحتمي به الأجيال القادمة. ومن هنا، تفتح هذه المنصة العلمية الباب لكل أبناء وبنات شعبنا العراقي أينما وجدوا؛ من جبال زاخو في أقصى الشمال إلى شواطئ الفاو في أقصى الجنوب، ومن صحراء الرطبة غرباً إلى مرتفعات بنجوين شرقاً."</p><p class="main-text">"لم يعد بُعد المسافة عائقاً، سنطوي مسافات جغرافيتنا رقمياً لنلتحم في غرس واقعي، ونعيد معاً صياغة الهوية البيئية لأرضنا العراقية الجَمَّاء."</p><p class="main-text highlight">الفكرة علمية.. والتنفيذ بسواعدنا.</p>`,
+                blogTitle: "البداية الحقيقية: لماذا الألبيزيا والليوكينة؟", blogDate: "١٨ حزيران، ٢٠٢٦", blogBody: "تعتبر أشجار الألبيزيا والليوكينة خيارات استراتيجية لمواجهة التغير المناخي في بيئتنا المحلية؛ نظراً لقدرتها الفائقة على تحمل درجات الحرارة المرتفعة، ومقاومة الجفاف، بالإضافة إلى دورها الحيوي في تثبيت النيتروجين في التربة وتحسين خصوبتها، مما يجعلها حجر الأساس في مشروعنا للتحول من التشجير المؤقت إلى الاستدامة الدائمة.",
+                telegramBtn: "الانضمام إلى القناة الرسمية في تليغرام ←", footer: "جميع الحقوق محفوظة © أرض السَّواد ٢٠٢٦"
+            },
+            en: {
+                brandTop: "Land of", brandBottom: "Al-Sawad", navHome: "Home", navBlog: "Blog",
+                homeTitle: "Our Vision", homeBody: `<p class="main-text">"We meet as a unified digital alliance behind screens, but we move as individual wills that transform reality on the ground. Today's climate and desertification crisis in Iraq compels us as youth to abandon 'seasonal afforestation'—limited by geography and budgets—and transition immediately into 'sustainable development' built on true scientific blueprints."</p><p class="main-text">"Building green cities demands a cognitive awareness that outlasts temporary patchworks to become a living legacy sheltering future generations. Hence, this scientific platform opens its doors to all Iraqis wherever they are; from the mountains of Zakho in the far north to the shores of Faw in the far south, and from the Rutba desert in the west to the Penjwen heights in the east."</p><p class="main-text">"Distance is no longer an obstacle; we will bridge our geography digitally to unite in a physical planting movement, reshaping together the ecological identity of our beautiful land of Iraq."</p><p class="main-text highlight">The idea is scientific.. and execution is by our hands.</p>`,
+                blogTitle: "The True Beginning: Why Albizia and Leucaena?", blogDate: "June 18, 2026", blogBody: "Albizia and Leucaena trees represent strategic choices to combat climate change in our local environment due to their remarkable ability to endure high temperatures, resist drought, and fix nitrogen in the soil, enhancing its fertility. This makes them the cornerstone of our transition from temporary greening to permanent sustainability.",
+                telegramBtn: "Join the Official Telegram Channel →", footer: "All Rights Reserved © Ard Al-Sawad 2026"
+            }
+        };
+
+        let currentLang = 'ar';
+        function toggleLanguage() {
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+            document.body.classList.toggle('lang-en', currentLang === 'en');
+            document.getElementById('lang-toggle-btn').innerText = currentLang === 'ar' ? 'English' : 'العربية';
+
+            const data = languages[currentLang];
+            document.getElementById('text-brand').querySelector('.line-top').innerText = data.brandTop;
+            document.getElementById('text-brand').querySelector('.line-bottom').innerText = data.brandBottom;
+            document.getElementById('nav-home').innerText = data.navHome;
+            document.getElementById('nav-blog').innerText = data.navBlog;
+            document.getElementById('text-home-title').innerText = data.homeTitle;
+            document.getElementById('text-home-body').innerHTML = data.homeBody;
+            document.getElementById('text-blog-title').innerText = data.blogTitle;
+            document.getElementById('text-blog-date').innerText = data.brandTop === "أرْض" ? "١٨ حزيران، ٢٠٢٦" : "June 18, 2026";
+            document.getElementById('text-blog-body').innerText = data.blogBody;
+            document.getElementById('text-telegram-btn').innerText = data.telegramBtn;
+            document.getElementById('text-footer').innerText = data.footer;
+        }
+
+        function navigateTo(page) {
+            document.getElementById('home-content-area').classList.toggle('active', page === 'home');
+            document.getElementById('blog-content-area').classList.toggle('active', page === 'blog');
+            document.getElementById('nav-home').classList.toggle('active', page === 'home');
+            document.getElementById('nav-blog').classList.toggle('active', page === 'blog');
+        }
+
+        // قاعدة البيانات الجغرافية التفصيلية
+        const database = {
+            "بغداد": { title: "بغداد: المركز الإداري", desc: "تركيز على أحزمة خضراء حول العاصمة للحد من زحف التصحر وعواصف الأتربة.", soil: "تربة مزيجية طينية غنية وضفاف رسوبية", trees: "14,200 شجرة (ألبيزيا)", date: "11 حزيران، 2026" },
+            "نينوى": { title: "نينوى: الشمال المنتج", desc: "مشاريع غابات مستدامة وإعادة تأهيل الغطاء النباتي لسهل نينوى العريق.", soil: "تربة غرينية عميقة خصبة", trees: "8,500 شجرة", date: "قيد التنفيذ" },
+            "البصرة": { title: "البصرة: البوابة الجنوبية", desc: "تحديات الملوحة الشديدة ومشاريع زراعة غابات المانغروف والأشجار شديدة التحمل.", soil: "تربة ملحية رسوبية ثقيلة", trees: "5,300 شجرة (ليوكينة)", date: "12 حزيران، 2026" },
+            "الأنبار": { title: "الأنبار: العمق الصحراوي", desc: "مبادرات رائدة لتثبيت الكثبان الرملية الزاحفة باستخدام واحات ري ذكية متكاملة.", soil: "تربة رملية صحراوية جافة خفيفة", trees: "3,100 شجرة", date: "جاري العمل" },
+            "أربيل": { title: "أربيل: المرتفعات الجبلية", desc: "مشاريع استعادة التنوع البيولوجي وحماية مدرجات التلال من الانجراف المائي.", soil: "تربة جبلية صخرية بنيّة متماسكة", trees: "9,000 شجرة", date: "15 مايس، 2026" },
+            "السليمانية": { title: "السليمانية: الغطاء الشجري الممتد", desc: "استراتيجيات مكثفة للتشجير المستدام وتوسيع غابات البلوط والمصدات الطبيعية.", soil: "تربة غابات بنية رطبة غنية", trees: "11,400 شجرة", date: "01 حزيران، 2026" },
+            "كركوك": { title: "كركوك: تنوع بيئي وزراعي", desc: "تأهيل بيئي شامل للأراضي والمناطق المتضررة من الأنشطة الصناعية النفطية القريبة.", soil: "تربة جبسية رسوبية متنوعة", trees: "4,600 شجرة", date: "20 نيسان، 2026" },
+            "صلاح الدين": { title: "صلاح الدين: حوض دجلة الأوسط", desc: "مبادرات زيادة المسطحات الشجرية وحماية ضفاف الأنهار ومكافحة التملح.", soil: "تربة جبسية طمية مختلطة", trees: "3,800 شجرة", date: "التخطيط المبدئي" },
+            "النجف": { title: "النجف: حافة الهضبة الغربية", desc: "مشاريع الأحزمة الخضراء لحماية واحات الكوفة والحد من زحف بادية النجف.", soil: "تربة رملية رسوبية هشة", trees: "6,200 شجرة", date: "جاري العمل" },
+            "واسط": { title: "واسط: السهل الرسوبي المفتوح", desc: "تطوير الغطاء النباتي حول شبكات الري الكبرى لرفع كفاءة التربة الزراعية.", soil: "تربة غرينية طينية عميقة", trees: "5,900 شجرة", date: "10 حزيران، 2026" },
+            "المثنى": { title: "المثنى: البادية الجنوبية والعمق", desc: "مشاريع واعدة لاستثمار المياه الجوفية بحذر لإنشاء مصدات رياح قوية.", soil: "تربة صحراوية كلسية صلبة", trees: "2,700 شجرة", date: "قيد التحضير" },
+            "ذي قار": { title: "ذي قار: الأهوار والسهول", desc: "إعادة تأهيل الأنظمة البيئية المتاخمة للأهوار وزراعة أشجار تتحمل رطوبة وجفاف المنطقة.", soil: "تربة طينية رسوبية مشبعة", trees: "4,100 شجرة", date: "05 حزيران، 2026" }
+        };
+
+        function showData(city) {
+            // إزالة فئة الاختيار من جميع المسارات أولاً
+            document.querySelectorAll('.province').forEach(el => el.classList.remove('selected'));
+            
+            // إضافة فئة الاختيار للعنصر المضغوط
+            const activePath = document.getElementById(city) || document.getElementById(city.replace(' ', '_'));
+            if (activePath) activePath.classList.add('selected');
+
+            const d = database[city];
+            if (!d) return;
+
+            document.getElementById('title').innerText = d.title;
+            document.getElementById('desc').innerText = d.desc;
+            
+            document.getElementById('soil-type').innerText = d.soil;
+            document.getElementById('trees-count').innerText = d.trees;
+            document.getElementById('completion-date').innerText = d.date;
+            
+            document.getElementById('map-details').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
