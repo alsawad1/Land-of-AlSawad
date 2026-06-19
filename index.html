@@ -48,16 +48,96 @@
 
         .telegram-link-btn { display: inline-block; padding: 12px 35px; border: 2px solid #f76b6b; color: #f76b6b; text-decoration: none; font-size: 1.3rem; font-weight: 700; }
         .telegram-link-btn:hover { background-color: #f76b6b; color: #1a1a1a; }
-        
-        /* سجل الموائل والطيور المهددة */
-        .birds-registry-section { margin-top: 70px; padding-top: 50px; border-top: 1px solid #333; }
-        .birds-grid { display: flex; flex-direction: column; gap: 30px; margin-top: 35px; }
-        
-        .bird-status-card { background: #222; border: 1px solid #333; border-radius: 16px; overflow: hidden; text-align: right; transition: transform 0.2s, border-color 0.2s; box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
-        .bird-status-card:hover { transform: translateY(-3px); border-color: #f76b6b; }
-        
-        .bird-card-image-wrapper { width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background-color: #151515; border-bottom: 1px solid #333; }
-        .bird-card-image-wrapper img { width: 100%; height: 100%; object-fit: cover; display: block; }
-        
-        .bird-card-details { padding: 25px; }
-        .bird-header { display: flex; justify-content: space-between; align-items: center; margin-
+        .site-footer { margin-top: 60px; border-top: 1px solid #333; padding-top: 30px; color: #666; }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="brand-name" id="text-brand">
+            <span class="line-top">أرْض</span>
+            <span class="line-bottom">السَّــــــــــــــــــــــــوَاد</span>
+        </div>
+        <div class="header-controls">
+            <nav class="nav-menu" style="display: flex; gap: 20px;">
+                <span class="nav-link active" id="nav-home" onclick="navigateTo('home')">الرئيسية</span>
+                <span class="nav-link" id="nav-blog" onclick="navigateTo('blog')">المدونة</span>
+            </nav>
+            <button class="lang-switch-btn" id="lang-toggle-btn" onclick="toggleLanguage()">English</button>
+        </div>
+    </header>
+
+    <main class="dark-content-section">
+        <div class="content-container">
+            <div id="home-content-area" class="home-content active">
+                <h1 class="section-title" id="text-home-title">تنهض رؤيتنا من مفارقة معاصرة</h1>
+                <div id="text-home-body">
+                    <p class="main-text">"نلتقي كرابطة رقمية موحدة خلف الشاشات، لكننا نتحرك كإرادات فردية تغير أرض الواقع. إن أزمة المناخ والتصحر التي يعيشها العراق اليوم تفرض علينا كشباب أن نترك عاطفة 'التشجير الموسمي' المحدودة بالمكان والميزانيات، وننتقل فوراً إلى فضاء 'التنمية المستدامة' المبني على خطط علمية حقيقية."</p>
+                    <p class="main-text">"فبناء المدن الخضراء يحتاج وعياً معرفياً يتجاوز الحلول الترقيعية العابرة ليصبح إرثاً حياً تحتمي به الأجيال القادمة. ومن هنا، تفتح هذه المنصة العلمية الباب لكل أبناء وبنات شعبنا العراقي أينما وجدوا؛ من جبال زاخو في أقصى الشمال إلى شواطئ الفاو في أقصى الجنوب، ومن صحراء الرطبة غرباً إلى مرتفعات بنجوين شرقاً."</p>
+                    <p class="main-text">"لم يعد بُعد المسافة عائقاً، سنطوي مسافات جغرافيتنا رقمياً لنلتحم في غرس واقعي، ونعيد معاً صياغة الهوية البيئية لأرضنا العراقية الجَمَّاء."</p>
+                    <p class="main-text highlight">الفكرة علمية.. والتنفيذ بسواعدنا.</p>
+                </div>
+            </div>
+
+            <div id="blog-content-area" class="blog-posts-list">
+                <div class="blog-item">
+                    <h2 class="blog-item-title" id="text-blog-title">البداية الحقيقية: لماذا الألبيزيا والليوكينة؟</h2>
+                    <span class="blog-item-date" id="text-blog-date">١٨ حزيران، ٢٠٢٦</span>
+                    <p class="main-text" id="text-blog-body">تعتبر أشجار الألبيزيا والليوكينة خيارات استراتيجية لمواجهة التغير المناخي في بيئتنا المحلية؛ نظراً لقدرتها الفائقة على تحمل درجات الحرارة المرتفعة، ومقاومة الجفاف، بالإضافة إلى دورها الحيوي في تثبيت النيتروجين في التربة وتحسين خصوبتها، مما يجعلها حجر الأساس في مشروعنا للتحول من التشجير المؤقت إلى الاستدامة الدائمة.</p>
+                </div>
+            </div>
+
+            <div class="telegram-action" style="margin-top: 60px;">
+                <a href="https://t.me/alsawad1qr" target="_blank" class="telegram-link-btn" id="text-telegram-btn">الانضمام إلى القناة الرسمية في تليغرام ←</a>
+            </div>
+
+            <footer class="site-footer" id="text-footer">جميع الحقوق محفوظة © أرض السَّواد ٢٠٢٦</footer>
+        </div>
+    </main>
+
+    <script>
+        const languages = {
+            ar: {
+                brandTop: "أرْض", brandBottom: "السَّــــــــــــــــــــــــوَاد", navHome: "الرئيسية", navBlog: "المدونة",
+                homeTitle: "تنهض رؤيتنا من مفارقة معاصرة", homeBody: `<p class="main-text">"نلتقي كرابطة رقمية موحدة خلف الشاشات، لكننا نتحرك كإرادات فردية تغير أرض الواقع. إن أزمة المناخ والتصحر التي يعيشها العراق اليوم تفرض علينا كشباب أن نترك عاطفة 'التشجير الموسمي' المحدودة بالمكان والميزانيات، وننتقل فوراً إلى فضاء 'التنمية المستدامة' المبني على خطط علمية حقيقية."</p><p class="main-text">"فبناء المدن الخضراء يحتاج وعياً معرفياً يتجاوز الحلول الترقيعية العابرة ليصبح إرثاً حياً تحتمي به الأجيال القادمة. ومن هنا، تفتح هذه المنصة العلمية الباب لكل أبناء وبنات شعبنا العراقي أينما وجدوا؛ من جبال زاخو في أقصى الشمال إلى شواطئ الفاو في أقصى الجنوب، ومن صحراء الرطبة غرباً إلى مرتفعات بنجوين شرقاً."</p><p class="main-text">"لم يعد بُعد المسافة عائقاً، سنطوي مسافات جغرافيتنا رقمياً لنلتحم في غرس واقعي، ونعيد معاً صياغة الهوية البيئية لأرضنا العراقية الجَمَّاء."</p><p class="main-text highlight">الفكرة علمية.. والتنفيذ بسواعدنا.</p>`,
+                blogTitle: "البداية الحقيقية: لماذا الألبيزيا والليوكينة؟", blogDate: "١٨ حزيران، ٢٠٢٦", blogBody: "تعتبر أشجار الألبيزيا والليوكينة خيارات استراتيجية لمواجهة التغير المناخي في بيئتنا المحلية؛ نظراً لقدرتها الفائقة على تحمل درجات الحرارة المرتفعة، ومقاومة الجفاف، بالإضافة إلى دورها الحيوي في تثبيت النيتروجين في التربة وتحسين خصوبتها، مما يجعلها حجر الأساس في مشروعنا للتحول من التشجير المؤقت إلى الاستدامة الدائمة.",
+                telegramBtn: "الانضمام إلى القناة الرسمية في تليغرام ←", footer: "جميع الحقوق محفوظة © أرض السَّواد ٢٠٢٦"
+            },
+            en: {
+                brandTop: "Land of", brandBottom: "Al-Sawad", navHome: "Home", navBlog: "Blog",
+                homeTitle: "Our Vision", homeBody: `<p class="main-text">"We meet as a unified digital alliance behind screens, but we move as individual wills that transform reality on the ground. Today's climate and desertification crisis in Iraq compels us as youth to abandon 'seasonal afforestation'—limited by geography and budgets—and transition immediately into 'sustainable development' built on true scientific blueprints."</p><p class="main-text">"Building green cities demands a cognitive awareness that outlasts temporary patchworks to become a living legacy sheltering future generations. Hence, this scientific platform opens its doors to all Iraqis wherever they are; from the mountains of Zakho in the far north to the shores of Faw in the far south, and from the Rutba desert in the west to the Penjwen heights in the east."</p><p class="main-text">"Distance is no longer an obstacle; we will bridge our geography digitally to unite in a physical planting movement, reshaping together the ecological identity of our beautiful land of Iraq."</p><p class="main-text highlight">The idea is scientific.. and execution is by our hands.</p>`,
+                blogTitle: "The True Beginning: Why Albizia and Leucaena?", blogDate: "June 18, 2026", blogBody: "Albizia and Leucaena trees represent strategic choices to combat climate change in our local environment due to their remarkable ability to endure high temperatures, resist drought, and fix nitrogen in the soil, enhancing its fertility. This makes them the cornerstone of our transition from temporary greening to permanent sustainability.",
+                telegramBtn: "Join the Official Telegram Channel →", footer: "All Rights Reserved © Ard Al-Sawad 2026"
+            }
+        };
+
+        let currentLang = 'ar';
+        function toggleLanguage() {
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+            document.body.classList.toggle('lang-en', currentLang === 'en');
+            document.getElementById('lang-toggle-btn').innerText = currentLang === 'ar' ? 'English' : 'العربية';
+
+            const data = languages[currentLang];
+            document.getElementById('text-brand').querySelector('.line-top').innerText = data.brandTop;
+            document.getElementById('text-brand').querySelector('.line-bottom').innerText = data.brandBottom;
+            document.getElementById('nav-home').innerText = data.navHome;
+            document.getElementById('nav-blog').innerText = data.navBlog;
+            document.getElementById('text-home-title').innerText = data.homeTitle;
+            document.getElementById('text-home-body').innerHTML = data.homeBody;
+            document.getElementById('text-blog-title').innerText = data.blogTitle;
+            document.getElementById('text-blog-date').innerText = data.blogDate;
+            document.getElementById('text-blog-body').innerText = data.blogBody;
+            document.getElementById('text-telegram-btn').innerText = data.telegramBtn;
+            document.getElementById('text-footer').innerText = data.footer;
+        }
+
+        function navigateTo(page) {
+            document.getElementById('home-content-area').classList.toggle('active', page === 'home');
+            document.getElementById('blog-content-area').classList.toggle('active', page === 'blog');
+            document.getElementById('nav-home').classList.toggle('active', page === 'home');
+            document.getElementById('nav-blog').classList.toggle('active', page === 'blog');
+        }
+    </script>
+</body>
+</html>
