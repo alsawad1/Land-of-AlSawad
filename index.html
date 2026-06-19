@@ -48,6 +48,17 @@
 
         .telegram-link-btn { display: inline-block; padding: 12px 35px; border: 2px solid #f76b6b; color: #f76b6b; text-decoration: none; font-size: 1.3rem; font-weight: 700; }
         .telegram-link-btn:hover { background-color: #f76b6b; color: #1a1a1a; }
+        
+        /* تنسيقات الخريطة التفاعلية المدمجة */
+        .map-section-container { margin-top: 60px; padding-top: 40px; border-top: 1px solid #333; text-align: center; }
+        .map-wrapper { display: flex; flex-direction: column; align-items: center; gap: 30px; margin-top: 20px; }
+        svg { width: 100%; max-width: 600px; height: auto; filter: drop-shadow(0 0 15px rgba(247, 107, 107, 0.1)); }
+        .province { fill: #2d2d2d; stroke: #f76b6b; stroke-width: 0.8; transition: all 0.4s ease; cursor: pointer; }
+        .province:hover { fill: #f76b6b; stroke: #fff; transform: scale(1.01); }
+        .info-panel { width: 100%; max-width: 600px; background: #252525; padding: 25px; border-radius: 12px; border-right: 5px solid #f76b6b; text-align: right; }
+        .info-details { margin-top: 15px; font-size: 1.1rem; color: #ccc; line-height: 1.8; }
+        .info-details span { color: #f76b6b; font-weight: bold; }
+
         .site-footer { margin-top: 60px; border-top: 1px solid #333; padding-top: 30px; color: #666; }
     </style>
 </head>
@@ -69,6 +80,7 @@
 
     <main class="dark-content-section">
         <div class="content-container">
+            
             <div id="home-content-area" class="home-content active">
                 <h1 class="section-title" id="text-home-title">تنهض رؤيتنا من مفارقة معاصرة</h1>
                 <div id="text-home-body">
@@ -76,27 +88,33 @@
                     <p class="main-text">"فبناء المدن الخضراء يحتاج وعياً معرفياً يتجاوز الحلول الترقيعية العابرة ليصبح إرثاً حياً تحتمي به الأجيال القادمة. ومن هنا، تفتح هذه المنصة العلمية الباب لكل أبناء وبنات شعبنا العراقي أينما وجدوا؛ من جبال زاخو في أقصى الشمال إلى شواطئ الفاو في أقصى الجنوب، ومن صحراء الرطبة غرباً إلى مرتفعات بنجوين شرقاً."</p>
                     <p class="main-text">"لم يعد بُعد المسافة عائقاً، سنطوي مسافات جغرافيتنا رقمياً لنلتحم في غرس واقعي، ونعيد معاً صياغة الهوية البيئية لأرضنا العراقية الجَمَّاء."</p>
                     <p class="main-text highlight">الفكرة علمية.. والتنفيذ بسواعدنا.</p>
-                </div> <section class="dark-content-section">
-    <div class="content-container">
-        <h2 class="section-title">خارطة التنمية الميدانية</h2>
-        
-        <div class="map-container" style="background:#252525; border-radius:15px; padding:20px;">
-            <svg viewBox="0 0 500 600" style="width:100%; height:auto;">
-                <path id="baghdad" class="province" d="M200,200 L250,200 L250,250 L200,250 Z" fill="#333" onclick="showInfo('بغداد')" />
-                <circle cx="225" cy="225" r="10" fill="#f76b6b" onclick="showInfo('بغداد')" />
-            </svg>
-            <div id="info-display" style="margin-top:20px; color:#fff; text-align:center;">
-                اضغط على المحافظة لعرض التفاصيل
-            </div>
-        </div>
-    </div>
-</section>
+                </div>
 
-<script>
-    function showInfo(city) {
-        document.getElementById('info-display').innerHTML = `<h3>أنت اخترت: ${city}</h3><p>تفاصيل المشاريع في هذه المحافظة ستظهر هنا...</p>`;
-    }
-</script>
+                <div class="map-section-container">
+                    <h2 style="color: #f76b6b; font-size: 2.2rem; margin-bottom: 10px;">خريطة التنمية البيئية</h2>
+                    <div class="map-wrapper">
+                        <svg viewBox="0 0 500 600">
+                            <path class="province" id="بغداد" onclick="showData('بغداد')" d="M230,220 L260,210 L270,240 L240,260 Z" />
+                            <path class="province" id="نينوى" onclick="showData('نينوى')" d="M120,60 L210,50 L220,130 L130,140 Z" />
+                            <path class="province" id="البصرة" onclick="showData('البصرة')" d="M270,480 L330,470 L340,540 L280,560 Z" />
+                            <path class="province" id="الأنبار" onclick="showData('الأنبار')" d="M60,200 L190,190 L180,360 L70,380 Z" />
+                            <path class="province" id="أربيل" onclick="showData('أربيل')" d="M220,40 L280,30 L290,90 L230,100 Z" />
+                            <path class="province" id="السليمانية" onclick="showData('السليمانية')" d="M290,40 L350,30 L360,100 L300,110 Z" />
+                            <path class="province" id="كركوك" onclick="showData('كركوك')" d="M230,120 L270,110 L280,160 L240,170 Z" />
+                        </svg>
+
+                        <div class="info-panel" id="info">
+                            <h2 id="title" style="color: #f76b6b; margin-bottom: 10px;">اختر محافظة</h2>
+                            <p id="desc" style="font-size: 1.1rem; line-height: 1.6;">قم بالضغط على المحافظة المطلوبة لاستعراض خطط التنمية، المشاريع القائمة، وحالة الغطاء النباتي لكل منطقة بدقة.</p>
+                            
+                            <div id="map-details" class="info-details" style="display: none;">
+                                <p>🌱 <span>نوع التربة:</span> <span id="soil-type" style="color:#fff; font-weight:normal;">-</span></p>
+                                <p>🌳 <span>عدد الأشجار المزروعة:</span> <span id="trees-count" style="color:#fff; font-weight:normal;">-</span></p>
+                                <p>📅 <span>تاريخ الإنجاز:</span> <span id="completion-date" style="color:#fff; font-weight:normal;">-</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div id="blog-content-area" class="blog-posts-list">
@@ -119,7 +137,7 @@
         const languages = {
             ar: {
                 brandTop: "أرْض", brandBottom: "السَّــــــــــــــــــــــــوَاد", navHome: "الرئيسية", navBlog: "المدونة",
-                homeTitle: "تنهض رؤيتنا من مفارقة معاصرة", homeBody: `<p class="main-text">"نلتقي كرابطة رقمية موحدة خلف الشاشات، لكننا نتحرك كإرادات فردية تغير أرض الواقع. إن أزمة المناخ والتصحر التي يعيشها العراق اليوم تفرض علينا كشباب أن نترك عاطفة 'التشجير الموسمي' المحدودة بالمكان والميزانيات، وننتقل فوراً إلى فضاء 'التنمية المستدامة' المبني على خطط علمية حقيقية."</p><p class="main-text">"فبناء المدن الخضراء يحتاج وعياً معرفياً يتجاوز الحلول الترقيعية العابرة ليصبح إرثاً حياً تحتمي به الأجيال القادمة. ومن هنا، تفتح هذه المنصة العلمية الباب لكل أبناء وبنات شعبنا العراقي أينما وجدوا؛ من جبال زاخو في أقصى الشمال إلى شواطئ الفاو في أقصى الجنوب، ومن صحراء الرطبة غرباً إلى مرتفعات بنجوين شرقاً."</p><p class="main-text">"لم يعد بُعد المسافة عائقاً، سنطوي مسافات جغرافيتنا رقمياً لنلتحم في غرس واقعي، ونعيد معاً صياغة الهوية البيئية لأرضنا العراقية الجَمَّاء."</p><p class="main-text highlight">الفكرة علمية.. والتنفيذ بسواعدنا.</p>`,
+                homeTitle: "تنهض رؤيتنا من مفارقة معاصرة", homeBody: `<p class="main-text">"نلتقي كرابطة رقمية موحدة خلف الشاشات، لكننا نتحرك كإرادات فردية تغير أرض الواقع. إن أزمة المناخ والتصحر التي يعيشها العراق اليوم تفرض علينا كشباب أن نترك عاطفة 'التشجير الموسمي' المحدودة بالمكان والميزانيات، وننتقل فوراً إلى فضاء 'التنمية المستدامة' المبني على خطط علمية حقيقية."</p><p class="main-text">"فبناء المدن الخضراء يحتاج وعياً معرفياً يتجاوز الحلول الترقيعية العابرة ليصبح إرثاً حياً تحتمي به الأجيال القادمة. ومن هنا، تفتح هذه المنصة العلمية الباب لكل أبناء وبنات شعبنا العراقي أينما وجدوا؛ من جبال زاخو في أقصى الشمال إلى شواطئ الفاو في أقصى الجنوب، ومن صحراء الرطبة غرباً إلى مرتفعات بنجوين شرقاً."</p><p class="main-text">"لم يعد بُعد المسافة عائقاً, سنطوي مسافات جغرافيتنا رقمياً لنلتحم في غرس واقعي، ونعيد معاً صياغة الهوية البيئية لأرضنا العراقية الجَمَّاء."</p><p class="main-text highlight">الفكرة علمية.. والتنفيذ بسواعدنا.</p>`,
                 blogTitle: "البداية الحقيقية: لماذا الألبيزيا والليوكينة؟", blogDate: "١٨ حزيران، ٢٠٢٦", blogBody: "تعتبر أشجار الألبيزيا والليوكينة خيارات استراتيجية لمواجهة التغير المناخي في بيئتنا المحلية؛ نظراً لقدرتها الفائقة على تحمل درجات الحرارة المرتفعة، ومقاومة الجفاف، بالإضافة إلى دورها الحيوي في تثبيت النيتروجين في التربة وتحسين خصوبتها، مما يجعلها حجر الأساس في مشروعنا للتحول من التشجير المؤقت إلى الاستدامة الدائمة.",
                 telegramBtn: "الانضمام إلى القناة الرسمية في تليغرام ←", footer: "جميع الحقوق محفوظة © أرض السَّواد ٢٠٢٦"
             },
@@ -157,6 +175,31 @@
             document.getElementById('blog-content-area').classList.toggle('active', page === 'blog');
             document.getElementById('nav-home').classList.toggle('active', page === 'home');
             document.getElementById('nav-blog').classList.toggle('active', page === 'blog');
+        }
+
+        // قاعدة البيانات الموسعة والمحدثة للمحافظات
+        const database = {
+            "بغداد": { title: "بغداد: المركز الإداري", desc: "تركيز على أحزمة خضراء حول العاصمة للحد من زحف التصحر.", soil: "تربة مزيجية طينية غنية", trees: "14,200 شجرة (ألبيزيا)", date: "11 حزيران، 2026" },
+            "نينوى": { title: "نينوى: الشمال المنتج", desc: "مشاريع غابات مستدامة وإعادة تأهيل أراضي سهل نينوى.", soil: "تربة غرينية عميقة", trees: "8,500 شجرة", date: "قيد التنفيذ" },
+            "البصرة": { title: "البصرة: البوابة الجنوبية", desc: "تحديات الملوحة ومشاريع زراعة أشجار تتحمل الظروف القاسية.", soil: "تربة ملحية رسوبية", trees: "5,300 شجرة (ليوكينة)", date: "12 حزيران، 2026" },
+            "الأنبار": { title: "الأنبار: العمق الصحراوي", desc: "مبادرات تثبيت الكثبان الرملية باستخدام الطاقة الشمسية للري.", soil: "تربة رملية صحراوية خفيفة", trees: "3,100 شجرة", date: "جاري العمل" },
+            "أربيل": { title: "أربيل: المرتفعات", desc: "مشاريع الحفاظ على التنوع البيولوجي في المناطق الجبلية.", soil: "تربة جبلية صخرية بنيّة", trees: "9,000 شجرة", date: "15 مايس، 2026" },
+            "السليمانية": { title: "السليمانية: الغطاء النباتي", desc: "استراتيجيات التشجير الموسمي وتحويلها لاستدامة.", soil: "تربة غابات بنية رطبة", trees: "11,400 شجرة", date: "01 حزيران، 2026" },
+            "كركوك": { title: "كركوك: التنوع الزراعي", desc: "تأهيل الأراضي المتضررة من الاستغلال الصناعي.", soil: "تربة جبسية رسوبية", trees: "4,600 شجرة", date: "20 نيسان، 2026" }
+        };
+
+        function showData(city) {
+            const d = database[city];
+            document.getElementById('title').innerText = d.title;
+            document.getElementById('desc').innerText = d.desc;
+            
+            // تحديث قيم البيانات الإضافية
+            document.getElementById('soil-type').innerText = d.soil;
+            document.getElementById('trees-count').innerText = d.trees;
+            document.getElementById('completion-date').innerText = d.date;
+            
+            // إظهار لوحة التفاصيل المخفية
+            document.getElementById('map-details').style.display = 'block';
         }
     </script>
 </body>
