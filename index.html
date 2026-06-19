@@ -76,7 +76,27 @@
                     <p class="main-text">"فبناء المدن الخضراء يحتاج وعياً معرفياً يتجاوز الحلول الترقيعية العابرة ليصبح إرثاً حياً تحتمي به الأجيال القادمة. ومن هنا، تفتح هذه المنصة العلمية الباب لكل أبناء وبنات شعبنا العراقي أينما وجدوا؛ من جبال زاخو في أقصى الشمال إلى شواطئ الفاو في أقصى الجنوب، ومن صحراء الرطبة غرباً إلى مرتفعات بنجوين شرقاً."</p>
                     <p class="main-text">"لم يعد بُعد المسافة عائقاً، سنطوي مسافات جغرافيتنا رقمياً لنلتحم في غرس واقعي، ونعيد معاً صياغة الهوية البيئية لأرضنا العراقية الجَمَّاء."</p>
                     <p class="main-text highlight">الفكرة علمية.. والتنفيذ بسواعدنا.</p>
-                </div>
+                </div> <section class="dark-content-section">
+    <div class="content-container">
+        <h2 class="section-title">خارطة التنمية الميدانية</h2>
+        
+        <div class="map-container" style="background:#252525; border-radius:15px; padding:20px;">
+            <svg viewBox="0 0 500 600" style="width:100%; height:auto;">
+                <path id="baghdad" class="province" d="M200,200 L250,200 L250,250 L200,250 Z" fill="#333" onclick="showInfo('بغداد')" />
+                <circle cx="225" cy="225" r="10" fill="#f76b6b" onclick="showInfo('بغداد')" />
+            </svg>
+            <div id="info-display" style="margin-top:20px; color:#fff; text-align:center;">
+                اضغط على المحافظة لعرض التفاصيل
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    function showInfo(city) {
+        document.getElementById('info-display').innerHTML = `<h3>أنت اخترت: ${city}</h3><p>تفاصيل المشاريع في هذه المحافظة ستظهر هنا...</p>`;
+    }
+</script>
             </div>
 
             <div id="blog-content-area" class="blog-posts-list">
