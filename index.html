@@ -6,7 +6,7 @@
     <title>أرْض السَّــــــــــــــــــــــــوَاد</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2 family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cairo:wght@400;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cairo:wght@400;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     
     <style>
         /* إعادة ضبط المتصفح والخطوط */
@@ -49,21 +49,28 @@
         .telegram-link-btn { display: inline-block; padding: 12px 35px; border: 2px solid #f76b6b; color: #f76b6b; text-decoration: none; font-size: 1.3rem; font-weight: 700; }
         .telegram-link-btn:hover { background-color: #f76b6b; color: #1a1a1a; }
         
-        /* تصميم الخريطة الجغرافية الصحراوية */
-        .map-section-container { margin-top: 60px; padding-top: 40px; border-top: 1px solid #333; text-align: center; }
-        .map-wrapper { display: flex; flex-direction: column; align-items: center; gap: 30px; margin-top: 25px; width: 100%; }
+        /* قسم الطيور المهددة بالانقراض الجديد */
+        .birds-section-container { margin-top: 60px; padding-top: 40px; border-top: 1px solid #333; text-align: center; }
         
-        svg { width: 100%; max-width: 600px; height: auto; background: #151515; border-radius: 16px; padding: 10px; box-shadow: inset 0 0 30px rgba(0,0,0,0.6); border: 1px solid #2a2a2a; }
+        /* شبكة عرض كروت الطيور */
+        .birds-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px; margin: 30px 0; width: 100%; }
         
-        /* اللون الصحراوي الترابي للمحافظات */
-        .province { fill: #c29d6d; stroke: #1a1a1a; stroke-width: 1.2; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; opacity: 0.85; }
-        .province:hover { fill: #f76b6b; opacity: 1; stroke: #ffffff; stroke-width: 1.8; filter: drop-shadow(0 0 8px rgba(247, 107, 107, 0.6)); }
-        .province.selected { fill: #f76b6b; opacity: 1; stroke: #ffffff; stroke-width: 2; }
+        .bird-card { background: #222; border-radius: 12px; overflow: hidden; border: 1px solid #333; cursor: pointer; transition: all 0.3s ease; position: relative; }
+        .bird-card:hover { transform: translateY(-5px); border-color: #f76b6b; box-shadow: 0 8px 20px rgba(247, 107, 107, 0.2); }
+        .bird-card.selected { border-color: #f76b6b; background: #2a2a2a; box-shadow: 0 0 15px rgba(247, 107, 107, 0.3); }
         
-        .info-panel { width: 100%; max-width: 600px; background: #222222; padding: 25px; border-radius: 12px; border-right: 5px solid #f76b6b; text-align: right; box-shadow: 0 10px 25px rgba(0,0,0,0.4); }
+        /* حاوي الصورة المتناسق */
+        .bird-img-wrapper { width: 100%; aspect-ratio: 1 / 1; background-color: #151515; overflow: hidden; position: relative; }
+        .bird-img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
+        .bird-card:hover .bird-img-wrapper img { transform: scale(1.05); }
+        
+        .bird-card-title { padding: 12px; font-family: 'Cairo', sans-serif; font-size: 1.05rem; color: #fff; font-weight: 700; text-align: center; }
+        
+        /* لوحة معلومات الطيور */
+        .info-panel { width: 100%; background: #222222; padding: 25px; border-radius: 12px; border-right: 5px solid #f76b6b; text-align: right; box-shadow: 0 10px 25px rgba(0,0,0,0.4); margin-top: 25px; }
         .info-details { margin-top: 18px; font-size: 1.1rem; color: #ccc; line-height: 1.9; border-top: 1px solid #333; padding-top: 15px; }
         .info-details p { margin-bottom: 6px; display: flex; gap: 8px; }
-        .info-details span.label { color: #f76b6b; font-weight: bold; min-width: 160px; display: inline-block; }
+        .info-details span.label { color: #f76b6b; font-weight: bold; min-width: 140px; display: inline-block; }
         .info-details span.value { color: #ffffff; }
 
         .site-footer { margin-top: 60px; border-top: 1px solid #333; padding-top: 30px; color: #666; }
@@ -88,7 +95,6 @@
     <main class="dark-content-section">
         <div class="content-container">
             
-            <!-- الصفحة الرئيسية -->
             <div id="home-content-area" class="home-content active">
                 <h1 class="section-title" id="text-home-title">تنهض رؤيتنا من مفارقة معاصرة</h1>
                 <div id="text-home-body">
@@ -98,67 +104,53 @@
                     <p class="main-text highlight">الفكرة علمية.. والتنفيذ بسواعدنا.</p>
                 </div>
 
-                <!-- قسم خارطة العراق الجغرافية الصحراوية التفاعلية -->
-                <div class="map-section-container">
-                    <h2 style="color: #f76b6b; font-size: 2.2rem; margin-bottom: 5px;" id="map-heading">خارطة التنمية الميدانية</h2>
-                    <div class="map-wrapper">
-                        <!-- تم إسقاط الإحداثيات الحقيقية المتقاطعة لخريطة العراق جغرافياً وبشكل انسيابي -->
-                        <svg viewBox="0 0 550 520">
-                            <!-- نينوى ودهوك -->
-                            <path class="province" id="نينوى" onclick="showData('نينوى')" d="M120,40 L210,35 L200,95 L225,120 L185,150 L115,140 Z" />
-                            <!-- أربيل -->
-                            <path class="province" id="أربيل" onclick="showData('أربيل')" d="M210,35 L265,30 L285,75 L235,115 L200,95 Z" />
-                            <!-- السليمانية -->
-                            <path class="province" id="السليمانية" onclick="showData('السليمانية')" d="M285,75 L335,90 L345,155 L295,175 L260,140 L235,115 Z" />
-                            <!-- كركوك -->
-                            <path class="province" id="كركوك" onclick="showData('كركوك')" d="M225,120 L260,140 L295,175 L260,200 L210,170 Z" />
-                            <!-- الأنبار -->
-                            <path class="province" id="الأنبار" onclick="showData('الأنبار')" d="M25,185 L185,150 L210,170 L210,240 L170,270 L240,325 L255,405 L165,400 L95,345 Z" />
-                            <!-- صلاح الدين وديالى -->
-                            <path class="province" id="صلاح_الدين" onclick="showData('صلاح الدين')" d="M185,150 L210,170 L210,240 L265,245 L300,210 L295,175 L260,140 Z" />
-                            <!-- بغداد -->
-                            <path class="province" id="بغداد" onclick="showData('بغداد')" d="M245,245 L275,245 L270,270 L240,265 Z" />
-                            <!-- بابل وكربلاء والنجف -->
-                            <path class="province" id="النجف" onclick="showData('النجف')" d="M170,270 L240,265 L240,325 L290,365 L245,430 L165,400 Z" />
-                            <!-- واسط والقادسية وميسان -->
-                            <path class="province" id="واسط" onclick="showData('واسط')" d="M275,245 L345,260 L365,325 L305,340 L270,270 Z" />
-                            <!-- المثنى -->
-                            <path class="province" id="المثنى" onclick="showData('المثنى')" d="M245,430 L290,365 L375,395 L365,465 L275,475 Z" />
-                            <!-- ذي قار -->
-                            <path class="province" id="ذي_قار" onclick="showData('ذي قار')" d="M305,340 L365,325 L400,370 L375,395 L290,365 Z" />
-                            <!-- البصرة -->
-                            <path class="province" id="البصرة" onclick="showData('البصرة')" d="M400,370 L460,405 L445,450 L365,465 L375,395 Z" />
-                            
-                            <!-- نصوص أسماء المحافظات الموزعة هندسياً فوق الأقاليم -->
-                            <g fill="#1a1a1a" font-size="12" font-family="Cairo" font-weight="bold" style="pointer-events:none; opacity:0.85;">
-                                <text x="145" y="95">نينوى</text>
-                                <text x="225" y="65">أربيل</text>
-                                <text x="285" y="125">السليمانية</text>
-                                <text x="235" y="155">كركوك</text>
-                                <text x="90" y="270">الأنبار</text>
-                                <text x="245" y="258" fill="#fff" font-size="10">بغداد</text>
-                                <text x="405" y="420">البصرة</text>
-                                <text x="315" y="425">المثنى</text>
-                                <text x="195" y="345">النجف</text>
-                                <text x="295" y="295">واسط</text>
-                            </g>
-                        </svg>
-
-                        <div class="info-panel" id="info">
-                            <h2 id="title" style="color: #f76b6b; margin-bottom: 10px; font-size: 1.6rem;">اختر محافظة</h2>
-                            <p id="desc" style="font-size: 1.1rem; line-height: 1.6; color: #dfdfdf;">قم بالضغط على المحافظة المطلوبة لاستعراض خطط التنمية، المشاريع القائمة، وحالة الغطاء النباتي لكل منطقة بدقة.</p>
-                            
-                            <div id="map-details" class="info-details" style="display: none;">
-                                <p><span class="label">🌱 نوع التربة:</span> <span id="soil-type" class="value">-</span></p>
-                                <p><span class="label">🌳 عدد الأشجار المزروعة:</span> <span id="trees-count" class="value">-</span></p>
-                                <p><span class="label">📅 تاريخ الإنجاز الميداني:</span> <span id="completion-date" class="value">-</span></p>
+                <div class="birds-section-container">
+                    <h2 style="color: #f76b6b; font-size: 2.2rem; margin-bottom: 5px;" id="birds-heading">طيور مهددة بالانقراض في العراق</h2>
+                    <p style="color: #aaa; font-size: 1.1rem;">اضغط على أي طائر للاطلاع على حالته البيئية وأسباب تراجعه نتيجة الجفاف والتصحر.</p>
+                    
+                    <div class="birds-grid">
+                        <div class="bird-card" id="card-heron" onclick="showBirdData('heron')">
+                            <div class="bird-img-wrapper">
+                                <img src="https://images.unsplash.com/photo-1574068468668-a05a11f871da?auto=format&fit=crop&w=300&q=80" alt="مالك الحزين الأرجواني">
                             </div>
+                            <div class="bird-card-title">بلشون مستنقعات الأهوار</div>
+                        </div>
+
+                        <div class="bird-card" id="card-ibis" onclick="showBirdData('ibis')">
+                            <div class="bird-img-wrapper">
+                                <img src="https://images.unsplash.com/photo-1628522672004-94071ec26792?auto=format&fit=crop&w=300&q=80" alt="أبو منجل">
+                            </div>
+                            <div class="bird-card-title">أبو منجل المقدس</div>
+                        </div>
+
+                        <div class="bird-card" id="card-grebe" onclick="showBirdData('grebe')">
+                            <div class="bird-img-wrapper">
+                                <img src="https://images.unsplash.com/photo-1601379124403-1cf018a1a36c?auto=format&fit=crop&w=300&q=80" alt="الغطاس العراقي">
+                            </div>
+                            <div class="bird-card-title">الغطاس العراقي</div>
+                        </div>
+
+                        <div class="bird-card" id="card-falcon" onclick="showBirdData('falcon')">
+                            <div class="bird-img-wrapper">
+                                <img src="https://images.unsplash.com/photo-1611689342806-0863700ce1e4?auto=format&fit=crop&w=300&q=80" alt="الصقر الحر">
+                            </div>
+                            <div class="bird-card-title">الصقر الحر العراقي</div>
+                        </div>
+                    </div>
+
+                    <div class="info-panel" id="info">
+                        <h2 id="title" style="color: #f76b6b; margin-bottom: 10px; font-size: 1.6rem;">اختر كائناً حياً</h2>
+                        <p id="desc" style="font-size: 1.1rem; line-height: 1.6; color: #dfdfdf;">تتأثر الطيور المستوطنة والمهاجرة في العراق مباشرة بتراجع المسطحات الخضراء وجفاف الأهوار. اضغط على أي كارت بالأعلى لمعاينة تفاصيل التهديد البيئي.</p>
+                        
+                        <div id="bird-details" class="info-details" style="display: none;">
+                            <p><span class="label">⚠️ درجة الخطورة:</span> <span id="danger-level" class="value">-</span></p>
+                            <p><span class="label">📍 موطنه الرئيسي:</span> <span id="habitat" class="value">-</span></p>
+                            <p><span class="label">🛑 سبب التهديد:</span> <span id="threat-reason" class="value">-</span></p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- صفحة المدونة -->
             <div id="blog-content-area" class="blog-posts-list">
                 <div class="blog-item">
                     <h2 class="blog-item-title" id="text-blog-title">البداية الحقيقية: لماذا الألبيزيا والليوكينة؟</h2>
@@ -219,41 +211,56 @@
             document.getElementById('nav-blog').classList.toggle('active', page === 'blog');
         }
 
-        // قاعدة البيانات الجغرافية التفصيلية
-        const database = {
-            "بغداد": { title: "بغداد: المركز الإداري", desc: "تركيز على أحزمة خضراء حول العاصمة للحد من زحف التصحر وعواصف الأتربة.", soil: "تربة مزيجية طينية غنية وضفاف رسوبية", trees: "14,200 شجرة (ألبيزيا)", date: "11 حزيران، 2026" },
-            "نينوى": { title: "نينوى: الشمال المنتج", desc: "مشاريع غابات مستدامة وإعادة تأهيل الغطاء النباتي لسهل نينوى العريق.", soil: "تربة غرينية عميقة خصبة", trees: "8,500 شجرة", date: "قيد التنفيذ" },
-            "البصرة": { title: "البصرة: البوابة الجنوبية", desc: "تحديات الملوحة الشديدة ومشاريع زراعة غابات المانغروف والأشجار شديدة التحمل.", soil: "تربة ملحية رسوبية ثقيلة", trees: "5,300 شجرة (ليوكينة)", date: "12 حزيران، 2026" },
-            "الأنبار": { title: "الأنبار: العمق الصحراوي", desc: "مبادرات رائدة لتثبيت الكثبان الرملية الزاحفة باستخدام واحات ري ذكية متكاملة.", soil: "تربة رملية صحراوية جافة خفيفة", trees: "3,100 شجرة", date: "جاري العمل" },
-            "أربيل": { title: "أربيل: المرتفعات الجبلية", desc: "مشاريع استعادة التنوع البيولوجي وحماية مدرجات التلال من الانجراف المائي.", soil: "تربة جبلية صخرية بنيّة متماسكة", trees: "9,000 شجرة", date: "15 مايس، 2026" },
-            "السليمانية": { title: "السليمانية: الغطاء الشجري الممتد", desc: "استراتيجيات مكثفة للتشجير المستدام وتوسيع غابات البلوط والمصدات الطبيعية.", soil: "تربة غابات بنية رطبة غنية", trees: "11,400 شجرة", date: "01 حزيران، 2026" },
-            "كركوك": { title: "كركوك: تنوع بيئي وزراعي", desc: "تأهيل بيئي شامل للأراضي والمناطق المتضررة من الأنشطة الصناعية النفطية القريبة.", soil: "تربة جبسية رسوبية متنوعة", trees: "4,600 شجرة", date: "20 نيسان، 2026" },
-            "صلاح الدين": { title: "صلاح الدين: حوض دجلة الأوسط", desc: "مبادرات زيادة المسطحات الشجرية وحماية ضفاف الأنهار ومكافحة التملح.", soil: "تربة جبسية طمية مختلطة", trees: "3,800 شجرة", date: "التخطيط المبدئي" },
-            "النجف": { title: "النجف: حافة الهضبة الغربية", desc: "مشاريع الأحزمة الخضراء لحماية واحات الكوفة والحد من زحف بادية النجف.", soil: "تربة رملية رسوبية هشة", trees: "6,200 شجرة", date: "جاري العمل" },
-            "واسط": { title: "واسط: السهل الرسوبي المفتوح", desc: "تطوير الغطاء النباتي حول شبكات الري الكبرى لرفع كفاءة التربة الزراعية.", soil: "تربة غرينية طينية عميقة", trees: "5,900 شجرة", date: "10 حزيران، 2026" },
-            "المثنى": { title: "المثنى: البادية الجنوبية والعمق", desc: "مشاريع واعدة لاستثمار المياه الجوفية بحذر لإنشاء مصدات رياح قوية.", soil: "تربة صحراوية كلسية صلبة", trees: "2,700 شجرة", date: "قيد التحضير" },
-            "ذي قار": { title: "ذي قار: الأهوار والسهول", desc: "إعادة تأهيل الأنظمة البيئية المتاخمة للأهوار وزراعة أشجار تتحمل رطوبة وجفاف المنطقة.", soil: "تربة طينية رسوبية مشبعة", trees: "4,100 شجرة", date: "05 حزيران، 2026" }
+        // قاعدة بيانات الطيور العراقية المهددة بالانقراض
+        const birdsDatabase = {
+            "heron": {
+                title: "بلشون مستنقعات الأهوار (Basra Reed Warbler)",
+                desc: "من الطيور النادرة جداً التي تتخذ من قصب أهوار جنوب العراق موطناً رئيسياً وحصرياً للتكاثر والاستقرار.",
+                danger: "مهدد بالانقراض بشكل حرج (CR)",
+                habitat: "أهوار الجبايش، الحمار، والحويزة في جنوب العراق",
+                reason: "التجفيف المتكرر للأهوار، انخفاض مناسيب مياه نهري دجلة والفرات، وتدمير بيئة القصب الطبيعية."
+            },
+            "ibis": {
+                title: "أبو منجل المقدس (Sacred Ibis)",
+                desc: "طائر تاريخي ارتبط بالحضارات الرافدينية القديمة، يمتلك مكانة بيئية هامة في تنظيف النظم المائية.",
+                danger: "مهدد بالانقراض محلياً بشكل كبير (EN)",
+                habitat: "المسطحات المائية الضحلة وضفاف الأنهار في الوسط والجنوب",
+                reason: "تلوث المياه الزائدة، الصيد العشوائي الجائر، وانحسار الواحات المائية العذبة."
+            },
+            "grebe": {
+                title: "الغطاس العراقي (Iraq Babbler / Little Grebe)",
+                desc: "طائر مائي فريد ومستوطن، يُعَدّ مؤشراً بيئياً حقيقياً على سلامة وصحة النظام المائي العراقي.",
+                danger: "قريب من التهديد الحرج (NT)",
+                habitat: "البرك المائية الكثيفة ومستنقعات وسط وجنوب العراق",
+                reason: "ارتفاع درجات الحرارة الحاد وتملح التربة والمياه نتيجة تصاعد أزمة جفاف الأنهار."
+            },
+            "falcon": {
+                title: "الصقر الحر العراقي (Saker Falcon)",
+                desc: "من الجوارح الفاخرة التي تستخدم الصحاري العراقية كمناطق صيد وممرات هجرة أساسية عبر آسيا.",
+                danger: "مهدد بالانقراض (EN)",
+                habitat: "بادية الأنبار، صحراء النجف، والسهول المفتوحة",
+                reason: "الصيد الجائر لغرض التجارة غير القانونية، واختفاء الموائل الطبيعية نتيجة الزحف الصحراوي وتراجع الغطاء النباتي."
+            }
         };
 
-        function showData(city) {
-            // إزالة فئة الاختيار من جميع المسارات أولاً
-            document.querySelectorAll('.province').forEach(el => el.classList.remove('selected'));
+        function showBirdData(birdKey) {
+            // إزالة التحديد من الكروت الأخرى
+            document.querySelectorAll('.bird-card').forEach(el => el.classList.remove('selected'));
             
-            // إضافة فئة الاختيار للعنصر المضغوط
-            const activePath = document.getElementById(city) || document.getElementById(city.replace(' ', '_'));
-            if (activePath) activePath.classList.add('selected');
+            // إضافة التحديد للكارت الحالي
+            document.getElementById('card-' + birdKey).classList.add('selected');
 
-            const d = database[city];
-            if (!d) return;
+            const bird = birdsDatabase[birdKey];
+            if (!bird) return;
 
-            document.getElementById('title').innerText = d.title;
-            document.getElementById('desc').innerText = d.desc;
+            document.getElementById('title').innerText = bird.title;
+            document.getElementById('desc').innerText = bird.desc;
             
-            document.getElementById('soil-type').innerText = d.soil;
-            document.getElementById('trees-count').innerText = d.trees;
-            document.getElementById('completion-date').innerText = d.date;
+            document.getElementById('danger-level').innerText = bird.danger;
+            document.getElementById('habitat').innerText = bird.habitat;
+            document.getElementById('threat-reason').innerText = bird.reason;
             
-            document.getElementById('map-details').style.display = 'block';
+            document.getElementById('bird-details').style.display = 'block';
         }
     </script>
 </body>
