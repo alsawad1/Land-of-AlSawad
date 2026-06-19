@@ -49,27 +49,26 @@
         .telegram-link-btn { display: inline-block; padding: 12px 35px; border: 2px solid #f76b6b; color: #f76b6b; text-decoration: none; font-size: 1.3rem; font-weight: 700; }
         .telegram-link-btn:hover { background-color: #f76b6b; color: #1a1a1a; }
         
-        /* قسم الطيور المهددة بالانقراض */
-        .birds-section-container { margin-top: 60px; padding-top: 40px; border-top: 1px solid #333; text-align: center; }
+        /* قسم أصوات الطبيعة المفقودة الجديد */
+        .bulbul-section { margin-top: 60px; padding-top: 40px; border-top: 1px solid #333; text-align: center; }
+        .bulbul-card { background: #222; max-width: 450px; margin: 30px auto; border-radius: 16px; border: 1px solid #333; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.5); }
         
-        .birds-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px; margin: 30px 0; width: 100%; }
+        .bulbul-img-container { width: 100%; aspect-ratio: 4 / 3; overflow: hidden; background-color: #151515; }
+        .bulbul-img-container img { width: 100%; height: 100%; object-fit: cover; }
         
-        .bird-card { background: #222; border-radius: 12px; overflow: hidden; border: 1px solid #333; cursor: pointer; transition: all 0.3s ease; position: relative; }
-        .bird-card:hover { transform: translateY(-5px); border-color: #f76b6b; box-shadow: 0 8px 20px rgba(247, 107, 107, 0.2); }
-        .bird-card.selected { border-color: #f76b6b; background: #2a2a2a; box-shadow: 0 0 15px rgba(247, 107, 107, 0.3); }
+        .bulbul-content { padding: 25px; text-align: right; }
+        .bulbul-title { font-family: 'Cairo', sans-serif; font-size: 1.6rem; color: #f76b6b; font-weight: 700; margin-bottom: 10px; text-align: center; }
+        .bulbul-scientific { font-size: 0.95rem; color: #888; text-align: center; margin-bottom: 20px; font-style: italic; display: block; }
         
-        .bird-img-wrapper { width: 100%; aspect-ratio: 1 / 1; background-color: #151515; overflow: hidden; position: relative; }
-        .bird-img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
-        .bird-card:hover .bird-img-wrapper img { transform: scale(1.05); }
+        .audio-player-wrapper { background: #1a1a1a; padding: 15px; border-radius: 30px; display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 20px; border: 1px solid #333; }
+        .play-btn { background: #f76b6b; border: none; width: 45px; height: 45px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+        .play-btn:hover { transform: scale(1.05); background: #ff7b7b; }
+        .play-btn svg { width: 18px; height: 18px; fill: #1a1a1a; margin-left: -2px; }
+        .play-btn.playing svg { margin-left: 0; fill: #1a1a1a; }
+        .audio-status { font-family: 'Cairo', sans-serif; font-size: 0.95rem; color: #ccc; }
         
-        .bird-card-title { padding: 12px; font-family: 'Cairo', sans-serif; font-size: 1.05rem; color: #fff; font-weight: 700; text-align: center; }
-        
-        /* لوحة عرض التفاصيل */
-        .info-panel { width: 100%; background: #222222; padding: 25px; border-radius: 12px; border-right: 5px solid #f76b6b; text-align: right; box-shadow: 0 10px 25px rgba(0,0,0,0.4); margin-top: 25px; }
-        .info-details { margin-top: 18px; font-size: 1.1rem; color: #ccc; line-height: 1.9; border-top: 1px solid #333; padding-top: 15px; }
-        .info-details p { margin-bottom: 6px; display: flex; gap: 8px; }
-        .info-details span.label { color: #f76b6b; font-weight: bold; min-width: 140px; display: inline-block; }
-        .info-details span.value { color: #ffffff; }
+        .bulbul-desc { font-size: 1.15rem; color: #e5e7eb; line-height: 1.8; text-align: justify; border-top: 1px solid #333; padding-top: 15px; }
+        .database-warning { margin-top: 15px; background: rgba(247, 107, 107, 0.1); border-right: 4px solid #f76b6b; padding: 12px; border-radius: 4px; font-size: 1.1rem; color: #f76b6b; line-height: 1.6; }
 
         .site-footer { margin-top: 60px; border-top: 1px solid #333; padding-top: 30px; color: #666; }
     </style>
@@ -98,59 +97,40 @@
                 <h1 class="section-title" id="text-home-title">تنهض رؤيتنا من مفارقة معاصرة</h1>
                 <div id="text-home-body">
                     <p class="main-text">"نلتقي كرابطة رقمية موحدة خلف الشاشات، لكننا نتحرك كإرادات فردية تغير أرض الواقع. إن أزمة المناخ والتصحر التي يعيشها العراق اليوم تفرض علينا كشباب أن نترك عاطفة 'التشجير الموسمي' المحدودة بالمكان والميزانيات، وننتقل فوراً إلى فضاء 'التنمية المستدامة' المبني على خطط علمية حقيقية."</p>
-                    <p class="main-text">"فبناء المدن الخضراء يحتاج وعياً معرفياً يتجاوز الحلول الترقيعية العابرة ليصبح إرثاً حياً تحتمي به الأجيال القادمة. ومن هنا، تفتح هذه المنصة العلمية الباب لكل أبناء وبنات شعبنا العراقي أينما وجدوا؛ من جبال زاخو في أقصى الشمال إلى شواطئ الفاو في أقصى الجنوب، ومن صحراء الرطبة غرباً إلى مرتفعات بنجوين شرقاً."</p>
-                    <p class="main-text">"لم يعد بُعد المسافة عائقاً، سنطوي مسافات جغرافيتنا رقمياً لنلتحم in غرس واقعي، ونعيد معاً صياغة الهوية البيئية لأرضنا العراقية الجَمَّاء."</p>
+                    <p class="main-text">"فبناء المدن الخضراء يحتاج وعياً معرفياً يتجاوز الحلول الترقيعية العابرة ليصبح إرثاً حياً تحتمي به الأجيال القادمة. ومن هنا، تفتح هذه المنصة العلمية الباب لكل أبناء وبنات شعبنا العراقي أينما وجدوا؛ من جبال زاخو in أقصى الشمال إلى شواطئ الفاو في أقصى الجنوب، ومن صحراء الرطبة غرباً إلى مرتفعات بنجوين شرقاً."</p>
+                    <p class="main-text">"لم يعد بُعد المسافة عائقاً، سنطوي مسافات جغرافيتنا رقمياً لنلتحم في غرس واقعي، ونعيد معاً صياغة الهوية البيئية لأرضنا العراقية الجَمَّاء."</p>
                     <p class="main-text highlight">الفكرة علمية.. والتنفيذ بسواعدنا.</p>
                 </div>
 
-                <!-- قسم الحياة البرية: الطيور المهددة بالانقراض في العراق -->
-                <div class="birds-section-container">
-                    <h2 style="color: #f76b6b; font-size: 2.2rem; margin-bottom: 5px;" id="birds-heading">طيور مهددة بالانقراض في العراق</h2>
-                    <p style="color: #aaa; font-size: 1.1rem;">اضغط على أي طائر للاطلاع على حالته البيئية وأسباب تراجعه نتيجة الجفاف والتصحر.</p>
+                <!-- قسم أصوات الطبيعة المفقودة: البلبل العراقي -->
+                <div class="bulbul-section">
+                    <h2 style="color: #f76b6b; font-size: 2.2rem; margin-bottom: 5px;" id="audio-heading">أصوات الطبيعة المفقودة</h2>
+                    <p style="color: #aaa; font-size: 1.1rem;" id="audio-subheading">استمع إلى تغريد الطائر الوطني الذي يواجه صمتاً بيئياً مجهولاً.</p>
                     
-                    <div class="birds-grid">
-                        <!-- طائر 1 -->
-                        <div class="bird-card" id="card-heron" onclick="showBirdData('heron')">
-                            <div class="bird-img-wrapper">
-                                <img src="https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=300&q=80" alt="بلشون مستنقعات الأهوار">
-                            </div>
-                            <div class="bird-card-title">بلشون مستنقعات الأهوار</div>
+                    <div class="bulbul-card">
+                        <div class="bulbul-img-container">
+                            <!-- رابط صورة حقيقي ومستقر للبلبل أبيض الخدين -->
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/White-eared_Bulbul_%28Pycnonotus_leucotis%29_in_Kuwait.jpg" alt="البلبل العراقي">
                         </div>
-
-                        <!-- طائر 2 -->
-                        <div class="bird-card" id="card-ibis" onclick="showBirdData('ibis')">
-                            <div class="bird-img-wrapper">
-                                <img src="https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&w=300&q=80" alt="أبو منجل">
+                        <div class="bulbul-content">
+                            <h3 class="bulbul-title" id="bulbul-card-title">البلبل العراقي (أبيض الخدين)</h3>
+                            <span class="bulbul-scientific">Pycnonotus leucotis</span>
+                            
+                            <!-- مشغل الصوت التفاعلي المخصص -->
+                            <div class="audio-player-wrapper">
+                                <button class="play-btn" id="play-button" onclick="toggleAudio()">
+                                    <svg id="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                </button>
+                                <span class="audio-status" id="audio-text">اضغط للاستماع إلى تغريد البلبل</span>
+                                <!-- رابط ملف صوتي حقيقي ومباشر لتغريد البلبل من خوادم ويكيميديا -->
+                                <audio id="bulbul-audio" src="https://upload.wikimedia.org/wikipedia/commons/2/23/Pycnonotus_leucotis_-_White-eared_bulbul_XC395897.mp3" preload="auto"></audio>
                             </div>
-                            <div class="bird-card-title">أبو منجل المقدس</div>
-                        </div>
 
-                        <!-- طائر 3 -->
-                        <div class="bird-card" id="card-grebe" onclick="showBirdData('grebe')">
-                            <div class="bird-img-wrapper">
-                                <img src="https://images.unsplash.com/photo-1606567595334-d399a55560bd?auto=format&fit=crop&w=300&q=80" alt="الثرثارة العراقية">
+                            <p class="bulbul-desc" id="bulbul-card-desc">يُعد البلبل أبيض الخدين الطائر المستوطن الأبرز في بساتين النخيل والمناطق الحضرية في العراق. ارتبط صوته عبر الأجيال بصباحات القرى والمدن العراقية، لكنه اليوم يواجه تناقصاً حاداً صامتاً نتيجة التجريف المستمر للمساحات الخضراء، قطع النخيل، والصيد الجائر لغرض التجارة.</p>
+                            
+                            <div class="database-warning" id="bulbul-card-warning">
+                                <strong>⚠️ حقيقة بيئية صادمة:</strong> الطائر يواجه خطراً حقيقياً، ولكن بسبب غياب وافتقار العراق إلى قاعدة بيانات (Database) بيئية متكاملة ومحدثة، لا أحد يعلم حتى الآن حجم الكارثة الحقيقي والأرقام الدقيقة لتراجع أعداد هذا الطائر الوطني.
                             </div>
-                            <div class="bird-card-title">الثرثارة العراقية</div>
-                        </div>
-
-                        <!-- طائر 4 -->
-                        <div class="bird-card" id="card-falcon" onclick="showBirdData('falcon')">
-                            <div class="bird-img-wrapper">
-                                <img src="https://images.unsplash.com/photo-1611689342806-0863700ce1e4?auto=format&fit=crop&w=300&q=80" alt="الصقر الحر">
-                            </div>
-                            <div class="bird-card-title">الصقر الحر العراقي</div>
-                        </div>
-                    </div>
-
-                    <!-- لوحة عرض تفاصيل الطائر تفاعلياً -->
-                    <div class="info-panel" id="info">
-                        <h2 id="title" style="color: #f76b6b; margin-bottom: 10px; font-size: 1.6rem;">اختر كائناً حياً</h2>
-                        <p id="desc" style="font-size: 1.1rem; line-height: 1.6; color: #dfdfdf;">تتأثر الطيور المستوطنة والمهاجرة في العراق مباشرة بتراجع المسطحات الخضراء وجفاف الأهوار. اضغط على أي كارت بالأعلى لمعاينة تفاصيل التهديد البيئي.</p>
-                        
-                        <div id="bird-details" class="info-details" style="display: none;">
-                            <p><span class="label">⚠️ درجة الخطورة:</span> <span id="danger-level" class="value">-</span></p>
-                            <p><span class="label">📍 موطنه الرئيسي:</span> <span id="habitat" class="value">-</span></p>
-                            <p><span class="label">🛑 سبب التهديد:</span> <span id="threat-reason" class="value">-</span></p>
                         </div>
                     </div>
                 </div>
@@ -178,12 +158,20 @@
             ar: {
                 brandTop: "أرْض", brandBottom: "السَّــــــــــــــــــــــــوَاد", navHome: "الرئيسية", navBlog: "المدونة",
                 homeTitle: "تنهض رؤيتنا من مفارقة معاصرة", homeBody: `<p class="main-text">"نلتقي كرابطة رقمية موحدة خلف الشاشات، لكننا نتحرك كإرادات فردية تغير أرض الواقع. إن أزمة المناخ والتصحر التي يعيشها العراق اليوم تفرض علينا كشباب أن نترك عاطفة 'التشجير الموسمي' المحدودة بالمكان والميزانيات، وننتقل فوراً إلى فضاء 'التنمية المستدامة' المبني على خطط علمية حقيقية."</p><p class="main-text">"فبناء المدن الخضراء يحتاج وعياً معرفياً يتجاوز الحلول الترقيعية العابرة ليصبح إرثاً حياً تحتمي به الأجيال القادمة. ومن هنا، تفتح هذه المنصة العلمية الباب لكل أبناء وبنات شعبنا العراقي أينما وجدوا؛ من جبال زاخو في أقصى الشمال إلى شواطئ الفاو في أقصى الجنوب، ومن صحراء الرطبة غرباً إلى مرتفعات بنجوين شرقاً."</p><p class="main-text">"لم يعد بُعد المسافة عائقاً، سنطوي مسافات جغرافيتنا رقمياً لنلتحم في غرس واقعي، ونعيد معاً صياغة الهوية البيئية لأرضنا العراقية الجَمَّاء."</p><p class="main-text highlight">الفكرة علمية.. والتنفيذ بسواعدنا.</p>`,
+                audioHeading: "أصوات الطبيعة المفقودة", audioSubheading: "استمع إلى تغريد الطائر الوطني الذي يواجه صمتاً بيئياً مجهولاً.",
+                bulbulTitle: "البلبل العراقي (أبيض الخدين)", bulbulDesc: "يُعد البلبل أبيض الخدين الطائر المستوطن الأبرز في بساتين النخيل والمناطق الحضرية في العراق. ارتبط صوته عبر الأجيال بصباحات القرى والمدن العراقية، لكنه اليوم يواجه تناقصاً حاداً صامتاً نتيجة التجريف المستمر للمساحات الخضراء، قطع النخيل، والصيد الجائر لغرض التجارة.",
+                bulbulWarning: "<strong>⚠️ حقيقة بيئية صادمة:</strong> الطائر يواجه خطراً حقيقياً، ولكن بسبب غياب وافتقار العراق إلى قاعدة بيانات (Database) بيئية متكاملة ومحدثة، لا أحد يعلم حتى الآن حجم الكارثة الحقيقي والأرقام الدقيقة لتراجع أعداد هذا الطائر الوطني.",
+                audioPlay: "اضغط للاستماع إلى تغريد البلبل", audioPlaying: "جاري تشغيل صوت البلبل الآن...",
                 blogTitle: "البداية الحقيقية: لماذا الألبيزيا والليوكينة؟", blogDate: "١٨ حزيران، ٢٠٢٦", blogBody: "تعتبر أشجار الألبيزيا والليوكينة خيارات استراتيجية لمواجهة التغير المناخي في بيئتنا المحلية؛ نظراً لقدرتها الفائقة على تحمل درجات الحرارة المرتفعة، ومقاومة الجفاف، بالإضافة إلى دورها الحيوي في تثبيت النيتروجين في التربة وتحسين خصوبتها، مما يجعلها حجر الأساس في مشروعنا للتحول من التشجير المؤقت إلى الاستدامة الدائمة.",
                 telegramBtn: "الانضمام إلى القناة الرسمية في تليغرام ←", footer: "جميع الحقوق محفوظة © أرض السَّواد ٢٠٢٦"
             },
             en: {
                 brandTop: "Land of", brandBottom: "Al-Sawad", navHome: "Home", navBlog: "Blog",
                 homeTitle: "Our Vision", homeBody: `<p class="main-text">"We meet as a unified digital alliance behind screens, but we move as individual wills that transform reality on the ground. Today's climate and desertification crisis in Iraq compels us as youth to abandon 'seasonal afforestation'—limited by geography and budgets—and transition immediately into 'sustainable development' built on true scientific blueprints."</p><p class="main-text">"Building green cities demands a cognitive awareness that outlasts temporary patchworks to become a living legacy sheltering future generations. Hence, this scientific platform opens its doors to all Iraqis wherever they are; from the mountains of Zakho in the far north to the shores of Faw in the far south, and from the Rutba desert in the west to the Penjwen heights in the east."</p><p class="main-text">"Distance is no longer an obstacle; we will bridge our geography digitally to unite in a physical planting movement, reshaping together the ecological identity of our beautiful land of Iraq."</p><p class="main-text highlight">The idea is scientific.. and execution is by our hands.</p>`,
+                audioHeading: "Lost Sounds of Nature", audioSubheading: "Listen to the song of our national bird facing an unknown ecological silence.",
+                bulbulTitle: "The Iraqi Bulbul (White-eared Bulbul)", bulbulDesc: "The White-eared Bulbul is the most prominent resident bird in the palm groves and urban areas of Iraq. For generations, its voice has been deeply tied to the mornings of Iraqi villages and cities. Today, however, it faces a silent and sharp decline due to the ongoing destruction of green areas, deforestation of palm trees, and illegal poaching for trade.",
+                bulbulWarning: "<strong>⚠️ Shocking Ecological Fact:</strong> The bird is in real danger, but due to the complete lack of an updated, integrated ecological database in Iraq, no one truly knows the exact scale of the crisis or the precise rate of our national bird's decline.",
+                audioPlay: "Click to listen to the Bulbul's song", audioPlaying: "Playing the Bulbul's song now...",
                 blogTitle: "The True Beginning: Why Albizia and Leucaena?", blogDate: "June 18, 2026", blogBody: "Albizia and Leucaena trees represent strategic choices to combat climate change in our local environment due to their remarkable ability to endure high temperatures, resist drought, and fix nitrogen in the soil, enhancing its fertility. This makes them the cornerstone of our transition from temporary greening to permanent sustainability.",
                 telegramBtn: "Join the Official Telegram Channel →", footer: "All Rights Reserved © Ard Al-Sawad 2026"
             }
@@ -203,6 +191,17 @@
             document.getElementById('nav-blog').innerText = data.navBlog;
             document.getElementById('text-home-title').innerText = data.homeTitle;
             document.getElementById('text-home-body').innerHTML = data.homeBody;
+            
+            // تحديث نصوص قسم الصوت المترجمة
+            document.getElementById('audio-heading').innerText = data.audioHeading;
+            document.getElementById('audio-subheading').innerText = data.audioSubheading;
+            document.getElementById('bulbul-card-title').innerText = data.bulbulTitle;
+            document.getElementById('bulbul-card-desc').innerText = data.bulbulDesc;
+            document.getElementById('bulbul-card-warning').innerHTML = data.bulbulWarning;
+            
+            const audio = document.getElementById('bulbul-audio');
+            document.getElementById('audio-text').innerText = audio.paused ? data.audioPlay : data.audioPlaying;
+
             document.getElementById('text-blog-title').innerText = data.blogTitle;
             document.getElementById('text-blog-date').innerText = data.brandTop === "أرْض" ? "١٨ حزيران، ٢٠٢٦" : "June 18, 2026";
             document.getElementById('text-blog-body').innerText = data.blogBody;
@@ -217,54 +216,38 @@
             document.getElementById('nav-blog').classList.toggle('active', page === 'blog');
         }
 
-        // قاعدة بيانات دقيقة ومصححة علمياً
-        const birdsDatabase = {
-            "heron": {
-                title: "بلشون مستنقعات الأهوار (Basra Reed Warbler)",
-                desc: "من الطيور النادرة جداً التي تتخذ من قصب أهوار جنوب العراق موطناً رئيسياً وحصرياً للتكاثر والاستقرار.",
-                danger: "مهدد بالانقراض بشكل حرج (CR)",
-                habitat: "أهوار الجبايش والحمار والحويزة في جنوب العراق",
-                reason: "التجفيف المتكرر للأهوار، انخفاض مناسيب مياه نهري دجلة والفرات، وتدمير بيئة القصب الطبيعية."
-            },
-            "ibis": {
-                title: "أبو منجل المقدس (Sacred Ibis)",
-                desc: "طائر مائي تاريخي ارتبط بالحضارات الرافدينية القديمة، يمتلك مكانة بيئية هامة في النظم المائية للأهوار.",
-                danger: "مهدد بالانقراض محلياً بشكل كبير (EN)",
-                habitat: "المسطحات المائية الضحلة وضفاف الأنهار في الوسط والجنوب",
-                reason: "تلوث المياه الزائدة، الصيد العشوائي الجائر، وانحسار الواحات المائية العذبة."
-            },
-            "grebe": {
-                title: "الثرثارة العراقية (Iraq Babbler)",
-                desc: "طائر بري صغير فريد ومستوطن حصرياً في العراق، ويُعَدّ مؤشراً بيئياً حقيقياً على سلامة وصحة كثافة أحواش القصب.",
-                danger: "قريب من التهديد الحرج (NT)",
-                habitat: "البرك المائية الكثيفة ومستنقعات وسط وجنوب العراق",
-                reason: "ارتفاع درجات الحرارة الحاد وتملح التربة والمياه نتيجة تصاعد أزمة جفاف الأنهار وجرف القصب."
-            },
-            "falcon": {
-                title: "الصقر الحر العراقي (Saker Falcon)",
-                desc: "من الجوارح الفاخرة التي تستخدم الصحاري والسهول العراقية كمناطق صيد وممرات هجرة أساسية عبر آسيا.",
-                danger: "مهدد بالانقراض (EN)",
-                habitat: "بادية الأنبار، صحراء النجف، والسهول المفتوحة",
-                reason: "الصيد الجائر لغرض التجارة غير القانونية، واختفاء الموائل الطبيعية نتيجة الزحف الصحراوي وتراجع الغطاء النباتي."
+        // التحكم التفاعلي بالصوت والزر
+        function toggleAudio() {
+            const audio = document.getElementById('bulbul-audio');
+            const playIcon = document.getElementById('play-icon');
+            const audioText = document.getElementById('audio-text');
+            const data = languages[currentLang];
+
+            if (audio.paused) {
+                audio.play();
+                // تغيير الأيقونة إلى كود باوز (Pause)
+                playIcon.innerHTML = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
+                document.getElementById('play-button').classList.add('playing');
+                audioText.innerText = data.audioPlaying;
+            } else {
+                audio.pause();
+                // إعادة الأيقونة إلى بلاي (Play)
+                playIcon.innerHTML = '<path d="M8 5v14l11-7z"/>';
+                document.getElementById('play-button').classList.remove('playing');
+                audioText.innerText = data.audioPlay;
             }
-        };
-
-        function showBirdData(birdKey) {
-            document.querySelectorAll('.bird-card').forEach(el => el.classList.remove('selected'));
-            document.getElementById('card-' + birdKey).classList.add('selected');
-
-            const bird = birdsDatabase[birdKey];
-            if (!bird) return;
-
-            document.getElementById('title').innerText = bird.title;
-            document.getElementById('desc').innerText = bird.desc;
-            
-            document.getElementById('danger-level').innerText = bird.danger;
-            document.getElementById('habitat').innerText = bird.habitat;
-            document.getElementById('threat-reason').innerText = bird.reason;
-            
-            document.getElementById('bird-details').style.display = 'block';
         }
+
+        // إعادة تشكيل الأزرار عند انتهاء المقطع الصوتي تلقائياً
+        document.getElementById('bulbul-audio').addEventListener('ended', function() {
+            const playIcon = document.getElementById('play-icon');
+            const audioText = document.getElementById('audio-text');
+            const data = languages[currentLang];
+            
+            playIcon.innerHTML = '<path d="M8 5v14l11-7z"/>';
+            document.getElementById('play-button').classList.remove('playing');
+            audioText.innerText = data.audioPlay;
+        });
     </script>
 </body>
 </html>
