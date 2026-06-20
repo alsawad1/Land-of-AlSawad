@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cairo:wght@400;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     
     <style>
-        /* إعادة ضبط المتصفح والخطوط */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { background-color: #ffffff; font-family: 'Amiri', serif; color: #000000; transition: all 0.3s ease; }
         body.lang-en { font-family: system-ui, -apple-system, sans-serif; }
@@ -20,56 +19,71 @@
         .brand-name .line-top { font-size: 1.4rem; font-weight: 700; margin-bottom: 12px; }
         .brand-name .line-bottom { font-size: 2.1rem; font-weight: 700; white-space: nowrap; }
         
-        body.lang-en .brand-name { font-family: 'Playfair Display', serif; }
-        body.lang-en .brand-name .line-top { font-size: 1.1rem; font-weight: 400; }
-        body.lang-en .brand-name .line-bottom { font-size: 1.6rem; font-weight: 800; }
-        
         .header-controls { display: flex; align-items: center; gap: 25px; }
         .nav-menu { display: flex; gap: 20px; }
         .nav-link { cursor: pointer; font-size: 1.2rem; padding-bottom: 4px; }
         .nav-link.active { font-weight: 700; border-bottom: 2px solid #000; }
-
         .lang-switch-btn { background: none; border: 1px solid #000; padding: 4px 12px; cursor: pointer; font-family: 'Amiri', serif; }
-        
+        .admin-trigger-btn { background: none; border: none; color: #888; cursor: pointer; font-size: 0.9rem; font-family: 'Cairo', sans-serif; }
+
         /* القسم الداكن */
         .dark-content-section { background-color: #1a1a1a; color: #ffffff; padding: 80px 20px; min-height: 600px; }
         .content-container { max-width: 850px; margin: 0 auto; }
         .section-title { font-family: 'Amiri', serif; font-size: 3.2rem; color: #f76b6b; margin-bottom: 35px; }
-        body.lang-en .section-title { font-family: 'Playfair Display', serif; font-size: 2.8rem; }
         
         .main-text { font-family: 'Amiri', serif; font-size: 1.45rem; color: #f3f4f6; line-height: 2.1; text-align: justify; margin-bottom: 30px; }
-        body.lang-en .main-text { font-family: system-ui, sans-serif; font-size: 1.15rem; text-align: left; }
         .main-text.highlight { color: #f76b6b; font-weight: 700; text-align: center; }
 
-        /* التحكم في عرض الصفحات العشوائية برمجياً */
         .page-view-section { display: none; }
         .page-view-section.active { display: block; }
 
-        /* صفحة المدونة */
+        /* المدونة */
         .blog-item-title { color: #f76b6b; font-size: 2.5rem; margin-bottom: 10px; }
         .blog-item-date { color: #888; text-decoration: underline; display: block; margin-bottom: 20px; }
 
-        .telegram-action { margin-top: 60px; }
-        .telegram-link-btn { display: inline-block; padding: 12px 35px; border: 2px solid #f76b6b; color: #f76b6b; text-decoration: none; font-size: 1.3rem; font-weight: 700; }
-        .telegram-link-btn:hover { background-color: #f76b6b; color: #1a1a1a; }
-        
-        /* ميزة دليل الإنبات العلمي (المستقلة) */
-        .growth-guide-box { border: 1px solid #333; background: #222; border-radius: 16px; padding: 35px; margin-top: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
+        /* الدليل العلمي */
+        .growth-guide-box { border: 1px solid #333; background: #222; border-radius: 16px; padding: 35px; margin-top: 20px; }
         .guide-steps-ol { margin: 25px 25px 35px 25px; font-size: 1.25rem; line-height: 1.9; }
         .guide-steps-ol li { margin-bottom: 15px; color: #e5e7eb; }
         .guide-steps-ol strong { color: #f76b6b; font-family: 'Cairo', sans-serif; font-size: 1.1rem; }
-        .growth-table { width: 100%; border-collapse: collapse; margin-top: 20px; font-family: 'Cairo', sans-serif; font-size: 0.95rem; background: #151515; border-radius: 8px; overflow: hidden; }
-        .growth-table th, .growth-table td { padding: 14px 18px; text-align: right; border-bottom: 1px solid #2d2d2d; }
-        body.lang-en .growth-table th, body.lang-en .growth-table td { text-align: left; }
-        .growth-table th { background: #2c2c2c; color: #f76b6b; }
-
+        
+        .telegram-action { margin-top: 60px; }
+        .telegram-link-btn { display: inline-block; padding: 12px 35px; border: 2px solid #f76b6b; color: #f76b6b; text-decoration: none; font-size: 1.3rem; font-weight: 700; }
         .site-footer { margin-top: 60px; border-top: 1px solid #333; padding-top: 30px; color: #666; }
+
+        /* لوحة تحكم متقدمة مستوحاة من وردبريس و Notion */
+        .advanced-admin-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 10000; padding: 40px 20px; overflow-y: auto; color: #333; font-family: 'Cairo', sans-serif; }
+        .advanced-admin-modal.active { display: block; }
+        .admin-window { max-width: 900px; background: #ffffff; margin: 0 auto; border-radius: 12px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+        .admin-header { background: #2c3e50; color: #fff; padding: 20px; display: flex; justify-content: space-between; align-items: center; }
+        .admin-body { padding: 30px; }
+        .admin-tabs { display: flex; gap: 10px; margin-bottom: 25px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        .admin-tab { padding: 10px 20px; cursor: pointer; border-radius: 6px; background: #f5f5f5; font-weight: bold; }
+        .admin-tab.active { background: #f76b6b; color: white; }
+        
+        .editor-zone { display: none; }
+        .editor-zone.active { display: block; }
+        
+        .field-label { display: block; font-weight: 700; margin: 20px 0 8px 0; color: #2c3e50; }
+        .input-title-style { width: 100%; padding: 12px; font-size: 1.3rem; border: 2px solid #ddd; border-radius: 6px; font-family: 'Amiri', serif; }
+        
+        /* شريط أدوات التنسيق المتقدم للآدمن */
+        .wysiwyg-container { border: 2px solid #ddd; border-radius: 6px; margin-top: 10px; overflow: hidden; }
+        .wysiwyg-toolbar { background: #f8f9fa; padding: 8px; border-bottom: 1px solid #ddd; display: flex; gap: 5px; flex-wrap: wrap; }
+        .toolbar-btn { background: #fff; border: 1px solid #ccc; padding: 5px 10px; cursor: pointer; border-radius: 4px; font-size: 0.9rem; font-weight: bold; }
+        .toolbar-btn:hover { background: #e9ecef; }
+        .wysiwyg-editor { min-height: 250px; padding: 15px; background: #fff; overflow-y: auto; font-family: 'Amiri', serif; font-size: 1.25rem; line-height: 1.8; outline: none; }
+        
+        .action-bar { display: flex; justify-content: flex-end; gap: 15px; margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px; }
+        .btn-panel { padding: 12px 30px; border: none; border-radius: 6px; cursor: pointer; font-weight: 700; font-size: 1rem; }
+        .btn-close { background: #7f8c8d; color: white; }
+        .btn-publish { background: #27ae60; color: white; }
     </style>
 </head>
 <body>
 
     <header class="site-header">
-        <div class="brand-name" id="text-brand">
+        <div class="brand-name">
             <span class="line-top">أرْض</span>
             <span class="line-bottom">السَّــــــــــــــــــــــــوَاد</span>
         </div>
@@ -80,161 +94,159 @@
                 <span class="nav-link" id="nav-blog" onclick="navigateTo('blog')">المدونة</span>
             </nav>
             <button class="lang-switch-btn" id="lang-toggle-btn" onclick="toggleLanguage()">English</button>
+            <button class="admin-trigger-btn" onclick="openAdminModal()">⚙️ الإدارة</button>
         </div>
     </header>
+
+    <div id="advancedAdminModal" class="advanced-admin-modal">
+        <div class="admin-window">
+            <div class="admin-header">
+                <h2>📝 لوحة النشر المتقدمة (أرض السواد)</h2>
+                <span style="font-size: 0.85rem; background: rgba(0,0,0,0.2); padding: 4px 8px; border-radius: 4px;">وضع التحرير المرن</span>
+            </div>
+            <div class="admin-body">
+                <div class="admin-tabs">
+                    <div class="admin-tab active" id="tab-btn-home" onclick="switchAdminTab('home')">🏠 الصفحة الرئيسية</div>
+                    <div class="admin-tab" id="tab-btn-blog" onclick="switchAdminTab('blog')">✍️ تدوينات المدونة</div>
+                </div>
+
+                <div id="zone-admin-home" class="editor-zone active">
+                    <label class="field-label">العنوان الرئيسي للرؤية:</label>
+                    <input type="text" id="edit-home-title" class="input-title-style" value="تنهض رؤيتنا من مفارقة معاصرة">
+                    
+                    <label class="field-label">المحتوى النصي (يدعم التنسيق الحر مثل الوردبريس):</label>
+                    <div class="wysiwyg-container">
+                        <div class="wysiwyg-toolbar">
+                            <button class="toolbar-btn" onclick="execCmd('bold')">B</button>
+                            <button class="toolbar-btn" onclick="execCmd('italic')">I</button>
+                            <button class="toolbar-btn" onclick="execCmd('underline')">U</button>
+                            <button class="toolbar-btn" onclick="execCmd('insertUnorderedList')">• قائمة</button>
+                            <button class="toolbar-btn" onclick="execCmd('justifyRight')">→ يمين</button>
+                            <button class="toolbar-btn" onclick="execCmd('justifyCenter')">↔ توازن</button>
+                        </div>
+                        <div id="edit-home-body" class="wysiwyg-editor" contenteditable="true">
+                            <p>"نلتقي كرابطة رقمية موحدة خلف الشاشات، لكننا نتحرك كإرادات فردية تغير أرض الواقع. إن أزمة المناخ والتصحر التي يعيشها العراق اليوم تفرض علينا كشباب أن نترك عاطفة 'التشجير الموسمي' وننتقل فوراً إلى فضاء 'التنمية المستدامة'."</p>
+                            <p>"لم يعد بُعد المسافة عائقاً، سنطوي مسافات جغرافيتنا رقمياً لنلتحم في غرس واقعي."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="zone-admin-blog" class="editor-zone">
+                    <label class="field-label">عنوان المقال الجديد:</label>
+                    <input type="text" id="edit-blog-title" class="input-title-style" value="البداية الحقيقية: لماذا الألبيزيا والليوكينة؟">
+                    
+                    <label class="field-label">محتوى المقال:</label>
+                    <div class="wysiwyg-container">
+                        <div class="wysiwyg-toolbar">
+                            <button class="toolbar-btn" onclick="execCmd('bold')">B</button>
+                            <button class="toolbar-btn" onclick="execCmd('italic')">I</button>
+                            <button class="toolbar-btn" onclick="execCmd('insertUnorderedList')">• قائمة</button>
+                        </div>
+                        <div id="edit-blog-body" class="wysiwyg-editor" contenteditable="true">
+                            تعتبر أشجار الألبيزيا والليوكينة خيارات استراتيجية لمواجهة التغير المناخي في بيئتنا المحلية؛ نظراً لقدرتها الفائقة على تحمل درجات الحرارة المرتفعة، ومقاومة الجفاف.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-bar">
+                    <button class="btn-panel btn-close" onclick="closeAdminModal()">إلغاء</button>
+                    <button class="btn-panel btn-publish" onclick="publishNewContent()">🚀 حفظ ونشر التعديلات</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <main class="dark-content-section">
         <div class="content-container">
             
-            <!-- 1. الصفحة الرئيسية -->
             <div id="home-content-area" class="page-view-section active">
-                <h1 class="section-title" id="text-home-title">تنهض رؤيتنا من مفارقة معاصرة</h1>
-                <div id="text-home-body">
-                    <p class="main-text">"نلتقي كرابطة رقمية موحدة خلف الشاشات، لكننا نتحرك كإرادات فردية تغير أرض الواقع. إن أزمة المناخ والتصحر التي يعيشها العراق اليوم تفرض علينا كشباب أن نترك عاطفة 'التشجير الموسمي' المحدودة بالمكان والميزانيات، وننتقل فوراً إلى فضاء 'التنمية المستدامة' المبني على خطط علمية حقيقية."</p>
-                    <p class="main-text">"فبناء المدن الخضراء يحتاج وعياً معرفياً يتجاوز الحلول الترقيعية العابرة ليصبح إرثاً حياً تحتمي به الأجيال القادمة. ومن هنا، تفتح هذه المنصة العلمية الباب لكل أبناء وبنات شعبنا العراقي أينما وجدوا؛ من جبال زاخو في أقصى الشمال إلى شواطئ الفاو في أقصى الجنوب، ومن صحراء الرطبة غرباً إلى مرتفعات بنجوين شرقاً."</p>
-                    <p class="main-text">"لم يعد بُعد المسافة عائقاً، سنطوي مسافات جغرافيتنا رقمياً لنلتحم في غرس واقعي، ونعيد معاً صياغة الهوية البيئية لأرضنا العراقية الجَمَّاء."</p>
-                    <p class="main-text highlight">الفكرة علمية.. والتنفيذ بسواعدنا.</p>
+                <h1 class="section-title" id="view-home-title">تنهض رؤيتنا من مفارقة معاصرة</h1>
+                <div id="view-home-body" class="main-text">
+                    <p>"نلتقي كرابطة رقمية موحدة خلف الشاشات، لكننا نتحرك كإرادات فردية تغير أرض الواقع. إن أزمة المناخ والتصحر التي يعيشها العراق اليوم تفرض علينا كشباب أن نترك عاطفة 'التشجير الموسمي' وننتقل فوراً إلى فضاء 'التنمية المستدامة'."</p>
                 </div>
             </div>
 
-            <!-- 2. صفحة الدليل العلمي المستقلة (تم عزلها بالكامل هنا بنظام خانة واحدة متكاملة) -->
             <div id="guide-content-area" class="page-view-section">
                 <div class="growth-guide-box">
-                    <h2 class="section-title" id="guide-main-title" style="font-size: 2.5rem; margin-bottom: 10px;">دليل الإنبات العلمي (Scarification Guide)</h2>
-                    <p id="guide-main-desc" style="color: #ccc; margin-bottom: 20px;">كيف ننتقل من العاطفة العابرة إلى المعرفة الاستراتيجية لرفع نسب نجاح البذور القاسية؟</p>
-                    
-                    <ol class="guide-steps-ol" id="guide-steps-list">
-                        <li><strong>١. المعالجة والخدش (Scarification):</strong> بذور الألبيزيا والليوكينة تمتلك غلافاً شمعياً سميكاً يمنع دخول الماء. يجب نقع البذور في ماء ساخن (وليس مغلي) لمدة ١٢-٢٤ ساعة حتى تتفتح وتنتفخ.</li>
-                        <li><strong>٢. عمق الغرس العلمي:</strong> تُزرع البذور المنتفخة على عمق لا يتجاوز ١ إلى ٢ سم في تربة جيدة التصريف لتأمين الأكسجين الكافي للجنين.</li>
-                        <li><strong>٣. مراقبة الرطوبة الحذرة:</strong> الحفاظ على رطوبة التربة خفيفة وبدون إغراق، لتفادي تعفن الجذور في مراحل الإنبات الحرجة الأولى.</li>
+                    <h2 class="section-title" style="font-size: 2.5rem; margin-bottom: 10px;">دليل الإنبات العلمي (Scarification Guide)</h2>
+                    <ol class="guide-steps-ol">
+                        <li><strong>١. المعالجة والخدش:</strong> بذور الألبيزيا تمتلك غلافاً شمعياً سميكاً يمنع دخول الماء.</li>
                     </ol>
-
-                    <h4 id="guide-table-title" style="font-family: 'Cairo', sans-serif; font-size: 1.2rem; color: #f76b6b; margin-bottom: 15px;">جدول المراقبة المعرفي ومعدلات النمو المتوقعة:</h4>
-                    <table class="growth-table">
-                        <thead>
-                            <tr>
-                                <th id="th-period">المرحلة الزمنية</th>
-                                <th id="th-albizia">معدل نمو الألبيزيا المتوقع</th>
-                                <th id="th-leucaena">معدل نمو الليوكينة المتوقع</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td id="td-w1">الأسبوع الأول</td>
-                                <td id="td-a1">بروز الجذير وانشقاق التربة (٢-٤ سم)</td>
-                                <td id="td-l1">ظهور الأوراق الفلقية الأولى (٣-٥ سم)</td>
-                            </tr>
-                            <tr>
-                                <td id="td-w2">الأسبوع الثاني</td>
-                                <td id="td-a2">ظهور الأوراق الريشية المركبة (٦-١٠ سم)</td>
-                                <td id="td-l2">استطالة الساق وزيادة التفرع (٨-١٤ سم)</td>
-                            </tr>
-                        </tbody>
-                    </table>
                 </div>
             </div>
 
-            <!-- 3. صفحة المدونة -->
             <div id="blog-content-area" class="page-view-section">
                 <div class="blog-item">
-                    <h2 class="blog-item-title" id="text-blog-title">البداية الحقيقية: لماذا الألبيزيا والليوكينة؟</h2>
-                    <span class="blog-item-date" id="text-blog-date">١٨ حزيران، ٢٠٢٦</span>
-                    <p class="main-text" id="text-blog-body">تعتبر أشجار الألبيزيا والليوكينة خيارات استراتيجية لمواجهة التغير المناخي في بيئتنا المحلية؛ نظراً لقدرتها الفائقة على تحمل درجات الحرارة المرتفعة، ومقاومة الجفاف، بالإضافة إلى دورها الحيوي في تثبيت النيتروجين في التربة وتحسين خصوبتها، مما يجعلها حجر الأساس في مشروعنا للتحول من التشجير المؤقت إلى الاستدامة الدائمة.</p>
+                    <h2 class="blog-item-title" id="view-blog-title">البداية الحقيقية: لماذا الألبيزيا والليوكينة؟</h2>
+                    <span class="blog-item-date">١٨ حزيران، ٢٠٢٦</span>
+                    <div id="view-blog-body" class="main-text">
+                        تعتبر أشجار الألبيزيا والليوكينة خيارات استراتيجية لمواجهة التغير المناخي في بيئتنا المحلية.
+                    </div>
                 </div>
             </div>
 
-            <!-- زر التليغرام الثابت أسفل جميع الخانات -->
             <div class="telegram-action">
-                <a href="https://t.me/alsawad1qr" target="_blank" class="telegram-link-btn" id="text-telegram-btn">الانضمام إلى القناء الرسمية في تليغرام ←</a>
+                <a href="https://t.me/alsawad1qr" target="_blank" class="telegram-link-btn">الانضمام إلى القناة الرسمية في تليغرام ←</a>
             </div>
 
-            <footer class="site-footer" id="text-footer">جميع الحقوق محفوظة © أرض السَّواد ٢٠٢٦</footer>
+            <footer class="site-footer">جميع الحقوق محفوظة © أرض السَّواد ٢٠٢٦</footer>
         </div>
     </main>
 
     <script>
-        // دالة التنقل البرمجي السلس بين الصفحات والتحكم في كلاس النشاط (Active)
+        // فتح وإغلاق نافذة الإدارة الأنيقة
+        function openAdminModal() { document.getElementById('advancedAdminModal').classList.add('active'); }
+        function closeAdminModal() { document.getElementById('advancedAdminModal').classList.remove('active'); }
+
+        // التبديل بين أقسام لوحة التحكم (الرئيسية / المدونة)
+        function switchAdminTab(tab) {
+            document.getElementById('zone-admin-home').classList.toggle('active', tab === 'home');
+            document.getElementById('zone-admin-blog').classList.toggle('active', tab === 'blog');
+            document.getElementById('tab-btn-home').classList.toggle('active', tab === 'home');
+            document.getElementById('tab-btn-blog').classList.toggle('active', tab === 'blog');
+        }
+
+        // تنفيذ أوامر التنسيق في شريط أدوات الـ WYSIWYG (مثل Bold, Italic)
+        function execCmd(command) { document.execCommand(command, false, null); }
+
+        // نشر التعديلات وحفظها مؤقتاً في ذاكرة المتصفح الدائمة (LocalStorage)
+        function publishNewContent() {
+            const homeTitle = document.getElementById('edit-home-title').value;
+            const homeBody = document.getElementById('edit-home-body').innerHTML;
+            const blogTitle = document.getElementById('edit-blog-title').value;
+            const blogBody = document.getElementById('edit-blog-body').innerHTML;
+
+            // تحديث الشاشة فوراً
+            document.getElementById('view-home-title').innerText = homeTitle;
+            document.getElementById('view-home-body').innerHTML = homeBody;
+            document.getElementById('view-blog-title').innerText = blogTitle;
+            document.getElementById('view-blog-body').innerHTML = blogBody;
+
+            // حفظ النسخة بذاكرة المتصفح لكي لا تختفي عند التحديث
+            localStorage.setItem('homeTitle', homeTitle);
+            localStorage.setItem('homeBody', homeBody);
+            localStorage.setItem('blogTitle', blogTitle);
+            localStorage.setItem('blogBody', blogBody);
+
+            closeAdminModal();
+            alert('🚀 تم نشر وتنسيق المحتوى الجديد بنجاح على الموقع!');
+        }
+
+        // استرجاع البيانات المحفوظة تلقائياً عند فتح الموقع
+        window.onload = function() {
+            if(localStorage.getItem('homeTitle')) document.getElementById('view-home-title').innerText = localStorage.getItem('homeTitle');
+            if(localStorage.getItem('homeBody')) document.getElementById('view-home-body').innerHTML = localStorage.getItem('homeBody');
+            if(localStorage.getItem('blogTitle')) document.getElementById('view-blog-title').innerText = localStorage.getItem('blogTitle');
+            if(localStorage.getItem('blogBody')) document.getElementById('view-blog-body').innerHTML = localStorage.getItem('blogBody');
+        };
+
         function navigateTo(page) {
             document.getElementById('home-content-area').classList.toggle('active', page === 'home');
             document.getElementById('guide-content-area').classList.toggle('active', page === 'guide');
             document.getElementById('blog-content-area').classList.toggle('active', page === 'blog');
-            
             document.getElementById('nav-home').classList.toggle('active', page === 'home');
             document.getElementById('nav-guide').classList.toggle('active', page === 'guide');
             document.getElementById('nav-blog').classList.toggle('active', page === 'blog');
-        }
-
-        // مصفوفة اللغات والترجمة الشاملة لجميع الصفحات المتبقية
-        const languages = {
-            ar: {
-                brandTop: "أرْض", brandBottom: "السَّــــــــــــــــــــــــوَاد", 
-                navHome: "الرئيسية", navGuide: "الدليل العلمي", navBlog: "المدونة",
-                homeTitle: "تنهض رؤيتنا من مفارقة معاصرة", 
-                homeBody: `<p class="main-text">"نلتقي كرابطة رقمية موحدة خلف الشاشات، لكننا نتحرك كإرادات فردية تغير أرض الواقع. إن أزمة المناخ والتصحر التي يعيشها العراق اليوم تفرض علينا كشباب أن نترك عاطفة 'التشجير الموسمي' المحدودة بالمكان والميزانيات، وننتقل فوراً إلى فضاء 'التنمية المستدامة' المبني على خطط علمية حقيقية."</p><p class="main-text">"فبناء المدن الخضراء يحتاج وعياً معرفياً يتجاوز الحلول الترقيعية العابرة ليصبح إرثاً حياً تحتمي به الأجيال القادمة. ومن هنا، تفتح هذه المنصة العلمية الباب لكل أبناء وبنات شعبنا العراقي أينما وجدوا؛ من جبال زاخو في أقصى الشمال إلى شواطئ الفاو في أقصى الجنوب، ومن صحراء الرطبة غرباً إلى مرتفعات بنجوين شرقاً."</p><p class="main-text">"لم يعد بُعد المسافة عائقاً، سنطوي مسافات جغرافيتنا رقمياً لنلتحم في غرس واقعي، ونعيد معاً صياغة الهوية البيئية لأرضنا العراقية الجَمَّاء."</p><p class="main-text highlight">الفكرة علمية.. والتنفيذ بسواعدنا.</p>`,
-                guideMainTitle: "دليل الإنبات العلمي (Scarification Guide)", 
-                guideMainDesc: "كيف ننتقل من العاطفة العابرة إلى المعرفة الاستراتيجية لرفع نسب نجاح البذور القاسية؟",
-                guideSteps: `<li><strong>١. المعالجة والخدش (Scarification):</strong> بذور الألبيزيا والليوكينة تمتلك غلافاً شمعياً سميكاً يمنع دخول الماء. يجب نقع البذور في ماء ساخن (وليس مغلي) لمدة ١٢-٢٤ ساعة حتى تتفتح وتنتفخ.</li><li><strong>٢. عمق الغرس العلمي:</strong> تُزرع البذور المنتفخة على عمق لا يتجاوز ١ إلى ٢ سم في تربة جيدة التصريف لتأمين الأكسجين الكافي للجنين.</li><li><strong>٣. مراقبة الرطوبة الحذرة:</strong> الحفاظ على رطوبة التربة خفيفة وبدون إغراق، لتفادي تعفن الجذور في مراحل الإنبات الحرجة الأولى.</li>`,
-                guideTableTitle: "جدول المراقبة المعرفي ومعدلات النمو المتوقعة:",
-                thPeriod: "المرحلة الزمنية", thAlbizia: "معدل نمو الألبيزيا المتوقع", thLeucaena: "معدل نمو الليوكينة المتوقع",
-                tdW1: "الأسبوع الأول", tdA1: "بروز الجذير وانشقاق التربة (٢-٤ سم)", tdL1: "ظهور الأوراق الفلقية الأولى (٣-٥ سم)",
-                tdW2: "الأسبوع الثاني", tdA2: "ظهور الأوراق الريشية المركبة (٦-١٠ سم)", tdL2: "استطالة الساق وزيادة التفرع (٨-١٤ سم)",
-                blogTitle: "البداية الحقيقية: لماذا الألبيزيا والليوكينة؟", blogBody: "تعتبر أشجار الألبيزيا والليوكينة خيارات استراتيجية لمواجهة التغير المناخي في بيئتنا المحلية؛ نظراً لقدرتها الفائقة على تحمل درجات الحرارة المرتفعة، ومقاومة الجفاف، بالإضافة إلى دورها الحيوي في تثبيت النيتروجين في التربة وتحسين خصوبتها، مما يجعلها حجر الأساس في مشروعنا للتحول من التشجير المؤقت إلى الاستدامة الدائمة.",
-                telegramBtn: "الانضمام إلى القناة الرسمية في تليغرام ←", footer: "جميع الحقوق محفوظة © أرض السَّواد ٢٠٢٦"
-            },
-            en: {
-                brandTop: "Land of", brandBottom: "Al-Sawad", 
-                navHome: "Home", navGuide: "Scientific Guide", navBlog: "Blog",
-                homeTitle: "Our Vision", 
-                homeBody: `<p class="main-text">"We meet as a unified digital alliance behind screens, but we move as individual wills that transform reality on the ground. Today's climate and desertification crisis in Iraq compels us as youth to abandon 'seasonal afforestation'—limited by geography and budgets—and transition immediately into 'sustainable development' built on true scientific blueprints."</p><p class="main-text">"Building green cities demands a cognitive awareness that outlasts temporary patchworks to become a living legacy sheltering future generations. Hence, this scientific platform opens its doors to all Iraqis wherever they are; from the mountains of Zakho in the far north to the shores of Faw in the far south, and from the Rutba desert in the west to the Penjwen heights in the east."</p><p class="main-text">"Distance is no longer an obstacle; we will bridge our geography digitally to unite in a physical planting movement, reshaping together the ecological identity of our beautiful land of Iraq."</p><p class="main-text highlight">The idea is scientific.. and execution is by our hands.</p>`,
-                guideMainTitle: "Scarification & Growth Guide", 
-                guideMainDesc: "How do we move from passing sentiment into structural blueprints to secure high seed-germination rates?",
-                guideSteps: `<li><strong>1. Seed Scarification:</strong> Albizia and Leucaena seeds possess a thick, waxy coat. Soak seeds in hot (not boiling) water for 12–24 hours until they visibly swell.</li><li><strong>2. Systematic Depth:</strong> Plant swollen seeds at a depth of 1 to 2 cm maximum in well-drained soil to secure adequate embryonic oxygen.</li><li><strong>3. Measured Watering:</strong> Keep soil moisture consistent but light, preventing root rot during critical initial sprout stages.</li>`,
-                guideTableTitle: "Scientific Tracking Matrix & Expected Growth Rates:",
-                thPeriod: "Timeframe", thAlbizia: "Expected Albizia Growth", thLeucaena: "Expected Leucaena Growth",
-                tdW1: "Week 1", tdA1: "Radicle emergence and soil cracking (2-4 cm)", tdL1: "First cotyledon leaf display (3-5 cm)",
-                tdW2: "Week 2", tdA2: "Compound pinnate leaf formation (6-10 cm)", tdL2: "Stem elongation and active branching (8-14 cm)",
-                blogTitle: "The True Beginning: Why Albizia and Leucaena?", blogBody: "Albizia and Leucaena trees represent strategic choices to combat climate change in our local environment due to their remarkable ability to endure high temperatures, resist drought, and fix nitrogen in the soil, enhancing its fertility. This makes them the cornerstone of our transition from temporary greening to permanent sustainability.",
-                telegramBtn: "Join the Official Telegram Channel →", footer: "All Rights Reserved © Ard Al-Sawad 2026"
-            }
-        };
-
-        let currentLang = 'ar';
-        function toggleLanguage() {
-            currentLang = currentLang === 'ar' ? 'en' : 'ar';
-            document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
-            document.body.classList.toggle('lang-en', currentLang === 'en');
-            document.getElementById('lang-toggle-btn').innerText = currentLang === 'ar' ? 'English' : 'العربية';
-
-            const data = languages[currentLang];
-            document.getElementById('text-brand').querySelector('.line-top').innerText = data.brandTop;
-            document.getElementById('text-brand').querySelector('.line-bottom').innerText = data.brandBottom;
-            document.getElementById('nav-home').innerText = data.navHome;
-            document.getElementById('nav-guide').innerText = data.navGuide;
-            document.getElementById('nav-blog').innerText = data.navBlog;
-            
-            document.getElementById('text-home-title').innerText = data.homeTitle;
-            document.getElementById('text-home-body').innerHTML = data.homeBody;
-            
-            // تحديث نصوص الدليل العلمي المعزول برمجياً
-            document.getElementById('guide-main-title').innerText = data.guideMainTitle;
-            document.getElementById('guide-main-desc').innerText = data.guideMainDesc;
-            document.getElementById('guide-steps-list').innerHTML = data.guideSteps;
-            document.getElementById('guide-table-title').innerText = data.guideTableTitle;
-            document.getElementById('th-period').innerText = data.thPeriod;
-            document.getElementById('th-albizia').innerText = data.thAlbizia;
-            document.getElementById('th-leucaena').innerText = data.thLeucaena;
-            document.getElementById('td-w1').innerText = data.tdW1;
-            document.getElementById('td-a1').innerText = data.tdA1;
-            document.getElementById('td-l1').innerText = data.tdL1;
-            document.getElementById('td-w2').innerText = data.tdW2;
-            document.getElementById('td-a2').innerText = data.tdA2;
-            document.getElementById('td-l2').innerText = data.tdL2;
-
-            document.getElementById('text-blog-title').innerText = data.blogTitle;
-            document.getElementById('text-blog-date').innerText = currentLang === 'ar' ? "١٨ حزيران، ٢٠٢٦" : "June 18, 2026";
-            document.getElementById('text-blog-body').innerText = data.blogBody;
-            document.getElementById('text-telegram-btn').innerText = data.telegramBtn;
-            document.getElementById('text-footer').innerText = data.footer;
         }
     </script>
 </body>
