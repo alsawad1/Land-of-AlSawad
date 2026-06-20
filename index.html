@@ -11,59 +11,89 @@
     <style>
         /* إعادة ضبط المتصفح والخطوط */
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background-color: #ffffff; font-family: 'Amiri', serif; color: #000000; transition: all 0.3s ease; }
+        body { background-color: #ffffff; font-family: 'Amiri', serif; color: #000000; transition: all 0.3s ease; -webkit-text-size-adjust: 100%; }
         body.lang-en { font-family: system-ui, -apple-system, sans-serif; }
 
         /* الهيدر */
-        .site-header { max-width: 1200px; margin: 0 auto; padding: 40px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .site-header { max-width: 1200px; margin: 0 auto; padding: 40px 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
         .brand-name { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.3; font-family: 'Amiri', serif; }
-        .brand-name .line-top { font-size: 1.4rem; font-weight: 700; margin-bottom: 12px; }
-        .brand-name .line-bottom { font-size: 2.1rem; font-weight: 700; white-space: nowrap; }
+        .brand-name .line-top { font-size: 1.4rem; font-weight: 700; margin-bottom: 6px; }
+        .brand-name .line-bottom { font-size: 2.1rem; font-weight: 700; }
         
         body.lang-en .brand-name { font-family: 'Playfair Display', serif; }
         body.lang-en .brand-name .line-top { font-size: 1.1rem; font-weight: 400; }
         body.lang-en .brand-name .line-bottom { font-size: 1.6rem; font-weight: 800; }
         
-        .header-controls { display: flex; align-items: center; gap: 25px; }
+        .header-controls { display: flex; align-items: center; gap: 25px; flex-wrap: wrap; }
         .nav-menu { display: flex; gap: 20px; }
-        .nav-link { cursor: pointer; font-size: 1.2rem; padding-bottom: 4px; }
+        .nav-link { cursor: pointer; font-size: 1.2rem; padding-bottom: 4px; white-space: nowrap; }
         .nav-link.active { font-weight: 700; border-bottom: 2px solid #000; }
 
-        .lang-switch-btn { background: none; border: 1px solid #000; padding: 4px 12px; cursor: pointer; font-family: 'Amiri', serif; }
+        .lang-switch-btn { background: none; border: 1px solid #000; padding: 4px 12px; cursor: pointer; font-family: 'Amiri', serif; white-space: nowrap; }
         
         /* القسم الداكن */
-        .dark-content-section { background-color: #1a1a1a; color: #ffffff; padding: 80px 20px; min-height: 600px; }
+        .dark-content-section { background-color: #1a1a1a; color: #ffffff; padding: 60px 20px; min-height: 600px; }
         .content-container { max-width: 850px; margin: 0 auto; }
-        .section-title { font-family: 'Amiri', serif; font-size: 3.2rem; color: #f76b6b; margin-bottom: 35px; }
+        .section-title { font-family: 'Amiri', serif; font-size: 3.2rem; color: #f76b6b; margin-bottom: 35px; line-height: 1.2; }
         body.lang-en .section-title { font-family: 'Playfair Display', serif; font-size: 2.8rem; }
         
         .main-text { font-family: 'Amiri', serif; font-size: 1.45rem; color: #f3f4f6; line-height: 2.1; text-align: justify; margin-bottom: 30px; }
         body.lang-en .main-text { font-family: system-ui, sans-serif; font-size: 1.15rem; text-align: left; }
         .main-text.highlight { color: #f76b6b; font-weight: 700; text-align: center; }
 
-        /* التحكم في عرض الصفحات العشوائية برمجياً */
+        /* التحكم في عرض الصفحات برمجياً */
         .page-view-section { display: none; }
         .page-view-section.active { display: block; }
 
         /* صفحة المدونة */
-        .blog-item-title { color: #f76b6b; font-size: 2.5rem; margin-bottom: 10px; }
+        .blog-item-title { color: #f76b6b; font-size: 2.5rem; margin-bottom: 10px; line-height: 1.2; }
         .blog-item-date { color: #888; text-decoration: underline; display: block; margin-bottom: 20px; }
 
         .telegram-action { margin-top: 60px; }
-        .telegram-link-btn { display: inline-block; padding: 12px 35px; border: 2px solid #f76b6b; color: #f76b6b; text-decoration: none; font-size: 1.3rem; font-weight: 700; }
+        .telegram-link-btn { display: inline-block; padding: 12px 35px; border: 2px solid #f76b6b; color: #f76b6b; text-decoration: none; font-size: 1.3rem; font-weight: 700; text-align: center; max-width: 100%; transition: all 0.3s ease; }
         .telegram-link-btn:hover { background-color: #f76b6b; color: #1a1a1a; }
         
-        /* ميزة دليل الإنبات العلمي (المستقلة) */
+        /* ميزة دليل الإنبات العلمي المتجاوبة */
         .growth-guide-box { border: 1px solid #333; background: #222; border-radius: 16px; padding: 35px; margin-top: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
-        .guide-steps-ol { margin: 25px 25px 35px 25px; font-size: 1.25rem; line-height: 1.9; }
+        .guide-steps-ol { margin: 25px 20px 35px 20px; font-size: 1.25rem; line-height: 1.9; }
         .guide-steps-ol li { margin-bottom: 15px; color: #e5e7eb; }
         .guide-steps-ol strong { color: #f76b6b; font-family: 'Cairo', sans-serif; font-size: 1.1rem; }
-        .growth-table { width: 100%; border-collapse: collapse; margin-top: 20px; font-family: 'Cairo', sans-serif; font-size: 0.95rem; background: #151515; border-radius: 8px; overflow: hidden; }
+        
+        /* حاوية مرنة تمنع الجدول من كسر الشاشة على الجوال وتسمح بالتمرير الأفقي */
+        .table-responsive-container { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; margin-top: 20px; border-radius: 8px; }
+        .growth-table { width: 100%; border-collapse: collapse; font-family: 'Cairo', sans-serif; font-size: 0.95rem; background: #151515; min-width: 550px; /* تضمن احتفاظ الجدول بهيبته المعرفية أثناء التمرير على الأجهزة الصغيرة */ }
         .growth-table th, .growth-table td { padding: 14px 18px; text-align: right; border-bottom: 1px solid #2d2d2d; }
         body.lang-en .growth-table th, body.lang-en .growth-table td { text-align: left; }
         .growth-table th { background: #2c2c2c; color: #f76b6b; }
 
-        .site-footer { margin-top: 60px; border-top: 1px solid #333; padding-top: 30px; color: #666; }
+        .site-footer { margin-top: 60px; border-top: 1px solid #333; padding-top: 30px; color: #666; font-size: 0.95rem; }
+
+        /* ==========================================================================
+           تأثيرات الشاشات الصغيرة والهواتف (Media Queries)
+           ========================================================================== */
+        @media (max-width: 768px) {
+            .site-header { padding: 25px 15px; flex-direction: column; align-items: center; text-align: center; }
+            .brand-name { align-items: center; }
+            .brand-name .line-bottom { font-size: 1.8rem; letter-spacing: -1px; } /* منع كسر السطر الممتد */
+            
+            .header-controls { flex-direction: column; gap: 15px; width: 100%; justify-content: center; }
+            .nav-menu { justify-content: center; width: 100%; gap: 15px; }
+            .nav-link { font-size: 1.1rem; }
+
+            .dark-content-section { padding: 40px 15px; }
+            .section-title { font-size: 2.2rem; margin-bottom: 25px; }
+            body.lang-en .section-title { font-size: 2.0rem; }
+            
+            .blog-item-title { font-size: 1.8rem; }
+            .main-text { font-size: 1.2rem; line-height: 1.8; text-align: justify; margin-bottom: 20px; }
+            body.lang-en .main-text { text-align: left; }
+
+            .growth-guide-box { padding: 20px 15px; border-radius: 12px; }
+            .guide-steps-ol { margin: 15px 15px 25px 15px; font-size: 1.1rem; }
+            
+            .telegram-action { margin-top: 40px; text-align: center; }
+            .telegram-link-btn { width: 100%; padding: 12px 20px; font-size: 1.1rem; }
+        }
     </style>
 </head>
 <body>
@@ -97,10 +127,10 @@
                 </div>
             </div>
 
-            <!-- 2. صفحة الدليل العلمي المستقلة (تم عزلها بالكامل هنا بنظام خانة واحدة متكاملة) -->
+            <!-- 2. صفحة الدليل العلمي المستقلة -->
             <div id="guide-content-area" class="page-view-section">
                 <div class="growth-guide-box">
-                    <h2 class="section-title" id="guide-main-title" style="font-size: 2.5rem; margin-bottom: 10px;">دليل الإنبات العلمي (Scarification Guide)</h2>
+                    <h2 class="section-title" id="guide-main-title" style="font-size: 2rem; margin-bottom: 10px;">دليل الإنبات العلمي (Scarification Guide)</h2>
                     <p id="guide-main-desc" style="color: #ccc; margin-bottom: 20px;">كيف ننتقل من العاطفة العابرة إلى المعرفة الاستراتيجية لرفع نسب نجاح البذور القاسية؟</p>
                     
                     <ol class="guide-steps-ol" id="guide-steps-list">
@@ -109,28 +139,32 @@
                         <li><strong>٣. مراقبة الرطوبة الحذرة:</strong> الحفاظ على رطوبة التربة خفيفة وبدون إغراق، لتفادي تعفن الجذور في مراحل الإنبات الحرجة الأولى.</li>
                     </ol>
 
-                    <h4 id="guide-table-title" style="font-family: 'Cairo', sans-serif; font-size: 1.2rem; color: #f76b6b; margin-bottom: 15px;">جدول المراقبة المعرفي ومعدلات النمو المتوقعة:</h4>
-                    <table class="growth-table">
-                        <thead>
-                            <tr>
-                                <th id="th-period">المرحلة الزمنية</th>
-                                <th id="th-albizia">معدل نمو الألبيزيا المتوقع</th>
-                                <th id="th-leucaena">معدل نمو الليوكينة المتوقع</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td id="td-w1">الأسبوع الأول</td>
-                                <td id="td-a1">بروز الجذير وانشقاق التربة (٢-٤ سم)</td>
-                                <td id="td-l1">ظهور الأوراق الفلقية الأولى (٣-٥ سم)</td>
-                            </tr>
-                            <tr>
-                                <td id="td-w2">الأسبوع الثاني</td>
-                                <td id="td-a2">ظهور الأوراق الريشية المركبة (٦-١٠ سم)</td>
-                                <td id="td-l2">استطالة الساق وزيادة التفرع (٨-١٤ سم)</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <h4 id="guide-table-title" style="font-family: 'Cairo', sans-serif; font-size: 1.1rem; color: #f76b6b; margin-bottom: 15px;">جدول المراقبة المعرفي ومعدلات النمو المتوقعة:</h4>
+                    
+                    <!-- الحاوية الجديدة لضمان تكيّف الجدول مع الموبايل -->
+                    <div class="table-responsive-container">
+                        <table class="growth-table">
+                            <thead>
+                                <tr>
+                                    <th id="th-period">المرحلة الزمنية</th>
+                                    <th id="th-albizia">معدل نمو الألبيزيا المتوقع</th>
+                                    <th id="th-leucaena">معدل نمو الليوكينة المتوقع</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td id="td-w1">الأسبوع الأول</td>
+                                    <td id="td-a1">بروز الجذير وانشقاق التربة (٢-٤ سم)</td>
+                                    <td id="td-l1">ظهور الأوراق الفلقية الأولى (٣-٥ سم)</td>
+                                </tr>
+                                <tr>
+                                    <td id="td-w2">الأسبوع الثاني</td>
+                                    <td id="td-a2">ظهور الأوراق الريشية المركبة (٦-١٠ سم)</td>
+                                    <td id="td-l2">استطالة الساق وزيادة التفرع (٨-١٤ سم)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
 
@@ -145,7 +179,7 @@
 
             <!-- زر التليغرام الثابت أسفل جميع الخانات -->
             <div class="telegram-action">
-                <a href="https://t.me/alsawad1qr" target="_blank" class="telegram-link-btn" id="text-telegram-btn">الانضمام إلى القناء الرسمية في تليغرام ←</a>
+                <a href="https://t.me/alsawad1qr" target="_blank" class="telegram-link-btn" id="text-telegram-btn">الانضمام إلى القناة الرسمية في تليغرام ←</a>
             </div>
 
             <footer class="site-footer" id="text-footer">جميع الحقوق محفوظة © أرض السَّواد ٢٠٢٦</footer>
@@ -153,7 +187,6 @@
     </main>
 
     <script>
-        // دالة التنقل البرمجي السلس بين الصفحات والتحكم في كلاس النشاط (Active)
         function navigateTo(page) {
             document.getElementById('home-content-area').classList.toggle('active', page === 'home');
             document.getElementById('guide-content-area').classList.toggle('active', page === 'guide');
@@ -164,7 +197,6 @@
             document.getElementById('nav-blog').classList.toggle('active', page === 'blog');
         }
 
-        // مصفوفة اللغات والترجمة الشاملة لجميع الصفحات المتبقية
         const languages = {
             ar: {
                 brandTop: "أرْض", brandBottom: "السَّــــــــــــــــــــــــوَاد", 
@@ -178,7 +210,7 @@
                 thPeriod: "المرحلة الزمنية", thAlbizia: "معدل نمو الألبيزيا المتوقع", thLeucaena: "معدل نمو الليوكينة المتوقع",
                 tdW1: "الأسبوع الأول", tdA1: "بروز الجذير وانشقاق التربة (٢-٤ سم)", tdL1: "ظهور الأوراق الفلقية الأولى (٣-٥ سم)",
                 tdW2: "الأسبوع الثاني", tdA2: "ظهور الأوراق الريشية المركبة (٦-١٠ سم)", tdL2: "استطالة الساق وزيادة التفرع (٨-١٤ سم)",
-                blogTitle: "البداية الحقيقية: لماذا الألبيزيا والليوكينة؟", blogBody: "تعتبر أشجار الألبيزيا والليوكينة خيارات استراتيجية لمواجهة التغير المناخي في بيئتنا المحلية؛ نظراً لقدرتها الفائقة على تحمل درجات الحرارة المرتفعة، ومقاومة الجفاف، بالإضافة إلى دورها الحيوي في تثبيت النيتروجين في التربة وتحسين خصوبتها، مما يجعلها حجر الأساس في مشروعنا للتحول من التشجير المؤقت إلى الاستدامة الدائمة.",
+                blogTitle: "البداية الحقيقية: لماذا الألبيزيا والليوكينة؟", blogBody: "تعتبر أشجار الألبيزيا والليوكينة خيارات استراتيجية لمواجهة التغير المناخي في بيئتنا المحلية؛ نظراً لقدرتها الفائقة على تحمل درجات الحرارة المرتفعة, ومقاومة الجفاف، بالإضافة إلى دورها الحيوي في تثبيت النيتروجين في التربة وتحسين خصوبتها، مما يجعلها حجر الأساس في مشروعنا للتحول من التشجير المؤقت إلى الاستدامة الدائمة.",
                 telegramBtn: "الانضمام إلى القناة الرسمية في تليغرام ←", footer: "جميع الحقوق محفوظة © أرض السَّواد ٢٠٢٦"
             },
             en: {
@@ -215,7 +247,6 @@
             document.getElementById('text-home-title').innerText = data.homeTitle;
             document.getElementById('text-home-body').innerHTML = data.homeBody;
             
-            // تحديث نصوص الدليل العلمي المعزول برمجياً
             document.getElementById('guide-main-title').innerText = data.guideMainTitle;
             document.getElementById('guide-main-desc').innerText = data.guideMainDesc;
             document.getElementById('guide-steps-list').innerHTML = data.guideSteps;
