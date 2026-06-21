@@ -25,9 +25,18 @@
         body.lang-en .brand-name .line-bottom { font-size: 1.6rem; font-weight: 800; }
         
         .header-controls { display: flex; align-items: center; gap: 25px; flex-wrap: wrap; }
-        .nav-menu { display: flex; gap: 20px; flex-wrap: wrap; }
-        .nav-link { cursor: pointer; font-size: 1.2rem; padding-bottom: 4px; white-space: nowrap; }
+        .nav-menu { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+        .nav-link { cursor: pointer; font-size: 1.2rem; padding-bottom: 4px; white-space: nowrap; position: relative; }
         .nav-link.active { font-weight: 700; border-bottom: 2px solid #000; }
+
+        /* هندسة القائمة الفرعية المنبثقة (Dropdown) */
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-content { display: none; position: absolute; background-color: #1a1a1a; min-width: 200px; box-shadow: 0px 8px 16px rgba(0,0,0,0.2); z-index: 100; border: 1px solid #333; border-radius: 6px; top: 100%; right: 0; }
+        body.lang-en .dropdown-content { right: auto; left: 0; }
+        .dropdown-content span { color: #fff; padding: 12px 16px; text-decoration: none; display: block; font-size: 1.05rem; font-family: 'Cairo', sans-serif; cursor: pointer; text-align: right; }
+        body.lang-en .dropdown-content span { text-align: left; }
+        .dropdown-content span:hover { background-color: #2c2c2c; color: #f76b6b; }
+        .dropdown:hover .dropdown-content { display: block; }
 
         .lang-switch-btn { background: none; border: 1px solid #000; padding: 4px 12px; cursor: pointer; font-family: 'Amiri', serif; white-space: nowrap; }
         
@@ -52,17 +61,13 @@
         .telegram-action { margin-top: 60px; }
         .telegram-link-btn { display: inline-block; padding: 12px 35px; border: 2px solid #f76b6b; color: #f76b6b; text-decoration: none; font-size: 1.3rem; font-weight: 700; text-align: center; max-width: 100%; transition: all 0.3s ease; }
         .telegram-link-btn:hover { background-color: #f76b6b; color: #1a1a1a; }
-
-        /* ميزة كارت الطيور الوطنية المحسنة للجوال */
-        .bird-card-box { border: 1px solid #333; background: #222; border-radius: 16px; padding: 35px; margin-top: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
-        .bird-image-wrapper { width: 100%; max-height: 400px; overflow: hidden; border-radius: 12px; margin-bottom: 25px; border: 1px solid #444; background-color: #151515; }
-        .bird-image-wrapper img { width: 100%; height: auto; object-fit: cover; display: block; filter: grayscale(20%) contrast(110%); }
-        .status-badge { display: inline-block; padding: 6px 14px; background-color: #f76b6b; color: #1a1a1a; font-family: 'Cairo', sans-serif; font-size: 0.9rem; font-weight: 700; border-radius: 4px; margin-bottom: 15px; }
         
         /* ميزة دليل الإنبات العلمي المتجاوبة */
         .growth-guide-box { border: 1px solid #333; background: #222; border-radius: 16px; padding: 35px; margin-top: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
-        .guide-steps-ol { margin: 25px 20px 35px 20px; font-size: 1.25rem; line-height: 1.9; }
-        .guide-steps-ol li { margin-bottom: 15px; color: #e5e7eb; }
+        .guide-steps-ol { list-style: none; margin: 25px 0 35px 0; font-size: 1.25rem; line-height: 1.9; }
+        .guide-steps-ol li { margin-bottom: 15px; color: #e5e7eb; padding: 10px; border-radius: 8px; transition: background-color 0.3s; }
+        .guide-steps-ol li.highlight-step { background-color: #2d2d2d; border-right: 4px solid #f76b6b; }
+        body.lang-en .guide-steps-ol li.highlight-step { border-right: none; border-left: 4px solid #f76b6b; }
         .guide-steps-ol strong { color: #f76b6b; font-family: 'Cairo', sans-serif; font-size: 1.1rem; }
         
         /* حاوية مرنة تمنع الجدول من كسر الشاشة على الجوال وتسمح بالتمرير الأفقي */
@@ -74,9 +79,7 @@
 
         .site-footer { margin-top: 60px; border-top: 1px solid #333; padding-top: 30px; color: #666; font-size: 0.95rem; }
 
-        /* ==========================================================================
-           تأثيرات الشاشات الصغيرة والهواتف (Media Queries)
-           ========================================================================== */
+        /* تأثيرات الشاشات الصغيرة والهواتف */
         @media (max-width: 768px) {
             .site-header { padding: 25px 15px; flex-direction: column; align-items: center; text-align: center; }
             .brand-name { align-items: center; }
@@ -85,6 +88,9 @@
             .header-controls { flex-direction: column; gap: 15px; width: 100%; justify-content: center; }
             .nav-menu { justify-content: center; width: 100%; gap: 12px; }
             .nav-link { font-size: 1.1rem; }
+            
+            .dropdown-content { right: 50%; transform: translateX(50%); text-align: center; }
+            body.lang-en .dropdown-content { left: 50%; right: auto; transform: translateX(-50%); }
 
             .dark-content-section { padding: 40px 15px; }
             .section-title { font-size: 2.2rem; margin-bottom: 25px; }
@@ -94,9 +100,8 @@
             .main-text { font-size: 1.2rem; line-height: 1.8; text-align: justify; margin-bottom: 20px; }
             body.lang-en .main-text { text-align: left; }
 
-            .growth-guide-box, .bird-card-box { padding: 20px 15px; border-radius: 12px; }
-            .guide-steps-ol { margin: 15px 15px 25px 15px; font-size: 1.1rem; }
-            .bird-image-wrapper { max-height: 250px; margin-bottom: 15px; }
+            .growth-guide-box { padding: 20px 15px; border-radius: 12px; }
+            .guide-steps-ol { margin: 15px 0 25px 0; font-size: 1.1rem; }
             
             .telegram-action { margin-top: 40px; text-align: center; }
             .telegram-link-btn { width: 100%; padding: 12px 20px; font-size: 1.1rem; }
@@ -113,8 +118,16 @@
         <div class="header-controls">
             <nav class="nav-menu">
                 <span class="nav-link active" id="nav-home" onclick="navigateTo('home')">الرئيسية</span>
-                <span class="nav-link" id="nav-guide" onclick="navigateTo('guide')">الدليل العلمي</span>
-                <span class="nav-link" id="nav-birds" onclick="navigateTo('birds')">الطيور الوطنية</span>
+                
+                <!-- الخانة الفرعية المنبثقة المستحدثة -->
+                <div class="dropdown">
+                    <span class="nav-link" id="nav-guide" onclick="navigateTo('guide')">الدليل العلمي</span>
+                    <div class="dropdown-content">
+                        <span id="sub-thermal" onclick="navigateToGuideAndHighlight('thermal')">Types of Scarification: Thermal</span>
+                        <span id="sub-mechanical" onclick="navigateToGuideAndHighlight('mechanical')">Types of Scarification: Mechanical</span>
+                    </div>
+                </div>
+
                 <span class="nav-link" id="nav-blog" onclick="navigateTo('blog')">المدونة</span>
             </nav>
             <button class="lang-switch-btn" id="lang-toggle-btn" onclick="toggleLanguage()">English</button>
@@ -135,17 +148,17 @@
                 </div>
             </div>
 
-            <!-- 2. صفحة الدليل العلمي المستقلة (تم تحديثها بالتخديد الميكانيكي والمائي) -->
+            <!-- 2. صفحة الدليل العلمي (تم تنقيتها تماماً من تكرار الأرقام وإضافة تمييز الأقسام) -->
             <div id="guide-content-area" class="page-view-section">
                 <div class="growth-guide-box">
                     <h2 class="section-title" id="guide-main-title" style="font-size: 2rem; margin-bottom: 10px;">دليل الإنبات العلمي (Scarification Guide)</h2>
                     <p id="guide-main-desc" style="color: #ccc; margin-bottom: 20px;">كيف ننتقل من العاطفة العابرة إلى المعرفة الاستراتيجية لرفع نسب نجاح البذور القاسية؟</p>
                     
                     <ol class="guide-steps-ol" id="guide-steps-list">
-                        <li><strong>١. التخديد المائي (Thermal Scarification):</strong> بذور الألبيزيا والليوكينة تمتلك غلافاً شمعياً سميكاً يمنع دخول الماء. يُنصح بنقع البذور في ماء ساخن (وليس مغلي) لمدة ١٢-٢٤ ساعة حتى تتفتح وتنتفخ وتصبح جاهزة للزراعة.</li>
-                        <li><strong>٢. التخديد الميكانيكي (Mechanical Scarification):</strong> كبديل سريع ومثالي للمجموعات الصغيرة، يمكن خدش أو كشط طرف الغلاف الخارجي الصلب للبذرة برفق باستخدام مقص أظافر أو ورق سنفرة (دون مساس الجنين الداخلي) للسماح بنفاذ الماء الفوري وسرعة الإنبات.</li>
-                        <li><strong>٣. عمق الغرس العلمي:</strong> تُزرع البذور المعالجة على عمق سطحي حذر لا يتجاوز ١ إلى ٢ سم في تربة جيدة التصريف لتأمين الأكسجين الكافي للنمو.</li>
-                        <li><strong>٤. مراقبة الرطوبة الحذرة:</strong> الحفاظ على رطوبة التربة خفيفة وبدون إغراق، لتفادي تعفن الجذور في مراحل الإنبات الحرجة الأولى.</li>
+                        <li id="step-thermal"><strong>١. التخديد المائي (Thermal Scarification):</strong> بذور الألبيزيا والليوكينة تمتلك غلافاً شمعياً سميكاً يمنع دخول الماء. يُنصح بنقع البذور في ماء ساخن (وليس مغلي) لمدة ١٢-٢٤ ساعة حتى تتفتح وتنتفخ وتصبح جاهزة للزراعة.</li>
+                        <li id="step-mechanical"><strong>٢. التخديد الميكانيكي (Mechanical Scarification):</strong> كبديل سريع ومثالي للمجموعات الصغيرة، يمكن خدش أو كشط طرف الغلاف الخارجي الصلب للبذرة برفق باستخدام مقص أظافر أو ورق سنفرة (دون مساس الجنين الداخلي) للسماح بنفاذ الماء الفوري وسرعة الإنبات.</li>
+                        <li id="step-depth"><strong>٣. عمق الغرس العلمي (Systematic Depth):</strong> تُزرع البذور المعالجة على عمق سطحي حذر لا يتجاوز ١ إلى ٢ سم في تربة جيدة التصريف لتأمين الأكسجين الكافي للنمو.</li>
+                        <li id="step-watering"><strong>٤. مراقبة الرطوبة الحذرة (Measured Watering):</strong> الحفاظ على رطوبة التربة خفيفة وبدون إغراق، لتفادي تعفن الجذور في مراحل الإنبات الحرجة الأولى.</li>
                     </ol>
 
                     <h4 id="guide-table-title" style="font-family: 'Cairo', sans-serif; font-size: 1.1rem; color: #f76b6b; margin-bottom: 15px;">جدول المراقبة المعرفي ومعدلات النمو المتوقعة:</h4>
@@ -176,25 +189,7 @@
                 </div>
             </div>
 
-            <!-- 3. صفحة الطيور الوطنية (الجديدة كلياً والمهيأة للجوال) -->
-            <div id="birds-content-area" class="page-view-section">
-                <div class="bird-card-box">
-                    <span class="status-badge" id="bird-status">🔴 مهدد بالانقراض بسبب غياب الداتا بيست</span>
-                    <h2 class="section-title" id="bird-title" style="font-size: 2.2rem; margin-bottom: 15px;">البلبل المائي العراقي</h2>
-                    
-                    <!-- حاوية الصورة السريعة لضمان عدم ثقل الموقع على الهاتف -->
-                    <div class="bird-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1555169062-013468b47731?auto=format&fit=crop&w=800&q=70" alt="البلبل المائي" loading="lazy">
-                    </div>
-
-                    <div id="bird-body">
-                        <p class="main-text">"يعدّ البلبل المائي (أبيض الخدين) أحد الرموز البيئية الأثيرة في جغرافيتنا الممتدة؛ حيث ارتبط صوته ببساتين النخيل الكثيفة وضفاف الأنهار الخالدة. لكنه اليوم يواجه تهديداً حقيقياً بالانقراض الصامت وتراجع أعداده بشكل متسارع."</p>
-                        <p class="main-text">"إن الخطر الأكبر الذي يواجه طيورنا الوطنية ليس الجفاف وتجريف البساتين فحسب، بل هو **غياب قاعدة البيانات الرقمية (Database)** الحقيقية لتوثيق وتحليل أعداد وتوزيع هذه الكائنات، مما يجعل رصد تدهورها البيئي معقداً ويفتقر للحلول المؤسساتية المستدامة."</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 4. صفحة المدونة -->
+            <!-- 3. صفحة المدونة -->
             <div id="blog-content-area" class="page-view-section">
                 <div class="blog-item">
                     <h2 class="blog-item-title" id="text-blog-title">البداية الحقيقية: لماذا الألبيزيا والليوكينة؟</h2>
@@ -216,49 +211,60 @@
         function navigateTo(page) {
             document.getElementById('home-content-area').classList.toggle('active', page === 'home');
             document.getElementById('guide-content-area').classList.toggle('active', page === 'guide');
-            document.getElementById('birds-content-area').classList.toggle('active', page === 'birds');
             document.getElementById('blog-content-area').classList.toggle('active', page === 'blog');
             
             document.getElementById('nav-home').classList.toggle('active', page === 'home');
             document.getElementById('nav-guide').classList.toggle('active', page === 'guide');
-            document.getElementById('nav-birds').classList.toggle('active', page === 'birds');
             document.getElementById('nav-blog').classList.toggle('active', page === 'blog');
+
+            // إزالة التمييز البصري للخطوات عند التنقل العادي
+            document.getElementById('step-thermal').classList.remove('highlight-step');
+            document.getElementById('step-mechanical').classList.remove('highlight-step');
+        }
+
+        // دالة تنقل متطورة مخصصة للوصول السريع للأنواع من الخانة المنبثقة
+        function navigateToGuideAndHighlight(type) {
+            navigateTo('guide');
+            const targetId = type === 'thermal' ? 'step-thermal' : 'step-mechanical';
+            const otherId = type === 'thermal' ? 'step-mechanical' : 'step-thermal';
+            
+            document.getElementById(targetId).classList.add('highlight-step');
+            document.getElementById(otherId).classList.remove('highlight-step');
+            
+            // التمرير بسلاسة إلى العنصر المختار
+            document.getElementById(targetId).scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
 
         const languages = {
             ar: {
                 brandTop: "أرْض", brandBottom: "السَّــــــــــــــــــــــــوَاد", 
-                navHome: "الرئيسية", navGuide: "الدليل العلمي", navBirds: "الطيور الوطنية", navBlog: "المدونة",
+                navHome: "الرئيسية", navGuide: "الدليل العلمي", navBlog: "المدونة",
+                subThermal: "Types of Scarification: Thermal", subMechanical: "Types of Scarification: Mechanical",
                 homeTitle: "تنهض رؤيتنا من مفارقة معاصرة", 
-                homeBody: `<p class="main-text">"نلتقي كرابطة رقمية موحدة خلف الشاشات، لكننا نتحرك كإرادات فردية تغير أرض الواقع. إن أزمة المناخ والتصحر التي يعيشها العراق اليوم تفرض علينا كشباب أن نترك عاطفة 'التشجير الموسمي' المحدودة بالمكان والميزانيات، وننتقل فوراً إلى فضاء 'التنمية المستدامة' المبني على خطط علمية حقيقية."</p><p class="main-text">"فبناء المدن الخضراء يحتاج وعياً معرفياً يتجاوز الحلول الترقيعية العابرة ليصبح إرثاً حياً تحتمي به الأجيال القادمة. ومن هنا، تفتح هذه المنصة العلمية الباب لكل أبناء وبنات شعبنا العراقي أينما وجدوا؛ من جبال زاخو في أقصى الشمال إلى شواطئ الفاو في أقصى الجنوب، ومن صحراء الرطبة غرباً إلى مرتفعات بنجوين شرقاً."</p><p class="main-text">"لم يعد بُعد المسافة عائقاً، سنطوي مسافات جغرافيتنا رقمياً لنلتحم في غرس واقعي، ونعيد معاً صياغة الهوية البيئية لأرضنا العراقية الجَمَّاء."</p><p class="main-text highlight">الفكرة علمية.. والتنفيذ بسواعدنا.</p>`,
+                homeBody: `<p class="main-text">"نلتقي كرابطة رقمية موحدة خلف الشاشات، لكننا نتحرك كإرادات فردية تغير أرض الواقع. إن أزمة المناخ والتصحر التي يعيشها العراق اليوم تفرض علينا كشباب أن نترك عاطفة 'التشجير الموسمي' المحدودة بالمكان والميزانيات، وننتقل فوراً إلى فضاء 'التنمية المستدامة' المبني على خطط علمية حقيقية."</p><p class="main-text">"فبناء المدن الخضراء يحتاج وعياً معرفياً يتجاوز الحلول الترقيعية العابرة ليصبح إرثاً حياً تحتمي به الأجيال القادمة. ومن هنا، تفتح هذه المنصة العلمية الباب لكل أبناء وبنات شعبنا العراقي أينما وجدوا؛ من جبال زاخو في أقصى الشمال إلى شواطئ الفاو في أقصى الجنوب، ومن صحراء الرطبة غرباً إلى مرتفعات بنجوين شرقاً."</p><p class="main-text">"لم يعد بُعد المسافة عائقاً، سنطوي مسافات جغرافيتنا رقمياً لنلتحم in غرس واقعي، ونعيد معاً صياغة الهوية البيئية لأرضنا العراقية الجَمَّاء."</p><p class="main-text highlight">الفكرة علمية.. والتنفيذ بسواعدنا.</p>`,
                 guideMainTitle: "دليل الإنبات العلمي (Scarification Guide)", 
                 guideMainDesc: "كيف ننتقل من العاطفة العابرة إلى المعرفة الاستراتيجية لرفع نسب نجاح البذور القاسية؟",
-                guideSteps: `<li><strong>١. التخديد المائي (Thermal Scarification):</strong> بذور الألبيزيا والليوكينة تمتلك غلافاً شمعياً سميكاً يمنع دخول الماء. يُنصح بنقع البذور في ماء ساخن (وليس مغلي) لمدة ١٢-٢٤ ساعة حتى تتفتح وتنتفخ وتصبح جاهزة للزراعة.</li><li><strong>٢. التخديد الميكانيكي (Mechanical Scarification):</strong> كبديل سريع ومثالي للمجموعات الصغيرة، يمكن خدش أو كشط طرف الغلاف الخارجي الصلب للبذرة برفق باستخدام مقص أظافر أو ورق سنفرة (دون مساس الجنين الداخلي) للسماح بنفاذ الماء الفوري وسرعة الإنبات.</li><li><strong>٣. عمق الغرس العلمي:</strong> تُزرع البذور المعالجة على عمق سطحي حذر لا يتجاوز ١ إلى ٢ سم في تربة جيدة التصريف لتأمين الأكسجين الكافي للنمو.</li><li><strong>٤. مراقبة الرطوبة الحذرة:</strong> الحفاظ على رطوبة التربة خفيفة وبدون إغراق، لتفادي تعفن الجذور في مراحل الإنبات الحرجة الأولى.</li>`,
+                guideSteps: `<li id="step-thermal"><strong>١. التخديد المائي (Thermal Scarification):</strong> بذور الألبيزيا والليوكينة تمتلك غلافاً شمعياً سميكاً يمنع دخول الماء. يُنصح بنقع البذور في ماء ساخن (وليس مغلي) لمدة ١٢-٢٤ ساعة حتى تتفتح وتنتفخ وتصبح جاهزة للزراعة.</li><li id="step-mechanical"><strong>٢. التخديد الميكانيكي (Mechanical Scarification):</strong> كبديل سريع ومثالي للمجموعات الصغيرة، يمكن خدش أو كشط طرف الغلاف الخارجي الصلب للبذرة برفق باستخدام مقص أظافر أو ورق سنفرة (دون مساس الجنين الداخلي) للسماح بنفاذ الماء الفوري وسرعة الإنبات.</li><li id="step-depth"><strong>٣. عمق الغرس العلمي (Systematic Depth):</strong> تُزرع البذور المعالجة على عمق سطحي حذر لا يتجاوز ١ إلى ٢ سم في تربة جيدة التصريف لتأمين الأكسجين الكافي للنمو.</li><li id="step-watering"><strong>٤. مراقبة الرطوبة الحذرة (Measured Watering):</strong> الحفاظ على رطوبة التربة خفيفة وبدون إغراق، لتفادي تعفن الجذور في مراحل الإنبات الحرجة الأولى.</li>`,
                 guideTableTitle: "جدول المراقبة المعرفي ومعدلات النمو المتوقعة:",
                 thPeriod: "المرحلة الزمنية", thAlbizia: "معدل نمو الألبيزيا المتوقع", thLeucaena: "معدل نمو الليوكينة المتوقع",
                 tdW1: "الأسبوع الأول", tdA1: "بروز الجذير وانشقاق التربة (٢-٤ سم)", tdL1: "ظهور الأوراق الفلقية الأولى (٣-٥ سم)",
                 tdW2: "الأسبوع الثاني", tdA2: "ظهور الأوراق الريشية المركبة (٦-١٠ سم)", tdL2: "استطالة الساق وزيادة التفرع (٨-١٤ سم)",
-                birdStatus: "🔴 مهدد بالانقراض بسبب غياب الداتا بيست",
-                birdTitle: "البلبل المائي العراقي",
-                birdBody: `<p class="main-text">"يعدّ البلبل المائي (أبيض الخدين) أحد الرموز البيئية الأثيرة في جغرافيتنا الممتدة؛ حيث ارتبط صوته ببساتين النخيل الكثيفة وضفاف الأنهار الخالدة. لكنه اليوم يواجه تهديداً حقيقياً بالانقراض الصامت وتراجع أعداده بشكل متسارع."</p><p class="main-text">"إن الخطر الأكبر الذي يواجه طيورنا الوطنية ليس الجفاف وتجريف البساتين فحسب، بل هو **غياب قاعدة البيانات الرقمية (Database)** الحقيقية لتوثيق وتحليل أعداد وتوزيع هذه الكائنات، مما يجعل رصد تدهورها البيئي معقداً ويفتقر للحلول المؤسساتية المستدامة."</p>`,
                 blogTitle: "البداية الحقيقية: لماذا الألبيزيا والليوكينة؟", blogBody: "تعتبر أشجار الألبيزيا والليوكينة خيارات استراتيجية لمواجهة التغير المناخي في بيئتنا المحلية؛ نظراً لقدرتها الفائقة على تحمل درجات الحرارة المرتفعة، ومقاومة الجفاف، بالإضافة إلى دورها الحيوي في تثبيت النيتروجين في التربة وتحسين خصوبتها، مما يجعلها حجر الأساس في مشروعنا للتحول من التشجير المؤقت إلى الاستدامة الدائمة.",
                 telegramBtn: "الانضمام إلى القناة الرسمية في تليغرام ←", footer: "جميع الحقوق محفوظة © أرض السَّواد ٢٠٢٦"
             },
             en: {
                 brandTop: "Land of", brandBottom: "Al-Sawad", 
-                navHome: "Home", navGuide: "Scientific Guide", navBirds: "National Birds", navBlog: "Blog",
+                navHome: "Home", navGuide: "Scientific Guide", navBlog: "Blog",
+                subThermal: "Types of Scarification: Thermal", subMechanical: "Types of Scarification: Mechanical",
                 homeTitle: "Our Vision", 
                 homeBody: `<p class="main-text">"We meet as a unified digital alliance behind screens, but we move as individual wills that transform reality on the ground. Today's climate and desertification crisis in Iraq compels us as youth to abandon 'seasonal afforestation'—limited by geography and budgets—and transition immediately into 'sustainable development' built on true scientific blueprints."</p><p class="main-text">"Building green cities demands a cognitive awareness that outlasts temporary patchworks to become a living legacy sheltering future generations. Hence, this scientific platform opens its doors to all Iraqis wherever they are; from the mountains of Zakho in the far north to the shores of Faw in the far south, and from the Rutba desert in the west to the Penjwen heights in the east."</p><p class="main-text">"Distance is no longer an obstacle; we will bridge our geography digitally to unite in a physical planting movement, reshaping together the ecological identity of our beautiful land of Iraq."</p><p class="main-text highlight">The idea is scientific.. and execution is by our hands.</p>`,
                 guideMainTitle: "Scarification & Growth Guide", 
                 guideMainDesc: "How do we move from passing sentiment into structural blueprints to secure high seed-germination rates?",
-                guideSteps: `<li><strong>1. Thermal Scarification:</strong> Albizia and Leucaena seeds possess a thick, waxy coat. Soak seeds in hot (not boiling) water for 12–24 hours until they visibly swell and become ready for planting.</li><li><strong>2. Mechanical Scarification:</strong> As a quick alternative for small batches, gently nick or file the outer seed coat using nail clippers or sandpaper (without damaging the inner embryo) to allow immediate water penetration.</li><li><strong>3. Systematic Depth:</strong> Plant treated seeds at a shallow depth of 1 to 2 cm maximum in well-drained soil to secure adequate embryonic oxygen.</li><li><strong>4. Measured Watering:</strong> Keep soil moisture consistent but light, preventing root rot during critical initial sprout stages.</li>`,
+                guideSteps: `<li id="step-thermal"><strong>1. Thermal Scarification:</strong> Albizia and Leucaena seeds possess a thick, waxy coat. Soak seeds in hot (not boiling) water for 12–24 hours until they visibly swell and become ready for planting.</li><li id="step-mechanical"><strong>2. Mechanical Scarification:</strong> As a quick alternative for small batches, gently nick or file the outer seed coat using nail clippers or sandpaper (without damaging the inner embryo) to allow immediate water penetration.</li><li id="step-depth"><strong>3. Systematic Depth:</strong> Plant treated seeds at a shallow depth of 1 to 2 cm maximum in well-drained soil to secure adequate embryonic oxygen.</li><li id="step-watering"><strong>4. Measured Watering:</strong> Keep soil moisture consistent but light, preventing root rot during critical initial sprout stages.</li>`,
                 guideTableTitle: "Scientific Tracking Matrix & Expected Growth Rates:",
                 thPeriod: "Timeframe", thAlbizia: "Expected Albizia Growth", thLeucaena: "Expected Leucaena Growth",
                 tdW1: "Week 1", tdA1: "Radicle emergence and soil cracking (2-4 cm)", tdL1: "First cotyledon leaf display (3-5 cm)",
                 tdW2: "Week 2", tdA2: "Compound pinnate leaf formation (6-10 cm)", tdL2: "Stem elongation and active branching (8-14 cm)",
-                birdStatus: "🔴 Endangered due to lack of Database",
-                birdTitle: "The Iraqi White-eared Bulbul",
-                birdBody: `<p class="main-text">"The White-eared Bulbul is an invaluable ecological symbol in our geography, historically linked with dense palm orchards and immortal riverbanks. Today, however, it faces a real threat of silent extinction."</p><p class="main-text">"The greatest danger menacing our national birds is not merely habitat loss, but the **complete absence of a digital database** to log and evaluate their population trends. This leaves critical conservation efforts without vital baseline structure."</p>`,
                 blogTitle: "The True Beginning: Why Albizia and Leucaena?", blogBody: "Albizia and Leucaena trees represent strategic choices to combat climate change in our local environment due to their remarkable ability to endure high temperatures, resist drought, and fix nitrogen in the soil, enhancing its fertility. This makes them the cornerstone of our transition from temporary greening to permanent sustainability.",
                 telegramBtn: "Join the Official Telegram Channel →", footer: "All Rights Reserved © Ard Al-Sawad 2026"
             }
@@ -276,9 +282,11 @@
             document.getElementById('text-brand').querySelector('.line-bottom').innerText = data.brandBottom;
             document.getElementById('nav-home').innerText = data.navHome;
             document.getElementById('nav-guide').innerText = data.navGuide;
-            document.getElementById('nav-birds').innerText = data.navBirds;
             document.getElementById('nav-blog').innerText = data.navBlog;
             
+            document.getElementById('sub-thermal').innerText = data.subThermal;
+            document.getElementById('sub-mechanical').innerText = data.subMechanical;
+
             document.getElementById('text-home-title').innerText = data.homeTitle;
             document.getElementById('text-home-body').innerHTML = data.homeBody;
             
@@ -295,10 +303,6 @@
             document.getElementById('td-w2').innerText = data.tdW2;
             document.getElementById('td-a2').innerText = data.tdA2;
             document.getElementById('td-l2').innerText = data.tdL2;
-
-            document.getElementById('bird-status').innerText = data.birdStatus;
-            document.getElementById('bird-title').innerText = data.birdTitle;
-            document.getElementById('bird-body').innerHTML = data.birdBody;
 
             document.getElementById('text-blog-title').innerText = data.blogTitle;
             document.getElementById('text-blog-date').innerText = currentLang === 'ar' ? "١٨ حزيران، ٢٠٢٦" : "June 18, 2026";
