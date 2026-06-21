@@ -25,7 +25,7 @@
         body.lang-en .brand-name .line-bottom { font-size: 1.6rem; font-weight: 800; }
         
         .header-controls { display: flex; align-items: center; gap: 25px; flex-wrap: wrap; }
-        .nav-menu { display: flex; gap: 20px; flex-wrap: wrap; }
+        .nav-menu { display: flex; gap: 20px; }
         .nav-link { cursor: pointer; font-size: 1.2rem; padding-bottom: 4px; white-space: nowrap; }
         .nav-link.active { font-weight: 700; border-bottom: 2px solid #000; }
 
@@ -49,21 +49,19 @@
         .blog-item-title { color: #f76b6b; font-size: 2.5rem; margin-bottom: 10px; line-height: 1.2; }
         .blog-item-date { color: #888; text-decoration: underline; display: block; margin-bottom: 20px; }
 
-        /* ميزة كارت الطيور الوطنية المحسنة للجوال */
-        .bird-card-box { border: 1px solid #333; background: #222; border-radius: 16px; padding: 35px; margin-top: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
-        .bird-image-wrapper { width: 100%; max-height: 400px; overflow: hidden; border-radius: 12px; margin-bottom: 25px; border: 1px solid #444; background-color: #151515; }
-        .bird-image-wrapper img { width: 100%; height: auto; object-fit: cover; display: block; filter: grayscale(20%) contrast(110%); }
-        .status-badge { display: inline-block; padding: 6px 14px; background-color: #f76b6b; color: #1a1a1a; font-family: 'Cairo', sans-serif; font-size: 0.9rem; font-weight: 700; border-radius: 4px; margin-bottom: 15px; }
-
+        .telegram-action { margin-top: 60px; }
+        .telegram-link-btn { display: inline-block; padding: 12px 35px; border: 2px solid #f76b6b; color: #f76b6b; text-decoration: none; font-size: 1.3rem; font-weight: 700; text-align: center; max-width: 100%; transition: all 0.3s ease; }
+        .telegram-link-btn:hover { background-color: #f76b6b; color: #1a1a1a; }
+        
         /* ميزة دليل الإنبات العلمي المتجاوبة */
         .growth-guide-box { border: 1px solid #333; background: #222; border-radius: 16px; padding: 35px; margin-top: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
         .guide-steps-ol { margin: 25px 20px 35px 20px; font-size: 1.25rem; line-height: 1.9; }
         .guide-steps-ol li { margin-bottom: 15px; color: #e5e7eb; }
         .guide-steps-ol strong { color: #f76b6b; font-family: 'Cairo', sans-serif; font-size: 1.1rem; }
         
-        /* حاوية مرنة تمنع الجدول من كسر الشاشة على الجوال */
+        /* حاوية مرنة تمنع الجدول من كسر الشاشة على الجوال وتسمح بالتمرير الأفقي */
         .table-responsive-container { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; margin-top: 20px; border-radius: 8px; }
-        .growth-table { width: 100%; border-collapse: collapse; font-family: 'Cairo', sans-serif; font-size: 0.95rem; background: #151515; min-width: 550px; }
+        .growth-table { width: 100%; border-collapse: collapse; font-family: 'Cairo', sans-serif; font-size: 0.95rem; background: #151515; min-width: 550px; /* تضمن احتفاظ الجدول بهيبته المعرفية أثناء التمرير على الأجهزة الصغيرة */ }
         .growth-table th, .growth-table td { padding: 14px 18px; text-align: right; border-bottom: 1px solid #2d2d2d; }
         body.lang-en .growth-table th, body.lang-en .growth-table td { text-align: left; }
         .growth-table th { background: #2c2c2c; color: #f76b6b; }
@@ -76,11 +74,11 @@
         @media (max-width: 768px) {
             .site-header { padding: 25px 15px; flex-direction: column; align-items: center; text-align: center; }
             .brand-name { align-items: center; }
-            .brand-name .line-bottom { font-size: 1.8rem; letter-spacing: -1px; }
+            .brand-name .line-bottom { font-size: 1.8rem; letter-spacing: -1px; } /* منع كسر السطر الممتد */
             
             .header-controls { flex-direction: column; gap: 15px; width: 100%; justify-content: center; }
-            .nav-menu { justify-content: center; width: 100%; gap: 12px; }
-            .nav-link { font-size: 1.05rem; }
+            .nav-menu { justify-content: center; width: 100%; gap: 15px; }
+            .nav-link { font-size: 1.1rem; }
 
             .dark-content-section { padding: 40px 15px; }
             .section-title { font-size: 2.2rem; margin-bottom: 25px; }
@@ -90,9 +88,11 @@
             .main-text { font-size: 1.2rem; line-height: 1.8; text-align: justify; margin-bottom: 20px; }
             body.lang-en .main-text { text-align: left; }
 
-            .growth-guide-box, .bird-card-box { padding: 20px 15px; border-radius: 12px; }
+            .growth-guide-box { padding: 20px 15px; border-radius: 12px; }
             .guide-steps-ol { margin: 15px 15px 25px 15px; font-size: 1.1rem; }
-            .bird-image-wrapper { max-height: 250px; margin-bottom: 15px; }
+            
+            .telegram-action { margin-top: 40px; text-align: center; }
+            .telegram-link-btn { width: 100%; padding: 12px 20px; font-size: 1.1rem; }
         }
     </style>
 </head>
@@ -107,7 +107,6 @@
             <nav class="nav-menu">
                 <span class="nav-link active" id="nav-home" onclick="navigateTo('home')">الرئيسية</span>
                 <span class="nav-link" id="nav-guide" onclick="navigateTo('guide')">الدليل العلمي</span>
-                <span class="nav-link" id="nav-birds" onclick="navigateTo('birds')">الطيور الوطنية</span>
                 <span class="nav-link" id="nav-blog" onclick="navigateTo('blog')">المدونة</span>
             </nav>
             <button class="lang-switch-btn" id="lang-toggle-btn" onclick="toggleLanguage()">English</button>
@@ -123,12 +122,12 @@
                 <div id="text-home-body">
                     <p class="main-text">"نلتقي كرابطة رقمية موحدة خلف الشاشات، لكننا نتحرك كإرادات فردية تغير أرض الواقع. إن أزمة المناخ والتصحر التي يعيشها العراق اليوم تفرض علينا كشباب أن نترك عاطفة 'التشجير الموسمي' المحدودة بالمكان والميزانيات، وننتقل فوراً إلى فضاء 'التنمية المستدامة' المبني على خطط علمية حقيقية."</p>
                     <p class="main-text">"فبناء المدن الخضراء يحتاج وعياً معرفياً يتجاوز الحلول الترقيعية العابرة ليصبح إرثاً حياً تحتمي به الأجيال القادمة. ومن هنا، تفتح هذه المنصة العلمية الباب لكل أبناء وبنات شعبنا العراقي أينما وجدوا؛ من جبال زاخو في أقصى الشمال إلى شواطئ الفاو في أقصى الجنوب، ومن صحراء الرطبة غرباً إلى مرتفعات بنجوين شرقاً."</p>
-                    <p class="main-text">"لم يعد بُعد المسافة عائقاً، سنطوي مسافات جغرافيتنا رقمياً لنلتحم in غرس واقعي، ونعيد معاً صياغة الهوية البيئية لأرضنا العراقية الجَمَّاء."</p>
+                    <p class="main-text">"لم يعد بُعد المسافة عائقاً، سنطوي مسافات جغرافيتنا رقمياً لنلتحم في غرس واقعي، ونعيد معاً صياغة الهوية البيئية لأرضنا العراقية الجَمَّاء."</p>
                     <p class="main-text highlight">الفكرة علمية.. والتنفيذ بسواعدنا.</p>
                 </div>
             </div>
 
-            <!-- 2. صفحة الدليل العلمي -->
+            <!-- 2. صفحة الدليل العلمي المستقلة -->
             <div id="guide-content-area" class="page-view-section">
                 <div class="growth-guide-box">
                     <h2 class="section-title" id="guide-main-title" style="font-size: 2rem; margin-bottom: 10px;">دليل الإنبات العلمي (Scarification Guide)</h2>
@@ -142,6 +141,7 @@
 
                     <h4 id="guide-table-title" style="font-family: 'Cairo', sans-serif; font-size: 1.1rem; color: #f76b6b; margin-bottom: 15px;">جدول المراقبة المعرفي ومعدلات النمو المتوقعة:</h4>
                     
+                    <!-- الحاوية الجديدة لضمان تكيّف الجدول مع الموبايل -->
                     <div class="table-responsive-container">
                         <table class="growth-table">
                             <thead>
@@ -168,25 +168,7 @@
                 </div>
             </div>
 
-            <!-- 3. صفحة الطيور الوطنية (الجديدة بالكامل ومتجاوبة) -->
-            <div id="birds-content-area" class="page-view-section">
-                <div class="bird-card-box">
-                    <span class="status-badge" id="bird-status">🔴 مهدد بالانقراض بسبب غياب الداتا بيست</span>
-                    <h2 class="section-title" id="bird-title" style="font-size: 2.2rem; margin-bottom: 15px;">البلبل المائي العراقي</h2>
-                    
-                    <!-- حاوية الصورة الخفيفة والمحسنة للإنترنت السريع دون ثقل -->
-                    <div class="bird-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1555169062-013468b47731?auto=format&fit=crop&w=800&q=70" alt="البلبل المائي" loading="lazy">
-                    </div>
-
-                    <div id="bird-body">
-                        <p class="main-text">"يعدّ البلبل المائي (أبيض الخدين) أحد الرموز البيئية الأثيرة في جغرافيتنا الممتدة؛ حيث ارتبط صوته ببساتين النخيل الكثيفة وضفاف الأنهار الخالدة. لكنه اليوم يواجه تهديداً حقيقياً بالانقراض الصامت وتراجع أعداده بشكل متسارع."</p>
-                        <p class="main-text">"إن الخطر الأكبر الذي يواجه طيورنا الوطنية ليس الجفاف وتجريف البساتين فحسب، بل هو **غياب قاعدة البيانات الرقمية (Database)** الحقيقية لتوثيق وتحليل أعداد وتوزيع هذه الكائنات، مما يجعل رصد تدهورها البيئي معقداً ويفتقر للحلول المؤسساتية المستدامة."</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 4. صفحة المدونة -->
+            <!-- 3. صفحة المدونة -->
             <div id="blog-content-area" class="page-view-section">
                 <div class="blog-item">
                     <h2 class="blog-item-title" id="text-blog-title">البداية الحقيقية: لماذا الألبيزيا والليوكينة؟</h2>
@@ -208,19 +190,17 @@
         function navigateTo(page) {
             document.getElementById('home-content-area').classList.toggle('active', page === 'home');
             document.getElementById('guide-content-area').classList.toggle('active', page === 'guide');
-            document.getElementById('birds-content-area').classList.toggle('active', page === 'birds');
             document.getElementById('blog-content-area').classList.toggle('active', page === 'blog');
             
             document.getElementById('nav-home').classList.toggle('active', page === 'home');
             document.getElementById('nav-guide').classList.toggle('active', page === 'guide');
-            document.getElementById('nav-birds').classList.toggle('active', page === 'birds');
             document.getElementById('nav-blog').classList.toggle('active', page === 'blog');
         }
 
         const languages = {
             ar: {
                 brandTop: "أرْض", brandBottom: "السَّــــــــــــــــــــــــوَاد", 
-                navHome: "الرئيسية", navGuide: "الدليل العلمي", navBirds: "الطيور الوطنية", navBlog: "المدونة",
+                navHome: "الرئيسية", navGuide: "الدليل العلمي", navBlog: "المدونة",
                 homeTitle: "تنهض رؤيتنا من مفارقة معاصرة", 
                 homeBody: `<p class="main-text">"نلتقي كرابطة رقمية موحدة خلف الشاشات، لكننا نتحرك كإرادات فردية تغير أرض الواقع. إن أزمة المناخ والتصحر التي يعيشها العراق اليوم تفرض علينا كشباب أن نترك عاطفة 'التشجير الموسمي' المحدودة بالمكان والميزانيات، وننتقل فوراً إلى فضاء 'التنمية المستدامة' المبني على خطط علمية حقيقية."</p><p class="main-text">"فبناء المدن الخضراء يحتاج وعياً معرفياً يتجاوز الحلول الترقيعية العابرة ليصبح إرثاً حياً تحتمي به الأجيال القادمة. ومن هنا، تفتح هذه المنصة العلمية الباب لكل أبناء وبنات شعبنا العراقي أينما وجدوا؛ من جبال زاخو في أقصى الشمال إلى شواطئ الفاو في أقصى الجنوب، ومن صحراء الرطبة غرباً إلى مرتفعات بنجوين شرقاً."</p><p class="main-text">"لم يعد بُعد المسافة عائقاً، سنطوي مسافات جغرافيتنا رقمياً لنلتحم في غرس واقعي، ونعيد معاً صياغة الهوية البيئية لأرضنا العراقية الجَمَّاء."</p><p class="main-text highlight">الفكرة علمية.. والتنفيذ بسواعدنا.</p>`,
                 guideMainTitle: "دليل الإنبات العلمي (Scarification Guide)", 
@@ -230,15 +210,12 @@
                 thPeriod: "المرحلة الزمنية", thAlbizia: "معدل نمو الألبيزيا المتوقع", thLeucaena: "معدل نمو الليوكينة المتوقع",
                 tdW1: "الأسبوع الأول", tdA1: "بروز الجذير وانشقاق التربة (٢-٤ سم)", tdL1: "ظهور الأوراق الفلقية الأولى (٣-٥ سم)",
                 tdW2: "الأسبوع الثاني", tdA2: "ظهور الأوراق الريشية المركبة (٦-١٠ سم)", tdL2: "استطالة الساق وزيادة التفرع (٨-١٤ سم)",
-                birdStatus: "🔴 مهدد بالانقراض بسبب غياب الداتا بيست",
-                birdTitle: "البلبل المائي العراقي",
-                birdBody: `<p class="main-text">"يعدّ البلبل المائي (أبيض الخدين) أحد الرموز البيئية الأثيرة في جغرافيتنا الممتدة؛ حيث ارتبط صوته ببساتين النخيل الكثيفة وضفاف الأنهار الخالدة. لكنه اليوم يواجه تهديداً حقيقياً بالانقراض الصامت وتراجع أعداده بشكل متسارع."</p><p class="main-text">"إن الخطر الأكبر الذي يواجه طيورنا الوطنية ليس الجفاف وتجريف البساتين فحسب، بل هو **غياب قاعدة البيانات الرقمية (Database)** الحقيقية لتوثيق وتحليل أعداد وتوزيع هذه الكائنات، مما يجعل رصد تدهورها البيئي معقداً ويفتقر للحلول المؤسساتية المستدامة."</p>`,
-                blogTitle: "البداية الحقيقية: لماذا الألبيزيا والليوكينة؟", blogBody: "تعتبر أشجار الألبيزيا والليوكينة خيارات استراتيجية لمواجهة التغير المناخي في بيئتنا المحلية؛ نظراً لقدرتها الفائقة على تحمل درجات الحرارة المرتفعة، ومقاومة الجفاف، بالإضافة إلى دورها الحيوي في تثبيت النيتروجين في التربة وتحسين خصوبتها، مما يجعلها حجر الأساس في مشروعنا للتحول من التشجير المؤقت إلى الاستدامة الدائمة.",
+                blogTitle: "البداية الحقيقية: لماذا الألبيزيا والليوكينة؟", blogBody: "تعتبر أشجار الألبيزيا والليوكينة خيارات استراتيجية لمواجهة التغير المناخي في بيئتنا المحلية؛ نظراً لقدرتها الفائقة على تحمل درجات الحرارة المرتفعة, ومقاومة الجفاف، بالإضافة إلى دورها الحيوي في تثبيت النيتروجين في التربة وتحسين خصوبتها، مما يجعلها حجر الأساس في مشروعنا للتحول من التشجير المؤقت إلى الاستدامة الدائمة.",
                 telegramBtn: "الانضمام إلى القناة الرسمية في تليغرام ←", footer: "جميع الحقوق محفوظة © أرض السَّواد ٢٠٢٦"
             },
             en: {
                 brandTop: "Land of", brandBottom: "Al-Sawad", 
-                navHome: "Home", navGuide: "Scientific Guide", navBirds: "National Birds", navBlog: "Blog",
+                navHome: "Home", navGuide: "Scientific Guide", navBlog: "Blog",
                 homeTitle: "Our Vision", 
                 homeBody: `<p class="main-text">"We meet as a unified digital alliance behind screens, but we move as individual wills that transform reality on the ground. Today's climate and desertification crisis in Iraq compels us as youth to abandon 'seasonal afforestation'—limited by geography and budgets—and transition immediately into 'sustainable development' built on true scientific blueprints."</p><p class="main-text">"Building green cities demands a cognitive awareness that outlasts temporary patchworks to become a living legacy sheltering future generations. Hence, this scientific platform opens its doors to all Iraqis wherever they are; from the mountains of Zakho in the far north to the shores of Faw in the far south, and from the Rutba desert in the west to the Penjwen heights in the east."</p><p class="main-text">"Distance is no longer an obstacle; we will bridge our geography digitally to unite in a physical planting movement, reshaping together the ecological identity of our beautiful land of Iraq."</p><p class="main-text highlight">The idea is scientific.. and execution is by our hands.</p>`,
                 guideMainTitle: "Scarification & Growth Guide", 
@@ -248,9 +225,6 @@
                 thPeriod: "Timeframe", thAlbizia: "Expected Albizia Growth", thLeucaena: "Expected Leucaena Growth",
                 tdW1: "Week 1", tdA1: "Radicle emergence and soil cracking (2-4 cm)", tdL1: "First cotyledon leaf display (3-5 cm)",
                 tdW2: "Week 2", tdA2: "Compound pinnate leaf formation (6-10 cm)", tdL2: "Stem elongation and active branching (8-14 cm)",
-                birdStatus: "🔴 Endangered due to lack of Database",
-                birdTitle: "The Iraqi White-eared Bulbul",
-                birdBody: `<p class="main-text">"The White-eared Bulbul is an invaluable ecological symbol in our geography, historically linked with dense palm orchards and immortal riverbanks. Today, however, it faces a real threat of silent extinction."</p><p class="main-text">"The greatest danger menacing our national birds is not merely habitat loss, but the **complete absence of a digital database** to log and evaluate their population trends. This leaves critical conservation efforts without vital baseline structure."</p>`,
                 blogTitle: "The True Beginning: Why Albizia and Leucaena?", blogBody: "Albizia and Leucaena trees represent strategic choices to combat climate change in our local environment due to their remarkable ability to endure high temperatures, resist drought, and fix nitrogen in the soil, enhancing its fertility. This makes them the cornerstone of our transition from temporary greening to permanent sustainability.",
                 telegramBtn: "Join the Official Telegram Channel →", footer: "All Rights Reserved © Ard Al-Sawad 2026"
             }
@@ -268,7 +242,6 @@
             document.getElementById('text-brand').querySelector('.line-bottom').innerText = data.brandBottom;
             document.getElementById('nav-home').innerText = data.navHome;
             document.getElementById('nav-guide').innerText = data.navGuide;
-            document.getElementById('nav-birds').innerText = data.navBirds;
             document.getElementById('nav-blog').innerText = data.navBlog;
             
             document.getElementById('text-home-title').innerText = data.homeTitle;
@@ -287,10 +260,6 @@
             document.getElementById('td-w2').innerText = data.tdW2;
             document.getElementById('td-a2').innerText = data.tdA2;
             document.getElementById('td-l2').innerText = data.tdL2;
-
-            document.getElementById('bird-status').innerText = data.birdStatus;
-            document.getElementById('bird-title').innerText = data.birdTitle;
-            document.getElementById('bird-body').innerHTML = data.birdBody;
 
             document.getElementById('text-blog-title').innerText = data.blogTitle;
             document.getElementById('text-blog-date').innerText = currentLang === 'ar' ? "١٨ حزيران، ٢٠٢٦" : "June 18, 2026";
