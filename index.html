@@ -50,7 +50,7 @@
         body.lang-en .main-text { font-family: system-ui, sans-serif; font-size: 1.15rem; text-align: left; }
         .main-text.highlight { color: #ff4d4d; font-weight: 700; text-align: center; margin-bottom: 40px; }
 
-        /* كرت صندوق البلبل - الخلفية الهندسية التحذيرية */
+        /* كرت صندوق البلبل العراقي المحدث هندسياً */
         .bulbul-card { 
             background: #222; 
             border: 1px solid #333; 
@@ -62,19 +62,19 @@
             position: relative;
             overflow: hidden;
         }
-        /* خلفية هندسية مخططة خفيفة تعبر عن الخطر */
+        /* خلفية هندسية مائلة مدمجة بخفّة للتعبير البصري عن التنبيه والخطر */
         .bulbul-card::before {
             content: "";
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255, 77, 77, 0.03) 10px, rgba(255, 77, 77, 0.03) 20px);
+            background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255, 77, 77, 0.03) 10px, rgba(255, 77, 77, 0.02) 20px);
             pointer-events: none;
         }
-        .bulbul-card:hover { border-color: #ff4d4d; box-shadow: 0 0 30px rgba(255, 77, 77, 0.3); transform: translateY(-2px); }
+        .bulbul-card:hover { border-color: #ff4d4d; box-shadow: 0 0 30px rgba(255, 77, 77, 0.25); transform: translateY(-2px); }
         
         .alert-badge { display: inline-block; background: rgba(255, 77, 77, 0.1); color: #ff4d4d; padding: 4px 14px; border-radius: 50px; font-family: 'Cairo', sans-serif; font-size: 0.9rem; font-weight: 700; margin-bottom: 20px; border: 1px solid rgba(255, 77, 77, 0.2); position: relative; z-index: 2; }
         
-        /* لمسة هندسية تحذيرية حول غلاف الصورة */
+        /* إطار هندسي متقطع ومميز حول غلاف الصورة الشخصية */
         .bulbul-img-wrapper { 
             display: inline-block; 
             margin-bottom: 25px; 
@@ -85,19 +85,19 @@
             background: rgba(255, 77, 77, 0.02);
             position: relative;
         }
-        /* علامة خطر هندسية خلف الصورة تظهر كرمز مائي هندسي */
+        /* علامة خطر هندسية شفافة خلف الصورة كعلامة مائية مدمجة */
         .bulbul-img-wrapper::after {
             content: "⚠️";
             position: absolute;
             font-size: 5rem;
-            opacity: 0.15;
+            opacity: 0.12;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: 1;
             pointer-events: none;
         }
-        .bulbul-img-wrapper img { max-width: 100%; width: 320px; height: auto; display: block; border-radius: 6px; position: relative; z-index: 2; }
+        .bulbul-img-wrapper img { max-width: 100%; width: 340px; height: auto; display: block; border-radius: 6px; position: relative; z-index: 2; }
 
         /* بيئة شبكة الأهداف الموسمية تحت النص */
         .goals-grid { display: grid; grid-template-columns: 1fr; gap: 25px; margin: 50px 0 20px 0; }
@@ -116,11 +116,10 @@
             position: relative;
         }
         
-        /* تأثير التوهج الأحمر عند تحريك الماوس */
         .goal-container:hover {
             border-color: #ff4d4d;
             background: #252020;
-            box-shadow: 0 0 25px rgba(255, 77, 77, 0.2);
+            box-shadow: 0 0 25px rgba(255, 77, 77, 0.18);
             transform: translateY(-2px);
         }
 
@@ -136,7 +135,6 @@
         .circle-bg { fill: none; stroke: #2a2a2a; stroke-width: 8; }
         .circle-progress { fill: none; stroke: #ff4d4d; stroke-width: 8; stroke-linecap: round; transition: stroke-dashoffset 1s ease-in-out; opacity: 0.4; }
         
-        /* توهج الدائرة عند الحوم */
         .goal-container:hover .circle-progress {
             filter: drop-shadow(0 0 4px #ff4d4d);
             opacity: 1;
@@ -218,8 +216,8 @@
         </div>
         <div class="header-controls">
             <nav class="nav-menu">
-                <span class="nav-link active" id="nav-home" onclick="navigateTo('home')">الرئيسية</span>
-                <span class="nav-link" id="nav-birds" onclick="navigateTo('birds')">طيورنا الوطنية</span>
+                <span class="nav-link" id="nav-home" onclick="navigateTo('home')">الرئيسية</span>
+                <span class="nav-link active" id="nav-birds" onclick="navigateTo('birds')">طيورنا الوطنية</span>
                 
                 <div class="dropdown">
                     <span class="nav-link" id="nav-guide" onclick="navigateTo('guide')">الدليل العلمي</span>
@@ -238,8 +236,7 @@
     <main class="dark-content-section">
         <div class="content-container">
             
-            <!-- 1. الصفحة الرئيسية -->
-            <div id="home-content-area" class="page-view-section active">
+            <div id="home-content-area" class="page-view-section">
                 <h1 class="section-title" id="text-home-title">تنهض رؤيتنا من مفارقة معاصرة</h1>
                 
                 <div id="text-home-body">
@@ -289,15 +286,13 @@
                 </div>
             </div>
 
-            <!-- 2. صفحة طيورنا الوطنية (المحدثة بالكامل) -->
-            <div id="birds-content-area" class="page-view-section">
-                <h1 class="section-title" id="text-birds-title" style="color: #ff4d4d;">رحيل الألحان: حين تصمت بساتيننا</h1>
+            <div id="birds-content-area" class="page-view-section active">
+                <h1 class="section-title" id="text-birds-title">رحيل الألحان: حين تصمت بساتيننا</h1>
                 <div class="bulbul-card">
                     <span class="alert-badge" id="text-bulbul-badge">⚠️ مهدد بخطر الانقراض</span>
                     
-                    <!-- الإطار الهندسي التحذيري المحيط بالصورة المحلية -->
                     <div class="bulbul-img-wrapper">
-                        <img id="img-bulbul" src="my-bulbul.jpg" alt="البلبل العراقي">
+                        <img id="img-bulbul" src="Gemini_Generated_Image_ssiilissiilissii.jpg" alt="البلبل العراقي المائي">
                     </div>
                     
                     <div id="text-birds-body">
@@ -307,7 +302,6 @@
                 </div>
             </div>
 
-            <!-- 3. صفحة الدليل العلمي -->
             <div id="guide-content-area" class="page-view-section">
                 <div class="growth-guide-box">
                     <h2 class="section-title" id="guide-main-title" style="font-size: 2rem; margin-bottom: 10px;">دليل الإنبات العلمي (Scarification Guide)</h2>
@@ -348,7 +342,6 @@
                 </div>
             </div>
 
-            <!-- 4. صفحة المدونة -->
             <div id="blog-content-area" class="page-view-section">
                 <div class="blog-item">
                     <h2 class="blog-item-title" id="text-blog-title">البداية الحقيقية: لماذا الألبيزيا والسدر؟</h2>
@@ -357,7 +350,6 @@
                 </div>
             </div>
 
-            <!-- زر التليغرام الثابت المحدث بالأحمر -->
             <div class="telegram-action">
                 <a href="https://t.me/alsawad1qr" target="_blank" class="telegram-link-btn" id="text-telegram-btn">الانضمام إلى القناة الرسمية في تليغرام ←</a>
             </div>
@@ -411,7 +403,7 @@
                 counter2Num: "5k", counter2Label: "مستهدف",
 
                 homeBody: `<p class="main-text">"نلتقي كرابطة رقمية موحدة خلف الشاشات، لكننا نتحرك كإرادات فردية تغير أرض الواقع. إن أزمة المناخ والتصحر التي يعيشها العراق اليوم تفرض علينا كشباب أن نترك عاطفة 'التشجير الموسمي' المحدودة بالمكان والميزانيات، وننتقل فوراً إلى فضاء 'التنمية المستدامة' المبني على خطط علمية حقيقية."</p><p class="main-text">"فبناء المدن الخضراء يحتاج وعياً معرفياً يتجاوز الحلول الترقيعية العابرة ليصبح إرثاً حياً تحتمي به الأجيال القادمة. ومن هنا، تفتح هذه المنصة العلمية الباب لكل أبناء وبنات شعبنا العراقي أينما وجدوا؛ من جبال زاخو في أقصى الشمال إلى شواطئ الفاو في أقصى الجنوب، ومن صحراء الرطبة غرباً إلى مرتفعات بنجوين شرقاً."</p><p class="main-text">"لم يعد بُعد المسافة عائقاً، سنطوي مسافات جغرافيتنا رقمياً لنلتحم في غرس واقعي، ونعيد معاً صياغة الهوية البيئية لأرضنا العراقية الجَمَّاء."</p>`,
-                birdsBody: `<p class="main-text" style="text-align: justify;">"لم يعد البلبل العراقي يغرد كما كان في صباحات بغداد والبصرة. هذا الطائر الذي ارتبط في وجداننا بظلال النخيل وهدوء البساتين، بدأ يتوارى بصمت تحت وطأة التغيرات القاسية التي أصابت بيئتنا."</p><p class="main-text" style="text-align: justify;"><strong>أسباب التهديد بالانقراض:</strong> يواجه البلبل العراقي تحديات وجودية جسيمة, أبرزها تجريف البساتين والمساحات الخضراء الأصيلة واستبدالها بالمجمعات السكنية، والصيد الجائر غير المنظم لغرض التجارة، فضلاً عن موجات الجفاف الشديدة وارتفاع درجات الحرارة القياسية التي تدمر موائله الطبيعية ومصادر غذائه.</p>`,
+                birdsBody: `<p class="main-text" style="text-align: justify;">"لم يعد البلبل العراقي يغرد كما كان في صباحات بغداد والبصرة. هذا الطائر الذي ارتبط في وجداننا بظلال النخيل وهدوء البساتين، بدأ يتوارى بصمت تحت وطأة التغيرات القاسية التي أصابت بيئتنا."</p><p class="main-text" style="text-align: justify;"><strong>أسباب التهديد بالانقراض:</strong> يواجه البلبل العراقي تحديات وجودية جسيمة، أبرزها تجريف البساتين والمساحات الخضراء الأصيلة واستبدالها بالمجمعات السكنية، والصيد الجائر غير المنظم لغرض التجارة، فضلاً عن موجات الجفاف الشديدة وارتفاع درجات الحرارة القياسية التي تدمر موائله الطبيعية ومصادر غذائه.</p>`,
                 
                 guideMainTitle: "دليل الإنبات العلمي (Scarification Guide)", 
                 guideMainDesc: "كيف ننتقل من العاطفة العابرة إلى المعرفة الاستراتيجية لرفع نسب نجاح البذور القاسية؟",
