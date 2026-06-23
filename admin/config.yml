@@ -7,11 +7,42 @@ media_folder: "assets"
 public_folder: "assets"
 
 collections:
-  - name: "posts"
-    label: "Posts"
-    folder: "_posts"
-    create: true
-    fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Body", name: "body", widget: "markdown"}
+  - name: "site_data"
+    label: "إدارة محتوى الموقع"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - file: "data/content.json"
+        label: "النصوص الرئيسية والأهداف"
+        name: "content"
+        fields:
+          # نصوص الواجهة العربية
+          - label: "العنوان الرئيسي (عربي)"
+            name: "homeTitleAr"
+            widget: "string"
+          - label: "نص الرؤية الكامل (عربي)"
+            name: "homeBodyAr"
+            widget: "text"
+          - label: "النص المميز (عربي)"
+            name: "homeHighlightAr"
+            widget: "string"
+            
+          # نصوص الواجهة الإنجليزية
+          - label: "العنوان الرئيسي (إنجليزي)"
+            name: "homeTitleEn"
+            widget: "string"
+          - label: "نص الرؤية الكامل (إنجليزي)"
+            name: "homeBodyEn"
+            widget: "text"
+          - label: "النص المميز (إنجليزي)"
+            name: "homeHighlightEn"
+            widget: "string"
+
+          # مستهدفات كروت الأشجار
+          - label: "مستهدف أشجار الألبيزيا"
+            name: "targetAlbizia"
+            widget: "string"
+          - label: "مستهدف أشجار السدر"
+            name: "targetSidr"
+            widget: "string"
