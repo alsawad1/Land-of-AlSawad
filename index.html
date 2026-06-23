@@ -8,6 +8,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cairo:wght@400;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     
+    <!-- إضافة سكربت الهوية لإدارة تسجيل دخول لوحة التحكم -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    
     <style>
         /* إعادة ضبط المتصفح والخطوط */
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -192,10 +195,9 @@
             <div id="home-content-area" class="page-view-section active">
                 <h1 class="section-title" id="text-home-title">تنهض رؤيتنا من مفارقة معاصرة</h1>
                 
-                <!-- تم ربط هذا المعرف بشكل دقيق لتغيير النص الكامل داخل الجافاسكريبت -->
                 <div id="text-home-body">
                     <p class="main-text">"نلتقي كرابطة رقمية موحدة خلف الشاشات، لكننا نتحرك كإرادات فردية تغير أرض الواقع. إن أزمة المناخ والتصحر التي يعيشها العراق اليوم تفرض علينا كشباب أن نترك عاطفة 'التشجير الموسمي' المحدودة بالمكان والميزانيات، وننتقل فوراً إلى فضاء 'التنمية المستدامة' المبني على خطط علمية حقيقية."</p>
-                    <p class="main-text">"فبناء المدن الخضراء يحتاج وعياً معرفياً يتجاوز الحلول الترقيعية العابرة ليصبح إرثاً حياً تحتمي به الأجيال القادمة. ومن هنا، تفتح هذه المنصة العلمية الباب لكل أبناء وبنات شعبنا العراقي أينما وجدوا؛ من جبال زاخو في أقصى الشمال إلى شواطئ الفاو في أقصى الجنوب، ومن صحراء الرطبة غرباً إلى مرتفعات بنجوين شرقاً."</p>
+                    <p class="main-text">"فبناء المدن الخضراء يحتاج وعياً معرفياً يتجاوز الحلول الترقيعية العابرة ليصبح إرثاً حياً تحتمي به الأجيال القادمة. ومن هنا، تفتح هذه المنصة العلمية الباب لكل أبناء وبنات شعبنا العراقي أينما وجدوا؛ من جبال زاخو في أقصى الشمال إلى شواطئ الفاو in أقصى الجنوب، ومن صحراء الرطبة غرباً إلى مرتفعات بنجوين شرقاً."</p>
                     <p class="main-text">"لم يعد بُعد المسافة عائقاً، سنطوي مسافات جغرافيتنا رقمياً لنلتحم في غرس واقعي، ونعيد معاً صياغة الهوية البيئية لأرضنا العراقية الجَمَّاء."</p>
                 </div>
                 
@@ -289,7 +291,7 @@
             <!-- 3. صفحة المدونة -->
             <div id="blog-content-area" class="page-view-section">
                 <div class="blog-item">
-                    <h2 class="blog-item-title" id="text-blog-title">البداية الحقيقية: لماذا الألبيزيا والليوكينة؟</h2>
+                    <h2 class="blog-item-title" id="text-blog-title">البداية الحقيقية: لماذا الألبيزيا والليوكينة?</h2>
                     <span class="blog-item-date" id="text-blog-date">١٨ حزيران، ٢٠٢٦</span>
                     <p class="main-text" id="text-blog-body">تعتبر أشجار الألبيزيا والليوكينة خيارات استراتيجية لمواجهة التغير المناخي في بيئتنا المحلية؛ نظراً لقدرتها الفائقة على تحمل درجات الحرارة المرتفعة، ومقاومة الجفاف، بالإضافة إلى دورها الحيوي في تثبيت النيتروجين في التربة وتحسين خصوبتها، مما يجعلها حجر الأساس في مشروعنا للتحول من التشجير المؤقت إلى الاستدامة الدائمة.</p>
                 </div>
@@ -297,7 +299,7 @@
 
             <!-- زر التليغرام الثابت -->
             <div class="telegram-action">
-                <a href="https://t.me/alsawad1qr" target="_blank" class="telegram-link-btn" id="text-telegram-btn">الانضمام إلى القناة الرسمية في تليغرام ←</a>
+                <a href="https://t.me/alsawad1qr" target="_blank" class="telegram-link-btn" id="text-telegram-btn">الانضمام إلى القناء الرسمية في تليغرام ←</a>
             </div>
 
             <footer class="site-footer" id="text-footer">جميع الحقوق محفوظة © أرض السَّواد ٢٠٢٦</footer>
@@ -305,29 +307,7 @@
     </main>
 
     <script>
-        function navigateTo(page) {
-            document.getElementById('home-content-area').classList.toggle('active', page === 'home');
-            document.getElementById('guide-content-area').classList.toggle('active', page === 'guide');
-            document.getElementById('blog-content-area').classList.toggle('active', page === 'blog');
-            
-            document.getElementById('nav-home').classList.toggle('active', page === 'home');
-            document.getElementById('nav-guide').classList.toggle('active', page === 'guide');
-            document.getElementById('nav-blog').classList.toggle('active', page === 'blog');
-
-            document.getElementById('step-thermal').classList.remove('highlight-step');
-            document.getElementById('step-mechanical').classList.remove('highlight-step');
-        }
-
-        function navigateToGuideAndHighlight(type) {
-            navigateTo('guide');
-            const targetId = type === 'thermal' ? 'step-thermal' : 'step-mechanical';
-            const otherId = type === 'thermal' ? 'step-mechanical' : 'step-thermal';
-            
-            document.getElementById(targetId).classList.add('highlight-step');
-            document.getElementById(otherId).classList.remove('highlight-step');
-            document.getElementById(targetId).scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-
+        // الكود المرجعي للترجمات والنصوص الافتراضية
         const languages = {
             ar: {
                 brandTop: "أرْض", brandBottom: "السَّــــــــــــــــــــــــوَاد", 
@@ -378,38 +358,111 @@
         };
 
         let currentLang = 'ar';
-        function toggleLanguage() {
-            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+        let siteDynamicData = {}; // سنخزن هنا البيانات القادمة من الـ Decap CMS
+
+        // دالة جلب البيانات من ملف الـ JSON المحدث بواسطة لوحة التحكم
+        async function loadDynamicContent() {
+            try {
+                const response = await fetch('/data/content.json');
+                if (response.ok) {
+                    siteDynamicData = await response.json();
+                }
+            } catch (error) {
+                console.error("لم يتم العثور على ملفات تخصيص من لوحة التحكم، سيتم استخدام النصوص الافتراضية:", error);
+            } finally {
+                applyLanguage(); // تطبيق النصوص فور اكتمال المحاولة
+            }
+        }
+
+        function navigateTo(page) {
+            document.getElementById('home-content-area').classList.toggle('active', page === 'home');
+            document.getElementById('guide-content-area').classList.toggle('active', page === 'guide');
+            document.getElementById('blog-content-area').classList.toggle('active', page === 'blog');
+            
+            document.getElementById('nav-home').classList.toggle('active', page === 'home');
+            document.getElementById('nav-guide').classList.toggle('active', page === 'guide');
+            document.getElementById('nav-blog').classList.toggle('active', page === 'blog');
+
+            document.getElementById('step-thermal').classList.remove('highlight-step');
+            document.getElementById('step-mechanical').classList.remove('highlight-step');
+        }
+
+        function navigateToGuideAndHighlight(type) {
+            navigateTo('guide');
+            const targetId = type === 'thermal' ? 'step-thermal' : 'step-mechanical';
+            const otherId = type === 'thermal' ? 'step-mechanical' : 'step-thermal';
+            
+            document.getElementById(targetId).classList.add('highlight-step');
+            document.getElementById(otherId).classList.remove('highlight-step');
+            document.getElementById(targetId).scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function applyLanguage() {
             document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
             document.body.classList.toggle('lang-en', currentLang === 'en');
             document.getElementById('lang-toggle-btn').innerText = currentLang === 'ar' ? 'English' : 'العربية';
 
             const data = languages[currentLang];
+            
+            // الهيدر والبراند
             document.getElementById('text-brand').querySelector('.line-top').innerText = data.brandTop;
             document.getElementById('text-brand').querySelector('.line-bottom').innerText = data.brandBottom;
             document.getElementById('nav-home').innerText = data.navHome;
             document.getElementById('nav-guide').innerText = data.navGuide;
             document.getElementById('nav-blog').innerText = data.navBlog;
-            
             document.getElementById('sub-thermal').innerText = data.subThermal;
             document.getElementById('sub-mechanical').innerText = data.subMechanical;
 
-            document.getElementById('text-home-title').innerText = data.homeTitle;
-            document.getElementById('text-home-body').innerHTML = data.homeBody; // تم إصلاح الخلل هنا لترجمة الفقرات كاملة
-            document.getElementById('text-home-highlight').innerText = data.homeHighlight;
-            
+            // كروت الأهداف - الثابت والمتحرك من لوحة التحكم (CMS)
             document.getElementById('txt-goal1-badge').innerText = data.goal1Badge;
-            document.getElementById('txt-goal1-title').innerText = data.goal1Title;
             document.getElementById('txt-goal1-subtitle').innerText = data.goal1Subtitle;
-            document.getElementById('txt-counter1-num').innerText = data.counter1Num;
             document.getElementById('txt-counter1-label').innerText = data.counter1Label;
 
             document.getElementById('txt-goal2-badge').innerText = data.goal2Badge;
-            document.getElementById('txt-goal2-title').innerText = data.goal2Title;
             document.getElementById('txt-goal2-subtitle').innerText = data.goal2Subtitle;
-            document.getElementById('txt-counter2-num').innerText = data.counter2Num;
             document.getElementById('txt-counter2-label').innerText = data.counter2Label;
 
+            // دمج نصوص لوحة التحكم الديناميكية مع معالجة اللغات
+            if (currentLang === 'ar') {
+                document.getElementById('text-home-title').innerText = siteDynamicData.homeTitleAr || data.homeTitle;
+                document.getElementById('text-home-highlight').innerText = siteDynamicData.homeHighlightAr || data.homeHighlight;
+                
+                if (siteDynamicData.homeBodyAr) {
+                    document.getElementById('text-home-body').innerHTML = `<p class="main-text">${siteDynamicData.homeBodyAr.replace(/\n/g, '<br>')}</p>`;
+                } else {
+                    document.getElementById('text-home-body').innerHTML = data.homeBody;
+                }
+
+                // مستهدفات الـ Counter للأشجار
+                const targetAlbizia = siteDynamicData.targetAlbizia || '5,000';
+                document.getElementById('txt-goal1-title').innerText = `${parseInt(targetAlbizia).toLocaleString()} شجرة ألبيزيا`;
+                document.getElementById('txt-counter1-num').innerText = parseInt(targetAlbizia) >= 1000 ? (parseInt(targetAlbizia)/1000) + 'k' : targetAlbizia;
+
+                const targetSidr = siteDynamicData.targetSidr || '5,000';
+                document.getElementById('txt-goal2-title').innerText = `${parseInt(targetSidr).toLocaleString()} شجرة سدر`;
+                document.getElementById('txt-counter2-num').innerText = parseInt(targetSidr) >= 1000 ? (parseInt(targetSidr)/1000) + 'k' : targetSidr;
+
+            } else {
+                document.getElementById('text-home-title').innerText = siteDynamicData.homeTitleEn || data.homeTitle;
+                document.getElementById('text-home-highlight').innerText = siteDynamicData.homeHighlightEn || data.homeHighlight;
+                
+                if (siteDynamicData.homeBodyEn) {
+                    document.getElementById('text-home-body').innerHTML = `<p class="main-text">${siteDynamicData.homeBodyEn.replace(/\n/g, '<br>')}</p>`;
+                } else {
+                    document.getElementById('text-home-body').innerHTML = data.homeBody;
+                }
+
+                // مستهدفات الـ Counter للأشجار باللغة الإنجليزية
+                const targetAlbizia = siteDynamicData.targetAlbizia || '5000';
+                document.getElementById('txt-goal1-title').innerText = `${parseInt(targetAlbizia).toLocaleString()} Albizia Trees`;
+                document.getElementById('txt-counter1-num').innerText = parseInt(targetAlbizia) >= 1000 ? (parseInt(targetAlbizia)/1000) + 'k' : targetAlbizia;
+
+                const targetSidr = siteDynamicData.targetSidr || '5000';
+                document.getElementById('txt-goal2-title').innerText = `${parseInt(targetSidr).toLocaleString()} Sidr Trees`;
+                document.getElementById('txt-counter2-num').innerText = parseInt(targetSidr) >= 1000 ? (parseInt(targetSidr)/1000) + 'k' : targetSidr;
+            }
+
+            // الدليل العلمي والثوابت الأخرى
             document.getElementById('guide-main-title').innerText = data.guideMainTitle;
             document.getElementById('guide-main-desc').innerText = data.guideMainDesc;
             document.getElementById('guide-steps-list').innerHTML = data.guideSteps;
@@ -423,13 +476,21 @@
             document.getElementById('td-w2').innerText = data.tdW2;
             document.getElementById('td-a2').innerText = data.tdA2;
             document.getElementById('td-l2').innerText = data.tdL2;
-
+            
+            // المدونة والتليغرام
             document.getElementById('text-blog-title').innerText = data.blogTitle;
-            document.getElementById('text-blog-date').innerText = currentLang === 'ar' ? "١٨ حزيران، ٢٠٢٦" : "June 18, 2026";
             document.getElementById('text-blog-body').innerText = data.blogBody;
             document.getElementById('text-telegram-btn').innerText = data.telegramBtn;
             document.getElementById('text-footer').innerText = data.footer;
         }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            applyLanguage();
+        }
+
+        // بدء تنفيذ جلب البيانات فور تحميل الصفحة
+        window.addEventListener('DOMContentLoaded', loadDynamicContent);
     </script>
 </body>
 </html>
