@@ -12,7 +12,7 @@
     
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background-color: #ffffff; font-family: 'Amiri', serif; color: #000000; transition: all 0.3s ease; -webkit-text-size-adjust: 100%; }
+        body { background-color: #ffffff; font-family: 'Amiri', serif; color: #000000; transition: all 0.3s ease; }
         body.lang-en { font-family: system-ui, -apple-system, sans-serif; }
 
         /* الهيدر */
@@ -26,9 +26,9 @@
         .nav-link { cursor: pointer; font-size: 1.2rem; padding-bottom: 4px; white-space: nowrap; position: relative; }
         .nav-link.active { font-weight: 700; border-bottom: 2px solid #000; }
 
-        /* القائمة الفرعية */
+        /* القائمة الفرعية للدليل */
         .dropdown { position: relative; display: inline-block; }
-        .dropdown-content { display: none; position: absolute; background-color: #1a1a1a; min-width: 200px; box-shadow: 0px 8px 16px rgba(0,0,0,0.2); z-index: 100; border: 1px solid #333; border-radius: 6px; top: 100%; right: 0; }
+        .dropdown-content { display: none; position: absolute; background-color: #1a1a1a; min-width: 240px; box-shadow: 0px 8px 16px rgba(0,0,0,0.2); z-index: 100; border: 1px solid #333; border-radius: 6px; top: 100%; right: 0; }
         .dropdown-content span { color: #fff; padding: 12px 16px; text-decoration: none; display: block; font-size: 1.05rem; font-family: 'Cairo', sans-serif; cursor: pointer; text-align: right; }
         .dropdown-content span:hover { background-color: #2c2c2c; color: #d4af37; }
         .dropdown:hover .dropdown-content { display: block; }
@@ -38,25 +38,26 @@
         /* القسم الداكن الرئيسي */
         .dark-content-section { background-color: #1a1a1a; color: #ffffff; padding: 60px 20px; min-height: 600px; }
         .content-container { max-width: 850px; margin: 0 auto; }
-        .section-title { font-family: 'Amiri', serif; font-size: 3.2rem; color: #f76b6b; margin-bottom: 35px; line-height: 1.2; }
+        .section-title { font-family: 'Amiri', serif; font-size: 3.2rem; color: #d4af37; margin-bottom: 35px; line-height: 1.2; }
+        .section-title.alert-title { color: #f76b6b; }
         
         .main-text { font-family: 'Amiri', serif; font-size: 1.45rem; color: #f3f4f6; line-height: 2.1; text-align: justify; margin-bottom: 30px; }
-        .main-text.highlight { color: #f76b6b; font-weight: 700; text-align: center; margin-bottom: 40px; }
+        .main-text .scientific-term { color: #d4af37; font-weight: 700; }
+        .main-text.highlight { color: #d4af37; font-weight: 700; text-align: center; margin-bottom: 40px; }
 
-        /* كرت وصورة البلبل مع التوهج الأحمر الدقيق */
-        .bulbul-card { background: #222; border: 1px solid #333; border-radius: 16px; padding: 35px; text-align: center; margin-top: 20px; }
-        .bulbul-img-wrapper { position: relative; display: inline-block; margin-bottom: 25px; border-radius: 12px; overflow: hidden; cursor: pointer; }
+        /* كرت وصندوق البلبل - التوهج على كامل المربع والمحيط */
+        .bulbul-card { background: #222; border: 1px solid #333; border-radius: 16px; padding: 40px; text-align: center; margin-top: 20px; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); cursor: pointer; }
         
-        .bulbul-img-wrapper img { max-width: 100%; width: 320px; height: auto; display: block; border-radius: 12px; transition: all 0.3s ease; border: 2px solid transparent; }
-        
-        /* تأثير التوهج الأحمر عند الضغط أو الحوم النشط */
-        .bulbul-img-wrapper:active img, .bulbul-img-wrapper:hover img {
+        /* تأثير التوهج الأحمر على طول المربع بالكامل عند الضغط أو التمرير */
+        .bulbul-card:hover, .bulbul-card:active {
             border-color: #f76b6b;
-            box-shadow: 0 0 30px rgba(247, 107, 107, 0.7);
-            transform: scale(1.02);
+            box-shadow: 0 0 35px rgba(247, 107, 107, 0.55);
+            transform: translateY(-2px);
         }
 
-        .alert-badge { display: inline-block; background: rgba(247, 107, 107, 0.1); color: #f76b6b; padding: 4px 14px; border-radius: 50px; font-family: 'Cairo', sans-serif; font-size: 0.9rem; font-weight: 700; margin-bottom: 15px; border: 1px solid rgba(247, 107, 107, 0.2); }
+        .bulbul-img-wrapper { display: inline-block; margin-bottom: 25px; border-radius: 12px; overflow: hidden; border: 1px solid #44px; }
+        .bulbul-img-wrapper img { max-width: 100%; width: 320px; height: auto; display: block; border-radius: 12px; }
+        .alert-badge { display: inline-block; background: rgba(247, 107, 107, 0.1); color: #f76b6b; padding: 4px 14px; border-radius: 50px; font-family: 'Cairo', sans-serif; font-size: 0.9rem; font-weight: 700; margin-bottom: 20px; border: 1px solid rgba(247, 107, 107, 0.2); }
 
         /* شبكة الأهداف الموسمية */
         .goals-grid { display: grid; grid-template-columns: 1fr; gap: 25px; margin: 50px 0 20px 0; }
@@ -81,9 +82,13 @@
         .page-view-section { display: none; }
         .page-view-section.active { display: block; }
 
+        /* تسليط الضوء على عناصر الدليل العلمي */
+        .highlight-guide-item { border: 2px dashed #d4af37 !md; background: #252420; padding: 15px; border-radius: 8px; animation: pulseGlow 2s infinite alternate; }
+        @keyframes pulseGlow { from { box-shadow: 0 0 10px rgba(212,175,55,0.2); } to { box-shadow: 0 0 25px rgba(212,175,55,0.6); } }
+
         .telegram-action { margin-top: 50px; }
-        .telegram-link-btn { display: inline-block; padding: 12px 35px; border: 2px solid #f76b6b; color: #f76b6b; text-decoration: none; font-size: 1.3rem; font-weight: 700; text-align: center; max-width: 100%; transition: all 0.3s ease; }
-        .telegram-link-btn:hover { background-color: #f76b6b; color: #1a1a1a; }
+        .telegram-link-btn { display: inline-block; padding: 12px 35px; border: 2px solid #d4af37; color: #d4af37; text-decoration: none; font-size: 1.3rem; font-weight: 700; text-align: center; max-width: 100%; transition: all 0.3s ease; }
+        .telegram-link-btn:hover { background-color: #d4af37; color: #1a1a1a; }
         .site-footer { margin-top: 60px; border-top: 1px solid #333; padding-top: 30px; color: #666; font-size: 0.95rem; }
 
         @media (max-width: 768px) {
@@ -117,6 +122,7 @@
                     </div>
                 </div>
             </nav>
+            <button class="lang-switch-btn" onclick="toggleLanguage()" id="lang-btn">English</button>
         </div>
     </header>
 
@@ -126,62 +132,96 @@
             <!-- الصفحة الرئيسية -->
             <div id="home-content-area" class="page-view-section active">
                 <h1 class="section-title" id="text-home-title">تنهض رؤيتنا من مفارقة معاصرة</h1>
-                <div id="text-home-body"></div>
+                <div id="text-home-body">
+                    <p class="main-text">"نلتقي كرابطة رقمية موحدة خلف الشاشات، لكننا نتحرك كإرادات فردية تغير أرض الواقع. إن الإطلاق المخطط لـ 10,000 شجرة ليس مجرد رقم، بل هو خطوة مدروسة لإعادة هندسة المشهد البيئي العراقي."</p>
+                </div>
                 <p class="main-text highlight" id="text-home-highlight">الفكرة علمية.. والتنفيذ بسواعدنا.</p>
                 
                 <div class="goals-grid">
                     <div class="goal-container">
                         <div class="goal-info">
-                            <span class="goal-badge">هدف التنوع البيولوجي</span>
+                            <span class="goal-badge" id="lbl-badge1">هدف التنوع البيولوجي</span>
                             <h3 class="goal-title" id="txt-goal1-title">5,000 شجرة ألبيزيا</h3>
-                            <p class="goal-subtitle">إقامة أحزمة وقائية مستدامة لكسر حدة الرياح الصحراوية وتثبيت التربة.</p>
+                            <p class="goal-subtitle" id="txt-goal1-sub">إقامة أحزمة وقائية مستدامة لكسر حدة الرياح الصحراوية وتثبيت التربة.</p>
                         </div>
                         <div class="goal-visual">
                             <svg><circle class="circle-bg" cx="55" cy="55" r="45"></circle><circle class="circle-progress" cx="55" cy="55" r="45" stroke-dasharray="282.7" stroke-dashoffset="282.7"></circle></svg>
-                            <div class="goal-counter-text"><span class="counter-number" id="txt-counter1-num">5k</span><span class="counter-label">مستهدف</span></div>
+                            <div class="goal-counter-text"><span class="counter-number" id="txt-counter1-num">5k</span><span class="counter-label" id="lbl-target1">مستهدف</span></div>
                         </div>
                     </div>
 
                     <div class="goal-container">
                         <div class="goal-info">
-                            <span class="goal-badge">هدف التنوع البيولوجي</span>
+                            <span class="goal-badge" id="lbl-badge2">هدف التنوع البيولوجي</span>
                             <h3 class="goal-title" id="txt-goal2-title">5,000 شجرة سدر</h3>
-                            <p class="goal-subtitle">تعزيز الغطاء الأصيل المقاوم للجفاف وإعادة التوازن البيئي للبيئة المحلية.</p>
+                            <p class="goal-subtitle" id="txt-goal2-sub">تعزيز الغطاء الأصيل المقاوم للجفاف وإعادة التوازن البيئي للبيئة المحلية.</p>
                         </div>
                         <div class="goal-visual">
                             <svg><circle class="circle-bg" cx="55" cy="55" r="45"></circle><circle class="circle-progress" cx="55" cy="55" r="45" stroke-dasharray="282.7" stroke-dashoffset="282.7"></circle></svg>
-                            <div class="goal-counter-text"><span class="counter-number" id="txt-counter2-num">5k</span><span class="counter-label">مستهدف</span></div>
+                            <div class="goal-counter-text"><span class="counter-number" id="txt-counter2-num">5k</span><span class="counter-label" id="lbl-target2">مستهدف</span></div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- خانة طيورنا الوطنية (الجديدة) -->
+            <!-- خانة طيورنا الوطنية المستقلة -->
             <div id="birds-content-area" class="page-view-section">
-                <h1 class="section-title" id="text-birds-title">طيورنا الوطنية الإستراتيجية</h1>
+                <h1 class="section-title alert-title" id="text-birds-title">طيورنا الوطنية الإستراتيجية</h1>
                 
-                <div class="bulbul-card">
-                    <span class="alert-badge">⚠️ مهدد بالانقراض</span>
-                    <div class="bulbul-img-wrapper" title="اضغط أو مرر لمشاهدة التوهج التنبيهي">
-                        <img id="img-bulbul" src="" alt="البلبل العراقي">
+                <div class="bulbul-card" title="اضغط على طول المربع لمشاهدة التوهج التنبيهي">
+                    <span class="alert-badge" id="text-bulbul-badge">⚠️ طائرنا الوطني مهدد بالانقراض</span>
+                    <div class="bulbul-img-wrapper">
+                        <img id="img-bulbul" src="https://upload.wikimedia.org/wikipedia/commons/4/4b/White-eared_Bulbul_Pycnonotus_leucotis_by_Dr_S_Ali_Hussain.jpg" alt="البلبل العراقي">
                     </div>
-                    <p class="main-text" id="text-bulbul-desc" style="text-align: center; font-size: 1.35rem; line-height: 1.9; color: #f3f4f6;"></p>
+                    <p class="main-text" id="text-bulbul-desc" style="text-align: center; font-size: 1.35rem; line-height: 1.9; color: #f3f4f6;">
+                        البلبل العراقي: طائرنا الوطني البيئي المميّز، يواجه اليوم تحديات حشاشية ضخمة وتهديدات متزايدة بالانقراض نتيجة تجريف البساتين الأصيلة والصيد الجائر. حمايته وإعادة تأهيل موائله الطبيعية هي جزء لا يتجزأ من هويتنا البيئية المستدامة التي تسعى أرض السواد لحمايتها.
+                    </p>
                 </div>
             </div>
 
-            <!-- الدليل العلمي وثوابت الصفحات الأخرى مخفية اختصاراً وتعمل برمجياً بالخلفية -->
-            <div id="guide-content-area" class="page-view-section"></div>
-
-            <div class="telegram-action">
-                <a href="https://t.me/alsawad1qr" target="_blank" class="telegram-link-btn">الانضمام إلى القناة الرسمية في تليغرام ←</a>
+            <!-- صفحة الدليل العلمي كاملة ومسترجعة -->
+            <div id="guide-content-area" class="page-view-section">
+                <h1 class="section-title" id="text-guide-title">الدليل العلمي للإنبات المعجل</h1>
+                <div id="guide-entries">
+                    <div class="main-text" id="guide-p1" style="margin-bottom: 30px;">
+                        لتحقيق نسب نجاح مرتفعة تتجاوز العقبات الطبيعية لصلابة الأغلفة البذرية في الأنواع الإستراتيجية المستهدفة، يعتمد مشروعنا بروتوكولات علمية دقيقة للخدش المعجل (<span class="scientific-term">Scarification</span>).
+                    </div>
+                    <div class="main-text" id="guide-p2" style="margin-bottom: 30px;">
+                        <strong id="title-thermal" class="scientific-term">1. الخدش الحراري (Thermal Scarification):</strong><br>
+                        يُطبق بشكل أساسي على بذور الألبيزيا لبخ (<span class="scientific-term">Albizia lebbeck</span>). يتم غمر البذور في ماء تصل درجة حرارته إلى 80 درجة مئوية لفترة قصيرة جداً لا تتجاوز الدقائق، ثم تُنقل مباشرة إلى ماء فاتر لمدة 24 ساعة. هذا التباين الحراري يساهم في تشقيق الغلاف الخارجي الصلب دون إلحاق الضرر بالجنين الداخلي، مما يحفز الامتصاص الفوري للرطوبة.
+                    </div>
+                    <div class="main-text" id="guide-p3">
+                        <strong id="title-mechanical" class="scientific-term">2. الخدش الميكانيكي (Mechanical Scarification):</strong><br>
+                        يُعتمد كآلية بديلة أو تكميلية لنوى السدر (<span class="scientific-term">Ziziphus spina-christi</span>). يتم برفق كشط أو إحداث شق طفيف في الغلاف الخشبي الخارجي باستخدام أدوات متخصصة، لفتح ممر ميكانيكي نفاذ يسمح بمرور الماء والغازات، مما يختصر فترة السكون الطويلة للبذور ويعجل بالإنبات الحركي.
+                    </div>
+                </div>
             </div>
 
-            <footer class="site-footer">جميع الحقوق محفوظة © أرض السَّواد ٢٠٢٦</footer>
+            <div class="telegram-action">
+                <a href="https://t.me/alsawad1qr" target="_blank" class="telegram-link-btn" id="btn-telegram">الانضمام إلى القناة الرسمية في تليغرام ←</a>
+            </div>
+
+            <footer class="site-footer" id="text-footer">جميع الحقوق محفوظة © أرض السَّواد ٢٠٢٦</footer>
         </div>
     </main>
 
     <script>
+        let currentLang = 'ar';
         let siteDynamicData = {};
+
+        const arabicTexts = {
+            brandTop: "أرْض", brandBottom: "السَّــــــــــــــــــــــــوَاد",
+            navHome: "الرئيسية", navBirds: "طيورنا الوطنية", navGuide: "الدليل العلمي",
+            btnTelegram: "الانضمام إلى القناة الرسمية في تليغرام ←",
+            footer: "جميع الحقوق محفوظة © أرض السَّواد ٢٠٢٦"
+        };
+
+        const englishTexts = {
+            brandTop: "LAND OF", brandBottom: "AL-SAWAD",
+            navHome: "Home", navBirds: "National Birds", navGuide: "Scientific Guide",
+            btnTelegram: "Join Official Telegram Channel ←",
+            footer: "All Rights Reserved © Land of Al-Sawad 2026"
+        };
 
         async function loadDynamicContent() {
             try {
@@ -199,27 +239,79 @@
             document.getElementById('nav-home').classList.toggle('active', page === 'home');
             document.getElementById('nav-birds').classList.toggle('active', page === 'birds');
             document.getElementById('nav-guide').classList.toggle('active', page === 'guide');
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function navigateToGuideAndHighlight(sectionId) {
+            navigateTo('guide');
+            setTimeout(() => {
+                const element = document.getElementById('title-' + sectionId);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    element.parentElement.classList.add('highlight-guide-item');
+                    setTimeout(() => { element.parentElement.classList.remove('highlight-guide-item'); }, 4000);
+                }
+            }, 300);
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+            document.documentElement.lang = currentLang;
+            document.body.className = currentLang === 'en' ? 'lang-en' : '';
+            document.getElementById('lang-btn').innerText = currentLang === 'ar' ? 'English' : 'العربية';
+            applyContent();
         }
 
         function applyContent() {
-            // تخصيص الصفحة الرئيسية
-            document.getElementById('text-home-title').innerText = siteDynamicData.homeTitleAr || "تنهض رؤيتنا من مفارقة معاصرة";
-            document.getElementById('text-home-highlight').innerText = siteDynamicData.homeHighlightAr || "الفكرة علمية.. والتنفيذ بسواعدنا.";
-            document.getElementById('text-home-body').innerHTML = siteDynamicData.homeBodyAr ? `<p class="main-text">${siteDynamicData.homeBodyAr.replace(/\n/g, '<br>')}</p>` : `<p class="main-text">"نلتقي كرابطة رقمية موحدة خلف الشاشات، لكننا نتحرك كإرادات فردية تغير أرض الواقع..."</p>`;
+            const staticTxt = currentLang === 'ar' ? arabicTexts : englishTexts;
             
-            // تخصيص الأرقام والعدادات
+            document.querySelector('.brand-name .line-top').innerText = staticTxt.brandTop;
+            document.querySelector('.brand-name .line-bottom').innerText = staticTxt.brandBottom;
+            document.getElementById('nav-home').innerText = staticTxt.navHome;
+            document.getElementById('nav-birds').innerText = staticTxt.navBirds;
+            document.getElementById('nav-guide').innerText = staticTxt.navGuide;
+            document.getElementById('btn-telegram').innerText = staticTxt.btnTelegram;
+            document.getElementById('text-footer').innerText = staticTxt.footer;
+
             const albizia = siteDynamicData.targetAlbizia || '5000';
-            document.getElementById('txt-goal1-title').innerText = `${parseInt(albizia).toLocaleString()} شجرة ألبيزيا`;
-            document.getElementById('txt-counter1-num').innerText = parseInt(albizia) >= 1000 ? (parseInt(albizia)/1000) + 'k' : albizia;
-
             const sidr = siteDynamicData.targetSidr || '5000';
-            document.getElementById('txt-goal2-title').innerText = `${parseInt(sidr).toLocaleString()} شجرة سدر`;
-            document.getElementById('txt-counter2-num').innerText = parseInt(sidr) >= 1000 ? (parseInt(sidr)/1000) + 'k' : sidr;
 
-            // تخصيص صفحة الطيور الوطنية الحية من الـ CMS
-            document.getElementById('text-birds-title').innerText = siteDynamicData.birdsTitleAr || "طيورنا الوطنية الإستراتيجية";
-            document.getElementById('text-bulbul-desc').innerText = siteDynamicData.bulbulDescAr || "البلبل العراقي: طائرنا الوطني البيئي المميّز، يواجه اليوم تحديات حشاشية ضخمة وتهديدات متزايدة بالانقراض...";
-            document.getElementById('img-bulbul').src = siteDynamicData.bulbulImage || "https://upload.wikimedia.org/wikipedia/commons/4/4b/White-eared_Bulbul_Pycnonotus_leucotis_by_Dr_S_Ali_Hussain.jpg";
+            if (currentLang === 'ar') {
+                document.getElementById('text-home-title').innerText = "تنهض رؤيتنا من مفارقة معاصرة";
+                document.getElementById('text-home-highlight').innerText = "الفكرة علمية.. والتنفيذ بسواعدنا.";
+                document.getElementById('text-home-body').innerHTML = `<p class="main-text">"نلتقي كرابطة رقمية موحدة خلف الشاشات، لكننا نتحرك كإرادات فردية تغير أرض الواقع. إن الإطلاق المخطط لـ 10,000 شجرة ليس مجرد رقم، بل هو خطوة مدروسة لإعادة هندسة المشهد البيئي العراقي."</p>`;
+                
+                document.getElementById('lbl-badge1').innerText = "هدف التنوع البيولوجي";
+                document.getElementById('lbl-badge2').innerText = "هدف التنوع البيولوجي";
+                document.getElementById('lbl-target1').innerText = "مستهدف";
+                document.getElementById('lbl-target2').innerText = "مستهدف";
+                
+                document.getElementById('txt-goal1-title').innerText = `${parseInt(albizia).toLocaleString()} شجرة ألبيزيا`;
+                document.getElementById('txt-goal2-title').innerText = `${parseInt(sidr).toLocaleString()} شجرة سدر`;
+                document.getElementById('txt-goal1-sub').innerText = "إقامة أحزمة وقائية مستدامة لكسر حدة الرياح الصحراوية وتثبيت التربة.";
+                document.getElementById('txt-goal2-sub').innerText = "تعزيز الغطاء الأصيل المقاوم للجفاف وإعادة التوازن البيئي للبيئة المحلية.";
+            } else {
+                document.getElementById('text-home-title').innerText = "Our Vision Rises from a Contemporary Paradox";
+                document.getElementById('text-home-highlight').innerText = "The idea is scientific.. execution is by our hands.";
+                document.getElementById('text-home-body').innerHTML = `<p class="main-text">"We meet as a unified digital ecosystem behind screens, but we act as individual wills transforming real ground. The planned deployment of 10,000 trees is not just a statistic; it is a calculated measure to re-engineer the Iraqi environmental landscape."</p>`;
+                
+                document.getElementById('lbl-badge1').innerText = "Biodiversity Goal";
+                document.getElementById('lbl-badge2').innerText = "Biodiversity Goal";
+                document.getElementById('lbl-target1').innerText = "Target";
+                document.getElementById('lbl-target2').innerText = "Target";
+                
+                document.getElementById('txt-goal1-title').innerText = `${parseInt(albizia).toLocaleString()} Albizia Trees`;
+                document.getElementById('txt-goal2-title').innerText = `${parseInt(sidr).toLocaleString()} Sidr Trees`;
+                document.getElementById('txt-goal1-sub').innerText = "Establishing sustainable protective belts to break desert winds and stabilize topsoil.";
+                document.getElementById('txt-goal2-sub').innerText = "Enhancing drought-resistant native canopy and restoring ecological balance to the local biome.";
+            }
+
+            // تحديث صور البلبل المرفوعة حياً من الـ CMS إن وجدت
+            if (siteDynamicData.bulbulImage) {
+                document.getElementById('img-bulbul').src = siteDynamicData.bulbulImage;
+            }
         }
 
         window.addEventListener('DOMContentLoaded', loadDynamicContent);
