@@ -16,14 +16,6 @@ collections:
         label: "البيانات الحية للموقع"
         name: "site_data"
         fields:
-          # بيانات الصفحة الرئيسية
           - { label: "مستهدف شجر الألبيزيا", name: "targetAlbizia", widget: "string", default: "5000" }
           - { label: "مستهدف شجر السدر", name: "targetSidr", widget: "string", default: "5000" }
-          - { label: "العنوان الرئيسي (عربي)", name: "homeTitleAr", widget: "string" }
-          - { label: "النص المعبر (عربي)", name: "homeBodyAr", widget: "text" }
-          - { label: "العبارة البارزة (عربي)", name: "homeHighlightAr", widget: "string" }
-          
-          # بيانات صفحة الطيور الوطنية
-          - { label: "عنوان قسم الطيور (عربي)", name: "birdsTitleAr", widget: "string", default: "طيورنا الوطنية الإستراتيجية" }
-          - { label: "صورة البلبل العراقي", name: "bulbulImage", widget: "image" }
-          - { label: "نص التوعية للبلبل (عربي)", name: "bulbulDescAr", widget: "text", default: "البلبل العراقي: طائرنا الوطني البيئي المميّز، يواجه اليوم تحديات حشاشية ضخمة وتهديدات متزايدة بالانقراض نتيجة تجريف البساتين الأصيلة والصيد الجائر. حمايته وإعادة تأهيل موائله الطبيعية هي جزء لا يتجزأ من هويتنا البيئية المستدامة." }
+          - { label: "صورة البلبل العراقي", name: "bulbulImage", widget: "image", required: false }
