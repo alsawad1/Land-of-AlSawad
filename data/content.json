@@ -1,10 +1,11 @@
 {
-  "homeTitleAr": "",
-  "homeBodyAr": "",
-  "homeHighlightAr": "",
   "homeTitleEn": "",
+  "homeHighlightAr": "",
+  "homeTitleAr": "",
   "homeBodyEn": "",
-  "homeHighlightEn": "",
   "targetAlbizia": "5000",
-  "targetSidr": "5000"
+  "homeBodyAr": "",
+  "targetSidr": "5000",
+  "bulbulImage": "assets/gemini_generated_image_ssiilissiilissii.png",
+  "homeHighlightEn": ""
 }
