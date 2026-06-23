@@ -43,12 +43,20 @@
         /* القسم الداكن الرئيسي */
         .dark-content-section { background-color: #1a1a1a; color: #ffffff; padding: 60px 20px; min-height: 600px; }
         .content-container { max-width: 850px; margin: 0 auto; }
-        .section-title { font-family: 'Amiri', serif; font-size: 3.2rem; color: #f76b6b; margin-bottom: 35px; line-height: 1.2; }
+        .section-title { font-family: 'Amiri', serif; font-size: 3.2rem; color: #d4af37; margin-bottom: 35px; line-height: 1.2; }
+        .section-title.alert-title { color: #f76b6b; }
         body.lang-en .section-title { font-family: 'Playfair Display', serif; font-size: 2.8rem; }
         
         .main-text { font-family: 'Amiri', serif; font-size: 1.45rem; color: #f3f4f6; line-height: 2.1; text-align: justify; margin-bottom: 30px; }
         body.lang-en .main-text { font-family: system-ui, sans-serif; font-size: 1.15rem; text-align: left; }
-        .main-text.highlight { color: #f76b6b; font-weight: 700; text-align: center; margin-bottom: 40px; }
+        .main-text.highlight { color: #d4af37; font-weight: 700; text-align: center; margin-bottom: 40px; }
+
+        /* كرت صندوق البلبل - التوهج التنبيهي */
+        .bulbul-card { background: #222; border: 1px solid #333; border-radius: 16px; padding: 40px; text-align: center; margin-top: 20px; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .bulbul-card:hover { border-color: #f76b6b; box-shadow: 0 0 30px rgba(247, 107, 107, 0.4); transform: translateY(-2px); }
+        .alert-badge { display: inline-block; background: rgba(247, 107, 107, 0.1); color: #f76b6b; padding: 4px 14px; border-radius: 50px; font-family: 'Cairo', sans-serif; font-size: 0.9rem; font-weight: 700; margin-bottom: 20px; border: 1px solid rgba(247, 107, 107, 0.2); }
+        .bulbul-img-wrapper { display: inline-block; margin-bottom: 25px; border-radius: 12px; overflow: hidden; border: 1px solid #444; }
+        .bulbul-img-wrapper img { max-width: 100%; width: 320px; height: auto; display: block; border-radius: 12px; }
 
         /* بيئة شبكة الأهداف الموسمية تحت النص */
         .goals-grid { display: grid; grid-template-columns: 1fr; gap: 25px; margin: 50px 0 20px 0; }
@@ -81,7 +89,7 @@
         .goal-subtitle { font-family: 'Amiri', serif; font-size: 1.1rem; color: #aaa; line-height: 1.4; text-align: justify; }
         body.lang-en .goal-subtitle { font-family: system-ui, sans-serif; font-size: 0.9rem; text-align: left; }
         
-        /* الدائرة الرسومية المصفرة (البداية من الصفر) */
+        /* الدائرة الرسومية المصفرة */
         .goal-visual { position: relative; width: 110px; height: 110px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
         .goal-visual svg { transform: rotate(-90deg); width: 110px; height: 110px; }
         .circle-bg { fill: none; stroke: #2a2a2a; stroke-width: 8; }
@@ -102,26 +110,26 @@
         .page-view-section.active { display: block; }
 
         /* صفحة المدونة */
-        .blog-item-title { color: #f76b6b; font-size: 2.5rem; margin-bottom: 10px; line-height: 1.2; }
+        .blog-item-title { color: #d4af37; font-size: 2.5rem; margin-bottom: 10px; line-height: 1.2; }
         .blog-item-date { color: #888; text-decoration: underline; display: block; margin-bottom: 20px; }
 
         .telegram-action { margin-top: 50px; }
-        .telegram-link-btn { display: inline-block; padding: 12px 35px; border: 2px solid #f76b6b; color: #f76b6b; text-decoration: none; font-size: 1.3rem; font-weight: 700; text-align: center; max-width: 100%; transition: all 0.3s ease; }
-        .telegram-link-btn:hover { background-color: #f76b6b; color: #1a1a1a; }
+        .telegram-link-btn { display: inline-block; padding: 12px 35px; border: 2px solid #d4af37; color: #d4af37; text-decoration: none; font-size: 1.3rem; font-weight: 700; text-align: center; max-width: 100%; transition: all 0.3s ease; }
+        .telegram-link-btn:hover { background-color: #d4af37; color: #1a1a1a; }
         
         /* دليل الإنبات المعرفي */
         .growth-guide-box { border: 1px solid #333; background: #222; border-radius: 16px; padding: 35px; margin-top: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
         .guide-steps-ol { list-style: none; margin: 25px 0 35px 0; font-size: 1.25rem; line-height: 1.9; }
         .guide-steps-ol li { margin-bottom: 15px; color: #e5e7eb; padding: 10px; border-radius: 8px; transition: background-color 0.3s; }
-        .guide-steps-ol li.highlight-step { background-color: #2d2d2d; border-right: 4px solid #f76b6b; }
-        body.lang-en .guide-steps-ol li.highlight-step { border-right: none; border-left: 4px solid #f76b6b; }
-        .guide-steps-ol strong { color: #f76b6b; font-family: 'Cairo', sans-serif; font-size: 1.1rem; }
+        .guide-steps-ol li.highlight-step { background-color: #2d2d2d; border-right: 4px solid #d4af37; }
+        body.lang-en .guide-steps-ol li.highlight-step { border-right: none; border-left: 4px solid #d4af37; }
+        .guide-steps-ol strong { color: #d4af37; font-family: 'Cairo', sans-serif; font-size: 1.1rem; }
         
         .table-responsive-container { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; margin-top: 20px; border-radius: 8px; }
         .growth-table { width: 100%; border-collapse: collapse; font-family: 'Cairo', sans-serif; font-size: 0.95rem; background: #151515; min-width: 550px; }
         .growth-table th, .growth-table td { padding: 14px 18px; text-align: right; border-bottom: 1px solid #2d2d2d; }
         body.lang-en .growth-table th, body.lang-en .growth-table td { text-align: left; }
-        .growth-table th { background: #2c2c2c; color: #f76b6b; }
+        .growth-table th { background: #2c2c2c; color: #d4af37; }
 
         .site-footer { margin-top: 60px; border-top: 1px solid #333; padding-top: 30px; color: #666; font-size: 0.95rem; }
 
@@ -170,6 +178,7 @@
         <div class="header-controls">
             <nav class="nav-menu">
                 <span class="nav-link active" id="nav-home" onclick="navigateTo('home')">الرئيسية</span>
+                <span class="nav-link" id="nav-birds" onclick="navigateTo('birds')">طيورنا الوطنية</span>
                 
                 <div class="dropdown">
                     <span class="nav-link" id="nav-guide" onclick="navigateTo('guide')">الدليل العلمي</span>
@@ -188,11 +197,9 @@
     <main class="dark-content-section">
         <div class="content-container">
             
-            <!-- 1. الصفحة الرئيسية -->
             <div id="home-content-area" class="page-view-section active">
                 <h1 class="section-title" id="text-home-title">تنهض رؤيتنا من مفارقة معاصرة</h1>
                 
-                <!-- تم ربط هذا المعرف بشكل دقيق لتغيير النص الكامل داخل الجافاسكريبت -->
                 <div id="text-home-body">
                     <p class="main-text">"نلتقي كرابطة رقمية موحدة خلف الشاشات، لكننا نتحرك كإرادات فردية تغير أرض الواقع. إن أزمة المناخ والتصحر التي يعيشها العراق اليوم تفرض علينا كشباب أن نترك عاطفة 'التشجير الموسمي' المحدودة بالمكان والميزانيات، وننتقل فوراً إلى فضاء 'التنمية المستدامة' المبني على خطط علمية حقيقية."</p>
                     <p class="main-text">"فبناء المدن الخضراء يحتاج وعياً معرفياً يتجاوز الحلول الترقيعية العابرة ليصبح إرثاً حياً تحتمي به الأجيال القادمة. ومن هنا، تفتح هذه المنصة العلمية الباب لكل أبناء وبنات شعبنا العراقي أينما وجدوا؛ من جبال زاخو في أقصى الشمال إلى شواطئ الفاو في أقصى الجنوب، ومن صحراء الرطبة غرباً إلى مرتفعات بنجوين شرقاً."</p>
@@ -201,10 +208,7 @@
                 
                 <p class="main-text highlight" id="text-home-highlight">الفكرة علمية.. والتنفيذ بسواعدنا.</p>
                 
-                <!-- شبكة أهداف التنوع البيولوجي الموسمية -->
                 <div class="goals-grid">
-                    
-                    <!-- كرت الألبيزيا -->
                     <div class="goal-container">
                         <div class="goal-info">
                             <span class="goal-badge" id="txt-goal1-badge">هدف التنوع البيولوجي</span>
@@ -223,7 +227,6 @@
                         </div>
                     </div>
 
-                    <!-- كرت السدر -->
                     <div class="goal-container">
                         <div class="goal-info">
                             <span class="goal-badge" id="txt-goal2-badge">هدف التنوع البيولوجي</span>
@@ -241,24 +244,36 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
 
-            <!-- 2. صفحة الدليل العلمي -->
+            <div id="birds-content-area" class="page-view-section">
+                <h1 class="section-title alert-title" id="text-birds-title">رحيل الألحان: حين تصمت بساتيننا</h1>
+                <div class="bulbul-card">
+                    <span class="alert-badge" id="text-bulbul-badge">⚠️ مهدد بخطر الانقراض</span>
+                    <div class="bulbul-img-wrapper">
+                        <img id="img-bulbul" src="https://upload.wikimedia.org/wikipedia/commons/4/4b/White-eared_Bulbul_Pycnonotus_leucotis_by_Dr_S_Ali_Hussain.jpg" alt="البلبل العراقي">
+                    </div>
+                    <div id="text-birds-body">
+                        <p class="main-text" style="text-align: justify;">"لم يعد البلبل العراقي يغرد كما كان في صباحات بغداد والبصرة. هذا الطائر الذي ارتبط في وجداننا بظلال النخيل وهدوء البساتين، بدأ يتوارى بصمت تحت وطأة التغيرات القاسية التي أصابت بيئتنا."</p>
+                        <p class="main-text" style="text-align: justify;"><strong>أسباب التهديد بالانقراض:</strong> يواجه البلبل العراقي تحديات وجودية جسيمة، أبرزها تجريف البساتين والمساحات الخضراء الأصيلة واستبدالها بالمجمعات السكنية، والصيد الجائر غير المنظم لغرض التجارة، فضلاً عن موجات الجفاف الشديدة وارتفاع درجات الحرارة القياسية التي تدمر موائله الطبيعية ومصادر غذائه.</p>
+                    </div>
+                </div>
+            </div>
+
             <div id="guide-content-area" class="page-view-section">
                 <div class="growth-guide-box">
                     <h2 class="section-title" id="guide-main-title" style="font-size: 2rem; margin-bottom: 10px;">دليل الإنبات العلمي (Scarification Guide)</h2>
                     <p id="guide-main-desc" style="color: #ccc; margin-bottom: 20px;">كيف ننتقل من العاطفة العابرة إلى المعرفة الاستراتيجية لرفع نسب نجاح البذور القاسية؟</p>
                     
                     <ol class="guide-steps-ol" id="guide-steps-list">
-                        <li id="step-thermal"><strong>١. التخديد المائي (Thermal Scarification):</strong> بذور الألبيزيا والليوكينة تمتلك غلافاً شمعياً سميكاً يمنع دخول الماء. يُنصح بنقع البذور في ماء ساخن (وليس مغلي) لمدة ١٢-٢٤ ساعة حتى تتفتح وتنتفخ وتصبح جاهزة للزراعة.</li>
+                        <li id="step-thermal"><strong>١. التخديد المائي (Thermal Scarification):</strong> بذور الألبيزيا تمتلك غلافاً شمعياً سميكاً يمنع دخول الماء. يُنصح بنقع البذور في ماء ساخن (وليس مغلي) لمدة ١٢-٢٤ ساعة حتى تتفتح وتنتفخ وتصبح جاهزة للزراعة.</li>
                         <li id="step-mechanical"><strong>٢. التخديد الميكانيكي (Mechanical Scarification):</strong> كبديل سريع ومثالي للمجموعات الصغيرة، يمكن خدش أو كشط طرف الغلاف الخارجي الصلب للبذرة برفق باستخدام مقص أظافر أو ورق سنفرة (دون مساس الجنين الداخلي) للسماح بنفاذ الماء الفوري وسرعة الإنبات.</li>
                         <li id="step-depth"><strong>٣. عمق الغرس العلمي (Systematic Depth):</strong> تُزرع البذور المعالجة على عمق سطحي حذر لا يتجاوز ١ إلى ٢ سم في تربة جيدة التصريف لتأمين الأكسجين الكافي للنمو.</li>
                         <li id="step-watering"><strong>٤. مراقبة الرطوبة الحذرة (Measured Watering):</strong> الحفاظ على رطوبة التربة خفيفة وبدون إغراق، لتفادي تعفن الجذور في مراحل الإنبات الحرجة الأولى.</li>
                     </ol>
 
-                    <h4 id="guide-table-title" style="font-family: 'Cairo', sans-serif; font-size: 1.1rem; color: #f76b6b; margin-bottom: 15px;">جدول المراقبة المعرفي ومعدلات النمو المتوقعة:</h4>
+                    <h4 id="guide-table-title" style="font-family: 'Cairo', sans-serif; font-size: 1.1rem; color: #d4af37; margin-bottom: 15px;">جدول المراقبة المعرفي ومعدلات النمو المتوقعة:</h4>
                     
                     <div class="table-responsive-container">
                         <table class="growth-table">
@@ -266,19 +281,19 @@
                                 <tr>
                                     <th id="th-period">المرحلة الزمنية</th>
                                     <th id="th-albizia">معدل نمو الألبيزيا المتوقع</th>
-                                    <th id="th-leucaena">معدل نمو الليوكينة المتوقع</th>
+                                    <th id="th-leucaena">معدل نمو السدر المتوقع</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td id="td-w1">الأسبوع الأول</td>
                                     <td id="td-a1">بروز الجذير وانشقاق التربة (٢-٤ سم)</td>
-                                    <td id="td-l1">ظهور الأوراق الفلقية الأولى (٣-٥ سم)</td>
+                                    <td id="td-l1">ظهور الأوراق الأولى والنمو الحذر (٣-٥ سم)</td>
                                 </tr>
                                 <tr>
                                     <td id="td-w2">الأسبوع الثاني</td>
                                     <td id="td-a2">ظهور الأوراق الريشية المركبة (٦-١٠ سم)</td>
-                                    <td id="td-l2">استطالة الساق وزيادة التفرع (٨-١٤ سم)</td>
+                                    <td id="td-l2">استطالة الساق وزيادة التفرع الجذري (٨-١٤ سم)</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -286,16 +301,14 @@
                 </div>
             </div>
 
-            <!-- 3. صفحة المدونة -->
             <div id="blog-content-area" class="page-view-section">
                 <div class="blog-item">
-                    <h2 class="blog-item-title" id="text-blog-title">البداية الحقيقية: لماذا الألبيزيا والليوكينة؟</h2>
+                    <h2 class="blog-item-title" id="text-blog-title">البداية الحقيقية: لماذا الألبيزيا والسدر؟</h2>
                     <span class="blog-item-date" id="text-blog-date">١٨ حزيران، ٢٠٢٦</span>
-                    <p class="main-text" id="text-blog-body">تعتبر أشجار الألبيزيا والليوكينة خيارات استراتيجية لمواجهة التغير المناخي في بيئتنا المحلية؛ نظراً لقدرتها الفائقة على تحمل درجات الحرارة المرتفعة، ومقاومة الجفاف، بالإضافة إلى دورها الحيوي في تثبيت النيتروجين في التربة وتحسين خصوبتها، مما يجعلها حجر الأساس في مشروعنا للتحول من التشجير المؤقت إلى الاستدامة الدائمة.</p>
+                    <p class="main-text" id="text-blog-body">تعتبر أشجار الألبيزيا والسدر خيارات استراتيجية لمواجهة التغير المناخي في بيئتنا المحلية؛ نظراً لقدرتها الفائقة على تحمل درجات الحرارة المرتفعة، ومقاومة الجفاف، بالإضافة إلى دورها الحيوي في تثبيت التربة وتحسين خصوبتها، مما يجعلها حجر الأساس في مشروعنا للتحول من التشجير المؤقت إلى الاستدامة الدائمة.</p>
                 </div>
             </div>
 
-            <!-- زر التليغرام الثابت -->
             <div class="telegram-action">
                 <a href="https://t.me/alsawad1qr" target="_blank" class="telegram-link-btn" id="text-telegram-btn">الانضمام إلى القناة الرسمية في تليغرام ←</a>
             </div>
@@ -307,15 +320,18 @@
     <script>
         function navigateTo(page) {
             document.getElementById('home-content-area').classList.toggle('active', page === 'home');
+            document.getElementById('birds-content-area').classList.toggle('active', page === 'birds');
             document.getElementById('guide-content-area').classList.toggle('active', page === 'guide');
             document.getElementById('blog-content-area').classList.toggle('active', page === 'blog');
             
             document.getElementById('nav-home').classList.toggle('active', page === 'home');
+            document.getElementById('nav-birds').classList.toggle('active', page === 'birds');
             document.getElementById('nav-guide').classList.toggle('active', page === 'guide');
             document.getElementById('nav-blog').classList.toggle('active', page === 'blog');
 
             document.getElementById('step-thermal').classList.remove('highlight-step');
             document.getElementById('step-mechanical').classList.remove('highlight-step');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function navigateToGuideAndHighlight(type) {
@@ -323,18 +339,22 @@
             const targetId = type === 'thermal' ? 'step-thermal' : 'step-mechanical';
             const otherId = type === 'thermal' ? 'step-mechanical' : 'step-thermal';
             
-            document.getElementById(targetId).classList.add('highlight-step');
-            document.getElementById(otherId).classList.remove('highlight-step');
-            document.getElementById(targetId).scrollIntoView({ behavior: 'smooth', block: 'center' });
+            setTimeout(() => {
+                document.getElementById(targetId).classList.add('highlight-step');
+                document.getElementById(otherId).classList.remove('highlight-step');
+                document.getElementById(targetId).scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 100);
         }
 
         const languages = {
             ar: {
                 brandTop: "أرْض", brandBottom: "السَّــــــــــــــــــــــــوَاد", 
-                navHome: "الرئيسية", navGuide: "الدليل العلمي", navBlog: "المدونة",
+                navHome: "الرئيسية", navBirds: "طيورنا الوطنية", navGuide: "الدليل العلمي", navBlog: "المدونة",
                 subThermal: "Types of Scarification: Thermal", subMechanical: "Types of Scarification: Mechanical",
                 homeTitle: "تنهض رؤيتنا من مفارقة معاصرة", 
                 homeHighlight: "الفكرة علمية.. والتنفيذ بسواعدنا.",
+                birdsTitle: "رحيل الألحان: حين تصمت بساتيننا",
+                bulbulBadge: "⚠️ مهدد بخطر الانقراض",
                 
                 goal1Badge: "هدف التنوع البيولوجي", goal1Title: "5,000 شجرة ألبيزيا", goal1Subtitle: "إقامة أحزمة وقائية مستدامة لكسر حدة الرياح الصحراوية وتثبيت التربة.",
                 counter1Num: "5k", counter1Label: "مستهدف",
@@ -342,22 +362,26 @@
                 counter2Num: "5k", counter2Label: "مستهدف",
 
                 homeBody: `<p class="main-text">"نلتقي كرابطة رقمية موحدة خلف الشاشات، لكننا نتحرك كإرادات فردية تغير أرض الواقع. إن أزمة المناخ والتصحر التي يعيشها العراق اليوم تفرض علينا كشباب أن نترك عاطفة 'التشجير الموسمي' المحدودة بالمكان والميزانيات، وننتقل فوراً إلى فضاء 'التنمية المستدامة' المبني على خطط علمية حقيقية."</p><p class="main-text">"فبناء المدن الخضراء يحتاج وعياً معرفياً يتجاوز الحلول الترقيعية العابرة ليصبح إرثاً حياً تحتمي به الأجيال القادمة. ومن هنا، تفتح هذه المنصة العلمية الباب لكل أبناء وبنات شعبنا العراقي أينما وجدوا؛ من جبال زاخو في أقصى الشمال إلى شواطئ الفاو في أقصى الجنوب، ومن صحراء الرطبة غرباً إلى مرتفعات بنجوين شرقاً."</p><p class="main-text">"لم يعد بُعد المسافة عائقاً، سنطوي مسافات جغرافيتنا رقمياً لنلتحم في غرس واقعي، ونعيد معاً صياغة الهوية البيئية لأرضنا العراقية الجَمَّاء."</p>`,
+                birdsBody: `<p class="main-text" style="text-align: justify;">"لم يعد البلبل العراقي يغرد كما كان في صباحات بغداد والبصرة. هذا الطائر الذي ارتبط في وجداننا بظلال النخيل وهدوء البساتين، بدأ يتوارى بصمت تحت وطأة التغيرات القاسية التي أصابت بيئتنا."</p><p class="main-text" style="text-align: justify;"><strong>أسباب التهديد بالانقراض:</strong> يواجه البلبل العراقي تحديات وجودية جسيمة، أبرزها تجريف البساتين والمساحات الخضراء الأصيلة واستبدالها بالمجمعات السكنية، والصيد الجائر غير المنظم لغرض التجارة، فضلاً عن موجات الجفاف الشديدة وارتفاع درجات الحرارة القياسية التي تدمر موائله الطبيعية ومصادر غذائه.</p>`,
+                
                 guideMainTitle: "دليل الإنبات العلمي (Scarification Guide)", 
                 guideMainDesc: "كيف ننتقل من العاطفة العابرة إلى المعرفة الاستراتيجية لرفع نسب نجاح البذور القاسية؟",
-                guideSteps: `<li id="step-thermal"><strong>١. التخديد المائي (Thermal Scarification):</strong> بذور الألبيزيا والليوكينة تمتلك غلافاً شمعياً سميكاً يمنع دخول الماء. يُنصح بنقع البذور في ماء ساخن (وليس مغلي) لمدة ١٢-٢٤ ساعة حتى تتفتح وتنتفخ وتصبح جاهزة للزراعة.</li><li id="step-mechanical"><strong>٢. التخديد الميكانيكي (Mechanical Scarification):</strong> كبديل سريع ومثالي للمجموعات الصغيرة، يمكن خدش أو كشط طرف الغلاف الخارجي الصلب للبذرة برفق باستخدام مقص أظافر أو ورق سنفرة (دون مساس الجنين الداخلي) للسماح بنفاذ الماء الفوري وسرعة الإنبات.</li><li id="step-depth"><strong>٣. عمق الغرس العلمي (Systematic Depth):</strong> تُزرع البذور المعالجة على عمق سطحي حذر لا يتجاوز ١ إلى ٢ سم في تربة جيدة التصريف لتأمين الأكسجين الكافي للنمو.</li><li id="step-watering"><strong>٤. مراقبة الرطوبة الحذرة (Measured Watering):</strong> الحفاظ على رطوبة التربة خفيفة وبدون إغراق، لتفادي تعفن الجذور في مراحل الإنبات الحرجة الأولى.</li>`,
+                guideSteps: `<li id="step-thermal"><strong>١. التخديد المائي (Thermal Scarification):</strong> بذور الألبيزيا تمتلك غلافاً شمعياً سميكاً يمنع دخول الماء. يُنصح بنقع البذور في ماء ساخن (وليس مغلي) لمدة ١٢-٢٤ ساعة حتى تتفتح وتنتفخ وتصبح جاهزة للزراعة.</li><li id="step-mechanical"><strong>٢. التخديد الميكانيكي (Mechanical Scarification):</strong> كبديل سريع ومثالي للمجموعات الصغيرة، يمكن خدش أو كشط طرف الغلاف الخارجي الصلب للبذرة برفق باستخدام مقص أظافر أو ورق سنفرة (دون مساس الجنين الداخلي) للسماح بنفاذ الماء الفوري وسرعة الإنبات.</li><li id="step-depth"><strong>٣. عمق الغرس العلمي (Systematic Depth):</strong> تُزرع البذور المعالجة على عمق سطحي حذر لا يتجاوز ١ إلى ٢ سم في تربة جيدة التصريف لتأمين الأكسجين الكافي للنمو.</li><li id="step-watering"><strong>٤. مراقبة الرطوبة الحذرة (Measured Watering):</strong> الحفاظ على رطوبة التربة خفيفة وبدون إغراق، لتفادي تعفن الجذور في مراحل الإنبات الحرجة الأولى.</li>`,
                 guideTableTitle: "جدول المراقبة المعرفي ومعدلات النمو المتوقعة:",
-                thPeriod: "المرحلة الزمنية", thAlbizia: "معدل نمو الألبيزيا المتوقع", thLeucaena: "معدل نمو الليوكينة المتوقع",
-                tdW1: "الأسبوع الأول", tdA1: "بروز الجذير وانشقاق التربة (٢-٤ سم)", tdL1: "ظهور الأوراق الفلقية الأولى (٣-٥ سم)",
-                tdW2: "الأسبوع الثاني", tdA2: "ظهور الأوراق الريشية المركبة (٦-١٠ سم)", tdL2: "استطالة الساق وزيادة التفرع (٨-١٤ سم)",
-                blogTitle: "البداية الحقيقية: لماذا الألبيزيا والليوكينة؟", blogBody: "تعتبر أشجار الألبيزيا والليوكينة خيارات استراتيجية لمواجهة التغير المناخي في بيئتنا المحلية؛ نظراً لقدرتها الفائقة على تحمل درجات الحرارة المرتفعة، ومقاومة الجفاف، بالإضافة إلى دورها الحيوي في تثبيت النيتروجين في التربة وتحسين خصوبتها، مما يجعلها حجر الأساس في مشروعنا للتحول من التشجير المؤقت إلى الاستدامة الدائمة.",
+                thPeriod: "المرحلة الزمنية", thAlbizia: "معدل نمو الألبيزيا المتوقع", thLeucaena: "معدل نمو السدر المتوقع",
+                tdW1: "الأسبوع الأول", tdA1: "بروز الجذير وانشقاق التربة (٢-٤ سم)", tdL1: "ظهور الأوراق الأولى والنمو الحذر (٣-٥ سم)",
+                tdW2: "الأسبوع الثاني", tdA2: "ظهور الأوراق الريشية المركبة (٦-١٠ سم)", tdL2: "استطالة الساق وزيادة التفرع الجذري (٨-١٤ سم)",
+                blogTitle: "البداية الحقيقية: لماذا الألبيزيا والسدر؟", blogBody: "تعتبر أشجار الألبيزيا والسدر خيارات استراتيجية لمواجهة التغير المناخي في بيئتنا المحلية؛ نظراً لقدرتها الفائقة على تحمل درجات الحرارة المرتفعة، ومقاومة الجفاف، بالإضافة إلى دورها الحيوي في تثبيت التربة وتحسين خصوبتها، مما يجعلها حجر الأساس في مشروعنا للتحول من التشجير المؤقت إلى الاستدامة الدائمة.",
                 telegramBtn: "الانضمام إلى القناة الرسمية في تليغرام ←", footer: "جميع الحقوق محفوظة © أرض السَّواد ٢٠٢٦"
             },
             en: {
                 brandTop: "Land of", brandBottom: "Al-Sawad", 
-                navHome: "Home", navGuide: "Scientific Guide", navBlog: "Blog",
+                navHome: "Home", navBirds: "National Birds", navGuide: "Scientific Guide", navBlog: "Blog",
                 subThermal: "Types of Scarification: Thermal", subMechanical: "Types of Scarification: Mechanical",
-                homeTitle: "Our Vision", 
+                homeTitle: "Our Vision Rises from a Contemporary Paradox", 
                 homeHighlight: "The idea is scientific.. and execution is by our hands.",
+                birdsTitle: "The Departure of Melodies: When Our Orchards Fall Silent",
+                bulbulBadge: "⚠️ Threatened with Extinction",
                 
                 goal1Badge: "Biodiversity Goal", goal1Title: "5,000 Albizia Trees", goal1Subtitle: "Establishing sustainable protective belts to break desert winds and secure soil stabilization.",
                 counter1Num: "5k", counter1Label: "Target",
@@ -365,14 +389,16 @@
                 counter2Num: "5k", counter2Label: "Target",
 
                 homeBody: `<p class="main-text">"We meet as a unified digital alliance behind screens, but we move as individual wills that transform reality on the ground. Today's climate and desertification crisis in Iraq compels us as youth to abandon 'seasonal afforestation'—limited by geography and budgets—and transition immediately into 'sustainable development' built on true scientific blueprints."</p><p class="main-text">"Building green cities demands a cognitive awareness that outlasts temporary patchworks to become a living legacy sheltering future generations. Hence, this scientific platform opens its doors to all Iraqis wherever they are; from the mountains of Zakho in the far north to the shores of Faw in the far south, and from the Rutba desert in the west to the Penjwen heights in the east."</p><p class="main-text">"Distance is no longer an obstacle; we will bridge our geography digitally to unite in a physical planting movement, reshaping together the ecological identity of our beautiful land of Iraq."</p>`,
+                birdsBody: `<p class="main-text" style="text-align: left;">"The Iraqi Bulbul no longer sings as it once did in the mornings of Baghdad and Basra. This bird, deeply intertwined in our collective consciousness with the shade of palm trees and the serenity of orchards, has begun to quietly vanish under the weight of harsh environmental changes."</p><p class="main-text" style="text-align: left;"><strong>Reasons for Threat of Extinction:</strong> The Iraqi Bulbul faces severe existential crises, primarily driven by the destruction of native palm orchards for urban developments, illegal poaching for bird trade, alongside intense drought waves and record temperatures that ruin its natural habitats and feeding grounds.</p>`,
+                
                 guideMainTitle: "Scarification & Growth Guide", 
                 guideMainDesc: "How do we move from passing sentiment into structural blueprints to secure high seed-germination rates?",
-                guideSteps: `<li id="step-thermal"><strong>1. Thermal Scarification:</strong> Albizia and Leucaena seeds possess a thick, waxy coat. Soak seeds in hot (not boiling) water for 12–24 hours until they visibly swell and become ready for planting.</li><li id="step-mechanical"><strong>2. Mechanical Scarification:</strong> As a quick alternative for small batches, gently nick or file the outer seed coat using nail clippers or sandpaper (without damaging the inner embryo) to allow immediate water penetration.</li><li id="step-depth"><strong>3. Systematic Depth:</strong> Plant treated seeds at a shallow depth of 1 to 2 cm maximum in well-drained soil to secure adequate embryonic oxygen.</li><li id="step-watering"><strong>4. Measured Watering:</strong> Keep soil moisture consistent but light, preventing root rot during critical initial sprout stages.</li>`,
+                guideSteps: `<li id="step-thermal"><strong>1. Thermal Scarification:</strong> Albizia seeds possess a thick, waxy coat. Soak seeds in hot (not boiling) water for 12–24 hours until they visibly swell and become ready for planting.</li><li id="step-mechanical"><strong>2. Mechanical Scarification:</strong> As a quick alternative for small batches, gently nick or file the outer seed coat using nail clippers or sandpaper (without damaging the inner embryo) to allow immediate water penetration.</li><li id="step-depth"><strong>3. Systematic Depth:</strong> Plant treated seeds at a shallow depth of 1 to 2 cm maximum in well-drained soil to secure adequate embryonic oxygen.</li><li id="step-watering"><strong>4. Measured Watering:</strong> Keep soil moisture consistent but light, preventing root rot during critical initial sprout stages.</li>`,
                 guideTableTitle: "Scientific Tracking Matrix & Expected Growth Rates:",
-                thPeriod: "Timeframe", thAlbizia: "Expected Albizia Growth", thLeucaena: "Expected Leucaena Growth",
-                tdW1: "Week 1", tdA1: "Radicle emergence and soil cracking (2-4 cm)", tdL1: "First cotyledon leaf display (3-5 cm)",
-                tdW2: "Week 2", tdA2: "Compound pinnate leaf formation (6-10 cm)", tdL2: "Stem elongation and active branching (8-14 cm)",
-                blogTitle: "The True Beginning: Why Albizia and Leucaena?", blogBody: "Albizia and Leucaena trees represent strategic choices to combat climate change in our local environment due to their remarkable ability to endure high temperatures, resist drought, and fix nitrogen in the soil, enhancing its fertility. This makes them the cornerstone of our transition from temporary greening to permanent sustainability.",
+                thPeriod: "Timeframe", thAlbizia: "Expected Albizia Growth", thLeucaena: "Expected Sidr Growth",
+                tdW1: "Week 1", tdA1: "Radicle emergence and soil cracking (2-4 cm)", tdL1: "First leaf display and careful growth (3-5 cm)",
+                tdW2: "Week 2", tdA2: "Compound pinnate leaf formation (6-10 cm)", tdL2: "Stem elongation and root expansion (8-14 cm)",
+                blogTitle: "The True Beginning: Why Albizia and Sidr?", blogBody: "Albizia and Sidr trees represent strategic choices to combat climate change in our local environment due to their remarkable ability to endure high temperatures, resist drought, and fix nitrogen in the soil, enhancing its fertility. This makes them the cornerstone of our transition from temporary greening to permanent sustainability.",
                 telegramBtn: "Join the Official Telegram Channel →", footer: "All Rights Reserved © Ard Al-Sawad 2026"
             }
         };
@@ -388,6 +414,7 @@
             document.getElementById('text-brand').querySelector('.line-top').innerText = data.brandTop;
             document.getElementById('text-brand').querySelector('.line-bottom').innerText = data.brandBottom;
             document.getElementById('nav-home').innerText = data.navHome;
+            document.getElementById('nav-birds').innerText = data.navBirds;
             document.getElementById('nav-guide').innerText = data.navGuide;
             document.getElementById('nav-blog').innerText = data.navBlog;
             
@@ -395,9 +422,13 @@
             document.getElementById('sub-mechanical').innerText = data.subMechanical;
 
             document.getElementById('text-home-title').innerText = data.homeTitle;
-            document.getElementById('text-home-body').innerHTML = data.homeBody; // تم إصلاح الخلل هنا لترجمة الفقرات كاملة
+            document.getElementById('text-home-body').innerHTML = data.homeBody;
             document.getElementById('text-home-highlight').innerText = data.homeHighlight;
             
+            document.getElementById('text-birds-title').innerText = data.birdsTitle;
+            document.getElementById('text-bulbul-badge').innerText = data.bulbulBadge;
+            document.getElementById('text-birds-body').innerHTML = data.birdsBody;
+
             document.getElementById('txt-goal1-badge').innerText = data.goal1Badge;
             document.getElementById('txt-goal1-title').innerText = data.goal1Title;
             document.getElementById('txt-goal1-subtitle').innerText = data.goal1Subtitle;
@@ -414,6 +445,7 @@
             document.getElementById('guide-main-desc').innerText = data.guideMainDesc;
             document.getElementById('guide-steps-list').innerHTML = data.guideSteps;
             document.getElementById('guide-table-title').innerText = data.guideTableTitle;
+            
             document.getElementById('th-period').innerText = data.thPeriod;
             document.getElementById('th-albizia').innerText = data.thAlbizia;
             document.getElementById('th-leucaena').innerText = data.thLeucaena;
@@ -425,7 +457,6 @@
             document.getElementById('td-l2').innerText = data.tdL2;
 
             document.getElementById('text-blog-title').innerText = data.blogTitle;
-            document.getElementById('text-blog-date').innerText = currentLang === 'ar' ? "١٨ حزيران، ٢٠٢٦" : "June 18, 2026";
             document.getElementById('text-blog-body').innerText = data.blogBody;
             document.getElementById('text-telegram-btn').innerText = data.telegramBtn;
             document.getElementById('text-footer').innerText = data.footer;
