@@ -146,9 +146,12 @@
         .page-view-section.active { display: block; }
 
         /* صفحة المدونة */
-        .blog-item-title { color: #2ecc71; font-size: 2.5rem; margin-bottom: 10px; line-height: 1.2; }
+        .blog-item { margin-bottom: 50px; border-bottom: 1px solid #2d2d2d; padding-bottom: 40px; }
+        .blog-item:last-child { border-bottom: none; padding-bottom: 0; }
+        .blog-item-title { color: #2ecc71; font-size: 2.5rem; margin-bottom: 10px; line-height: 1.2; font-family: 'Amiri', serif; }
         body.lang-en .blog-item-title { font-family: 'Playfair Display', serif; font-size: 2rem; }
-        .blog-item-date { color: #888; text-decoration: underline; display: block; margin-bottom: 20px; }
+        .blog-item-date { color: #888; text-decoration: underline; display: block; margin-bottom: 20px; font-family: 'Cairo', sans-serif; font-size: 0.95rem; }
+        body.lang-en .blog-item-date { font-family: system-ui, sans-serif; }
 
         .telegram-action { margin-top: 50px; text-align: center; }
         .telegram-link-btn { display: inline-block; padding: 12px 35px; border: 2px solid #2ecc71; color: #2ecc71; text-decoration: none; font-size: 1.3rem; font-weight: 700; text-align: center; max-width: 100%; transition: all 0.3s ease; }
@@ -311,7 +314,7 @@
             <div id="guide-content-area" class="page-view-section">
                 <div class="growth-guide-box">
                     <h2 class="section-title" id="guide-main-title" style="font-size: 2rem; margin-bottom: 10px;">دليل الإنبات العلمي (Scarification Guide)</h2>
-                    <p id="guide-main-desc" style="color: #ccc; margin-bottom: 20px;">كيف ننتقل من العاطفة العابرة إلى المعرفة الاستراتيجية لرفع نسب نجاح البذور القاسية؟</p>
+                    <p id="guide-main-desc" style="color: #ccc; margin-bottom: 20px;">كيف ننتقل من العاطفة العابرة إلى المعرفة الاستراتيجية لرفع نسب نجاح البذور القاسية?</p>
                     
                     <ol class="guide-steps-ol" id="guide-steps-list">
                         <li id="step-thermal"><strong>١. التخديد المائي (Thermal Scarification):</strong> بذور الألبيزيا تمتلك غلافاً شمعياً سميكاً يمنع دخول الماء. يُنصح بنقع البذور في ماء ساخن (وليس مغلي) لمدة ١٢-٢٤ ساعة حتى تتفتح وتنتفخ وتصبح جاهزة للزراعة.</li>
@@ -350,6 +353,18 @@
 
             <!-- 4. صفحة المدونة -->
             <div id="blog-content-area" class="page-view-section">
+                <!-- المقال الجديد المضاف -->
+                <div class="blog-item">
+                    <h2 class="blog-item-title" id="text-blog2-title">البلبل العراقي في مواجهة الاندثار: لماذا نحتاج إلى "الإطلاق اللين" لاستعادة توازننا البيئي؟</h2>
+                    <span class="blog-item-date" id="text-blog2-date">٢٨ حزيران، ٢٠٢٦</span>
+                    <div id="text-blog2-body">
+                        <p class="main-text">يُعرف الإطلاق اللين علمياً باسم "طوق النجاة البيئي" (Ecological Lifeline Strategy)، وهو منهجية علمية لإعادة توطين الطيور تعتمد على مرحلة انتقالية بدلاً من إطلاقها المباشر. في هذه العملية، تُوضع البلابل في أقفاص تأقلم ضمن بيئتها الطبيعية، حيث يُقدم لها الغذاء والماء تدريجياً؛ مما يمنحها فرصة لاستعادة لياقتها البدنية التي تضررت بسبب الأسر، والتعود على أصوات ومناخ محيطها، وتشكيل "خريطة ذهنية" للمكان قبل الاعتماد الكلي على نفسها.</p>
+                        <p class="main-text">يمثل هذا الأسلوب الحل العلمي الأمثل، فهو يعالج أولاً الاستشفاء الفسيولوجي والسلوكي، حيث تخرج الطيور من الأسر وهي تعاني من ضمور في العضلات وإجهاد فسيولوجي، ليأتي الإطلاق اللين كفترة ترميم ضرورية ترفع من قدرة الطائر على الهروب من المفترسات. ثانياً، يعمل هذا الأسلوب على تعزيز ما يُعرف بـ "الارتباط بالموقع"، فبما أن البلبل كائن ذكي يربط المكان بالسلامة، فإن فترة التأقلم في منطقة محمية تدفعه للاستقرار والتكاثر فيها بدلاً من التشتت في المجهول، مما يساهم في خلق "بؤر تكاثرية" ترفع من أعداد الجماعة بشكل تراكمي. وأخيراً، يسهم هذا المنهج في كسر "صدمة النفور الغذائي"؛ إذ يتعلم الطائر بالتجربة والخطأ كيفية التمييز بين الغذاء الاصطناعي والموارد الطبيعية كالحشرات والثمار، وهو ما يقلل بشكل حاد من مخاطر سوء التغذية بعد الإطلاق.</p>
+                        <p class="main-text">إن حماية البلبل العراقي بهذا الأسلوب هي استثمار في استدامة بيئتنا؛ فالانتقال من حب الطيور في الأقفاص إلى احترامها في فضاءاتها الطبيعية هو السبيل الوحيد لضمان مستقبل مزدهر. إن تبني بروتوكولات الإطلاق اللين كمنهج يعني أننا لا ننقذ طائراً فحسب، بل نحمي التوازن البيئي الذي يربطنا بهذه الأرض، لتظل أغصان بساتيننا عامرة بحياة نساهم جميعاً في استعادتها.</p>
+                    </div>
+                </div>
+
+                <!-- المقال القديم -->
                 <div class="blog-item">
                     <h2 class="blog-item-title" id="text-blog-title">البداية الحقيقية: لماذا الألبيزيا والسدر؟</h2>
                     <span class="blog-item-date" id="text-blog-date">١٨ حزيران، ٢٠٢٦</span>
@@ -419,6 +434,12 @@
                 tableBody: `<tr><td>الأسبوع الأول</td><td>بروز الجذير وانشقاق التربة (٢-٤ سم)</td><td>ظهور الأوراق الأولى والنمو الحذر (٣-٥ سم)</td></tr><tr><td>الأسبوع الثاني</td><td>ظهور الأوراق الريشية المركبة (٦-١٠ سم)</td><td>استطالة الساق وزيادة التفرع الجذري (٨-١٤ سم)</td></tr>`,
                 blogTitle: "البداية الحقيقية: لماذا الألبيزيا والسدر؟", 
                 blogBody: "تعتبر أشجار الألبيزيا والسدر خيارات استراتيجية لمواجهة التغير المناخي في بيئتنا المحلية؛ نظراً لقدرتها الفائقة على تحمل درجات الحرارة المرتفعة، ومقاومة الجفاف، بالإضافة إلى دورها الحيوي في تثبيت التربة وتحسين خصوبتها، مما يجعلها حجر الأساس في مشروعنا للتحول من التشجير المؤقت إلى الاستدامة الدائمة.",
+                
+                // ترجمة المقال الجديد للعربية
+                blog2Title: "البلبل العراقي في مواجهة الاندثار: لماذا نحتاج إلى \"الإطلاق اللين\" لاستعادة توازننا البيئي؟",
+                blog2Date: "٢٨ حزيران، ٢٠٢٦",
+                blog2Body: `<p class="main-text">يُعرف الإطلاق اللين علمياً باسم "طوق النجاة البيئي" (Ecological Lifeline Strategy)، وهو منهجية علمية لإعادة توطين الطيور تعتمد على مرحلة انتقالية بدلاً من إطلاقها المباشر. في هذه العملية، تُوضع البلابل في أقفاص تأقلم ضمن بيئتها الطبيعية، حيث يُقدم لها الغذاء والماء تدريجياً؛ مما يمنحها فرصة لاستعادة لياقتها البدنية التي تضررت بسبب الأسر، والتعود على أصوات ومناخ محيطها، وتشكيل "خريطة ذهنية" للمكان قبل الاعتماد الكلي على نفسها.</p><p class="main-text">يمثل هذا الأسلوب الحل العلمي الأمثل، فهو يعالج أولاً الاستشفاء الفسيولوجي والسلوكي، حيث تخرج الطيور من الأسر وهي تعاني من ضمور في العضلات وإجهاد فسيولوجي، ليأتي الإطلاق اللين كفترة ترميم ضرورية ترفع من قدرة الطائر على الهروب من المفترسات. ثانياً، يعمل هذا الأسلوب على تعزيز ما يُعرف بـ "الارتباط بالموقع"، فبما أن البلبل كائن ذكي يربط المكان بالسلامة، فإن فترة التأقلم في منطقة محمية تدفعه للاستقرار والتكاثر فيها بدلاً من التشتت في المجهول، مما يساهم في خلق "بؤر تكاثرية" ترفع من أعداد الجماعة بشكل تراكمي. وأخيراً، يسهم هذا المنهج في كسر "صدمة النفور الغذائي"؛ إذ يتعلم الطائر بالتجربة والخطأ كيفية التمييز بين الغذاء الاصطناعي والموارد الطبيعية كالحشرات والثمار، وهو ما يقلل بشكل حاد من مخاطر سوء التغذية بعد الإطلاق.</p><p class="main-text">إن حماية البلبل العراقي بهذا الأسلوب هي استثمار في استدامة بيئتنا؛ فالانتقال من حب الطيور في الأقفاص إلى احترامها في فضاءاتها الطبيعية هو السبيل الوحيد لضمان مستقبل مزدهر. إن تبني بروتوكولات الإطلاق اللين كمنهج يعني أننا لا ننقذ طائراً فحسب، بل نحمي التوازن البيئي الذي يربطنا بهذه الأرض، لتظل أغصان بساتيننا عامرة بحياة نساهم جميعاً في استعادتها.</p>`,
+                
                 telegramBtn: "الانضمام إلى القناة الرسمية في تليغرام ←", footer: "جميع الحقوق محفوظة © أرض السَّواد ٢٠٢٦", toggleBtn: "English"
             },
             en: {
@@ -442,6 +463,12 @@
                 tableBody: `<tr><td>Week 1</td><td>Radicle emergence and soil breakthrough (2-4 cm)</td><td>First leaves appearance and cautious growth (3-5 cm)</td></tr><tr><td>Week 2</td><td>Appearance of compound pinnate leaves (6-10 cm)</td><td>Stem elongation and increased root branching (8-14 cm)</td></tr>`,
                 blogTitle: "The True Beginning: Why Albizia and Sidr?", 
                 blogBody: "Albizia and Sidr trees represent strategic choices to combat climate change locally. Due to their superior capacity to endure extreme temperatures, resist drought, and enhance soil fertility, they serve as the foundation of our shift from temporary planting to permanent sustainability.",
+                
+                // ترجمة المقال الجديد للإنجليزية
+                blog2Title: "The Iraqi Bulbul Facing Extinction: Why Do We Need 'Soft Release' to Restore Ecological Balance?",
+                blog2Date: "June 28, 2026",
+                blog2Body: `<p class="main-text">Scientifically known as the "Ecological Lifeline Strategy", soft release is a scientific approach to bird reintroduction that relies on a transitional phase rather than immediate release. In this process, bulbuls are placed in acclimatization aviaries within their natural habitat, where food and water are provided gradually. This grants them the opportunity to restore physical fitness degraded by captivity, adapt to local climate and sounds, and establish a "mental map" of the locality before achieving full self-reliance.</p><p class="main-text">This strategy stands as the optimal scientific solution. First, it addresses physiological and behavioral rehabilitation; birds emerge from captivity suffering from muscle atrophy and physiological stress, making soft release a vital restoration period that enhances their ability to evade predators. Second, it strengthens "site fidelity." Since the bulbul is an intelligent creature that associates locality with safety, this adaptation phase in a protected zone encourages it to settle and breed there instead of dispersing into the unknown, fostering "breeding hotspots" that gradually multiply the population. Finally, this method breaks "dietary aversion shock." Through trial and error, the bird learns to distinguish between artificial feed and natural resources such as insects and fruits, sharply reducing malnutrition risks post-release.</p><p class="main-text">Protecting the Iraqi Bulbul through this approach is a direct investment in the sustainability of our environment. Shifting from loving birds in cages to respecting them within their natural domains is the only pathway to a flourishing future. Adopting soft release protocols as a core methodology implies that we are not merely saving a bird; we are safeguarding the ecological balance that connects us to this land, ensuring that the branches of our orchards remain vibrant with life we all help restore.</p>`,
+                
                 telegramBtn: "Join the Official Telegram Channel ←", footer: "All Rights Reserved © Land of Al-Sawad 2026", toggleBtn: "العربية"
             }
         };
@@ -494,9 +521,14 @@
             document.getElementById('th-leucaena').innerText = data.thLeucaena;
             document.getElementById('guide-table-body').innerHTML = data.tableBody;
 
-            // صفحة المدونة والفوتر
+            // صفحة المدونة (المقال الجديد والمقال القديم) والفوتر والزر
+            document.getElementById('text-blog2-title').innerText = data.blog2Title;
+            document.getElementById('text-blog2-date').innerText = data.blog2Date;
+            document.getElementById('text-blog2-body').innerHTML = data.blog2Body;
+
             document.getElementById('text-blog-title').innerText = data.blogTitle;
             document.getElementById('text-blog-body').innerText = data.blogBody;
+            
             document.getElementById('text-telegram-btn').innerText = data.telegramBtn;
             document.getElementById('text-footer').innerText = data.footer;
         }
