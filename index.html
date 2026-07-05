@@ -145,37 +145,72 @@
         .page-view-section { display: none; }
         .page-view-section.active { display: block; }
 
-        /* صفحة المدونة */
-        .blog-item { margin-bottom: 50px; border-bottom: 1px solid #2d2d2d; padding-bottom: 40px; }
-        .blog-item:last-child { border-bottom: none; padding-bottom: 0; }
-        .blog-item-title { color: #2ecc71; font-size: 2.5rem; margin-bottom: 10px; line-height: 1.2; font-family: 'Amiri', serif; }
-        body.lang-en .blog-item-title { font-family: 'Playfair Display', serif; font-size: 2rem; }
-        .blog-item-date { color: #888; text-decoration: underline; display: block; margin-bottom: 20px; font-family: 'Cairo', sans-serif; font-size: 0.95rem; }
-        body.lang-en .blog-item-date { font-family: system-ui, sans-serif; }
-
-        .telegram-action { margin-top: 50px; text-align: center; }
-        .telegram-link-btn { display: inline-block; padding: 12px 35px; border: 2px solid #2ecc71; color: #2ecc71; text-decoration: none; font-size: 1.3rem; font-weight: 700; text-align: center; max-width: 100%; transition: all 0.3s ease; }
-        .telegram-link-btn:hover { background-color: #2ecc71; color: #1a1a1a; }
+      <!-- قسم المدونة -->
+<section id="blog-section" style="padding: 60px 20px; background-color: #1a1a1a; color: #fff;">
+    <div style="max-width: 850px; margin: 0 auto;">
         
-        /* دليل الإنبات المعرفي */
-        .growth-guide-box { border: 1px solid #333; background: #222; border-radius: 16px; padding: 35px; margin-top: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
-        .guide-steps-ol { list-style: none; margin: 25px 0 35px 0; font-size: 1.25rem; line-height: 1.9; }
-        body.lang-en .guide-steps-ol { font-family: system-ui, sans-serif; font-size: 1.05rem; }
-        .guide-steps-ol li { margin-bottom: 15px; color: #e5e7eb; padding: 10px; border-radius: 8px; transition: background-color 0.3s; }
-        .guide-steps-ol li.highlight-step { background-color: #2d2d2d; border-right: 4px solid #2ecc71; }
-        body.lang-en .guide-steps-ol li.highlight-step { border-right: none; border-left: 4px solid #2ecc71; }
-        .guide-steps-ol strong { color: #2ecc71; font-family: 'Cairo', sans-serif; font-size: 1.1rem; }
-        body.lang-en .guide-steps-ol strong { font-family: system-ui, sans-serif; font-size: 1.05rem; }
-        
-        /* جداول الإنبات */
-        .table-responsive-container { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; margin-top: 20px; border-radius: 8px; }
-        .growth-table { width: 100%; border-collapse: collapse; font-family: 'Cairo', sans-serif; font-size: 0.95rem; background: #151515; min-width: 550px; }
-        body.lang-en .growth-table { font-family: system-ui, sans-serif; }
-        .growth-table th, .growth-table td { padding: 14px 18px; text-align: right; border-bottom: 1px solid #2d2d2d; color: #ffffff !important; }
-        body.lang-en .growth-table th, body.lang-en .growth-table td { text-align: left; }
-        .growth-table th { background: #2c2c2c; color: #2ecc71 !important; }
+        <!-- شبكة البطاقات -->
+        <div id="blog-grid-view" style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px;">
+            
+            <div class="blog-card" onclick="showArticle('article1')" style="background: #222; border: 1px solid #333; padding: 30px; border-radius: 16px; cursor: pointer; transition: all 0.4s ease; box-shadow: 0 0 0px rgba(46, 204, 113, 0);">
+                <h3 style="color: #2ecc71; margin-bottom: 10px; font-family: 'Amiri', serif;">البلبل العراقي في مواجهة الاندثار</h3>
+                <p style="color: #ccc; font-size: 1rem; line-height: 1.6;">لماذا نحتاج إلى بروتوكول "الإطلاق اللين" لاستعادة التوازن البيئي؟</p>
+            </div>
 
-        .site-footer { margin-top: 60px; border-top: 1px solid #333; padding-top: 30px; color: #666; font-size: 0.95rem; text-align: center; }
+            <div class="blog-card" onclick="showArticle('article2')" style="background: #222; border: 1px solid #333; padding: 30px; border-radius: 16px; cursor: pointer; transition: all 0.4s ease; box-shadow: 0 0 0px rgba(46, 204, 113, 0);">
+                <h3 style="color: #2ecc71; margin-bottom: 10px; font-family: 'Amiri', serif;">خياراتنا الاستراتيجية لمواجهة التصحر</h3>
+                <p style="color: #ccc; font-size: 1rem; line-height: 1.6;">لماذا اخترنا الألبيزيا والسدر كركيزة أساسية لمشاريعنا؟</p>
+            </div>
+        </div>
+
+        <!-- المقالات -->
+        <div id="article-container" style="display: none;">
+            <span onclick="backToGrid()" style="color: #2ecc71; cursor: pointer; display: inline-block; margin-bottom: 20px; font-family: 'Cairo', sans-serif;">← العودة للمدونة</span>
+            
+            <!-- مقال 1 -->
+            <div id="article1" class="full-article" style="display: none;">
+                <h2 style="color: #2ecc71; margin-bottom: 20px;">البلبل العراقي ومواجهة الاندثار</h2>
+                <p style="font-size: 1.3rem; line-height: 2; text-align: justify; color: #e5e7eb;">
+                    يُعرف الإطلاق اللين علمياً باسم "طوق النجاة البيئي"، وهو منهجية علمية متقدمة لإعادة توطين الطيور البرية تعتمد على خلق مرحلة انتقالية متدرجة بدلاً من الإطلاق المباشر والمفاجئ. تُوضع البلابل في أقفاص تأقلم فسيحة ضمن بيئتها الطبيعية، حيث تتعلم التمييز بين الغذاء الطبيعي وتعتاد على مناخ المنطقة، مما يضمن بناء مجموعات قوية قادرة على التكاثر وإعادة الألحان البغدادية الأصيلة إلى بساتين النخيل.
+                </p>
+            </div>
+
+            <!-- مقال 2 -->
+            <div id="article2" class="full-article" style="display: none;">
+                <h2 style="color: #2ecc71; margin-bottom: 20px;">لماذا الألبيزيا والسدر؟</h2>
+                <p style="font-size: 1.3rem; line-height: 2; text-align: justify; color: #e5e7eb;">
+                    تعتبر أشجار الألبيزيا والسدر خيارات استراتيجية لمواجهة التغير المناخي؛ لقدرتها الاستثنائية على تحمل درجات الحرارة التي تتجاوز الـ 50 درجة مئوية. تعمل الألبيزيا كأحزمة خضراء لكسر حدة الرياح، بينما تسهم أشجار السدر بجذورها العميقة في تثبيت التربة ومنع زحف الكثبان الرملية، فضلاً عن كونها حاضنة ممتازة للتنوع البيولوجي المفقود.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    function showArticle(id) {
+        // إظهار التوهج
+        event.currentTarget.style.boxShadow = '0 0 20px rgba(46, 204, 113, 0.5)';
+        event.currentTarget.style.borderColor = '#2ecc71';
+        
+        setTimeout(() => {
+            document.getElementById('blog-grid-view').style.display = 'none';
+            document.getElementById('article-container').style.display = 'block';
+            document.getElementById(id).style.display = 'block';
+        }, 300);
+    }
+
+    function backToGrid() {
+        // إعادة تعيين البطاقات
+        document.querySelectorAll('.blog-card').forEach(card => {
+            card.style.boxShadow = '0 0 0px rgba(46, 204, 113, 0)';
+            card.style.borderColor = '#333';
+        });
+        
+        document.getElementById('blog-grid-view').style.display = 'grid';
+        document.getElementById('article-container').style.display = 'none';
+        document.querySelectorAll('.full-article').forEach(a => a.style.display = 'none');
+    }
+</script>
 
         /* متجاوب مع الجوال */
         @media (max-width: 768px) {
