@@ -13,7 +13,7 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { background-color: #ffffff; font-family: 'Amiri', serif; color: #000000; transition: all 0.3s ease; -webkit-text-size-adjust: 100%; }
         body.lang-en { font-family: system-ui, -apple-system, sans-serif; }
-        
+
         /* الهيدر */
         .site-header { max-width: 1200px; margin: 0 auto; padding: 40px 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
         .brand-name { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.3; font-family: 'Amiri', serif; }
@@ -29,7 +29,7 @@
         .nav-link { cursor: pointer; font-size: 1.2rem; padding-bottom: 4px; white-space: nowrap; position: relative; }
         .nav-link.active { font-weight: 700; border-bottom: 2px solid #2ecc71; color: #2ecc71; }
         .nav-link#nav-birds.active { border-bottom: 2px solid #ff4d4d; color: #ff4d4d; }
-        
+
         /* القائمة الفرعية المنبثقة */
         .dropdown { position: relative; display: inline-block; }
         .dropdown-content { display: none; position: absolute; background-color: #1a1a1a; min-width: 200px; box-shadow: 0px 8px 16px rgba(0,0,0,0.2); z-index: 100; border: 1px solid #333; border-radius: 6px; top: 100%; right: 0; }
@@ -38,6 +38,7 @@
         body.lang-en .dropdown-content span { text-align: left; }
         .dropdown-content span:hover { background-color: #2c2c2c; color: #2ecc71; }
         .dropdown:hover .dropdown-content { display: block; }
+
         .lang-switch-btn { background: none; border: 1px solid #000; padding: 4px 12px; cursor: pointer; font-family: 'Amiri', serif; white-space: nowrap; }
         body.lang-en .lang-switch-btn { font-family: system-ui, sans-serif; }
         
@@ -50,8 +51,8 @@
         .main-text { font-family: 'Amiri', serif; font-size: 1.45rem; color: #f3f4f6; line-height: 2.1; text-align: justify; margin-bottom: 30px; }
         body.lang-en .main-text { font-family: system-ui, sans-serif; font-size: 1.15rem; text-align: left; }
         .main-text.highlight { color: #2ecc71; font-weight: 700; text-align: center; margin-bottom: 40px; }
-        
-        /* كرت صندوق البلبل */
+
+        /* كرت صندوق البلبل - القسم الأحمر المستثنى */
         .bulbul-card { 
             background: #222; 
             border: 1px solid #333; 
@@ -83,10 +84,20 @@
             background: rgba(255, 77, 77, 0.02);
             position: relative;
         }
+        .bulbul-img-wrapper::after {
+            content: "⚠️";
+            position: absolute;
+            font-size: 5rem;
+            opacity: 0.15;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            pointer-events: none;
+        }
         .bulbul-img-wrapper img { max-width: 100%; width: 320px; height: auto; display: block; border-radius: 6px; position: relative; z-index: 2; }
-        .bulbul-img-fallback { display: none; color: #ff4d4d; font-family: 'Cairo', sans-serif; font-size: 0.9rem; padding: 60px 20px; position: relative; z-index: 2; }
-        
-        /* أهداف موسمية */
+
+        /* بيئة شبكة الأهداف الموسمية - إشعاع وتوهج أخضر */
         .goals-grid { display: grid; grid-template-columns: 1fr; gap: 25px; margin: 50px 0 20px 0; }
         @media (min-width: 769px) { .goals-grid { grid-template-columns: 1fr 1fr; } }
         
@@ -108,120 +119,120 @@
             box-shadow: 0 0 25px rgba(46, 204, 113, 0.25);
             transform: translateY(-2px);
         }
+
         .goal-info { flex: 1; }
-        .goal-badge { display: inline-block; background: rgba(46, 204, 113, 0.1); color: #2ecc71; padding: 3px 10px; border-radius: 50px; font-family: 'Cairo', sans-serif; font-size: 0.8rem; font-weight: 700; margin-bottom: 10px; }
+        .goal-badge { display: inline-block; background: rgba(46, 204, 113, 0.1); color: #2ecc71; padding: 3px 10px; border-radius: 50px; font-family: 'Cairo', sans-serif; font-size: 0.8rem; font-weight: 700; margin-bottom: 10px; letter-spacing: 0.5px; }
         .goal-title { font-family: 'Cairo', sans-serif; font-size: 1.35rem; font-weight: 700; color: #ffffff; margin-bottom: 6px; }
         .goal-subtitle { font-family: 'Amiri', serif; font-size: 1.1rem; color: #aaa; line-height: 1.4; text-align: justify; }
+        body.lang-en .goal-subtitle { font-family: system-ui, sans-serif; font-size: 0.9rem; text-align: left; }
         
-        /* الدائرة الرسومية */
+        /* الدائرة الرسومية الخضراء */
         .goal-visual { position: relative; width: 110px; height: 110px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
         .goal-visual svg { transform: rotate(-90deg); width: 110px; height: 110px; }
         .circle-bg { fill: none; stroke: #2a2a2a; stroke-width: 8; }
         .circle-progress { fill: none; stroke: #2ecc71; stroke-width: 8; stroke-linecap: round; transition: stroke-dashoffset 1s ease-in-out; opacity: 0.4; }
-        .goal-container:hover .circle-progress { filter: drop-shadow(0 0 5px #2ecc71); opacity: 1; }
+        
+        .goal-container:hover .circle-progress {
+            filter: drop-shadow(0 0 5px #2ecc71);
+            opacity: 1;
+        }
+
         .goal-counter-text { position: absolute; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; line-height: 1.1; }
         .counter-number { font-family: 'Cairo', sans-serif; font-size: 1.25rem; font-weight: 700; color: #ffffff; }
         .counter-label { font-family: 'Cairo', sans-serif; font-size: 0.7rem; color: #888; margin-top: 1px; }
-        
-        /* التحكم في العرض */
+
+        /* التحكم في عرض الصفحات */
         .page-view-section { display: none; }
         .page-view-section.active { display: block; }
-        
-        /* قسم بطاقات المدونة الجديد والمحسّن */
-        .blog-grid { display: grid; grid-template-columns: 1fr; gap: 25px; margin-bottom: 20px; }
-        @media (min-width: 769px) { .blog-grid { grid-template-columns: 1fr 1fr; } }
-        .blog-card {
-            background: #222;
-            border: 1px solid #333;
-            border-radius: 16px;
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
-            overflow: hidden;
-        }
-        .blog-card::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(circle at 50% 0%, rgba(46, 204, 113, 0.08), transparent 70%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            pointer-events: none;
-        }
-        .blog-card:hover {
-            border-color: #2ecc71;
-            box-shadow: 0 0 30px rgba(46, 204, 113, 0.25);
-            transform: translateY(-4px);
-        }
-        .blog-card:hover::before { opacity: 1; }
-        .blog-card-tag {
-            display: inline-block;
-            background: rgba(46, 204, 113, 0.1);
-            color: #2ecc71;
-            padding: 3px 12px;
-            border-radius: 50px;
-            font-family: 'Cairo', sans-serif;
-            font-size: 0.78rem;
-            font-weight: 700;
-            margin-bottom: 14px;
-            align-self: flex-start;
-        }
-        .blog-card-title { font-family: 'Amiri', serif; font-size: 1.55rem; color: #2ecc71; margin-bottom: 8px; line-height: 1.3; }
-        .blog-card-date { color: #888; font-family: 'Cairo', sans-serif; font-size: 0.85rem; margin-bottom: 16px; }
-        .blog-card-excerpt { font-family: 'Amiri', serif; font-size: 1.1rem; color: #ccc; line-height: 1.8; text-align: justify; flex-grow: 1; margin-bottom: 22px; }
-        .blog-card-btn {
-            align-self: flex-start;
-            background: none;
-            border: 1px solid #2ecc71;
-            color: #2ecc71;
-            padding: 8px 22px;
-            border-radius: 50px;
-            font-family: 'Cairo', sans-serif;
-            font-size: 0.95rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .blog-card:hover .blog-card-btn { background-color: #2ecc71; color: #1a1a1a; }
-        
-        /* المقال الكامل داخل الصفحة */
-        .blog-full-article { display: none; margin-bottom: 50px; border-bottom: 1px solid #2d2d2d; padding-bottom: 40px; }
-        .blog-full-article.active { display: block; }
-        .blog-back-btn { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 25px; color: #2ecc71; cursor: pointer; font-family: 'Cairo', sans-serif; font-size: 0.95rem; font-weight: 700; }
-        .blog-back-btn:hover { text-decoration: underline; }
+
+        /* صفحة المدونة */
+        .blog-item { margin-bottom: 50px; border-bottom: 1px solid #2d2d2d; padding-bottom: 40px; }
+        .blog-item:last-child { border-bottom: none; padding-bottom: 0; }
         .blog-item-title { color: #2ecc71; font-size: 2.5rem; margin-bottom: 10px; line-height: 1.2; font-family: 'Amiri', serif; }
-        .blog-item-date { color: #888; display: block; margin-bottom: 25px; font-family: 'Cairo', sans-serif; font-size: 0.95rem; }
+        body.lang-en .blog-item-title { font-family: 'Playfair Display', serif; font-size: 2rem; }
+        .blog-item-date { color: #888; text-decoration: underline; display: block; margin-bottom: 20px; font-family: 'Cairo', sans-serif; font-size: 0.95rem; }
+        body.lang-en .blog-item-date { font-family: system-ui, sans-serif; }
+
+        .telegram-action { margin-top: 50px; text-align: center; }
+        .telegram-link-btn { display: inline-block; padding: 12px 35px; border: 2px solid #2ecc71; color: #2ecc71; text-decoration: none; font-size: 1.3rem; font-weight: 700; text-align: center; max-width: 100%; transition: all 0.3s ease; }
+        .telegram-link-btn:hover { background-color: #2ecc71; color: #1a1a1a; }
         
-        /* أدلة وجداول */
-        .growth-guide-box { border: 1px solid #333; background: #222; border-radius: 16px; padding: 35px; margin-top: 20px; }
+        /* دليل الإنبات المعرفي */
+        .growth-guide-box { border: 1px solid #333; background: #222; border-radius: 16px; padding: 35px; margin-top: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
         .guide-steps-ol { list-style: none; margin: 25px 0 35px 0; font-size: 1.25rem; line-height: 1.9; }
-        .guide-steps-ol li { margin-bottom: 15px; color: #e5e7eb; padding: 10px; border-radius: 8px; }
+        body.lang-en .guide-steps-ol { font-family: system-ui, sans-serif; font-size: 1.05rem; }
+        .guide-steps-ol li { margin-bottom: 15px; color: #e5e7eb; padding: 10px; border-radius: 8px; transition: background-color 0.3s; }
         .guide-steps-ol li.highlight-step { background-color: #2d2d2d; border-right: 4px solid #2ecc71; }
+        body.lang-en .guide-steps-ol li.highlight-step { border-right: none; border-left: 4px solid #2ecc71; }
         .guide-steps-ol strong { color: #2ecc71; font-family: 'Cairo', sans-serif; font-size: 1.1rem; }
+        body.lang-en .guide-steps-ol strong { font-family: system-ui, sans-serif; font-size: 1.05rem; }
         
+        /* جداول الإنبات */
+        .table-responsive-container { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; margin-top: 20px; border-radius: 8px; }
+        .growth-table { width: 100%; border-collapse: collapse; font-family: 'Cairo', sans-serif; font-size: 0.95rem; background: #151515; min-width: 550px; }
+        body.lang-en .growth-table { font-family: system-ui, sans-serif; }
+        .growth-table th, .growth-table td { padding: 14px 18px; text-align: right; border-bottom: 1px solid #2d2d2d; color: #ffffff !important; }
+        body.lang-en .growth-table th, body.lang-en .growth-table td { text-align: left; }
+        .growth-table th { background: #2c2c2c; color: #2ecc71 !important; }
+
         .site-footer { margin-top: 60px; border-top: 1px solid #333; padding-top: 30px; color: #666; font-size: 0.95rem; text-align: center; }
+
+        /* متجاوب مع الجوال */
+        @media (max-width: 768px) {
+            .site-header { padding: 25px 15px; flex-direction: column; align-items: center; text-align: center; }
+            .brand-name { align-items: center; }
+            body.lang-en .brand-name { align-items: center; }
+            .brand-name .line-bottom { font-size: 1.8rem; letter-spacing: -1px; }
+            
+            .header-controls { flex-direction: column; gap: 15px; width: 100%; justify-content: center; }
+            .nav-menu { justify-content: center; width: 100%; gap: 12px; }
+            .nav-link { font-size: 1.1rem; }
+            
+            .dropdown-content { right: 50%; transform: translateX(50%); text-align: center; }
+            body.lang-en .dropdown-content { left: 50%; right: auto; transform: translateX(-50%); }
+
+            .goals-grid { grid-template-columns: 1fr; gap: 20px; }
+            .goal-container { flex-direction: column; text-align: center; padding: 20px; }
+            .goal-subtitle { text-align: center; }
+            body.lang-en .goal-subtitle { text-align: center; }
+            .goal-visual { order: -1; }
+
+            .dark-content-section { padding: 40px 15px; }
+            .section-title { font-size: 2.2rem; margin-bottom: 25px; }
+            body.lang-en .section-title { font-size: 2.0rem; }
+            
+            .blog-item-title { font-size: 1.8rem; }
+            .main-text { font-size: 1.2rem; line-height: 1.8; text-align: justify; margin-bottom: 20px; }
+            body.lang-en .main-text { text-align: left; }
+
+            .growth-guide-box { padding: 20px 15px; border-radius: 12px; }
+            .guide-steps-ol { margin: 15px 0 25px 0; font-size: 1.1rem; }
+            
+            .telegram-action { margin-top: 40px; text-align: center; }
+            .telegram-link-btn { width: 100%; padding: 12px 20px; font-size: 1.1rem; }
+        }
     </style>
 </head>
 <body>
+
     <header class="site-header">
         <div class="brand-name" id="text-brand">
-            <span class="line-top">أرْض</span>
-            <span class="line-bottom">السَّــــــــــــــــــــــــوَاد</span>
+            <span class="line-top" id="text-brand-top">أرْض</span>
+            <span class="line-bottom" id="text-brand-bottom">السَّــــــــــــــــــــــــوَاد</span>
         </div>
         <div class="header-controls">
             <nav class="nav-menu">
                 <span class="nav-link active" id="nav-home" onclick="navigateTo('home')">الرئيسية</span>
                 <span class="nav-link" id="nav-birds" onclick="navigateTo('birds')">طيورنا الوطنية</span>
+                
                 <div class="dropdown">
                     <span class="nav-link" id="nav-guide" onclick="navigateTo('guide')">الدليل العلمي</span>
                     <div class="dropdown-content">
-                        <span id="sub-thermal" onclick="navigateToGuideAndHighlight('thermal')">التبديل الحراري</span>
-                        <span id="sub-mechanical" onclick="navigateToGuideAndHighlight('mechanical')">التبديل الميكانيكي</span>
+                        <span id="sub-thermal" onclick="navigateToGuideAndHighlight('thermal')">Types of Scarification: Thermal</span>
+                        <span id="sub-mechanical" onclick="navigateToGuideAndHighlight('mechanical')">Types of Scarification: Mechanical</span>
                     </div>
                 </div>
+
                 <span class="nav-link" id="nav-blog" onclick="navigateTo('blog')">المدونة</span>
             </nav>
             <button class="lang-switch-btn" id="lang-toggle-btn" onclick="toggleLanguage()">English</button>
@@ -233,31 +244,50 @@
             
             <!-- 1. الصفحة الرئيسية -->
             <div id="home-content-area" class="page-view-section active">
-                <h1 class="section-title">تنهض رؤيتنا من مفارقة معاصرة</h1>
-                <p class="main-text">"نلتقي كرابطة رقمية موحدة خلف الشاشات، لكننا نتحرك كإرادات فردية تغير أرض الواقع. إن أزمة المناخ والتصحر التي يعيشها العراق اليوم تفرض علينا كشباب أن نترك عاطفة 'التشجير الموسمي' المحدودة بالمكان والميزانيات، وننتقل فوراً إلى فضاء 'التنمية المستدامة' المبني على خطط علمية حقيقية."</p>
-                <p class="main-text highlight">الفكرة علمية.. والتنفيذ بسواعدنا.</p>
+                <h1 class="section-title" id="text-home-title">تنهض رؤيتنا من مفارقة معاصرة</h1>
+                
+                <div id="text-home-body">
+                    <p class="main-text">"نلتقي كرابطة رقمية موحدة خلف الشاشات، لكننا نتحرك كإرادات فردية تغير أرض الواقع. إن أزمة المناخ والتصحر التي يعيشها العراق اليوم تفرض علينا كشباب أن نترك عاطفة 'التشجير الموسمي' المحدودة بالمكان والميزانيات، وننتقل فوراً إلى فضاء 'التنمية المستدامة' المبني على خطط علمية حقيقية."</p>
+                    <p class="main-text">"فبناء المدن الخضراء يحتاج وعياً معرفياً يتجاوز الحلول الترقيعية العابرة ليصبح إرثاً حياً تحتمي به الأجيال القادمة. ومن هنا، تفتح هذه المنصة العلمية الباب لكل أبناء وبنات شعبنا العراقي أينما وجدوا؛ من جبال زاخو في أقصى الشمال إلى شواطئ الفاو في أقصى الجنوب، ومن صحراء الرطبة غرباً إلى مرتفعات بنجوين شرقاً."</p>
+                    <p class="main-text">"لم يعد بُعد المسافة عائقاً، سنطوي مسافات جغرافيتنا رقمياً لنلتحم في غرس واقعي، ونعيد معاً صياغة الهوية البيئية لأرضنا العراقية الجَمَّاء."</p>
+                </div>
+                
+                <p class="main-text highlight" id="text-home-highlight">الفكرة علمية.. والتنفيذ بسواعدنا.</p>
                 
                 <div class="goals-grid">
                     <div class="goal-container">
                         <div class="goal-info">
-                            <span class="goal-badge">هدف التنوع البيولوجي</span>
-                            <h3 class="goal-title">5,000 شجرة ألبيزيا</h3>
-                            <p class="goal-subtitle">إقامة أحزمة وقائية مستدامة لكسر حدة الرياح الصحراوية وتثبيت التربة.</p>
+                            <span class="goal-badge" id="txt-goal1-badge">هدف التنوع البيولوجي</span>
+                            <h3 class="goal-title" id="txt-goal1-title">5,000 شجرة ألبيزيا</h3>
+                            <p class="goal-subtitle" id="txt-goal1-subtitle">إقامة أحزمة وقائية مستدامة لكسر حدة الرياح الصحراوية وتثبيت التربة.</p>
                         </div>
                         <div class="goal-visual">
-                            <svg><circle class="circle-bg" cx="55" cy="55" r="45"></circle><circle class="circle-progress" cx="55" cy="55" r="45" stroke-dasharray="282.7" stroke-dashoffset="100"></circle></svg>
-                            <div class="goal-counter-text"><span class="counter-number">5k</span><span class="counter-label">مستهدف</span></div>
+                            <svg>
+                                <circle class="circle-bg" cx="55" cy="55" r="45"></circle>
+                                <circle class="circle-progress" cx="55" cy="55" r="45" stroke-dasharray="282.7" stroke-dashoffset="282.7"></circle>
+                            </svg>
+                            <div class="goal-counter-text">
+                                <span class="counter-number" id="txt-counter1-num">5k</span>
+                                <span class="counter-label" id="txt-counter1-label">مستهدف</span>
+                            </div>
                         </div>
                     </div>
+
                     <div class="goal-container">
                         <div class="goal-info">
-                            <span class="goal-badge">هدف التنوع البيولوجي</span>
-                            <h3 class="goal-title">5,000 شجرة سدر</h3>
-                            <p class="goal-subtitle">تعزيز الغطاء الأصيل المقاوم للجفاف وإعادة التوازن البيئي للبيئة المحلية.</p>
+                            <span class="goal-badge" id="txt-goal2-badge">هدف التنوع البيولوجي</span>
+                            <h3 class="goal-title" id="txt-goal2-title">5,000 شجرة سدر</h3>
+                            <p class="goal-subtitle" id="txt-goal2-subtitle">تعزيز الغطاء الأصيل المقاوم للجفاف وإعادة التوازن البيئي للبيئة المحلية.</p>
                         </div>
                         <div class="goal-visual">
-                            <svg><circle class="circle-bg" cx="55" cy="55" r="45"></circle><circle class="circle-progress" cx="55" cy="55" r="45" stroke-dasharray="282.7" stroke-dashoffset="150"></circle></svg>
-                            <div class="goal-counter-text"><span class="counter-number">5k</span><span class="counter-label">مستهدف</span></div>
+                            <svg>
+                                <circle class="circle-bg" cx="55" cy="55" r="45"></circle>
+                                <circle class="circle-progress" cx="55" cy="55" r="45" stroke-dasharray="282.7" stroke-dashoffset="282.7"></circle>
+                            </svg>
+                            <div class="goal-counter-text">
+                                <span class="counter-number" id="txt-counter2-num">5k</span>
+                                <span class="counter-label" id="txt-counter2-label">مستهدف</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -265,131 +295,242 @@
 
             <!-- 2. صفحة طيورنا الوطنية -->
             <div id="birds-content-area" class="page-view-section">
-                <h1 class="section-title" style="color: #ff4d4d;">رحيل الألحان: حين تصمت بساتيننا</h1>
+                <h1 class="section-title" id="text-birds-title" style="color: #ff4d4d;">رحيل الألحان: حين تصمت بساتيننا</h1>
                 <div class="bulbul-card">
-                    <span class="alert-badge">⚠️ مهدد بخطر الانقراض</span>
+                    <span class="alert-badge" id="text-bulbul-badge">⚠️ مهدد بخطر الانقراض</span>
+                    
                     <div class="bulbul-img-wrapper">
-                        <img id="img-bulbul" src="./assets/gemini_generated_image_ssiilissiilissii.png" alt="البلبل العراقي" onerror="this.style.display='none'; document.getElementById('img-bulbul-fallback').style.display='block';">
-                        <div id="img-bulbul-fallback" class="bulbul-img-fallback">تعذّر تحميل الصورة — تحقق من مسار الملف وحالة الأحرف في مجلد assets</div>
+                        <img id="img-bulbul" src="my-bulbul.jpg" alt="البلبل العراقي">
                     </div>
-                    <p class="main-text">"لم يعد البلبل العراقي يغرد كما كان في صباحات بغداد والبصرة. هذا الطائر الذي ارتبط في وجداننا بظلال النخيل وهدوء البساتين، بدأ يتوارى بصمت تحت وطأة التغيرات القاسية التي أصابت بيئتنا."</p>
+                    
+                    <div id="text-birds-body">
+                        <p class="main-text" style="text-align: justify; color: #f3f4f6;">"لم يعد البلبل العراقي يغرد كما كان في صباحات بغداد والبصرة. هذا الطائر الذي ارتبط في وجداننا بظلال النخيل وهدوء البساتين، بدأ يتوارى بصمت تحت وطأة التغيرات القاسية التي أصابت بيئتنا."</p>
+                        <p class="main-text" style="text-align: justify; color: #f3f4f6;"><strong style="color: #ff4d4d;" id="text-birds-cause-title">أسباب التهديد بالانقراض:</strong> يواجه البلبل العراقي تحديات وجودية جسيمة، أبرزها تجريف البساتين والمساحات الخضراء الأصيلة واستبدالها بالمجمعات السكنية، والصيد الجائر غير المنظم لغرض التجارة، فضلاً عن موجات الجفاف الشديدة وارتفاع درجات الحرارة القياسية التي تدمر موائله الطبيعية ومصادر غذائه.</p>
+                    </div>
                 </div>
             </div>
 
             <!-- 3. صفحة الدليل العلمي -->
             <div id="guide-content-area" class="page-view-section">
                 <div class="growth-guide-box">
-                    <h2 class="section-title" style="font-size: 2rem; margin-bottom: 10px;">دليل الإنبات العلمي (Scarification Guide)</h2>
-                    <ol class="guide-steps-ol">
-                        <li id="step-thermal"><strong>١. التخديد المائي (Thermal):</strong> نقع بذور الألبيزيا في ماء ساخن لمدة ١٢-٢٤ ساعة حتى تتفتح وتنتفخ.</li>
-                        <li id="step-mechanical"><strong>٢. التخديد الميكانيكي (Mechanical):</strong> كشط طرف الغلاف الخارجي الصلب برفق باستخدام ورق سنفرة دون مساس الجنين الداخلي للسماح بنفاذ الماء.</li>
+                    <h2 class="section-title" id="guide-main-title" style="font-size: 2rem; margin-bottom: 10px;">دليل الإنبات العلمي (Scarification Guide)</h2>
+                    <p id="guide-main-desc" style="color: #ccc; margin-bottom: 20px;">كيف ننتقل من العاطفة العابرة إلى المعرفة الاستراتيجية لرفع نسب نجاح البذور القاسية?</p>
+                    
+                    <ol class="guide-steps-ol" id="guide-steps-list">
+                        <li id="step-thermal"><strong>١. التخديد المائي (Thermal Scarification):</strong> بذور الألبيزيا تمتلك غلافاً شمعياً سميكاً يمنع دخول الماء. يُنصح بنقع البذور في ماء ساخن (وليس مغلي) لمدة ١٢-٢٤ ساعة حتى تتفتح وتنتفخ وتصبح جاهزة للزراعة.</li>
+                        <li id="step-mechanical"><strong>٢. التخديد الميكانيكي (Mechanical Scarification):</strong> كبديل سريع ومثالي للمجموعات الصغيرة، يمكن خدش أو كشط طرف الغلاف الخارجي الصلب للبذرة برفق باستخدام مقص أظافر أو ورق سنفرة (دون مساس الجنين الداخلي) للسماح بنفاذ الماء الفوري وسرعة الإنبات.</li>
+                        <li id="step-depth"><strong>٣. عمق الغرس العلمي (Systematic Depth):</strong> تُزرع البذور المعالجة على عمق سطحي حذر لا يتجاوز ١ إلى ٢ سم في تربة جيدة التصريف لتأمين الأكسجين الكافي للنمو.</li>
+                        <li id="step-watering"><strong>٤. مراقبة الرطوبة الحذرة (Measured Watering):</strong> الحفاظ على رطوبة التربة خفيفة وبدون إغراق، لتفادي تعفن الجذور في مراحل الإنبات الحرجة الأولى.</li>
                     </ol>
+
+                    <h4 id="guide-table-title" style="font-family: 'Cairo', sans-serif; font-size: 1.1rem; color: #2ecc71; margin-bottom: 15px;">جدول المراقبة المعرفي ومعدلات النمو المتوقعة:</h4>
+                    
+                    <div class="table-responsive-container">
+                        <table class="growth-table">
+                            <thead>
+                                <tr>
+                                    <th id="th-period">المرحلة الزمنية</th>
+                                    <th id="th-albizia">معدل نمو الألبيزيا المتوقع</th>
+                                    <th id="th-leucaena">معدل نمو السدر المتوقع</th>
+                                </tr>
+                            </thead>
+                            <tbody id="guide-table-body">
+                                <tr>
+                                    <td>الأسبوع الأول</td>
+                                    <td>بروز الجذير وانشقاق التربة (٢-٤ سم)</td>
+                                    <td>ظهور الأوراق الأولى والنمو الحذر (٣-٥ سم)</td>
+                                </tr>
+                                <tr>
+                                    <td>الأسبوع الثاني</td>
+                                    <td>ظهور الأوراق الريشية المركبة (٦-١٠ سم)</td>
+                                    <td>استطالة الساق وزيادة التفرع الجذري (٨-١٤ سم)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
 
-            <!-- 4. صفحة المدونة التفاعلية المحسّنة بالمحتوى الكامل -->
+            <!-- 4. صفحة المدونة -->
             <div id="blog-content-area" class="page-view-section">
-                
-                <!-- شبكة البطاقات الرئيسية للمدونة -->
-                <div class="blog-grid" id="blog-grid-view">
-                    
-                    <!-- بطاقة المقال الأول: البلبل العراقي -->
-                    <div class="blog-card" onclick="showArticle('blog_bulbul')">
-                        <span class="blog-card-tag">حماية الحياة البرية</span>
-                        <h3 class="blog-card-title">البلبل العراقي في مواجهة الاندثار: لماذا نحتاج إلى بروتوكول "الإطلاق اللين"؟</h3>
-                        <span class="blog-card-date">٢٨ حزيران، ٢٠٢٦</span>
-                        <p class="blog-card-excerpt">يُعرف الإطلاق اللين علمياً باسم "طوق النجاة البيئي"، وهو منهجية علمية لإعادة توطين الطيور تعتمد على مرحلة انتقالية بدلاً من الإطلاق المباشر والمفاجئ في الطبيعة...</p>
-                        <button class="blog-card-btn">أكمل القراءة ←</button>
+                <!-- المقال الجديد المضاف -->
+                <div class="blog-item">
+                    <h2 class="blog-item-title" id="text-blog2-title">البلبل العراقي في مواجهة الاندثار: لماذا نحتاج إلى "الإطلاق اللين" لاستعادة توازننا البيئي؟</h2>
+                    <span class="blog-item-date" id="text-blog2-date">٢٨ حزيران، ٢٠٢٦</span>
+                    <div id="text-blog2-body">
+                        <p class="main-text">يُعرف الإطلاق اللين علمياً باسم "طوق النجاة البيئي" (Ecological Lifeline Strategy)، وهو منهجية علمية لإعادة توطين الطيور تعتمد على مرحلة انتقالية بدلاً من إطلاقها المباشر. في هذه العملية، تُوضع البلابل في أقفاص تأقلم ضمن بيئتها الطبيعية، حيث يُقدم لها الغذاء والماء تدريجياً؛ مما يمنحها فرصة لاستعادة لياقتها البدنية التي تضررت بسبب الأسر، والتعود على أصوات ومناخ محيطها، وتشكيل "خريطة ذهنية" للمكان قبل الاعتماد الكلي على نفسها.</p>
+                        <p class="main-text">يمثل هذا الأسلوب الحل العلمي الأمثل، فهو يعالج أولاً الاستشفاء الفسيولوجي والسلوكي، حيث تخرج الطيور من الأسر وهي تعاني من ضمور في العضلات وإجهاد فسيولوجي، ليأتي الإطلاق اللين كفترة ترميم ضرورية ترفع من قدرة الطائر على الهروب من المفترسات. ثانياً، يعمل هذا الأسلوب على تعزيز ما يُعرف بـ "الارتباط بالموقع"، فبما أن البلبل كائن ذكي يربط المكان بالسلامة، فإن فترة التأقلم في منطقة محمية تدفعه للاستقرار والتكاثر فيها بدلاً من التشتت في المجهول، مما يساهم في خلق "بؤر تكاثرية" ترفع من أعداد الجماعة بشكل تراكمي. وأخيراً، يسهم هذا المنهج في كسر "صدمة النفور الغذائي"؛ إذ يتعلم الطائر بالتجربة والخطأ كيفية التمييز بين الغذاء الاصطناعي والموارد الطبيعية كالحشرات والثمار، وهو ما يقلل بشكل حاد من مخاطر سوء التغذية بعد الإطلاق.</p>
+                        <p class="main-text">إن حماية البلبل العراقي بهذا الأسلوب هي استثمار في استدامة بيئتنا؛ فالانتقال من حب الطيور في الأقفاص إلى احترامها في فضاءاتها الطبيعية هو السبيل الوحيد لضمان مستقبل مزدهر. إن تبني بروتوكولات الإطلاق اللين كمنهج يعني أننا لا ننقذ طائراً فحسب، بل نحمي التوازن البيئي الذي يربطنا بهذه الأرض، لتظل أغصان بساتيننا عامرة بحياة نساهم جميعاً في استعادتها.</p>
                     </div>
-                    
-                    <!-- بطاقة المقال الثاني: مشروع التشجير -->
-                    <div class="blog-card" onclick="showArticle('blog_trees')">
-                        <span class="blog-card-tag">توثيق ميداني وعلمي</span>
-                        <h3 class="blog-card-title">خياراتنا الاستراتيجية لمواجهة التصحر: لماذا الألبيزيا والسدر؟</h3>
-                        <span class="blog-card-date">١٨ حزيران، ٢٠٢٦</span>
-                        <p class="blog-card-excerpt">تعتبر أشجار الألبيزيا والسدر الركيزة الأساسية لخطتنا البيئية نظراً لقدرتها الفائقة على تحمل الجفاف الحاد والحرارة القياسية، ودورها الحيوي في تثبيت التربة وزحف الرمال...</p>
-                        <button class="blog-card-btn">أكمل القراءة ←</button>
-                    </div>
-                    
                 </div>
 
-                <!-- محتوى مقال البلبل بالكامل -->
-                <div class="blog-full-article" id="blog_bulbul-full">
-                    <span class="blog-back-btn" onclick="backToBlogGrid()">→ العودة لكافة المقالات</span>
-                    <article class="blog-item">
-                        <h2 class="blog-item-title">البلبل العراقي في مواجهة الاندثار: لماذا نحتاج إلى بروتوكول "الإطلاق اللين" لاستعادة التوازن البيئي؟</h2>
-                        <span class="blog-item-date">التاريخ: ٢٨ حزيران، ٢٠٢٦ | الكاتب: الإدارة البيئية لـ "أرض السواد"</span>
-                        <p class="main-text">يُعرف الإطلاق اللين علمياً باسم "طوق النجاة البيئي" (Ecological Lifeline Strategy)، وهو منهجية علمية متقدمة لإعادة توطين الطيور البرية تعتمد على خلق مرحلة انتقالية متدرجة بدلاً من الإطلاق المباشر والمفاجئ في الطبيعة. في هذه العملية المدروسة، تُوضع البلابل المصادرة أو المرباة في أقفاص تأقلم فسيحة ومجهزة مبنية ضمن بيئتها الطبيعية المستهدفة.</p>
-                        <p class="main-text">خلال هذه الفترة، يُقدم لها الغذاء والماء بشكل منتظم، مما يمنح الطيور فرصة ذهبية لاستعادة أهليتها البدنية وبنائها العضلي الذي تضرر نتيجة فترات الأسر الطويلة أو النقل، بالإضافة إلى الاعتياد التدريجي على أصوات المفترسات والمناخ السائد، وبناء "خريطة ذهنية ومكانية" للمنطقة المحيطة قبل الاعتماد الكامل على أنفسهم في تأمين القوت الحيوي.</p>
-                        <p class="main-text">إن تبني بروتوكولات الإطلاق اللين يسهم بشكل جوهري في كسر ما يُعرف علمياً بـ "صدمة النفور الغذائي الحاد"؛ إذ يتعلم الطائر بالتجربة والمراقبة كيفية التمييز بين الغذاء الاصطناعي والموارد الطبيعية المتاحة في البيئة العراقية كالحشرات الطائرة، الديدان، والثمار البرية. هذا التدريب التدريجي يقلل بشكل حاد من معدلات النفوق الناجمة عن سوء التغذية أو المفاجأة بعد الحرية، ويضمن بناء مجموعات طيور قوية ومستقرة قادرة على التكاثر وإعادة الألحان البغدادية الأصيلة إلى بساتين النخيل الفسيحة.</p>
-                    </article>
+                <!-- المقال القديم -->
+                <div class="blog-item">
+                    <h2 class="blog-item-title" id="text-blog-title">البداية الحقيقية: لماذا الألبيزيا والسدر؟</h2>
+                    <span class="blog-item-date" id="text-blog-date">١٨ حزيران، ٢٠٢٦</span>
+                    <p class="main-text" id="text-blog-body">تعتبر أشجار الألبيزيا والسدر خيارات استراتيجية لمواجهة التغير المناخي في بيئتنا المحلية؛ نظراً لقدرتها الفائقة على تحمل درجات الحرارة المرتفعة، ومقاومة الجفاف، بالإضافة إلى دورها الحيوي في تثبيت التربة وتحسين خصوبتها، مما يجعلها حجر الأساس في مشروعنا للتحول من التشجير المؤقت إلى الاستدامة الدائمة.</p>
                 </div>
-
-                <!-- محتوى مقال الأشجار بالكامل -->
-                <div class="blog-full-article" id="blog_trees-full">
-                    <span class="blog-back-btn" onclick="backToBlogGrid()">→ العودة لكافة المقالات</span>
-                    <article class="blog-item">
-                        <h2 class="blog-item-title">خياراتنا الاستراتيجية لمواجهة التصحر: لماذا الألبيزيا والسدر؟</h2>
-                        <span class="blog-item-date">التاريخ: ١٨ حزيران، ٢٠٢٦ | الكاتب: اللـجنة الميدانية</span>
-                        <p class="main-text">تعتبر أشجار الألبيزيا (Albizia) والسدر (Sidr) خيارات استراتيجية وعلمية مدروسة بعناية فائقة لمواجهة أزمات التغير المناخي الحاد في بيئتنا المحلية؛ نظراً لقدرتها الاستثنائية الفائقة على تحمل درجات الحرارة القياسية التي تتجاوز الـ 50 درجة مئوية، ومقاومة الجفاف الطويل وشح المياه.</p>
-                        <p class="main-text">تعمل أشجار الألبيزيا بفضل نموها السريع وظلها الكثيف كأحزمة وقائية خضراء ممتازة لكسر حدة الرياح المحملة بالغبار وتلطيف درجات الحرارة المحيطة بالمدن والمناطق السكنية، بينما تسهم أشجار السدر بجذورها العميقة والقوية في تثبيت التربة المفككة ومنع زحف الكثبان الرملية الصحراوية، فضلاً عن كونها تشكل بيئة حاضنة ممتازة لإعادة التنوع البيولوجي المفقود وتوفير مصادر غذائية غنية للحياة البرية والنحل المحلي.</p>
-                    </article>
-                </div>
-
             </div>
 
+            <!-- زر التليغرام -->
+            <div class="telegram-action">
+                <a href="https://t.me/alsawad1qr" target="_blank" class="telegram-link-btn" id="text-telegram-btn">الانضمام إلى القناة الرسمية في تليغرام ←</a>
+            </div>
+
+            <footer class="site-footer" id="text-footer">جميع الحقوق محفوظة © أرض السَّواد ٢٠٢٦</footer>
         </div>
     </main>
 
-    <footer class="site-footer">
-        <p>© ٢٠٢٦ منصة أرض السواد البيئية. جميع الحقوق محفوظة.</p>
-    </footer>
-
     <script>
-        function navigateTo(sectionId) {
-            document.querySelectorAll('.page-view-section').forEach(section => {
-                section.classList.remove('active');
-            });
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.classList.remove('active');
-            });
+        let currentLang = 'ar';
+
+        function navigateTo(page) {
+            document.getElementById('home-content-area').classList.toggle('active', page === 'home');
+            document.getElementById('birds-content-area').classList.toggle('active', page === 'birds');
+            document.getElementById('guide-content-area').classList.toggle('active', page === 'guide');
+            document.getElementById('blog-content-area').classList.toggle('active', page === 'blog');
             
-            const targetSection = document.getElementById(sectionId + '-content-area');
-            if(targetSection) targetSection.classList.add('active');
-            
-            const targetLink = document.getElementById('nav-' + sectionId);
-            if(targetLink) targetLink.classList.add('active');
-            
-            if(sectionId === 'blog') backToBlogGrid();
+            document.getElementById('nav-home').classList.toggle('active', page === 'home');
+            document.getElementById('nav-birds').classList.toggle('active', page === 'birds');
+            document.getElementById('nav-guide').classList.toggle('active', page === 'guide');
+            document.getElementById('nav-blog').classList.toggle('active', page === 'blog');
+
+            document.getElementById('step-thermal').classList.remove('highlight-step');
+            document.getElementById('step-mechanical').classList.remove('highlight-step');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function showArticle(articleId) {
-            document.getElementById('blog-grid-view').style.display = 'none';
-            document.querySelectorAll('.blog-full-article').forEach(article => {
-                article.classList.remove('active');
-            });
-            document.getElementById(articleId + '-full').classList.add('active');
-        }
-
-        function backToBlogGrid() {
-            document.querySelectorAll('.blog-full-article').forEach(article => {
-                article.classList.remove('active');
-            });
-            document.getElementById('blog-grid-view').style.display = 'grid';
-        }
-
-        function navigateToGuideAndHighlight(stepId) {
+        function navigateToGuideAndHighlight(type) {
             navigateTo('guide');
-            document.querySelectorAll('.guide-steps-ol li').forEach(li => {
-                li.classList.remove('highlight-step');
-            });
-            const step = document.getElementById('step-' + stepId);
-            if(step) step.classList.add('highlight-step');
+            const targetId = type === 'thermal' ? 'step-thermal' : 'step-mechanical';
+            const otherId = type === 'thermal' ? 'step-mechanical' : 'step-thermal';
+            
+            setTimeout(() => {
+                document.getElementById(targetId).classList.add('highlight-step');
+                document.getElementById(otherId).classList.remove('highlight-step');
+                document.getElementById(targetId).scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 100);
         }
+
+        const languages = {
+            ar: {
+                brandTop: "أرْض", brandBottom: "السَّــــــــــــــــــــــــوَاد", 
+                navHome: "الرئيسية", navBirds: "طيورنا الوطنية", navGuide: "الدليل العلمي", navBlog: "المدونة",
+                homeTitle: "تنهض رؤيتنا من مفارقة معاصرة", 
+                homeHighlight: "الفكرة علمية.. والتنفيذ بسواعدنا.",
+                birdsTitle: "رحيل الألحان: حين تصمت بساتيننا",
+                bulbulBadge: "⚠️ مهدد بخطر الانقراض",
+                goal1Badge: "هدف التنوع البيولوجي", goal1Title: "5,000 شجرة ألبيزيا", goal1Subtitle: "إقامة أحزمة وقائية مستدامة لكسر حدة الرياح الصحراوية وتثبيت التربة.",
+                counter1Num: "5k", counter1Label: "مستهدف",
+                goal2Badge: "هدف التنوع البيولوجي", goal2Title: "5,000 شجرة سدر", goal2Subtitle: "تعزيز الغطاء الأصيل المقاوم للجفاف وإعادة التوازن البيئي للبيئة المحلية.",
+                counter2Num: "5k", counter2Label: "مستهدف",
+                homeBody: `<p class="main-text">"نلتقي كرابطة رقمية موحدة خلف الشاشات، لكننا نتحرك كإرادات فردية تغير أرض الواقع. إن أزمة المناخ والتصحر التي يعيشها العراق اليوم تفرض علينا كشباب أن نترك عاطفة 'التشجير الموسمي' المحدودة بالمكان والميزانيات، وننتقل فوراً إلى فضاء 'التنمية المستدامة' المبني على خطط علمية حقيقية."</p><p class="main-text">"فبناء المدن الخضراء يحتاج وعياً معرفياً يتجاوز الحلول الترقيعية العابرة ليصبح إرثاً حياً تحتمي به الأجيال القادمة. ومن هنا، تفتح هذه المنصة العلمية الباب لكل أبناء وبنات شعبنا العراقي أينما وجدوا؛ من جبال زاخو في أقصى الشمال إلى شواطئ الفاو في أقصى الجنوب، ومن صحراء الرطبة غرباً إلى مرتفعات بنجوين شرقاً."</p><p class="main-text">"لم يعد بُعد المسافة عائقاً، سنطوي مسافات جغرافيتنا رقمياً لنلتحم في غرس واقعي، ونعيد معاً صياغة الهوية البيئية لأرضنا العراقية الجَمَّاء."</p>`,
+                birdsBody: `<p class="main-text" style="text-align: justify; color: #f3f4f6;">"لم يعد البلبل العراقي يغرد كما كان في صباحات بغداد والبصرة. هذا الطائر الذي ارتبط في وجداننا بظلال النخيل وهدوء البساتين، بدأ يتوارى بصمت تحت وطأة التغيرات القاسية التي أصابت بيئتنا."</p><p class="main-text" style="text-align: justify; color: #f3f4f6;"><strong style="color: #ff4d4d;">أسباب التهديد بالانقراض:</strong> يواجه البلبل العراقي تحديات وجودية جسيمة، أبرزها تجريف البساتين والمساحات الخضراء الأصيلة واستبدالها بالمجمعات السكنية، والصيد الجائر غير المنظم لغرض التجارة، فضلاً عن موجات الجفاف الشديدة وارتفاع درجات الحرارة القياسية التي تدمر موائله الطبيعية ومصادر غذائه.</p>`,
+                guideMainTitle: "دليل الإنبات العلمي (Scarification Guide)", 
+                guideMainDesc: "كيف ننتقل من العاطفة العابرة إلى المعرفة الاستراتيجية لرفع نسب نجاح البذور القاسية؟",
+                guideSteps: `<li id="step-thermal"><strong>١. التخديد المائي (Thermal Scarification):</strong> بذور الألبيزيا تمتلك غلافاً شمعياً سميكاً يمنع دخول الماء. يُنصح بنقع البذور في ماء ساخن (وليس مغلي) لمدة ١٢-٢٤ ساعة حتى تتفتح وتنتفخ وتصبح جاهزة للزراعة.</li><li id="step-mechanical"><strong>٢. التخديد الميكانيكي (Mechanical Scarification):</strong> كبديل سريع ومثالي للمجموعات الصغيرة، يمكن خدش أو كشط طرف الغلاف الخارجي الصلب للبذرة برفق باستخدام مقص أظافر أو ورق سنفرة (دون مساس الجنين الداخلي) للسماح بنفاذ الماء الفوري وسرعة الإنبات.</li><li id="step-depth"><strong>٣. عمق الغرس العلمي (Systematic Depth):</strong> تُزرع البذور المعالجة على عمق سطحي حذر لا يتجاوز ١ إلى ٢ سم في تربة جيدة التصريف لتأمين الأكسجين الكافي للنمو.</li><li id="step-watering"><strong>٤. مراقبة الرطوبة الحذرة (Measured Watering):</strong> الحفاظ على رطوبة التربة خفيفة وبدون إغراق، لتفادي تعفن الجذور في مراحل الإنبات الحرجة الأولى.</li>`,
+                guideTableTitle: "جدول المراقبة المعرفي ومعدلات النمو المتوقعة:",
+                thPeriod: "المرحلة الزمنية", thAlbizia: "معدل نمو الألبيزيا المتوقع", thLeucaena: "معدل نمو السدر المتوقع",
+                tableBody: `<tr><td>الأسبوع الأول</td><td>بروز الجذير وانشقاق التربة (٢-٤ سم)</td><td>ظهور الأوراق الأولى والنمو الحذر (٣-٥ سم)</td></tr><tr><td>الأسبوع الثاني</td><td>ظهور الأوراق الريشية المركبة (٦-١٠ سم)</td><td>استطالة الساق وزيادة التفرع الجذري (٨-١٤ سم)</td></tr>`,
+                blogTitle: "البداية الحقيقية: لماذا الألبيزيا والسدر؟", 
+                blogBody: "تعتبر أشجار الألبيزيا والسدر خيارات استراتيجية لمواجهة التغير المناخي في بيئتنا المحلية؛ نظراً لقدرتها الفائقة على تحمل درجات الحرارة المرتفعة، ومقاومة الجفاف، بالإضافة إلى دورها الحيوي في تثبيت التربة وتحسين خصوبتها، مما يجعلها حجر الأساس في مشروعنا للتحول من التشجير المؤقت إلى الاستدامة الدائمة.",
+                
+                // ترجمة المقال الجديد للعربية
+                blog2Title: "البلبل العراقي في مواجهة الاندثار: لماذا نحتاج إلى \"الإطلاق اللين\" لاستعادة توازننا البيئي؟",
+                blog2Date: "٢٨ حزيران، ٢٠٢٦",
+                blog2Body: `<p class="main-text">يُعرف الإطلاق اللين علمياً باسم "طوق النجاة البيئي" (Ecological Lifeline Strategy)، وهو منهجية علمية لإعادة توطين الطيور تعتمد على مرحلة انتقالية بدلاً من إطلاقها المباشر. في هذه العملية، تُوضع البلابل في أقفاص تأقلم ضمن بيئتها الطبيعية، حيث يُقدم لها الغذاء والماء تدريجياً؛ مما يمنحها فرصة لاستعادة لياقتها البدنية التي تضررت بسبب الأسر، والتعود على أصوات ومناخ محيطها، وتشكيل "خريطة ذهنية" للمكان قبل الاعتماد الكلي على نفسها.</p><p class="main-text">يمثل هذا الأسلوب الحل العلمي الأمثل، فهو يعالج أولاً الاستشفاء الفسيولوجي والسلوكي، حيث تخرج الطيور من الأسر وهي تعاني من ضمور في العضلات وإجهاد فسيولوجي، ليأتي الإطلاق اللين كفترة ترميم ضرورية ترفع من قدرة الطائر على الهروب من المفترسات. ثانياً، يعمل هذا الأسلوب على تعزيز ما يُعرف بـ "الارتباط بالموقع"، فبما أن البلبل كائن ذكي يربط المكان بالسلامة، فإن فترة التأقلم في منطقة محمية تدفعه للاستقرار والتكاثر فيها بدلاً من التشتت في المجهول، مما يساهم في خلق "بؤر تكاثرية" ترفع من أعداد الجماعة بشكل تراكمي. وأخيراً، يسهم هذا المنهج في كسر "صدمة النفور الغذائي"؛ إذ يتعلم الطائر بالتجربة والخطأ كيفية التمييز بين الغذاء الاصطناعي والموارد الطبيعية كالحشرات والثمار، وهو ما يقلل بشكل حاد من مخاطر سوء التغذية بعد الإطلاق.</p><p class="main-text">إن حماية البلبل العراقي بهذا الأسلوب هي استثمار في استدامة بيئتنا؛ فالانتقال من حب الطيور في الأقفاص إلى احترامها في فضاءاتها الطبيعية هو السبيل الوحيد لضمان مستقبل مزدهر. إن تبني بروتوكولات الإطلاق اللين كمنهج يعني أننا لا ننقذ طائراً فحسب، بل نحمي التوازن البيئي الذي يربطنا بهذه الأرض، لتظل أغصان بساتيننا عامرة بحياة نساهم جميعاً في استعادتها.</p>`,
+                
+                telegramBtn: "الانضمام إلى القناة الرسمية في تليغرام ←", footer: "جميع الحقوق محفوظة © أرض السَّواد ٢٠٢٦", toggleBtn: "English"
+            },
+            en: {
+                brandTop: "Land of", brandBottom: "Al-Sawad", 
+                navHome: "Home", navBirds: "National Birds", navGuide: "Scientific Guide", navBlog: "Blog",
+                homeTitle: "Our Vision Rises From a Modern Paradox", 
+                homeHighlight: "The idea is scientific.. and the execution is by our hands.",
+                birdsTitle: "The Departure of Melodies: When Our Orchards Fall Silent",
+                bulbulBadge: "⚠️ Endangered Species",
+                goal1Badge: "Biodiversity Goal", goal1Title: "5,000 Albizia Trees", goal1Subtitle: "Establishing sustainable protective belts to break desert winds and stabilize the soil.",
+                counter1Num: "5k", counter1Label: "Target",
+                goal2Badge: "Biodiversity Goal", goal2Title: "5,000 Sidr Trees", goal2Subtitle: "Enhancing native, drought-resistant canopy to restore ecological balance locally.",
+                counter2Num: "5k", counter2Label: "Target",
+                homeBody: `<p class="main-text">"We gather as a digital union behind screens, yet we operate as individual forces transforming reality. Iraq's current climate and desertification crisis demand that we leave behind the emotion of 'seasonal planting'—limited by geography and budgets—and pivot immediately toward 'Sustainable Development' anchored in genuine scientific plans."</p><p class="main-text">"Building green cities requires a cognitive awareness that transcends brief, cosmetic patches to become a living legacy for future generations. Thus, this scientific platform opens its doors to every citizen across Iraq: from the peaks of Zakho in the far north to the shores of Faw in the deep south, from the Rutba desert in the west to the Penjwen heights in the east."</p><p class="main-text">"Distance is no longer a barrier; we will bridge our geography digitally to unite in physical sowing, rewriting the ecological identity of our beautiful Mesopotamian land together."</p>`,
+                birdsBody: `<p class="main-text">"The Iraqi Bulbul no longer sings as it once did in the mornings of Baghdad and Basra. This bird, deeply woven into our consciousness alongside palm shadows and peaceful orchards, has begun to quietly vanish under the weight of harsh environmental changes."</p><p class="main-text"><strong style="color: #ff4d4d;">Threat Factors:</strong> The Iraqi Bulbul faces severe existential threats, primarily the clearing of authentic orchards for housing complexes, unregulated poaching for trade, severe droughts, and record high temperatures that destroy its natural habitats and food sources."</p>`,
+                guideMainTitle: "Scientific Scarification Guide", 
+                guideMainDesc: "How do we move past casual sentiment to strategic knowledge to increase the success rates of hard coats?",
+                guideSteps: `<li id="step-thermal"><strong>1. Thermal Scarification:</strong> Albizia seeds possess a thick, waxy coat that blocks water intake. It is recommended to soak seeds in hot (not boiling) water for 12–24 hours until they swell and become ready for planting.</li><li id="step-mechanical"><strong>2. Mechanical Scarification:</strong> An ideal, swift alternative for small batches is gently filing or clipping the outer hard coat with a nail clipper or sandpaper (without harming the internal embryo) to allow instant water infiltration.</li><li id="step-depth"><strong>3. Systematic Depth:</strong> Plant treated seeds at a cautious, shallow depth of 1 to 2 cm in well-draining soil to secure sufficient oxygen for development.</li><li id="step-watering"><strong>4. Measured Watering:</strong> Keep the soil lightly moist without flooding it, preventing root rot during the critical early stages of germination.</li>`,
+                guideTableTitle: "Cognitive Monitoring Table & Expected Growth Rates:",
+                thPeriod: "Time Period", thAlbizia: "Expected Albizia Growth Rate", thLeucaena: "Expected Sidr Growth Rate",
+                tableBody: `<tr><td>Week 1</td><td>Radicle emergence and soil breakthrough (2-4 cm)</td><td>First leaves appearance and cautious growth (3-5 cm)</td></tr><tr><td>Week 2</td><td>Appearance of compound pinnate leaves (6-10 cm)</td><td>Stem elongation and increased root branching (8-14 cm)</td></tr>`,
+                blogTitle: "The True Beginning: Why Albizia and Sidr?", 
+                blogBody: "Albizia and Sidr trees represent strategic choices to combat climate change locally. Due to their superior capacity to endure extreme temperatures, resist drought, and enhance soil fertility, they serve as the foundation of our shift from temporary planting to permanent sustainability.",
+                
+                // ترجمة المقال الجديد للإنجليزية
+                blog2Title: "The Iraqi Bulbul Facing Extinction: Why Do We Need 'Soft Release' to Restore Ecological Balance?",
+                blog2Date: "June 28, 2026",
+                blog2Body: `<p class="main-text">Scientifically known as the "Ecological Lifeline Strategy", soft release is a scientific approach to bird reintroduction that relies on a transitional phase rather than immediate release. In this process, bulbuls are placed in acclimatization aviaries within their natural habitat, where food and water are provided gradually. This grants them the opportunity to restore physical fitness degraded by captivity, adapt to local climate and sounds, and establish a "mental map" of the locality before achieving full self-reliance.</p><p class="main-text">This strategy stands as the optimal scientific solution. First, it addresses physiological and behavioral rehabilitation; birds emerge from captivity suffering from muscle atrophy and physiological stress, making soft release a vital restoration period that enhances their ability to evade predators. Second, it strengthens "site fidelity." Since the bulbul is an intelligent creature that associates locality with safety, this adaptation phase in a protected zone encourages it to settle and breed there instead of dispersing into the unknown, fostering "breeding hotspots" that gradually multiply the population. Finally, this method breaks "dietary aversion shock." Through trial and error, the bird learns to distinguish between artificial feed and natural resources such as insects and fruits, sharply reducing malnutrition risks post-release.</p><p class="main-text">Protecting the Iraqi Bulbul through this approach is a direct investment in the sustainability of our environment. Shifting from loving birds in cages to respecting them within their natural domains is the only pathway to a flourishing future. Adopting soft release protocols as a core methodology implies that we are not merely saving a bird; we are safeguarding the ecological balance that connects us to this land, ensuring that the branches of our orchards remain vibrant with life we all help restore.</p>`,
+                
+                telegramBtn: "Join the Official Telegram Channel ←", footer: "All Rights Reserved © Land of Al-Sawad 2026", toggleBtn: "العربية"
+            }
+        };
 
         function toggleLanguage() {
-            document.body.classList.toggle('lang-en');
-            alert('English layout active.');
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            const data = languages[currentLang];
+            
+            // تحديث اتجاه الصفحة واللغة
+            document.documentElement.lang = currentLang;
+            document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+            document.body.className = currentLang === 'en' ? 'lang-en' : '';
+
+            // تحديث النصوص الأساسية
+            document.getElementById('text-brand-top').innerText = data.brandTop;
+            document.getElementById('text-brand-bottom').innerText = data.brandBottom;
+            document.getElementById('nav-home').innerText = data.navHome;
+            document.getElementById('nav-birds').innerText = data.navBirds;
+            document.getElementById('nav-guide').innerText = data.navGuide;
+            document.getElementById('nav-blog').innerText = data.navBlog;
+            document.getElementById('lang-toggle-btn').innerText = data.toggleBtn;
+
+            // الصفحة الرئيسية
+            document.getElementById('text-home-title').innerText = data.homeTitle;
+            document.getElementById('text-home-body').innerHTML = data.homeBody;
+            document.getElementById('text-home-highlight').innerText = data.homeHighlight;
+            
+            document.getElementById('txt-goal1-badge').innerText = data.goal1Badge;
+            document.getElementById('txt-goal1-title').innerText = data.goal1Title;
+            document.getElementById('txt-goal1-subtitle').innerText = data.goal1Subtitle;
+            document.getElementById('txt-counter1-label').innerText = data.counter1Label;
+
+            document.getElementById('txt-goal2-badge').innerText = data.goal2Badge;
+            document.getElementById('txt-goal2-title').innerText = data.goal2Title;
+            document.getElementById('txt-goal2-subtitle').innerText = data.goal2Subtitle;
+            document.getElementById('txt-counter2-label').innerText = data.counter2Label;
+
+            // صفحة الطيور
+            document.getElementById('text-birds-title').innerText = data.birdsTitle;
+            document.getElementById('text-bulbul-badge').innerText = data.bulbulBadge;
+            document.getElementById('text-birds-body').innerHTML = data.birdsBody;
+
+            // صفحة الدليل العلمي
+            document.getElementById('guide-main-title').innerText = data.guideMainTitle;
+            document.getElementById('guide-main-desc').innerText = data.guideMainDesc;
+            document.getElementById('guide-steps-list').innerHTML = data.guideSteps;
+            document.getElementById('guide-table-title').innerText = data.guideTableTitle;
+            document.getElementById('th-period').innerText = data.thPeriod;
+            document.getElementById('th-albizia').innerText = data.thAlbizia;
+            document.getElementById('th-leucaena').innerText = data.thLeucaena;
+            document.getElementById('guide-table-body').innerHTML = data.tableBody;
+
+            // صفحة المدونة (المقال الجديد والمقال القديم) والفوتر والزر
+            document.getElementById('text-blog2-title').innerText = data.blog2Title;
+            document.getElementById('text-blog2-date').innerText = data.blog2Date;
+            document.getElementById('text-blog2-body').innerHTML = data.blog2Body;
+
+            document.getElementById('text-blog-title').innerText = data.blogTitle;
+            document.getElementById('text-blog-body').innerText = data.blogBody;
+            
+            document.getElementById('text-telegram-btn').innerText = data.telegramBtn;
+            document.getElementById('text-footer').innerText = data.footer;
         }
     </script>
 </body>
