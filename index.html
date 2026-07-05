@@ -351,181 +351,26 @@
                 </div>
             </div>
 
-            /* تصميم البطاقات المتوهجة */
-        .blog-grid { display: grid; grid-template-columns: 1fr; gap: 25px; }
-        .blog-card {
-            background: #1c1c1c;
-            border: 1px solid #333;
-            border-radius: 20px;
-            padding: 30px;
-            cursor: pointer;
-            transition: all 0.4s ease;
-        }
-        .blog-card:hover { border-color: #2ecc71; box-shadow: 0 0 30px rgba(46, 204, 113, 0.2); }
-        .blog-card h3 { margin-top: 0; margin-bottom: 10px; font-size: 1.5rem; color: #fff; }
-        .blog-card .card-date { color: #888; font-size: 0.9rem; margin-bottom: 15px; }
-        .blog-card p { color: #2ecc71; margin: 0; font-weight: bold; font-size: 0.95rem; }
-
-        /* المقالات الكاملة */
-        .blog-full-article { display: none; background: #1c1c1c; border: 1px solid #222; padding: 40px; border-radius: 20px; }
-        .blog-full-article.active { display: block; }
-        .blog-full-article h2 { margin-top: 20px; font-size: 2rem; line-height: 1.4; color: #fff; }
-        .blog-full-article .article-date { color: #888; font-size: 0.95rem; margin-bottom: 25px; display: block; }
-        .blog-full-article p { line-height: 1.8; color: #ddd; font-size: 1.1rem; text-align: justify; }
-        
-        .back-btn { color: #2ecc71; cursor: pointer; font-weight: bold; font-size: 1.1rem; display: inline-block; transition: transform 0.2s; }
-        .back-btn:hover { transform: translateX(-5px); }
-        body.lang-en .back-btn:hover { transform: translateX(5px); }
-
-        .lang-switch-btn { cursor: pointer; padding: 10px 20px; border-radius: 50px; border: 1px solid #2ecc71; background: transparent; color: #2ecc71; font-weight: bold; transition: all 0.3s; }
-        .lang-switch-btn:hover { background: #2ecc71; color: #111; }
-        
-        /* تنسيقات اتجاه اللغة الإنجليزية */
-        body.lang-en { direction: ltr; }
-    </style>
-</head>
-<body>
-    <header class="site-header">
-        <div class="brand-name">
-            <span id="brand-top" style="font-size: 1.4rem; font-weight: 700;">أرْض</span>
-            <span id="brand-bottom" style="font-size: 2.1rem; font-weight: 700;">السَّــــــــــــــــــــــــوَاد</span>
-        </div>
-        <button id="lang-btn" class="lang-switch-btn" onclick="toggleLanguage()">English</button>
-    </header>
-
-    <main class="dark-content-section">
-        <div class="content-container">
-            <div id="blog-content-area" class="page-view-section active">
-                
-                <!-- شبكة البطاقات -->
-                <div class="blog-grid" id="blog-grid-view">
-                    <!-- بطاقة البلبل العراقي -->
-                    <div class="blog-card" onclick="showArticle('article1')">
-                        <div class="card-date" id="card1-date">٢٨ حزيران، ٢٠٢٦</div>
-                        <h3 id="card1-title">البلبل العراقي في مواجهة الاندثار: لماذا نحتاج إلى "الإطلاق اللين" لاستعادة توازننا البيئي؟</h3>
-                        <p id="card1-click">اضغط للقراءة الكاملة...</p>
-                    </div>
-                    
-                    <!-- بطاقة الألبيزيا والسدر -->
-                    <div class="blog-card" onclick="showArticle('article2')">
-                        <div class="card-date" id="card2-date">١٨ حزيران، ٢٠٢٦</div>
-                        <h3 id="card2-title">البداية الحقيقية: لماذا الألبيزيا والسدر؟</h3>
-                        <p id="card2-click">اضغط للقراءة الكاملة...</p>
+            <!-- 4. صفحة المدونة -->
+            <div id="blog-content-area" class="page-view-section">
+                <!-- المقال الجديد المضاف -->
+                <div class="blog-item">
+                    <h2 class="blog-item-title" id="text-blog2-title">البلبل العراقي في مواجهة الاندثار: لماذا نحتاج إلى "الإطلاق اللين" لاستعادة توازننا البيئي؟</h2>
+                    <span class="blog-item-date" id="text-blog2-date">٢٨ حزيران، ٢٠٢٦</span>
+                    <div id="text-blog2-body">
+                        <p class="main-text">يُعرف الإطلاق اللين علمياً باسم "طوق النجاة البيئي" (Ecological Lifeline Strategy)، وهو منهجية علمية لإعادة توطين الطيور تعتمد على مرحلة انتقالية بدلاً من إطلاقها المباشر. في هذه العملية، تُوضع البلابل في أقفاص تأقلم ضمن بيئتها الطبيعية، حيث يُقدم لها الغذاء والماء تدريجياً؛ مما يمنحها فرصة لاستعادة لياقتها البدنية التي تضررت بسبب الأسر، والتعود على أصوات ومناخ محيطها، وتشكيل "خريطة ذهنية" للمكان قبل الاعتماد الكلي على نفسها.</p>
+                        <p class="main-text">يمثل هذا الأسلوب الحل العلمي الأمثل، فهو يعالج أولاً الاستشفاء الفسيولوجي والسلوكي، حيث تخرج الطيور من الأسر وهي تعاني من ضمور في العضلات وإجهاد فسيولوجي، ليأتي الإطلاق اللين كفترة ترميم ضرورية ترفع من قدرة الطائر على الهروب من المفترسات. ثانياً، يعمل هذا الأسلوب على تعزيز ما يُعرف بـ "الارتباط بالموقع"، فبما أن البلبل كائن ذكي يربط المكان بالسلامة، فإن فترة التأقلم في منطقة محمية تدفعه للاستقرار والتكاثر فيها بدلاً من التشتت في المجهول، مما يساهم في خلق "بؤر تكاثرية" ترفع من أعداد الجماعة بشكل تراكمي. وأخيراً، يسهم هذا المنهج في كسر "صدمة النفور الغذائي"؛ إذ يتعلم الطائر بالتجربة والخطأ كيفية التمييز بين الغذاء الاصطناعي والموارد الطبيعية كالحشرات والثمار، وهو ما يقلل بشكل حاد من مخاطر سوء التغذية بعد الإطلاق.</p>
+                        <p class="main-text">إن حماية البلبل العراقي بهذا الأسلوب هي استثمار في استدامة بيئتنا؛ فالانتقال من حب الطيور في الأقفاص إلى احترامها في فضاءاتها الطبيعية هو السبيل الوحيد لضمان مستقبل مزدهر. إن تبني بروتوكولات الإطلاق اللين كمنهج يعني أننا لا ننقذ طائراً فحسب، بل نحمي التوازن البيئي الذي يربطنا بهذه الأرض، لتظل أغصان بساتيننا عامرة بحياة نساهم جميعاً في استعادتها.</p>
                     </div>
                 </div>
 
-                <!-- مقال البلبل العراقي المخفي -->
-                <div id="article1" class="blog-full-article">
-                    <span id="back-btn1" class="back-btn" onclick="hideArticles()">← العودة</span>
-                    <h2 id="art1-title">البلبل العراقي في مواجهة الاندثار: لماذا نحتاج إلى "الإطلاق اللين" لاستعادة توازننا البيئي؟</h2>
-                    <span class="article-date" id="art1-date">٢٨ حزيران، ٢٠٢٦</span>
-                    <p id="art1-text">يُعرف الإطلاق اللين علمياً باسم "طوق النجاة البيئي" (Ecological Lifeline Strategy)، وهو منهجية علمية لإعادة توطين الطيور تعتمد على مرحلة انتقالية بدلاً من إطلاقها المباشر. في هذه العملية، تُوضع البلابل في أقفاص تأقلم ضمن بيئتها الطبيعية، حيث يُقدم لها الغذاء والماء تدريجياً؛ مما يمنحها فرصة لاستعادة لياقتها البدنية التي تضررت بسبب الأسر، والتعود على أصوات ومناخ محيطها، وتشكيل "خريطة ذهنية" للمكان قبل الاعتماد الكلي على نفسها.<br><br>يمثل هذا الأسلوب الحل العلمي الأمثل، فهو يعالج أولاً الاستشفاء الفسيولوجي والسلوكي، حيث تخرج الطيور من الأسر وهي تعاني من ضمور في العضلات وإجهاد فسيولوجي، ليأتي الإطلاق اللين كفترة ترميم ضرورية ترفع من قدرة الطائر على الهروب من المفترسات. ثانياً، يعمل هذا الأسلوب على تعزيز ما يُعرف بـ "الارتباط بالموقع"، فبما أن البلبل كائن ذكي يربط المكان بالسلامة، فإن فترة التأقلم في منطقة محمية تدفعه للاستقرار والتكاثر فيها بدلاً من التشتت في المجهول، مما يساهم في خلق "بؤر تكاثرية" ترفع من أعداد الجماعة بشكل تراكمي. وأخيراً، يسهم هذا المنهج في كسر "صدمة النفور الغذائي"؛ إذ يتعلم الطائر بالتجربة والخطأ كيفية التمييز بين الغذاء الاصطناعي والموارد الطبيعية كالحشرات والثمار، وهو ما يقلل بشكل حاد من مخاطر سوء التغذية بعد الإطلاق.<br><br>إن حماية البلبل العراقي بهذا الأسلوب هي استثمار في استدامة بيئتنا؛ فالانتقال من حب الطيور في الأقفاص إلى احترامها في فضاءاتها الطبيعية هو السبيل الوحيد لضمان مستقبل مزدهر. إن تبني بروتوكولات الإطلاق اللين كمنهج يعني أننا لا ننقذ طائراً فحسب, بل نحمي التوازن البيئي الذي يربطنا بهذه الأرض، لتظل أغصان بساتيننا عامرة بحياة نساهم جميعاً في استعادتها.</p>
+                <!-- المقال القديم -->
+                <div class="blog-item">
+                    <h2 class="blog-item-title" id="text-blog-title">البداية الحقيقية: لماذا الألبيزيا والسدر؟</h2>
+                    <span class="blog-item-date" id="text-blog-date">١٨ حزيران، ٢٠٢٦</span>
+                    <p class="main-text" id="text-blog-body">تعتبر أشجار الألبيزيا والسدر خيارات استراتيجية لمواجهة التغير المناخي في بيئتنا المحلية؛ نظراً لقدرتها الفائقة على تحمل درجات الحرارة المرتفعة، ومقاومة الجفاف، بالإضافة إلى دورها الحيوي في تثبيت التربة وتحسين خصوبتها، مما يجعلها حجر الأساس في مشروعنا للتحول من التشجير المؤقت إلى الاستدامة الدائمة.</p>
                 </div>
-                
-                <!-- مقال الألبيزيا والسدر المخفي -->
-                <div id="article2" class="blog-full-article">
-                    <span id="back-btn2" class="back-btn" onclick="hideArticles()">← العودة</span>
-                    <h2 id="art2-title">البداية الحقيقية: لماذا الألبيزيا والسدر؟</h2>
-                    <span class="article-date" id="art2-date">١٨ حزيران، ٢٠٢٦</span>
-                    <p id="art2-text">تعتبر أشجار الألبيزيا والسدر خيارات استراتيجية لمواجهة التغير المناخي في بيئتنا المحلية؛ نظراً لقدرتها الفائقة على تحمل درجات الحرارة المرتفعة، ومقاومة الجفاف، بالإضافة إلى دورها الحيوي في تثبيت التربة وتحسين خصوبتها، مما يجعلها حجر الأساس في مشروعنا للتحول من التشجير المؤقت إلى الاستدامة الدائمة.</p>
-                </div>
-
             </div>
-        </div>
-    </main>
-
-    <script>
-        function showArticle(id) {
-            document.getElementById('blog-grid-view').style.display = 'none';
-            document.getElementById(id).classList.add('active');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-        
-        function hideArticles() {
-            document.getElementById('blog-grid-view').style.display = 'grid';
-            document.querySelectorAll('.blog-full-article').forEach(a => a.classList.remove('active'));
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        let currentLang = 'ar';
-        const languages = {
-            ar: {
-                brandTop: "أرْض",
-                brandBottom: "السَّــــــــــــــــــــــــوَاد",
-                langBtn: "English",
-                card1Date: "٢٨ حزيران، ٢٠٢٦",
-                card1Title: "البلبل العراقي في مواجهة الاندثار: لماذا نحتاج إلى \"الإطلاق اللين\" لاستعادة توازننا البيئي؟",
-                card1Click: "اضغط للقراءة الكاملة...",
-                card2Date: "١٨ حزيران، ٢٠٢٦",
-                card2Title: "البداية الحقيقية: لماذا الألبيزيا والسدر؟",
-                card2Click: "اضغط للقراءة الكاملة...",
-                backBtn1: "← العودة",
-                backBtn2: "← العودة",
-                art1Title: "البلبل العراقي في مواجهة الاندثار: لماذا نحتاج إلى \"الإطلاق اللين\" لاستعادة توازننا البيئي؟",
-                art1Date: "٢٨ حزيران، ٢٠٢٦",
-                art1Text: "يُعرف الإطلاق اللين علمياً باسم \"طوق النجاة البيئي\" (Ecological Lifeline Strategy)، وهو منهجية علمية لإعادة توطين الطيور تعتمد على مرحلة انتقالية بدلاً من إطلاقها المباشر. في هذه العملية، تُوضع البلابل في أقفاص تأقلم ضمن بيئتها الطبيعية، حيث يُقدم لها الغذاء والماء تدريجياً؛ مما يمنحها فرصة لاستعادة لياقتها البدنية التي تضررت بسبب الأسر، والتعود على أصوات ومناخ محيطها، وتشكيل \"خريطة ذهنية\" للمكان قبل الاعتماد الكلي على نفسها.<br><br>يمثل هذا الأسلوب الحل العلمي الأمثل، فهو يعالج أولاً الاستشفاء الفسيولوجي والسلوكي، حيث تخرج الطيور من الأسر وهي تعاني من ضمور في العضلات وإجهاد فسيولوجي، ليأتي الإطلاق اللين كفترة ترميم ضرورية ترفع من قدرة الطائر على الهروب من المفترسات. ثانياً، يعمل هذا الأسلوب على تعزيز ما يُعرف بـ \"الارتباط بالموقع\"، فبما أن البلبل كائن ذكي يربط المكان بالسلامة، فإن فترة التأقلم في منطقة محمية تدفعه للاستقرار والتكاثر فيها بدلاً من التشتت في المجهول، مما يساهم في خلق \"بؤر تكاثرية\" ترفع من أعداد الجماعة بشكل تراكمي. وأخيراً، يسهم هذا المنهج في كسر \"صدمة النفور الغذائي\"؛ إذ يتعلم الطائر بالتجربة والخطأ كيفية التمييز بين الغذاء الاصطناعي والموارد الطبيعية كالحشرات والثمار، وهو ما يقلل بشكل حاد من مخاطر سوء التغذية بعد الإطلاق.<br><br>إن حماية البلبل العراقي بهذا الأسلوب هي استثمار في استدامة بيئتنا؛ فالانتقال من حب الطيور في الأقفاص إلى احترامها في فضاءاتها الطبيعية هو السبيل الوحيد لضمان مستقبل مزدهر. إن تبني بروتوكولات الإطلاق اللين كمنهج يعني أننا لا ننقذ طائراً فحسب، بل نحمي التوازن البيئي الذي يربطنا بهذه الأرض، لتظل أغصان بساتيننا عامرة بحياة نساهم جميعاً في استعادتها.",
-                art2Title: "البداية الحقيقية: لماذا الألبيزيا والسدر؟",
-                art2Date: "١٨ حزيران، ٢٠٢٦",
-                art2Text: "تعتبر أشجار الألبيزيا والسدر خيارات استراتيجية لمواجهة التغير المناخي في بيئتنا المحلية؛ نظراً لقدرتها الفائقة على تحمل درجات الحرارة المرتفعة، ومقاومة الجفاف، بالإضافة إلى دورها الحيوي في تثبيت التربة وتحسين خصوبتها، مما يجعلها حجر الأساس في مشروعنا للتحول من التشجير المؤقت إلى الاستدامة الدائمة."
-            },
-            en: {
-                brandTop: "LAND OF",
-                brandBottom: "AL-SAWAD",
-                langBtn: "العربية",
-                card1Date: "June 28, 2026",
-                card1Title: "The Iraqi Bulbul Facing Extinction: Why We Need 'Soft Release' to Restore Our Ecological Balance?",
-                card1Click: "Click to read full article...",
-                card2Date: "June 18, 2026",
-                card2Title: "The Real Beginning: Why Albizia and Ziziphus?",
-                card2Click: "Click to read full article...",
-                backBtn1: "Back →",
-                backBtn2: "Back →",
-                art1Title: "The Iraqi Bulbul Facing Extinction: Why We Need 'Soft Release' to Restore Our Ecological Balance?",
-                art1Date: "June 28, 2026",
-                art1Text: "Scientifically known as the 'Ecological Lifeline Strategy', soft release is a scientific methodology for bird relocation that relies on a transitional phase rather than direct release. In this process, bulbuls are placed in acclimation cages within their natural habitat, where food and water are introduced gradually. This grants them the opportunity to restore their physical fitness damaged by captivity, adapt to the sounds and climate of their surroundings, and map out a 'mental chart' of the location before becoming entirely self-reliant.<br><br>This approach represents the ideal scientific solution. First, it addresses physiological and behavioral recovery; birds emerge from captivity suffering from muscle atrophy and physiological stress, making the soft release a vital restorative period that upgrades the bird's capacity to evade predators. Second, this method enhances what is known as 'site fidelity'. Since the bulbul is an intelligent creature that associates a location with safety, the acclimation period within a protected zone encourages it to settle down and breed there rather than scattering into the unknown, thereby contributing to the creation of 'breeding hotspots' that cumulatively increase population numbers. Finally, this approach helps break the 'food aversion shock', as the bird learns through trial and error how to distinguish between artificial feed and natural resources like insects and fruits, sharply reducing the risks of post-release malnutrition.<br><br>Protecting the Iraqi Bulbul through this method is an investment in the sustainability of our environment. Shifting from loving birds in cages to respecting them in their natural spaces is the only path to ensure a prosperous future. Adopting soft release protocols as a core approach means we are not just saving a bird, but safeguarding the ecological balance that connects us to this land, so that our orchard branches remain vibrant with a life we all contribute to restoring.",
-                art2Date: "June 18, 2026",
-                art2Title: "The Real Beginning: Why Albizia and Ziziphus?",
-                art2Text: "Albizia and Ziziphus (Sidr) trees are considered strategic choices for confronting climate change in our local environment. This is due to their superior capability to tolerate high temperatures and resist drought, alongside their vital role in soil stabilization and enhancing fertility, making them the cornerstone of our project to transition from temporary afforestation to permanent sustainability."
-            }
-        };
-
-        function toggleLanguage() {
-            currentLang = currentLang === 'ar' ? 'en' : 'ar';
-            
-            if (currentLang === 'en') {
-                document.body.classList.add('lang-en');
-                document.documentElement.dir = "ltr";
-            } else {
-                document.body.classList.remove('lang-en');
-                document.documentElement.dir = "rtl";
-            }
-
-            document.getElementById('brand-top').textContent = languages[currentLang].brandTop;
-            document.getElementById('brand-bottom').textContent = languages[currentLang].brandBottom;
-            document.getElementById('lang-btn').textContent = languages[currentLang].langBtn;
-            
-            document.getElementById('card1-date').textContent = languages[currentLang].card1Date;
-            document.getElementById('card1-title').textContent = languages[currentLang].card1Title;
-            document.getElementById('card1-click').textContent = languages[currentLang].card1Click;
-            
-            document.getElementById('card2-date').textContent = languages[currentLang].card2Date;
-            document.getElementById('card2-title').textContent = languages[currentLang].card2Title;
-            document.getElementById('card2-click').textContent = languages[currentLang].card2Click;
-            
-            document.getElementById('back-btn1').textContent = languages[currentLang].backBtn1;
-            document.getElementById('back-btn2').textContent = languages[currentLang].backBtn2;
-            
-            document.getElementById('art1-title').textContent = languages[currentLang].art1Title;
-            document.getElementById('art1-date').textContent = languages[currentLang].art1Date;
-            document.getElementById('art1-text').innerHTML = languages[currentLang].art1Text;
-            
-            document.getElementById('art2-title').textContent = languages[currentLang].art2Title;
-            document.getElementById('art2-date').textContent = languages[currentLang].art2Date;
-            document.getElementById('art2-text').innerHTML = languages[currentLang].art2Text;
-        }
-    </script>
-</body>
-</html>
 
             <!-- زر التليغرام -->
             <div class="telegram-action">
