@@ -82,7 +82,6 @@
             padding: 8px;
             background: rgba(255, 77, 77, 0.02);
             position: relative;
-            z-index: 2;
         }
         .bulbul-img-wrapper img { max-width: 100%; width: 320px; height: auto; display: block; border-radius: 6px; position: relative; z-index: 2; }
         .bulbul-img-fallback { display: none; color: #ff4d4d; font-family: 'Cairo', sans-serif; font-size: 0.9rem; padding: 60px 20px; position: relative; z-index: 2; }
@@ -188,9 +187,15 @@
         }
         .blog-card:hover .blog-card-btn { background-color: #2ecc71; color: #1a1a1a; }
         
-        /* المقال الكامل داخل الصفحة */
-        .blog-full-article { display: none; margin-bottom: 50px; border-bottom: 1px solid #2d2d2d; padding-bottom: 40px; }
+        /* المقال الكامل داخل الصفحة (تم إضافة كرت له) */
+        .blog-full-article { display: none; margin-bottom: 50px; }
         .blog-full-article.active { display: block; }
+        .article-card {
+            background: #222;
+            border: 1px solid #333;
+            border-radius: 16px;
+            padding: 40px;
+        }
         .blog-back-btn { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 25px; color: #2ecc71; cursor: pointer; font-family: 'Cairo', sans-serif; font-size: 0.95rem; font-weight: 700; }
         .blog-back-btn:hover { text-decoration: underline; }
         .blog-item-title { color: #2ecc71; font-size: 2.5rem; margin-bottom: 10px; line-height: 1.2; font-family: 'Amiri', serif; }
@@ -288,16 +293,17 @@
                 </div>
             </div>
 
-            <!-- 4. صفحة المدونة -->
+            <!-- 4. صفحة المدونة التفاعلية المحسّنة بالمحتوى الكامل -->
             <div id="blog-content-area" class="page-view-section">
                 
-                <!-- شبكة البطاقات -->
+                <!-- شبكة البطاقات الرئيسية للمدونة -->
                 <div class="blog-grid" id="blog-grid-view">
+                    
                     <div class="blog-card" onclick="showArticle('blog_bulbul')">
                         <span class="blog-card-tag">حماية الحياة البرية</span>
                         <h3 class="blog-card-title">البلبل العراقي في مواجهة الاندثار: لماذا نحتاج إلى بروتوكول "الإطلاق اللين"؟</h3>
                         <span class="blog-card-date">٢٨ حزيران، ٢٠٢٦</span>
-                        <p class="blog-card-excerpt">يُعرف الإطلاق اللين علمياً باسم "طوق النجاة البيئي"، وهو منهجية علمية لإعادة توطين الطيور تعتمد على مرحلة انتقالية...</p>
+                        <p class="blog-card-excerpt">يُعرف الإطلاق اللين علمياً باسم "طوق النجاة البيئي"، وهو منهجية علمية لإعادة توطين الطيور تعتمد على مرحلة انتقالية بدلاً من الإطلاق المباشر والمفاجئ في الطبيعة...</p>
                         <button class="blog-card-btn">أكمل القراءة ←</button>
                     </div>
                     
@@ -305,27 +311,41 @@
                         <span class="blog-card-tag">توثيق ميداني وعلمي</span>
                         <h3 class="blog-card-title">خياراتنا الاستراتيجية لمواجهة التصحر: لماذا الألبيزيا والسدر؟</h3>
                         <span class="blog-card-date">١٨ حزيران، ٢٠٢٦</span>
-                        <p class="blog-card-excerpt">تعتبر أشجار الألبيزيا والسدر الركيزة الأساسية لخطتنا البيئية نظراً لقدرتها الفائقة على تحمل الجفاف الحاد...</p>
+                        <p class="blog-card-excerpt">تعتبر أشجار الألبيزيا والسدر الركيزة الأساسية لخطتنا البيئية نظراً لقدرتها الفائقة على تحمل الجفاف الحاد والحرارة القياسية، ودورها الحيوي في تثبيت التربة وزحف الرمال...</p>
                         <button class="blog-card-btn">أكمل القراءة ←</button>
+                    </div>
+                    
+                </div>
+
+                <!-- محتوى مقال البلبل بالكامل داخل كرت -->
+                <div class="blog-full-article" id="blog_bulbul-full">
+                    <span class="blog-back-btn" onclick="backToBlogGrid()">→ العودة لكافة المقالات</span>
+                    <div class="article-card">
+                        <article class="blog-item">
+                            <h2 class="blog-item-title">البلبل العراقي في مواجهة الاندثار: لماذا نحتاج إلى بروتوكول "الإطلاق اللين" لاستعادة التوازن البيئي؟</h2>
+                            <span class="blog-item-date">التاريخ: ٢٨ حزيران، ٢٠٢٦ | الكاتب: الإدارة البيئية لـ "أرض السواد"</span>
+                            <p class="main-text">يُعرف الإطلاق اللين علمياً باسم "طوق النجاة البيئي" (Ecological Lifeline Strategy)، وهو منهجية علمية متقدمة لإعادة توطين الطيور البرية تعتمد على خلق مرحلة انتقالية متدرجة بدلاً من الإطلاق المباشر والمفاجئ في الطبيعة. في هذه العملية المدروسة، تُوضع البلابل المصادرة أو المرباة في أقفاص تأقلم فسيحة ومجهزة مبنية ضمن بيئتها الطبيعية المستهدفة.</p>
+                            <p class="main-text">خلال هذه الفترة، يُقدم لها الغذاء والماء بشكل منتظم، مما يمنح الطيور فرصة ذهبية لاستعادة أهليتها البدنية وبنائها العضلي الذي تضرر نتيجة فترات الأسر الطويلة أو النقل، بالإضافة إلى الاعتياد التدريجي على أصوات المفترسات والمناخ السائد، وبناء "خريطة ذهنية ومكانية" للمنطقة المحيطة قبل الاعتماد الكامل على أنفسهم في تأمين القوت الحيوي.</p>
+                            <p class="main-text">إن تبني بروتوكولات الإطلاق اللين يسهم بشكل جوهري في كسر ما يُعرف علمياً بـ "صدمة النفور الغذائي الحاد"؛ إذ يتعلم الطائر بالتجربة والمراقبة كيفية التمييز بين الغذاء الاصطناعي والموارد الطبيعية المتاحة في البيئة العراقية كالحشرات الطائرة، الديدان، والثمار البرية. هذا التدريب التدريجي يقلل بشكل حاد من معدلات النفوق الناجمة عن سوء التغذية أو المفاجأة بعد الحرية، ويضمن بناء مجموعات طيور قوية ومستقرة قادرة على التكاثر وإعادة الألحان البغدادية الأصيلة إلى بساتين النخيل الفسيحة.</p>
+                        </article>
                     </div>
                 </div>
 
-                <!-- المقالات المخفية -->
-                <div class="blog-full-article" id="blog_bulbul-full">
-                    <span class="blog-back-btn" onclick="backToBlogGrid()">← العودة لكافة المقالات</span>
-                    <article class="blog-item">
-                        <h2 class="blog-item-title">البلبل العراقي في مواجهة الاندثار: لماذا نحتاج إلى بروتوكول "الإطلاق اللين"؟</h2>
-                        <p class="main-text">هنا يظهر محتوى المقال الكامل للبلبل...</p>
-                    </article>
-                </div>
+                <!-- محتوى مقال الأشجار بالكامل داخل كرت -->
                 <div class="blog-full-article" id="blog_trees-full">
-                    <span class="blog-back-btn" onclick="backToBlogGrid()">← العودة لكافة المقالات</span>
-                    <article class="blog-item">
-                        <h2 class="blog-item-title">خياراتنا الاستراتيجية لمواجهة التصحر</h2>
-                        <p class="main-text">هنا يظهر محتوى المقال الكامل للأشجار...</p>
-                    </article>
+                    <span class="blog-back-btn" onclick="backToBlogGrid()">→ العودة لكافة المقالات</span>
+                    <div class="article-card">
+                        <article class="blog-item">
+                            <h2 class="blog-item-title">خياراتنا الاستراتيجية لمواجهة التصحر: لماذا الألبيزيا والسدر؟</h2>
+                            <span class="blog-item-date">التاريخ: ١٨ حزيران، ٢٠٢٦ | الكاتب: اللـجنة الميدانية</span>
+                            <p class="main-text">تعتبر أشجار الألبيزيا (Albizia) والسدر (Sidr) خيارات استراتيجية وعلمية مدروسة بعناية فائقة لمواجهة أزمات التغير المناخي الحاد في بيئتنا المحلية؛ نظراً لقدرتها الاستثنائية الفائقة على تحمل درجات الحرارة القياسية التي تتجاوز الـ 50 درجة مئوية، ومقاومة الجفاف الطويل وشح المياه.</p>
+                            <p class="main-text">تعمل أشجار الألبيزيا بفضل نموها السريع وظلها الكثيف كأحزمة وقائية خضراء ممتازة لكسر حدة الرياح المحملة بالغبار وتلطيف درجات الحرارة المحيطة بالمدن والمناطق السكنية، بينما تسهم أشجار السدر بجذورها العميقة والقوية في تثبيت التربة المفككة ومنع زحف الكثبان الرملية الصحراوية، فضلاً عن كونها تشكل بيئة حاضنة ممتازة لإعادة التنوع البيولوجي المفقود وتوفير مصادر غذائية غنية للحياة البرية والنحل المحلي.</p>
+                        </article>
+                    </div>
                 </div>
+
             </div>
+
         </div>
     </main>
 
@@ -335,33 +355,49 @@
 
     <script>
         function navigateTo(sectionId) {
-            document.querySelectorAll('.page-view-section').forEach(section => section.classList.remove('active'));
-            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-            document.getElementById(sectionId + '-content-area').classList.add('active');
-            document.getElementById('nav-' + sectionId).classList.add('active');
+            document.querySelectorAll('.page-view-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            const targetSection = document.getElementById(sectionId + '-content-area');
+            if(targetSection) targetSection.classList.add('active');
+            
+            const targetLink = document.getElementById('nav-' + sectionId);
+            if(targetLink) targetLink.classList.add('active');
+            
             if(sectionId === 'blog') backToBlogGrid();
         }
 
         function showArticle(articleId) {
             document.getElementById('blog-grid-view').style.display = 'none';
-            document.querySelectorAll('.blog-full-article').forEach(a => a.classList.remove('active'));
+            document.querySelectorAll('.blog-full-article').forEach(article => {
+                article.classList.remove('active');
+            });
             document.getElementById(articleId + '-full').classList.add('active');
         }
 
         function backToBlogGrid() {
-            document.querySelectorAll('.blog-full-article').forEach(a => a.classList.remove('active'));
+            document.querySelectorAll('.blog-full-article').forEach(article => {
+                article.classList.remove('active');
+            });
             document.getElementById('blog-grid-view').style.display = 'grid';
         }
 
         function navigateToGuideAndHighlight(stepId) {
             navigateTo('guide');
-            document.querySelectorAll('.guide-steps-ol li').forEach(li => li.classList.remove('highlight-step'));
-            document.getElementById('step-' + stepId).classList.add('highlight-step');
+            document.querySelectorAll('.guide-steps-ol li').forEach(li => {
+                li.classList.remove('highlight-step');
+            });
+            const step = document.getElementById('step-' + stepId);
+            if(step) step.classList.add('highlight-step');
         }
 
         function toggleLanguage() {
             document.body.classList.toggle('lang-en');
-            document.getElementById('lang-toggle-btn').innerText = document.body.classList.contains('lang-en') ? "العربية" : "English";
+            alert('English layout active.');
         }
     </script>
 </body>
