@@ -145,22 +145,117 @@
         .page-view-section { display: none; }
         .page-view-section.active { display: block; }
 
-        /* صفحة المدونة المحدثة بنظام البطاقات والتوهج */
-        .blog-grid { display: grid; grid-template-columns: 1fr; gap: 30px; margin-top: 20px; }
-        
-        .blog-card { 
-            background: #222; 
-            border: 1px solid #333; 
-            border-radius: 16px; 
-            padding: 30px; 
+        /* تصميم البطاقات المتوهجة */
+
+        .blog-grid { display: grid; grid-template-columns: 1fr; gap: 25px; }
+
+        .blog-card {
+
+            background: #222;
+
+            border: 1px solid #333;
+
+            border-radius: 20px;
+
+            padding: 30px;
+
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
+
+            transition: all 0.4s ease;
+
         }
-        .blog-card:hover {
-            transform: translateY(-3px);
-            border-color: #2ecc71;
-            background: #202521;
+
+        .blog-card:hover { border-color: #2ecc71; box-shadow: 0 0 30px rgba(46, 204, 113, 0.3); }
+
+        .blog-full-article { display: none; }
+
+        .blog-full-article.active { display: block; }
+
+        .lang-switch-btn { cursor: pointer; padding: 8px 16px; border-radius: 50px; border: 1px solid #000; }
+
+    </style></head><body>
+
+    <header class="site-header">
+
+        <div class="brand-name">
+
+            <span style="font-size: 1.4rem; font-weight: 700;">أرْض</span>
+
+            <span style="font-size: 2.1rem; font-weight: 700;">السَّــــــــــــــــــــــــوَاد</span>
+
+        </div>
+
+        <button class="lang-switch-btn" onclick="toggleLanguage()">English</button>
+
+    </header>
+
+
+
+    <main class="dark-content-section">
+
+        <div class="content-container">
+
+            <div id="blog-content-area" class="page-view-section active">
+
+                <!-- شبكة البطاقات -->
+
+                <div class="blog-grid" id="blog-grid-view">
+
+                    <div class="blog-card" onclick="showArticle('article1')">
+
+                        <h3>البلبل العراقي</h3>
+
+                        <p>اضغط للقراءة الكاملة...</p>
+
+                    </div>
+
+                    <div class="blog-card" onclick="showArticle('article2')">
+
+                        <h3>خياراتنا الاستراتيجية</h3>
+
+                        <p>اضغط للقراءة الكاملة...</p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- المقالات المخفية -->
+
+                <div id="article1" class="blog-full-article">
+
+                    <span style="color:#2ecc71; cursor:pointer;" onclick="hideArticles()">← العودة</span>
+
+                    <h2>البلبل العراقي في مواجهة الاندثار</h2>
+
+                    <p>يُعرف الإطلاق اللين علمياً باسم "طوق النجاة البيئي" (Ecological Lifeline Strategy)، وهو منهجية علمية لإعادة توطين الطيور تعتمد على مرحلة انتقالية بدلاً من إطلاقها المباشر. في هذه العملية، تُوضع البلابل في أقفاص تأقلم ضمن بيئتها الطبيعية، حيث يُقدم لها الغذاء والماء تدريجياً؛ مما يمنحها فرصة لاستعادة لياقتها البدنية التي تضررت بسبب الأسر، والتعود على أصوات ومناخ محيطها، وتشكيل "خريطة ذهنية" للمكان قبل الاعتماد الكلي على نفسها.
+
+
+
+يمثل هذا الأسلوب الحل العلمي الأمثل، فهو يعالج أولاً الاستشفاء الفسيولوجي والسلوكي، حيث تخرج الطيور من الأسر وهي تعاني من ضمور في العضلات وإجهاد فسيولوجي، ليأتي الإطلاق اللين كفترة ترميم ضرورية ترفع من قدرة الطائر على الهروب من المفترسات. ثانياً، يعمل هذا الأسلوب على تعزيز ما يُعرف بـ "الارتباط بالموقع"، فبما أن البلبل كائن ذكي يربط المكان بالسلامة، فإن فترة التأقلم في منطقة محمية تدفعه للاستقرار والتكاثر فيها بدلاً من التشتت في المجهول، مما يساهم في خلق "بؤر تكاثرية" ترفع من أعداد الجماعة بشكل تراكمي. وأخيراً، يسهم هذا المنهج في كسر "صدمة النفور الغذائي"؛ إذ يتعلم الطائر بالتجربة والخطأ كيفية التمييز بين الغذاء الاصطناعي والموارد الطبيعية كالحشرات والثمار، وهو ما يقلل بشكل حاد من مخاطر سوء التغذية بعد الإطلاق.
+
+
+
+إن حماية البلبل العراقي بهذا الأسلوب هي استثمار في استدامة بيئتنا؛ فالانتقال من حب الطيور في الأقفاص إلى احترامها في فضاءاتها الطبيعية هو السبيل الوحيد لضمان مستقبل مزدهر. إن تبني بروتوكولات الإطلاق اللين كمنهج يعني أننا لا ننقذ طائراً فحسب، بل نحمي التوازن البيئي الذي يربطنا بهذه الأرض، لتظل أغصان بساتيننا عامرة بحياة نساهم جميعاً في استعادتها.</p>
+
+                </div>
+
+                <div id="article2" class="blog-full-article">
+
+                    <span style="color:#2ecc71; cursor:pointer;" onclick="hideArticles()">← العودة</span>
+
+                    <h2>لماذا الألبيزيا والسدر؟</h2>
+
+                    <p>هنا نص المقال الكامل للأشجاتعتبر أشجار الألبيزيا والسدر خيارات استراتيجية لمواجهة التغير المناخي في بيئتنا المحلية؛ نظراً لقدرتها الفائقة على تحمل درجات الحرارة المرتفعة، ومقاومة الجفاف، بالإضافة إلى دورها الحيوي في تثبيت التربة وتحسين خصوبتها، مما يجعلها حجر الأساس في مشروعنا للتحول من التشجير المؤقت إلى الاستدامة الدائمة.</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
         }
         
         /* حالة التوهج المخصصة عند الضغط والتفعيل المباشر */
