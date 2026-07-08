@@ -442,6 +442,14 @@
                 <!-- عرض قائمة البطاقات -->
                 <div id="blog-list-view">
                     <div class="blog-cards-grid">
+                        <div class="blog-card" onclick="openBlogPost('post3')">
+                            <span class="blog-card-badge" id="txt-blog3-card-badge">سياسة بيئية</span>
+                            <h3 class="blog-card-title" id="txt-blog3-card-title">بين مطرقة الضغوط السياسية وسندان الاندثار البيئي</h3>
+                            <span class="blog-card-date" id="txt-blog3-card-date">٨ تموز، ٢٠٢٦</span>
+                            <p class="blog-card-excerpt" id="txt-blog3-card-excerpt">ما نشهده اليوم ليس مجرد تغير مناخي عالمي، بل "تجريف ممنهج" للهوية البيئية للعراق، استغل فيه المتربصون هشاشة السلطة الرقابية لفرض واقع بيئي قاتم...</p>
+                            <span class="blog-card-readmore" id="txt-readmore-3">اقرأ المقال كاملاً ←</span>
+                        </div>
+
                         <div class="blog-card" onclick="openBlogPost('post2')">
                             <span class="blog-card-badge" id="txt-blog2-card-badge">توعية بيئية</span>
                             <h3 class="blog-card-title" id="txt-blog2-card-title">البلبل العراقي في مواجهة الاندثار: لماذا نحتاج إلى "الإطلاق اللين"؟</h3>
@@ -535,7 +543,13 @@
             const data = languages[currentLang];
             const container = document.getElementById('blog-detail-content');
 
-            if (currentBlogPost === 'post2') {
+            if (currentBlogPost === 'post3') {
+                container.innerHTML = `
+                    <h2 class="blog-item-title">${data.blog3Title}</h2>
+                    <span class="blog-item-date">${data.blog3Date}</span>
+                    ${data.blog3Body}
+                `;
+            } else if (currentBlogPost === 'post2') {
                 container.innerHTML = `
                     <h2 class="blog-item-title">${data.blog2Title}</h2>
                     <span class="blog-item-date">${data.blog2Date}</span>
@@ -573,6 +587,9 @@
                 tableBody: `<tr><td>الأسبوع الأول</td><td>بروز الجذير وانشقاق التربة (٢-٤ سم)</td><td>ظهور الأوراق الأولى والنمو الحذر (٣-٥ سم)</td></tr><tr><td>الأسبوع الثاني</td><td>ظهور الأوراق الريشية المركبة (٦-١٠ سم)</td><td>استطالة الساق وزيادة التفرع الجذري (٨-١٤ سم)</td></tr>`,
 
                 // بطاقات المدونة
+                blog3CardBadge: "سياسة بيئية",
+                blog3CardTitle: "بين مطرقة الضغوط السياسية وسندان الاندثار البيئي",
+                blog3CardExcerpt: `ما نشهده اليوم ليس مجرد تغير مناخي عالمي، بل "تجريف ممنهج" للهوية البيئية للعراق، استغل فيه المتربصون هشاشة السلطة الرقابية لفرض واقع بيئي قاتم...`,
                 blog1CardBadge: "زراعة ومناخ",
                 blog1CardTitle: "البداية الحقيقية: لماذا الألبيزيا والسدر؟",
                 blog1CardExcerpt: "تعتبر أشجار الألبيزيا والسدر خيارات استراتيجية لمواجهة التغير المناخي؛ نظراً لقدرتها الفائقة على تحمل الحرارة ومقاومة الجفاف ودورها في تثبيت التربة...",
@@ -592,6 +609,11 @@
                 blog2Date: "٢٨ حزيران، ٢٠٢٦",
                 blog2Body: `<p class="main-text">يُعرف الإطلاق اللين علمياً باسم "طوق النجاة البيئي" (Ecological Lifeline Strategy)، وهو منهجية علمية لإعادة توطين الطيور تعتمد على مرحلة انتقالية بدلاً من إطلاقها المباشر. في هذه العملية، تُوضع البلابل في أقفاص تأقلم ضمن بيئتها الطبيعية، حيث يُقدم لها الغذاء والماء تدريجياً؛ مما يمنحها فرصة لاستعادة لياقتها البدنية التي تضررت بسبب الأسر، والتعود على أصوات ومناخ محيطها، وتشكيل "خريطة ذهنية" للمكان قبل الاعتماد الكلي على نفسها.</p><p class="main-text">يمثل هذا الأسلوب الحل العلمي الأمثل، فهو يعالج أولاً الاستشفاء الفسيولوجي والسلوكي، حيث تخرج الطيور من الأسر وهي تعاني من ضمور في العضلات وإجهاد فسيولوجي، ليأتي الإطلاق اللين كفترة ترميم ضرورية ترفع من قدرة الطائر على الهروب من المفترسات. ثانياً، يعمل هذا الأسلوب على تعزيز ما يُعرف بـ "الارتباط بالموقع"، فبما أن البلبل كائن ذكي يربط المكان بالسلامة، فإن فترة التأقلم في منطقة محمية تدفعه للاستقرار والتكاثر فيها بدلاً من التشتت في المجهول، مما يساهم في خلق "بؤر تكاثرية" ترفع من أعداد الجماعة بشكل تراكمي. وأخيراً، يسهم هذا المنهج في كسر "صدمة النفور الغذائي"؛ إذ يتعلم الطائر بالتجربة والخطأ كيفية التمييز بين الغذاء الاصطناعي والموارد الطبيعية كالحشرات والثمار، وهو ما يقلل بشكل حاد من مخاطر سوء التغذية بعد الإطلاق.</p><p class="main-text">إن حماية البلبل العراقي بهذا الأسلوب هي استثمار في استدامة بيئتنا؛ فالانتقال من حب الطيور في الأقفاص إلى احترامها في فضاءاتها الطبيعية هو السبيل الوحيد لضمان مستقبل مزدهر. إن تبني بروتوكولات الإطلاق اللين كمنهج يعني أننا لا ننقذ طائراً فحسب، بل نحمي التوازن البيئي الذي يربطنا بهذه الأرض، لتظل أغصان بساتيننا عامرة بحياة نساهم جميعاً في استعادتها.</p>`,
                 
+                // المقال الثالث كامل
+                blog3Title: "بين مطرقة الضغوط السياسية وسندان الاندثار البيئي",
+                blog3Date: "٨ تموز، ٢٠٢٦",
+                blog3Body: `<p class="main-text">لا يمكن قراءة المشهد البيئي المتردي في العراق اليوم بمعزل عن سياقه التاريخي والسياسي الذي تشكل عقب عام 2003؛ فما نشهده ليس مجرد ظاهرة طبيعية ناتجة عن التغير المناخي العالمي فحسب، بل هو "تجريف ممنهج" للهوية البيئية للعراق، استغل فيه المتربصون حالة الهشاشة السياسية وغياب السلطة الرقابية الفاعلة لفرض واقع بيئي قاتم.</p><p class="main-text"><strong style="color: #2ecc71;">التجفيف المائي كأداة ضغط سياسي</strong><br><br>لقد تحولت المياه في المنطقة إلى "سلاح جيوسياسي". إن قيام دول الجوار بإنشاء مشاريع سدود كبرى أدى إلى تقليص الحصص المائية التاريخية للعراق، وهو إجراء يتجاوز كونه صراعاً على الموارد؛ إنه إعادة تشكيل للواقع الديموغرافي والاقتصادي. إن انحسار مياه دجلة والفرات لم يؤدِّ فقط إلى تصحر الأراضي الزراعية، بل تسبب في "موت بطيء" لأهوار العراق؛ ذلك الإرث الحضاري والطبيعي الذي أُدرج على لائحة التراث العالمي، ليتحول اليوم إلى مناطق شبه قاحلة، مهدداً التنوع البيولوجي الذي صمد لآلاف السنين.</p><p class="main-text"><strong style="color: #2ecc71;">الحياة الفطرية في مهب "الصيد الجائر"</strong><br><br>ولم تقف الانتهاكات عند حدود الموارد المائية، بل امتدت لتطال الحياة الفطرية والبرية، التي أصبحت مستباحة في ظل ضعف تطبيق القانون. إن صحاري السماوة، والأنبار، والنجف، التي كانت تمثل يوماً ملاذاً آمناً للصقور والطيور المهاجرة، أصبحت اليوم مسرحاً لعمليات صيد جائر منظمة. تتعرض أنواع نادرة وذات قيمة رمزية، مثل الشاهين الجبلي وطير الحر العراقي، لعمليات صيد مفرطة باستخدام تقنيات حديثة تتجاوز أساليب الصيد التقليدي، مما وضع هذه الطيور على حافة الانقراض المحلي. إن استنزاف هذه الثروات ليس عملاً عشوائياً، بل هو استغلال لغياب سلطة الدولة، حيث تُنتهك المحميات الطبيعية وتُدمر الموائل البرية دون وازع من قانون أو حماية للمستقبل البيئي للبلاد.</p><p class="main-text"><strong style="color: #2ecc71;">الخلاصة: استعادة الأرض هي استعادة للسيادة</strong><br><br>إن "أرض السواد" التي سُمي بها العراق قديماً لخصوبة أرضه وكثافة أشجاره، تواجه اليوم خطر التلاشي تحت وطأة تقاطع المصالح السياسية والإهمال المؤسسي. إننا نؤمن أن مواجهة هذه الكارثة تبدأ بوعي وطني يتجاوز الخطابات، وينتقل إلى الفعل العلمي والميداني.</p><p class="main-text">إن مشروعنا ليس مجرد محاولة لإعادة غرس الأشجار، بل هو صرخة احتجاج ضد هذا التدمير الممنهج، ومبادرة لإثبات أن استعادة الأرض والحفاظ على تنوعنا البيئي هما جزء لا يتجزأ من استعادة سيادة العراق. إن كل بذرة تُزرع، وكل طائر يُحمى، هو فعل سياسي وأخلاقي يعلن رفضنا القاطع لتحويل وطننا إلى قاعٍ صفصف.</p>`,
+
                 telegramBtn: "الانضمام إلى القناة الرسمية في تليغرام ←", footer: "جميع الحقوق محفوظة © أرض السَّواد ٢٠٢٦", toggleBtn: "English"
             },
             en: {
@@ -616,6 +638,9 @@
                 tableBody: `<tr><td>Week 1</td><td>Radicle emergence and soil breakthrough (2-4 cm)</td><td>First leaves appearance and cautious growth (3-5 cm)</td></tr><tr><td>Week 2</td><td>Appearance of compound pinnate leaves (6-10 cm)</td><td>Stem elongation and increased root branching (8-14 cm)</td></tr>`,
 
                 // Blog cards
+                blog3CardBadge: "Environmental Politics",
+                blog3CardTitle: "Between the Hammer of Political Pressure and the Anvil of Environmental Extinction",
+                blog3CardExcerpt: "What we are witnessing today is not merely global climate change, but a 'systematic degradation' of Iraq's environmental identity, exploited amid the fragility of regulatory authority...",
                 blog1CardBadge: "Planting & Climate",
                 blog1CardTitle: "The True Beginning: Why Albizia and Sidr?",
                 blog1CardExcerpt: "Albizia and Sidr trees are strategic choices to combat climate change locally, thanks to their heat tolerance, drought resistance, and vital role in soil stabilization...",
@@ -633,6 +658,10 @@
                 blog2Date: "June 28, 2026",
                 blog2Body: `<p class="main-text">Scientifically known as the "Ecological Lifeline Strategy", soft release is a scientific approach to bird reintroduction that relies on a transitional phase rather than immediate release. In this process, bulbuls are placed in acclimatization aviaries within their natural habitat, where food and water are provided gradually. This grants them the opportunity to restore physical fitness degraded by captivity, adapt to local climate and sounds, and establish a "mental map" of the locality before achieving full self-reliance.</p><p class="main-text">This strategy stands as the optimal scientific solution. First, it addresses physiological and behavioral rehabilitation; birds emerge from captivity suffering from muscle atrophy and physiological stress, making soft release a vital restoration period that enhances their ability to evade predators. Second, it strengthens "site fidelity." Since the bulbul is an intelligent creature that associates locality with safety, this adaptation phase in a protected zone encourages it to settle and breed there instead of dispersing into the unknown, fostering "breeding hotspots" that gradually multiply the population. Finally, this method breaks "dietary aversion shock." Through trial and error, the bird learns to distinguish between artificial feed and natural resources such as insects and fruits, sharply reducing malnutrition risks post-release.</p><p class="main-text">Protecting the Iraqi Bulbul through this approach is a direct investment in the sustainability of our environment. Shifting from loving birds in cages to respecting them within their natural domains is the only pathway to a flourishing future. Adopting soft release protocols as a core methodology implies that we are not merely saving a bird; we are safeguarding the ecological balance that connects us to this land, ensuring that the branches of our orchards remain vibrant with life we all help restore.</p>`,
                 
+                blog3Title: "Between the Hammer of Political Pressure and the Anvil of Environmental Extinction",
+                blog3Date: "July 8, 2026",
+                blog3Body: `<p class="main-text">Iraq's deteriorating environmental scene today cannot be read apart from its historical and political context that took shape after 2003. What we are witnessing is not merely a natural phenomenon resulting from global climate change; it is a "systematic degradation" of Iraq's environmental identity, exploited by opportunists amid political fragility and the absence of effective regulatory authority to impose a bleak environmental reality.</p><p class="main-text"><strong style="color: #2ecc71;">Water Depletion as a Tool of Political Pressure</strong><br><br>Water in the region has become a "geopolitical weapon." Neighboring countries' construction of major dam projects has reduced Iraq's historical water shares — a measure that goes beyond a struggle over resources; it is a reshaping of demographic and economic reality. The recession of the Tigris and Euphrates has not only turned agricultural land to desert, but has caused the "slow death" of Iraq's marshes — that civilizational and natural heritage inscribed on the World Heritage list — now turning into near-barren land, threatening biodiversity that has endured for thousands of years.</p><p class="main-text"><strong style="color: #2ecc71;">Wildlife at the Mercy of Poaching</strong><br><br>Violations have not stopped at water resources; they have extended to wildlife, left unprotected amid weak law enforcement. The deserts of Samawah, Anbar, and Najaf, once a safe haven for falcons and migratory birds, have today become a stage for organized poaching. Rare and symbolically significant species face excessive hunting using modern techniques that go beyond traditional methods, pushing these birds toward local extinction. This depletion is not random; it is an exploitation of the absence of state authority, where nature reserves are violated and wild habitats destroyed without legal deterrent or protection for the country's environmental future.</p><p class="main-text"><strong style="color: #2ecc71;">Conclusion: Restoring the Land Is Restoring Sovereignty</strong><br><br>"Ardh Al-Sawad" (Land of the Black Soil), the ancient name given to Iraq for the fertility of its land and density of its trees, today faces the risk of vanishing under the weight of intersecting political interests and institutional neglect. We believe that confronting this catastrophe begins with a national awareness that transcends rhetoric and moves into scientific and field action.</p><p class="main-text">Our project is not merely an attempt to replant trees; it is a cry of protest against this systematic destruction, and an initiative to prove that restoring the land and preserving our environmental diversity are inseparable parts of restoring Iraq's sovereignty. Every seed planted, and every bird protected, is a political and moral act declaring our absolute refusal to let our homeland become a barren waste.</p>`,
+
                 telegramBtn: "Join the Official Telegram Channel ←", footer: "All Rights Reserved © Land of Al-Sawad 2026", toggleBtn: "العربية"
             }
         };
@@ -690,6 +719,12 @@
             document.getElementById('guide-table-body').innerHTML = data.tableBody;
 
             // بطاقات المدونة
+            document.getElementById('txt-blog3-card-badge').innerText = data.blog3CardBadge;
+            document.getElementById('txt-blog3-card-title').innerText = data.blog3CardTitle;
+            document.getElementById('txt-blog3-card-date').innerText = data.blog3Date;
+            document.getElementById('txt-blog3-card-excerpt').innerText = data.blog3CardExcerpt;
+            document.getElementById('txt-readmore-3').innerText = data.readMore;
+
             document.getElementById('txt-blog2-card-badge').innerText = data.blog2CardBadge;
             document.getElementById('txt-blog2-card-title').innerText = data.blog2CardTitle;
             document.getElementById('txt-blog2-card-date').innerText = data.blog2Date;
