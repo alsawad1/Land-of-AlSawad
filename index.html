@@ -9,12 +9,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cairo:wght@400;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     
     <style>
-        /* إعادة ضبط المتصفح والخطوط */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { background-color: #ffffff; font-family: 'Amiri', serif; color: #000000; transition: all 0.3s ease; -webkit-text-size-adjust: 100%; }
         body.lang-en { font-family: system-ui, -apple-system, sans-serif; }
 
-        /* الهيدر */
         .site-header { max-width: 1200px; margin: 0 auto; padding: 40px 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
         .brand-name { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.3; font-family: 'Amiri', serif; }
         .brand-name .line-top { font-size: 1.4rem; font-weight: 700; margin-bottom: 6px; }
@@ -30,7 +28,6 @@
         .nav-link.active { font-weight: 700; border-bottom: 2px solid #2ecc71; color: #2ecc71; }
         .nav-link#nav-birds.active { border-bottom: 2px solid #ff4d4d; color: #ff4d4d; }
 
-        /* القائمة الفرعية المنبثقة */
         .dropdown { position: relative; display: inline-block; }
         .dropdown-content { display: none; position: absolute; background-color: #1a1a1a; min-width: 200px; box-shadow: 0px 8px 16px rgba(0,0,0,0.2); z-index: 100; border: 1px solid #333; border-radius: 6px; top: 100%; right: 0; }
         body.lang-en .dropdown-content { right: auto; left: 0; }
@@ -42,7 +39,6 @@
         .lang-switch-btn { background: none; border: 1px solid #000; padding: 4px 12px; cursor: pointer; font-family: 'Amiri', serif; white-space: nowrap; }
         body.lang-en .lang-switch-btn { font-family: system-ui, sans-serif; }
         
-        /* القسم الداكن الرئيسي */
         .dark-content-section { background-color: #1a1a1a; color: #ffffff; padding: 60px 20px; min-height: 600px; }
         .content-container { max-width: 850px; margin: 0 auto; }
         .section-title { font-family: 'Amiri', serif; font-size: 3.2rem; color: #2ecc71; margin-bottom: 35px; line-height: 1.2; }
@@ -52,7 +48,13 @@
         body.lang-en .main-text { font-family: system-ui, sans-serif; font-size: 1.15rem; text-align: left; }
         .main-text.highlight { color: #2ecc71; font-weight: 700; text-align: center; margin-bottom: 40px; }
 
-        /* كرت صندوق البلبل - القسم الأحمر المستثنى */
+        /* صورة داخل مقالات المدونة (مثل صورة الأهوار) */
+        .article-img-wrapper { display: block; margin: 30px auto 8px; max-width: 100%; border-radius: 12px; overflow: hidden; border: 1px solid #333; }
+        .article-img-wrapper img { width: 100%; height: auto; display: block; }
+        .article-img-caption { text-align: center; color: #888; font-family: 'Cairo', sans-serif; font-size: 0.85rem; margin-top: 8px; margin-bottom: 25px; }
+        body.lang-en .article-img-caption { font-family: system-ui, sans-serif; }
+
+        /* كرت العرض التفصيلي الكامل للطائر (البلبل / الصقر) */
         .bulbul-card { 
             background: #222; 
             border: 1px solid #333; 
@@ -71,7 +73,6 @@
             background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255, 77, 77, 0.03) 10px, rgba(255, 77, 77, 0.03) 20px);
             pointer-events: none;
         }
-        .bulbul-card:hover { border-color: #ff4d4d; box-shadow: 0 0 30px rgba(255, 77, 77, 0.3); transform: translateY(-2px); }
         .alert-badge { display: inline-block; background: rgba(255, 77, 77, 0.1); color: #ff4d4d; padding: 4px 14px; border-radius: 50px; font-family: 'Cairo', sans-serif; font-size: 0.9rem; font-weight: 700; margin-bottom: 20px; border: 1px solid rgba(255, 77, 77, 0.2); position: relative; z-index: 2; }
         
         .bulbul-img-wrapper { 
@@ -96,6 +97,64 @@
             pointer-events: none;
         }
         .bulbul-img-wrapper img { max-width: 100%; width: 320px; height: auto; display: block; border-radius: 6px; position: relative; z-index: 2; }
+
+        .bird-detail-title { color: #ff4d4d; font-family: 'Amiri', serif; font-size: 1.9rem; margin-bottom: 20px; position: relative; z-index: 2; }
+        body.lang-en .bird-detail-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; }
+
+        /* ============== بطاقات طيورنا الوطنية التفاعلية ============== */
+        .bird-cards-grid { display: grid; grid-template-columns: 1fr; gap: 25px; margin-top: 10px; }
+        @media (min-width: 769px) { .bird-cards-grid { grid-template-columns: 1fr 1fr; } }
+
+        .bird-card {
+            background: #222;
+            border: 1px solid #333;
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .bird-card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255, 77, 77, 0.03) 10px, rgba(255, 77, 77, 0.03) 20px);
+            pointer-events: none;
+        }
+        .bird-card:hover { border-color: #ff4d4d; box-shadow: 0 0 30px rgba(255, 77, 77, 0.3); transform: translateY(-4px); }
+
+        .bird-card-badge { display: inline-block; background: rgba(255, 77, 77, 0.1); color: #ff4d4d; padding: 4px 14px; border-radius: 50px; font-family: 'Cairo', sans-serif; font-size: 0.85rem; font-weight: 700; margin-bottom: 18px; border: 1px solid rgba(255, 77, 77, 0.2); position: relative; z-index: 2; }
+
+        .bird-card-img-wrapper { display: inline-block; margin-bottom: 20px; border-radius: 12px; overflow: hidden; border: 2px dashed #ff4d4d; padding: 6px; background: rgba(255, 77, 77, 0.02); position: relative; z-index: 2; }
+        .bird-card-img-wrapper img { width: 220px; max-width: 100%; height: auto; display: block; border-radius: 6px; }
+
+        .bird-card-title { font-family: 'Amiri', serif; font-size: 1.5rem; color: #ffffff; margin-bottom: 12px; position: relative; z-index: 2; }
+        body.lang-en .bird-card-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; }
+
+        .bird-card-excerpt { font-family: 'Amiri', serif; font-size: 1.05rem; color: #ccc; line-height: 1.7; text-align: justify; margin-bottom: 16px; position: relative; z-index: 2; }
+        body.lang-en .bird-card-excerpt { font-family: system-ui, sans-serif; font-size: 0.95rem; text-align: left; }
+
+        .bird-card-readmore { color: #ff4d4d; font-family: 'Cairo', sans-serif; font-weight: 700; font-size: 0.95rem; position: relative; z-index: 2; display: inline-block; transition: transform 0.3s; }
+        .bird-card:hover .bird-card-readmore { transform: translateX(-4px); }
+        body.lang-en .bird-card:hover .bird-card-readmore { transform: translateX(4px); }
+
+        .back-to-birds {
+            display: inline-block;
+            cursor: pointer;
+            color: #ff4d4d;
+            font-family: 'Cairo', sans-serif;
+            font-weight: 700;
+            font-size: 1.05rem;
+            margin-bottom: 30px;
+            padding: 8px 18px;
+            border: 1px solid #ff4d4d;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        .back-to-birds:hover { background: #ff4d4d; color: #1a1a1a; }
+        /* ============================================================ */
 
         /* بيئة شبكة الأهداف الموسمية - إشعاع وتوهج أخضر */
         .goals-grid { display: grid; grid-template-columns: 1fr; gap: 25px; margin: 50px 0 20px 0; }
@@ -126,7 +185,6 @@
         .goal-subtitle { font-family: 'Amiri', serif; font-size: 1.1rem; color: #aaa; line-height: 1.4; text-align: justify; }
         body.lang-en .goal-subtitle { font-family: system-ui, sans-serif; font-size: 0.9rem; text-align: left; }
         
-        /* الدائرة الرسومية الخضراء */
         .goal-visual { position: relative; width: 110px; height: 110px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
         .goal-visual svg { transform: rotate(-90deg); width: 110px; height: 110px; }
         .circle-bg { fill: none; stroke: #2a2a2a; stroke-width: 8; }
@@ -141,7 +199,6 @@
         .counter-number { font-family: 'Cairo', sans-serif; font-size: 1.25rem; font-weight: 700; color: #ffffff; }
         .counter-label { font-family: 'Cairo', sans-serif; font-size: 0.7rem; color: #888; margin-top: 1px; }
 
-        /* التحكم في عرض الصفحات */
         .page-view-section { display: none; }
         .page-view-section.active { display: block; }
 
@@ -290,6 +347,10 @@
             .blog-card { padding: 22px; }
             .blog-card-title { font-size: 1.4rem; }
 
+            .bird-cards-grid { grid-template-columns: 1fr; gap: 18px; }
+            .bird-card { padding: 22px; }
+            .bird-card-title { font-size: 1.3rem; }
+
             .growth-guide-box { padding: 20px 15px; border-radius: 12px; }
             .guide-steps-ol { margin: 15px 0 25px 0; font-size: 1.1rem; }
             
@@ -378,20 +439,39 @@
                 </div>
             </div>
 
-            <!-- 2. صفحة طيورنا الوطنية -->
+            <!-- 2. صفحة طيورنا الوطنية (بطاقات تفاعلية) -->
             <div id="birds-content-area" class="page-view-section">
                 <h1 class="section-title" id="text-birds-title" style="color: #ff4d4d;">رحيل الألحان: حين تصمت بساتيننا</h1>
-                <div class="bulbul-card">
-                    <span class="alert-badge" id="text-bulbul-badge">⚠️ مهدد بخطر الانقراض</span>
-                    
-                    <div class="bulbul-img-wrapper">
-                        <img id="img-bulbul" src="my-bulbul.jpg" alt="البلبل العراقي">
+
+                <!-- عرض قائمة بطاقات الطيور -->
+                <div id="birds-list-view">
+                    <div class="bird-cards-grid">
+                        <div class="bird-card" onclick="openBirdPost('bulbul')">
+                            <span class="bird-card-badge" id="txt-bulbul-card-badge">⚠️ مهدد بخطر الانقراض</span>
+                            <div class="bird-card-img-wrapper">
+                                <img src="BilbalJPG.jpeg" alt="البلبل العراقي">
+                            </div>
+                            <h3 class="bird-card-title" id="txt-bulbul-card-title">البلبل العراقي</h3>
+                            <p class="bird-card-excerpt" id="txt-bulbul-card-excerpt">لم يعد البلبل العراقي يغرد كما كان في صباحات بغداد والبصرة؛ يواجه اليوم تهديدات وجودية من تجريف البساتين والصيد الجائر وموجات الجفاف الشديدة...</p>
+                            <span class="bird-card-readmore" id="txt-bird-readmore-1">تعرّف على القصة كاملة ←</span>
+                        </div>
+
+                        <div class="bird-card" onclick="openBirdPost('falcon')">
+                            <span class="bird-card-badge" id="txt-falcon-card-badge">⚠️ مهدد بالتهريب والاستنزاف</span>
+                            <div class="bird-card-img-wrapper">
+                                <img src="الصقر الحر.jpg" alt="الصقر الحر العراقي">
+                            </div>
+                            <h3 class="bird-card-title" id="txt-falcon-card-title">الصقر الحر العراقي</h3>
+                            <p class="bird-card-excerpt" id="txt-falcon-card-excerpt">يتربع الصقر الحر العراقي كرمزٍ للشموخ والهوية الوطنية، لكنه يواجه اليوم أشرس حملات الصيد الجائر والتهريب عبر الحدود إلى دول الخليج...</p>
+                            <span class="bird-card-readmore" id="txt-bird-readmore-2">تعرّف على القصة كاملة ←</span>
+                        </div>
                     </div>
-                    
-                    <div id="text-birds-body">
-                        <p class="main-text" style="text-align: justify; color: #f3f4f6;">"لم يعد البلبل العراقي يغرد كما كان في صباحات بغداد والبصرة. هذا الطائر الذي ارتبط في وجداننا بظلال النخيل وهدوء البساتين، بدأ يتوارى بصمت تحت وطأة التغيرات القاسية التي أصابت بيئتنا."</p>
-                        <p class="main-text" style="text-align: justify; color: #f3f4f6;"><strong style="color: #ff4d4d;" id="text-birds-cause-title">أسباب التهديد بالانقراض:</strong> يواجه البلبل العراقي تحديات وجودية جسيمة، أبرزها تجريف البساتين والمساحات الخضراء الأصيلة واستبدالها بالمجمعات السكنية، والصيد الجائر غير المنظم لغرض التجارة، فضلاً عن موجات الجفاف الشديدة وارتفاع درجات الحرارة القياسية التي تدمر موائله الطبيعية ومصادر غذائه.</p>
-                    </div>
+                </div>
+
+                <!-- عرض تفاصيل الطائر المفتوح -->
+                <div id="birds-detail-view" class="blog-detail-view">
+                    <span class="back-to-birds" onclick="closeBirdPost()" id="text-back-birds-btn">→ العودة إلى طيورنا الوطنية</span>
+                    <div id="birds-detail-content"></div>
                 </div>
             </div>
 
@@ -487,7 +567,8 @@
 
     <script>
         let currentLang = 'ar';
-        let currentBlogPost = null; // 'post1' | 'post2' | null
+        let currentBlogPost = null; // 'post1' | 'post2' | 'post3' | null
+        let currentBirdPost = null; // 'bulbul' | 'falcon' | null
 
         function navigateTo(page) {
             document.getElementById('home-content-area').classList.toggle('active', page === 'home');
@@ -503,8 +584,9 @@
             document.getElementById('step-thermal').classList.remove('highlight-step');
             document.getElementById('step-mechanical').classList.remove('highlight-step');
 
-            // عند الدخول لصفحة المدونة من القائمة، ارجع دائماً لعرض البطاقات
+            // عند الدخول لصفحة المدونة أو الطيور من القائمة، ارجع دائماً لعرض البطاقات
             if (page === 'blog') { closeBlogPost(); }
+            if (page === 'birds') { closeBirdPost(); }
 
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
@@ -530,11 +612,27 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // الرجوع لقائمة البطاقات
+        // الرجوع لقائمة بطاقات المدونة
         function closeBlogPost() {
             currentBlogPost = null;
             document.getElementById('blog-detail-view').style.display = 'none';
             document.getElementById('blog-list-view').style.display = 'block';
+        }
+
+        // فتح بطاقة طائر معيّن
+        function openBirdPost(id) {
+            currentBirdPost = id;
+            document.getElementById('birds-list-view').style.display = 'none';
+            document.getElementById('birds-detail-view').style.display = 'block';
+            renderBirdDetail();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // الرجوع لقائمة بطاقات الطيور
+        function closeBirdPost() {
+            currentBirdPost = null;
+            document.getElementById('birds-detail-view').style.display = 'none';
+            document.getElementById('birds-list-view').style.display = 'block';
         }
 
         // رسم محتوى المقال المفتوح حسب اللغة الحالية
@@ -564,6 +662,37 @@
             }
         }
 
+        // رسم محتوى الطائر المفتوح حسب اللغة الحالية
+        function renderBirdDetail() {
+            if (!currentBirdPost) return;
+            const data = languages[currentLang];
+            const container = document.getElementById('birds-detail-content');
+
+            if (currentBirdPost === 'falcon') {
+                container.innerHTML = `
+                    <div class="bulbul-card">
+                        <span class="alert-badge">${data.falconBadge}</span>
+                        <div class="bulbul-img-wrapper">
+                            <img src="الصقر الحر.jpg" alt="${data.falconTitle}">
+                        </div>
+                        <h3 class="bird-detail-title">${data.falconTitle}</h3>
+                        ${data.falconBody}
+                    </div>
+                `;
+            } else {
+                container.innerHTML = `
+                    <div class="bulbul-card">
+                        <span class="alert-badge">${data.bulbulBadge}</span>
+                        <div class="bulbul-img-wrapper">
+                            <img src="BilbalJPG.jpeg" alt="${data.bulbulCardTitle}">
+                        </div>
+                        <h3 class="bird-detail-title">${data.bulbulCardTitle}</h3>
+                        ${data.birdsBody}
+                    </div>
+                `;
+            }
+        }
+
         const languages = {
             ar: {
                 brandTop: "أرْض", brandBottom: "السَّــــــــــــــــــــــــوَاد", 
@@ -572,7 +701,20 @@
                 homeTitle: "تنهض رؤيتنا من مفارقة معاصرة", 
                 homeHighlight: "الفكرة علمية.. والتنفيذ بسواعدنا.",
                 birdsTitle: "رحيل الألحان: حين تصمت بساتيننا",
+
                 bulbulBadge: "⚠️ مهدد بخطر الانقراض",
+                bulbulCardTitle: "البلبل العراقي",
+                bulbulCardExcerpt: "لم يعد البلبل العراقي يغرد كما كان في صباحات بغداد والبصرة؛ يواجه اليوم تهديدات وجودية من تجريف البساتين والصيد الجائر وموجات الجفاف الشديدة...",
+
+                falconBadge: "⚠️ مهدد بالتهريب والاستنزاف",
+                falconTitle: "الصقر الحر العراقي - ثروةٌ تُستباح",
+                falconCardTitle: "الصقر الحر العراقي",
+                falconCardExcerpt: "يتربع الصقر الحر العراقي كرمزٍ للشموخ والهوية الوطنية، لكنه يواجه اليوم أشرس حملات الصيد الجائر والتهريب عبر الحدود إلى دول الخليج...",
+                falconBody: `<p class="main-text" style="text-align: justify; color: #f3f4f6;">في قلب بادية العراق الفسيحة، من السماوة إلى الأنبار والنجف، يتربع الصقر الحر العراقي (الاسم العلمي: Falco cherrug) كرمزٍ للشموخ والهوية الوطنية. إلا أن هذا الكائن النبيل يواجه اليوم أشرس حملات الاستنزاف؛ إذ يتعرض لعمليات صيد جائر وممنهج لا تكتفي بتهديد وجوده فحسب، بل تحوله إلى سلعةٍ في سوقٍ دوليةٍ محمومة.</p><p class="main-text" style="text-align: justify; color: #f3f4f6;">تُمارس عمليات الصيد هذه تحت غطاء ضعف الرقابة، حيث يتم اصطياد هذه الطيور الفريدة وتهريبها عبر الحدود إلى دول الخليج العربي. إن المحرك الأساسي لهذه التجارة هو الطلب المتزايد على الصقور في رياضات الصيد والسباقات التنافسية، حيث تصل قيمة الطير الواحد إلى مئات الآلاف من الدولارات. هذا التدفق المالي الضخم حوّل الصقر العراقي من "إرثٍ طبيعي" إلى "ثروةٍ مهربة"، مما يعمق الفجوة بين استنزاف مواردنا الوطنية وتراكم الأرباح في جيوب شبكات الصيد غير القانونية، تاركاً بيئتنا أكثر فقراً ووحشة.</p>`,
+
+                birdReadMore: "تعرّف على القصة كاملة ←",
+                backToBirds: "→ العودة إلى طيورنا الوطنية",
+
                 goal1Badge: "هدف التنوع البيولوجي", goal1Title: "5,000 شجرة ألبيزيا", goal1Subtitle: "إقامة أحزمة وقائية مستدامة لكسر حدة الرياح الصحراوية وتثبيت التربة.",
                 counter1Num: "5k", counter1Label: "مستهدف",
                 goal2Badge: "هدف التنوع البيولوجي", goal2Title: "5,000 شجرة سدر", goal2Subtitle: "تعزيز الغطاء الأصيل المقاوم للجفاف وإعادة التوازن البيئي للبيئة المحلية.",
@@ -586,7 +728,6 @@
                 thPeriod: "المرحلة الزمنية", thAlbizia: "معدل نمو الألبيزيا المتوقع", thLeucaena: "معدل نمو السدر المتوقع",
                 tableBody: `<tr><td>الأسبوع الأول</td><td>بروز الجذير وانشقاق التربة (٢-٤ سم)</td><td>ظهور الأوراق الأولى والنمو الحذر (٣-٥ سم)</td></tr><tr><td>الأسبوع الثاني</td><td>ظهور الأوراق الريشية المركبة (٦-١٠ سم)</td><td>استطالة الساق وزيادة التفرع الجذري (٨-١٤ سم)</td></tr>`,
 
-                // بطاقات المدونة
                 blog3CardBadge: "سياسة بيئية",
                 blog3CardTitle: "بين مطرقة الضغوط السياسية وسندان الاندثار البيئي",
                 blog3CardExcerpt: `ما نشهده اليوم ليس مجرد تغير مناخي عالمي، بل "تجريف ممنهج" للهوية البيئية للعراق، استغل فيه المتربصون هشاشة السلطة الرقابية لفرض واقع بيئي قاتم...`,
@@ -599,20 +740,22 @@
                 readMore: "اقرأ المقال كاملاً ←",
                 backToBlog: "→ العودة إلى قائمة المدونة",
 
-                // المقال الأول كامل
                 blogTitle: "البداية الحقيقية: لماذا الألبيزيا والسدر؟", 
                 blogDate: "١٨ حزيران، ٢٠٢٦",
                 blogBody: "تعتبر أشجار الألبيزيا والسدر خيارات استراتيجية لمواجهة التغير المناخي في بيئتنا المحلية؛ نظراً لقدرتها الفائقة على تحمل درجات الحرارة المرتفعة، ومقاومة الجفاف، بالإضافة إلى دورها الحيوي في تثبيت التربة وتحسين خصوبتها، مما يجعلها حجر الأساس في مشروعنا للتحول من التشجير المؤقت إلى الاستدامة الدائمة.",
                 
-                // المقال الثاني كامل
                 blog2Title: "البلبل العراقي في مواجهة الاندثار: لماذا نحتاج إلى \"الإطلاق اللين\" لاستعادة توازننا البيئي؟",
                 blog2Date: "٢٨ حزيران، ٢٠٢٦",
                 blog2Body: `<p class="main-text">يُعرف الإطلاق اللين علمياً باسم "طوق النجاة البيئي" (Ecological Lifeline Strategy)، وهو منهجية علمية لإعادة توطين الطيور تعتمد على مرحلة انتقالية بدلاً من إطلاقها المباشر. في هذه العملية، تُوضع البلابل في أقفاص تأقلم ضمن بيئتها الطبيعية، حيث يُقدم لها الغذاء والماء تدريجياً؛ مما يمنحها فرصة لاستعادة لياقتها البدنية التي تضررت بسبب الأسر، والتعود على أصوات ومناخ محيطها، وتشكيل "خريطة ذهنية" للمكان قبل الاعتماد الكلي على نفسها.</p><p class="main-text">يمثل هذا الأسلوب الحل العلمي الأمثل، فهو يعالج أولاً الاستشفاء الفسيولوجي والسلوكي، حيث تخرج الطيور من الأسر وهي تعاني من ضمور في العضلات وإجهاد فسيولوجي، ليأتي الإطلاق اللين كفترة ترميم ضرورية ترفع من قدرة الطائر على الهروب من المفترسات. ثانياً، يعمل هذا الأسلوب على تعزيز ما يُعرف بـ "الارتباط بالموقع"، فبما أن البلبل كائن ذكي يربط المكان بالسلامة، فإن فترة التأقلم في منطقة محمية تدفعه للاستقرار والتكاثر فيها بدلاً من التشتت في المجهول، مما يساهم في خلق "بؤر تكاثرية" ترفع من أعداد الجماعة بشكل تراكمي. وأخيراً، يسهم هذا المنهج في كسر "صدمة النفور الغذائي"؛ إذ يتعلم الطائر بالتجربة والخطأ كيفية التمييز بين الغذاء الاصطناعي والموارد الطبيعية كالحشرات والثمار، وهو ما يقلل بشكل حاد من مخاطر سوء التغذية بعد الإطلاق.</p><p class="main-text">إن حماية البلبل العراقي بهذا الأسلوب هي استثمار في استدامة بيئتنا؛ فالانتقال من حب الطيور في الأقفاص إلى احترامها في فضاءاتها الطبيعية هو السبيل الوحيد لضمان مستقبل مزدهر. إن تبني بروتوكولات الإطلاق اللين كمنهج يعني أننا لا ننقذ طائراً فحسب، بل نحمي التوازن البيئي الذي يربطنا بهذه الأرض، لتظل أغصان بساتيننا عامرة بحياة نساهم جميعاً في استعادتها.</p>`,
                 
-                // المقال الثالث كامل
                 blog3Title: "بين مطرقة الضغوط السياسية وسندان الاندثار البيئي",
                 blog3Date: "٨ تموز، ٢٠٢٦",
-                blog3Body: `<p class="main-text">لا يمكن قراءة المشهد البيئي المتردي في العراق اليوم بمعزل عن سياقه التاريخي والسياسي الذي تشكل عقب عام 2003؛ فما نشهده ليس مجرد ظاهرة طبيعية ناتجة عن التغير المناخي العالمي فحسب، بل هو "تجريف ممنهج" للهوية البيئية للعراق، استغل فيه المتربصون حالة الهشاشة السياسية وغياب السلطة الرقابية الفاعلة لفرض واقع بيئي قاتم.</p><p class="main-text"><strong style="color: #2ecc71;">التجفيف المائي كأداة ضغط سياسي</strong><br><br>لقد تحولت المياه في المنطقة إلى "سلاح جيوسياسي". إن قيام دول الجوار بإنشاء مشاريع سدود كبرى أدى إلى تقليص الحصص المائية التاريخية للعراق، وهو إجراء يتجاوز كونه صراعاً على الموارد؛ إنه إعادة تشكيل للواقع الديموغرافي والاقتصادي. إن انحسار مياه دجلة والفرات لم يؤدِّ فقط إلى تصحر الأراضي الزراعية، بل تسبب في "موت بطيء" لأهوار العراق؛ ذلك الإرث الحضاري والطبيعي الذي أُدرج على لائحة التراث العالمي، ليتحول اليوم إلى مناطق شبه قاحلة، مهدداً التنوع البيولوجي الذي صمد لآلاف السنين.</p><p class="main-text"><strong style="color: #2ecc71;">الحياة الفطرية في مهب "الصيد الجائر"</strong><br><br>ولم تقف الانتهاكات عند حدود الموارد المائية، بل امتدت لتطال الحياة الفطرية والبرية، التي أصبحت مستباحة في ظل ضعف تطبيق القانون. إن صحاري السماوة، والأنبار، والنجف، التي كانت تمثل يوماً ملاذاً آمناً للصقور والطيور المهاجرة، أصبحت اليوم مسرحاً لعمليات صيد جائر منظمة. تتعرض أنواع نادرة وذات قيمة رمزية، مثل الشاهين الجبلي وطير الحر العراقي، لعمليات صيد مفرطة باستخدام تقنيات حديثة تتجاوز أساليب الصيد التقليدي، مما وضع هذه الطيور على حافة الانقراض المحلي. إن استنزاف هذه الثروات ليس عملاً عشوائياً، بل هو استغلال لغياب سلطة الدولة، حيث تُنتهك المحميات الطبيعية وتُدمر الموائل البرية دون وازع من قانون أو حماية للمستقبل البيئي للبلاد.</p><p class="main-text"><strong style="color: #2ecc71;">الخلاصة: استعادة الأرض هي استعادة للسيادة</strong><br><br>إن "أرض السواد" التي سُمي بها العراق قديماً لخصوبة أرضه وكثافة أشجاره، تواجه اليوم خطر التلاشي تحت وطأة تقاطع المصالح السياسية والإهمال المؤسسي. إننا نؤمن أن مواجهة هذه الكارثة تبدأ بوعي وطني يتجاوز الخطابات، وينتقل إلى الفعل العلمي والميداني.</p><p class="main-text">إن مشروعنا ليس مجرد محاولة لإعادة غرس الأشجار، بل هو صرخة احتجاج ضد هذا التدمير الممنهج، ومبادرة لإثبات أن استعادة الأرض والحفاظ على تنوعنا البيئي هما جزء لا يتجزأ من استعادة سيادة العراق. إن كل بذرة تُزرع، وكل طائر يُحمى، هو فعل سياسي وأخلاقي يعلن رفضنا القاطع لتحويل وطننا إلى قاعٍ صفصف.</p>`,
+                blog3Body: `<p class="main-text">لا يمكن قراءة المشهد البيئي المتردي في العراق اليوم بمعزل عن سياقه التاريخي والسياسي الذي تشكل عقب عام 2003؛ فما نشهده ليس مجرد ظاهرة طبيعية ناتجة عن التغير المناخي العالمي فحسب، بل هو "تجريف ممنهج" للهوية البيئية للعراق، استغل فيه المتربصون حالة الهشاشة السياسية وغياب السلطة الرقابية الفاعلة لفرض واقع بيئي قاتم.</p><p class="main-text"><strong style="color: #2ecc71;">التجفيف المائي كأداة ضغط سياسي</strong><br><br>لقد تحولت المياه في المنطقة إلى "سلاح جيوسياسي". إن قيام دول الجوار بإنشاء مشاريع سدود كبرى أدى إلى تقليص الحصص المائية التاريخية للعراق، وهو إجراء يتجاوز كونه صراعاً على الموارد؛ إنه إعادة تشكيل للواقع الديموغرافي والاقتصادي. إن انحسار مياه دجلة والفرات لم يؤدِّ فقط إلى تصحر الأراضي الزراعية، بل تسبب في "موت بطيء" لأهوار العراق؛ ذلك الإرث الحضاري والطبيعي الذي أُدرج على لائحة التراث العالمي، ليتحول اليوم إلى مناطق شبه قاحلة، مهدداً التنوع البيولوجي الذي صمد لآلاف السنين.</p>
+                <div class="article-img-wrapper">
+                    <img src="اهوار العراق.jpg" alt="أهوار العراق">
+                </div>
+                <p class="article-img-caption">أهوار العراق: إرث طبيعي وحضاري عالمي يواجه اليوم خطر الاندثار</p>
+                <p class="main-text"><strong style="color: #2ecc71;">الحياة الفطرية في مهب "الصيد الجائر"</strong><br><br>ولم تقف الانتهاكات عند حدود الموارد المائية، بل امتدت لتطال الحياة الفطرية والبرية، التي أصبحت مستباحة في ظل ضعف تطبيق القانون. إن صحاري السماوة، والأنبار، والنجف، التي كانت تمثل يوماً ملاذاً آمناً للصقور والطيور المهاجرة، أصبحت اليوم مسرحاً لعمليات صيد جائر منظمة. تتعرض أنواع نادرة وذات قيمة رمزية، مثل الشاهين الجبلي (الاسم العلمي: Falco peregrinus) وطير الحر العراقي (الاسم العلمي: Falco cherrug)، لعمليات صيد مفرطة باستخدام تقنيات حديثة تتجاوز أساليب الصيد التقليدي، مما وضع هذه الطيور على حافة الانقراض المحلي. إن استنزاف هذه الثروات ليس عملاً عشوائياً، بل هو استغلال لغياب سلطة الدولة، حيث تُنتهك المحميات الطبيعية وتُدمر الموائل البرية دون وازع من قانون أو حماية للمستقبل البيئي للبلاد.</p><p class="main-text"><strong style="color: #2ecc71;">الخلاصة: استعادة الأرض هي استعادة للسيادة</strong><br><br>إن "أرض السواد" التي سُمي بها العراق قديماً لخصوبة أرضه وكثافة أشجاره، تواجه اليوم خطر التلاشي تحت وطأة تقاطع المصالح السياسية والإهمال المؤسسي. إننا نؤمن أن مواجهة هذه الكارثة تبدأ بوعي وطني يتجاوز الخطابات، وينتقل إلى الفعل العلمي والميداني.</p><p class="main-text">إن مشروعنا ليس مجرد محاولة لإعادة غرس الأشجار، بل هو صرخة احتجاج ضد هذا التدمير الممنهج، ومبادرة لإثبات أن استعادة الأرض والحفاظ على تنوعنا البيئي هما جزء لا يتجزأ من استعادة سيادة العراق. إن كل بذرة تُزرع، وكل طائر يُحمى، هو فعل سياسي وأخلاقي يعلن رفضنا القاطع لتحويل وطننا إلى قاعٍ صفصف.</p>`,
 
                 telegramBtn: "الانضمام إلى القناة الرسمية في تليغرام ←", footer: "جميع الحقوق محفوظة © أرض السَّواد ٢٠٢٦", toggleBtn: "English"
             },
@@ -623,7 +766,20 @@
                 homeTitle: "Our Vision Rises From a Modern Paradox", 
                 homeHighlight: "The idea is scientific.. and the execution is by our hands.",
                 birdsTitle: "The Departure of Melodies: When Our Orchards Fall Silent",
+
                 bulbulBadge: "⚠️ Endangered Species",
+                bulbulCardTitle: "The Iraqi Bulbul",
+                bulbulCardExcerpt: "The Iraqi Bulbul no longer sings as it once did in the mornings of Baghdad and Basra; it faces today existential threats from orchard clearing, illegal hunting, and severe droughts...",
+
+                falconBadge: "⚠️ Threatened by Smuggling & Exploitation",
+                falconTitle: "The Iraqi Saker Falcon - A Plundered Treasure",
+                falconCardTitle: "The Iraqi Saker Falcon",
+                falconCardExcerpt: "The Iraqi Saker Falcon stands as a symbol of pride and national identity, yet it faces today the fiercest campaigns of illegal hunting and cross-border smuggling to the Gulf...",
+                falconBody: `<p class="main-text">In the heart of Iraq's vast desert plains, from Samawah to Anbar and Najaf, the Iraqi Saker Falcon (scientific name: Falco cherrug) stands as a symbol of pride and national identity. Yet this noble creature faces today the fiercest campaigns of depletion — subjected to organized illegal hunting that not only threatens its existence but turns it into a commodity in a frenzied international market.</p><p class="main-text">These hunting operations are carried out under the cover of weak oversight, with these unique birds captured and smuggled across borders to Gulf Arab states. The primary driver of this trade is the rising demand for falcons in hunting sports and competitive races, where a single bird can fetch hundreds of thousands of dollars. This massive financial flow has transformed the Iraqi falcon from a "natural heritage" into a "smuggled treasure," deepening the gap between the depletion of our national resources and the accumulation of profits in the pockets of illegal hunting networks — leaving our environment poorer and more desolate.</p>`,
+
+                birdReadMore: "Learn the Full Story →",
+                backToBirds: "← Back to National Birds",
+
                 goal1Badge: "Biodiversity Goal", goal1Title: "5,000 Albizia Trees", goal1Subtitle: "Establishing sustainable protective belts to break desert winds and stabilize the soil.",
                 counter1Num: "5k", counter1Label: "Target",
                 goal2Badge: "Biodiversity Goal", goal2Title: "5,000 Sidr Trees", goal2Subtitle: "Enhancing native, drought-resistant canopy to restore ecological balance locally.",
@@ -637,7 +793,6 @@
                 thPeriod: "Time Period", thAlbizia: "Expected Albizia Growth Rate", thLeucaena: "Expected Sidr Growth Rate",
                 tableBody: `<tr><td>Week 1</td><td>Radicle emergence and soil breakthrough (2-4 cm)</td><td>First leaves appearance and cautious growth (3-5 cm)</td></tr><tr><td>Week 2</td><td>Appearance of compound pinnate leaves (6-10 cm)</td><td>Stem elongation and increased root branching (8-14 cm)</td></tr>`,
 
-                // Blog cards
                 blog3CardBadge: "Environmental Politics",
                 blog3CardTitle: "Between the Hammer of Political Pressure and the Anvil of Environmental Extinction",
                 blog3CardExcerpt: "What we are witnessing today is not merely global climate change, but a 'systematic degradation' of Iraq's environmental identity, exploited amid the fragility of regulatory authority...",
@@ -660,7 +815,12 @@
                 
                 blog3Title: "Between the Hammer of Political Pressure and the Anvil of Environmental Extinction",
                 blog3Date: "July 8, 2026",
-                blog3Body: `<p class="main-text">Iraq's deteriorating environmental scene today cannot be read apart from its historical and political context that took shape after 2003. What we are witnessing is not merely a natural phenomenon resulting from global climate change; it is a "systematic degradation" of Iraq's environmental identity, exploited by opportunists amid political fragility and the absence of effective regulatory authority to impose a bleak environmental reality.</p><p class="main-text"><strong style="color: #2ecc71;">Water Depletion as a Tool of Political Pressure</strong><br><br>Water in the region has become a "geopolitical weapon." Neighboring countries' construction of major dam projects has reduced Iraq's historical water shares — a measure that goes beyond a struggle over resources; it is a reshaping of demographic and economic reality. The recession of the Tigris and Euphrates has not only turned agricultural land to desert, but has caused the "slow death" of Iraq's marshes — that civilizational and natural heritage inscribed on the World Heritage list — now turning into near-barren land, threatening biodiversity that has endured for thousands of years.</p><p class="main-text"><strong style="color: #2ecc71;">Wildlife at the Mercy of Poaching</strong><br><br>Violations have not stopped at water resources; they have extended to wildlife, left unprotected amid weak law enforcement. The deserts of Samawah, Anbar, and Najaf, once a safe haven for falcons and migratory birds, have today become a stage for organized poaching. Rare and symbolically significant species face excessive hunting using modern techniques that go beyond traditional methods, pushing these birds toward local extinction. This depletion is not random; it is an exploitation of the absence of state authority, where nature reserves are violated and wild habitats destroyed without legal deterrent or protection for the country's environmental future.</p><p class="main-text"><strong style="color: #2ecc71;">Conclusion: Restoring the Land Is Restoring Sovereignty</strong><br><br>"Ardh Al-Sawad" (Land of the Black Soil), the ancient name given to Iraq for the fertility of its land and density of its trees, today faces the risk of vanishing under the weight of intersecting political interests and institutional neglect. We believe that confronting this catastrophe begins with a national awareness that transcends rhetoric and moves into scientific and field action.</p><p class="main-text">Our project is not merely an attempt to replant trees; it is a cry of protest against this systematic destruction, and an initiative to prove that restoring the land and preserving our environmental diversity are inseparable parts of restoring Iraq's sovereignty. Every seed planted, and every bird protected, is a political and moral act declaring our absolute refusal to let our homeland become a barren waste.</p>`,
+                blog3Body: `<p class="main-text">Iraq's deteriorating environmental scene today cannot be read apart from its historical and political context that took shape after 2003. What we are witnessing is not merely a natural phenomenon resulting from global climate change; it is a "systematic degradation" of Iraq's environmental identity, exploited by opportunists amid political fragility and the absence of effective regulatory authority to impose a bleak environmental reality.</p><p class="main-text"><strong style="color: #2ecc71;">Water Depletion as a Tool of Political Pressure</strong><br><br>Water in the region has become a "geopolitical weapon." Neighboring countries' construction of major dam projects has reduced Iraq's historical water shares — a measure that goes beyond a struggle over resources; it is a reshaping of demographic and economic reality. The recession of the Tigris and Euphrates has not only turned agricultural land to desert, but has caused the "slow death" of Iraq's marshes — that civilizational and natural heritage inscribed on the World Heritage list — now turning into near-barren land, threatening biodiversity that has endured for thousands of years.</p>
+                <div class="article-img-wrapper">
+                    <img src="اهوار العراق.jpg" alt="Iraqi Marshes">
+                </div>
+                <p class="article-img-caption">The Iraqi Marshes: a natural and cultural world heritage now facing the risk of disappearance</p>
+                <p class="main-text"><strong style="color: #2ecc71;">Wildlife at the Mercy of Poaching</strong><br><br>Violations have not stopped at water resources; they have extended to wildlife, left unprotected amid weak law enforcement. The deserts of Samawah, Anbar, and Najaf, once a safe haven for falcons and migratory birds, have today become a stage for organized poaching. Rare, symbolically significant species such as the Peregrine Falcon (scientific name: Falco peregrinus) and the Iraqi Saker Falcon (scientific name: Falco cherrug) are subjected to excessive hunting using modern techniques that go beyond traditional methods, pushing these birds toward local extinction. This depletion is not random; it is an exploitation of the absence of state authority, where nature reserves are violated and wild habitats destroyed without legal deterrent or protection for the country's environmental future.</p><p class="main-text"><strong style="color: #2ecc71;">Conclusion: Restoring the Land Is Restoring Sovereignty</strong><br><br>"Land of Al-Sawad," the ancient name given to Iraq for the fertility of its land and density of its trees, today faces the risk of vanishing under the weight of intersecting political interests and institutional neglect. We believe that confronting this catastrophe begins with a national awareness that transcends rhetoric and moves into scientific and field action.</p><p class="main-text">Our project is not merely an attempt to replant trees; it is a cry of protest against this systematic destruction, and an initiative to prove that restoring the land and preserving our environmental diversity are inseparable parts of restoring Iraq's sovereignty. Every seed planted, and every bird protected, is a political and moral act declaring our absolute refusal to let our homeland become a barren waste.</p>`,
 
                 telegramBtn: "Join the Official Telegram Channel ←", footer: "All Rights Reserved © Land of Al-Sawad 2026", toggleBtn: "العربية"
             }
@@ -670,12 +830,10 @@
             currentLang = currentLang === 'ar' ? 'en' : 'ar';
             const data = languages[currentLang];
             
-            // تحديث اتجاه الصفحة واللغة
             document.documentElement.lang = currentLang;
             document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
             document.body.className = currentLang === 'en' ? 'lang-en' : '';
 
-            // تحديث النصوص الأساسية
             document.getElementById('text-brand-top').innerText = data.brandTop;
             document.getElementById('text-brand-bottom').innerText = data.brandBottom;
             document.getElementById('nav-home').innerText = data.navHome;
@@ -684,11 +842,9 @@
             document.getElementById('nav-blog').innerText = data.navBlog;
             document.getElementById('lang-toggle-btn').innerText = data.toggleBtn;
 
-            // القائمة المنسدلة (تم إصلاحها لتترجم الآن)
             document.getElementById('sub-thermal').innerText = data.subThermal;
             document.getElementById('sub-mechanical').innerText = data.subMechanical;
 
-            // الصفحة الرئيسية
             document.getElementById('text-home-title').innerText = data.homeTitle;
             document.getElementById('text-home-body').innerHTML = data.homeBody;
             document.getElementById('text-home-highlight').innerText = data.homeHighlight;
@@ -703,12 +859,20 @@
             document.getElementById('txt-goal2-subtitle').innerText = data.goal2Subtitle;
             document.getElementById('txt-counter2-label').innerText = data.counter2Label;
 
-            // صفحة الطيور
             document.getElementById('text-birds-title').innerText = data.birdsTitle;
-            document.getElementById('text-bulbul-badge').innerText = data.bulbulBadge;
-            document.getElementById('text-birds-body').innerHTML = data.birdsBody;
 
-            // صفحة الدليل العلمي
+            document.getElementById('txt-bulbul-card-badge').innerText = data.bulbulBadge;
+            document.getElementById('txt-bulbul-card-title').innerText = data.bulbulCardTitle;
+            document.getElementById('txt-bulbul-card-excerpt').innerText = data.bulbulCardExcerpt;
+            document.getElementById('txt-bird-readmore-1').innerText = data.birdReadMore;
+
+            document.getElementById('txt-falcon-card-badge').innerText = data.falconBadge;
+            document.getElementById('txt-falcon-card-title').innerText = data.falconCardTitle;
+            document.getElementById('txt-falcon-card-excerpt').innerText = data.falconCardExcerpt;
+            document.getElementById('txt-bird-readmore-2').innerText = data.birdReadMore;
+
+            document.getElementById('text-back-birds-btn').innerText = data.backToBirds;
+
             document.getElementById('guide-main-title').innerText = data.guideMainTitle;
             document.getElementById('guide-main-desc').innerText = data.guideMainDesc;
             document.getElementById('guide-steps-list').innerHTML = data.guideSteps;
@@ -718,7 +882,6 @@
             document.getElementById('th-leucaena').innerText = data.thLeucaena;
             document.getElementById('guide-table-body').innerHTML = data.tableBody;
 
-            // بطاقات المدونة
             document.getElementById('txt-blog3-card-badge').innerText = data.blog3CardBadge;
             document.getElementById('txt-blog3-card-title').innerText = data.blog3CardTitle;
             document.getElementById('txt-blog3-card-date').innerText = data.blog3Date;
@@ -739,8 +902,8 @@
 
             document.getElementById('text-back-btn').innerText = data.backToBlog;
 
-            // إعادة رسم المقال المفتوح (إن وجد) باللغة الجديدة
             renderBlogDetail();
+            renderBirdDetail();
             
             document.getElementById('text-telegram-btn').innerText = data.telegramBtn;
             document.getElementById('text-footer').innerText = data.footer;
