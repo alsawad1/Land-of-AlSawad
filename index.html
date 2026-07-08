@@ -145,9 +145,90 @@
         .page-view-section { display: none; }
         .page-view-section.active { display: block; }
 
-        /* صفحة المدونة */
-        .blog-item { margin-bottom: 50px; border-bottom: 1px solid #2d2d2d; padding-bottom: 40px; }
-        .blog-item:last-child { border-bottom: none; padding-bottom: 0; }
+        /* ============== بطاقات المدونة التفاعلية ============== */
+        .blog-cards-grid { display: grid; grid-template-columns: 1fr; gap: 25px; }
+        @media (min-width: 769px) { .blog-cards-grid { grid-template-columns: 1fr 1fr; } }
+
+        .blog-card {
+            background: #222;
+            border: 1px solid #333;
+            border-radius: 16px;
+            padding: 30px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .blog-card:hover {
+            border-color: #2ecc71;
+            background: #202521;
+            box-shadow: 0 0 25px rgba(46, 204, 113, 0.25);
+            transform: translateY(-4px);
+        }
+        .blog-card-badge {
+            align-self: flex-start;
+            background: rgba(46, 204, 113, 0.1);
+            color: #2ecc71;
+            padding: 3px 12px;
+            border-radius: 50px;
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+        body.lang-en .blog-card-badge { align-self: flex-start; }
+        .blog-card-title {
+            font-family: 'Amiri', serif;
+            font-size: 1.7rem;
+            color: #ffffff;
+            line-height: 1.3;
+        }
+        body.lang-en .blog-card-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; }
+        .blog-card-date {
+            color: #888;
+            font-family: 'Cairo', sans-serif;
+            font-size: 0.85rem;
+        }
+        body.lang-en .blog-card-date { font-family: system-ui, sans-serif; }
+        .blog-card-excerpt {
+            font-family: 'Amiri', serif;
+            font-size: 1.1rem;
+            color: #ccc;
+            line-height: 1.7;
+            text-align: justify;
+        }
+        body.lang-en .blog-card-excerpt { font-family: system-ui, sans-serif; font-size: 0.95rem; text-align: left; }
+        .blog-card-readmore {
+            margin-top: auto;
+            color: #2ecc71;
+            font-family: 'Cairo', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            align-self: flex-start;
+            transition: transform 0.3s;
+        }
+        .blog-card:hover .blog-card-readmore { transform: translateX(-4px); }
+        body.lang-en .blog-card:hover .blog-card-readmore { transform: translateX(4px); }
+
+        .blog-detail-view { display: none; }
+        .back-to-blog {
+            display: inline-block;
+            cursor: pointer;
+            color: #2ecc71;
+            font-family: 'Cairo', sans-serif;
+            font-weight: 700;
+            font-size: 1.05rem;
+            margin-bottom: 30px;
+            padding: 8px 18px;
+            border: 1px solid #2ecc71;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        .back-to-blog:hover { background: #2ecc71; color: #1a1a1a; }
+        /* ============================================================ */
+
+        /* صفحة المدونة (المقال الفردي) */
         .blog-item-title { color: #2ecc71; font-size: 2.5rem; margin-bottom: 10px; line-height: 1.2; font-family: 'Amiri', serif; }
         body.lang-en .blog-item-title { font-family: 'Playfair Display', serif; font-size: 2rem; }
         .blog-item-date { color: #888; text-decoration: underline; display: block; margin-bottom: 20px; font-family: 'Cairo', sans-serif; font-size: 0.95rem; }
@@ -205,6 +286,10 @@
             .main-text { font-size: 1.2rem; line-height: 1.8; text-align: justify; margin-bottom: 20px; }
             body.lang-en .main-text { text-align: left; }
 
+            .blog-cards-grid { grid-template-columns: 1fr; gap: 18px; }
+            .blog-card { padding: 22px; }
+            .blog-card-title { font-size: 1.4rem; }
+
             .growth-guide-box { padding: 20px 15px; border-radius: 12px; }
             .guide-steps-ol { margin: 15px 0 25px 0; font-size: 1.1rem; }
             
@@ -228,8 +313,8 @@
                 <div class="dropdown">
                     <span class="nav-link" id="nav-guide" onclick="navigateTo('guide')">الدليل العلمي</span>
                     <div class="dropdown-content">
-                        <span id="sub-thermal" onclick="navigateToGuideAndHighlight('thermal')">Types of Scarification: Thermal</span>
-                        <span id="sub-mechanical" onclick="navigateToGuideAndHighlight('mechanical')">Types of Scarification: Mechanical</span>
+                        <span id="sub-thermal" onclick="navigateToGuideAndHighlight('thermal')">أنواع التخديد: الحراري</span>
+                        <span id="sub-mechanical" onclick="navigateToGuideAndHighlight('mechanical')">أنواع التخديد: الميكانيكي</span>
                     </div>
                 </div>
 
@@ -353,23 +438,34 @@
 
             <!-- 4. صفحة المدونة -->
             <div id="blog-content-area" class="page-view-section">
-                <!-- المقال الجديد المضاف -->
-                <div class="blog-item">
-                    <h2 class="blog-item-title" id="text-blog2-title">البلبل العراقي في مواجهة الاندثار: لماذا نحتاج إلى "الإطلاق اللين" لاستعادة توازننا البيئي؟</h2>
-                    <span class="blog-item-date" id="text-blog2-date">٢٨ حزيران، ٢٠٢٦</span>
-                    <div id="text-blog2-body">
-                        <p class="main-text">يُعرف الإطلاق اللين علمياً باسم "طوق النجاة البيئي" (Ecological Lifeline Strategy)، وهو منهجية علمية لإعادة توطين الطيور تعتمد على مرحلة انتقالية بدلاً من إطلاقها المباشر. في هذه العملية، تُوضع البلابل في أقفاص تأقلم ضمن بيئتها الطبيعية، حيث يُقدم لها الغذاء والماء تدريجياً؛ مما يمنحها فرصة لاستعادة لياقتها البدنية التي تضررت بسبب الأسر، والتعود على أصوات ومناخ محيطها، وتشكيل "خريطة ذهنية" للمكان قبل الاعتماد الكلي على نفسها.</p>
-                        <p class="main-text">يمثل هذا الأسلوب الحل العلمي الأمثل، فهو يعالج أولاً الاستشفاء الفسيولوجي والسلوكي، حيث تخرج الطيور من الأسر وهي تعاني من ضمور في العضلات وإجهاد فسيولوجي، ليأتي الإطلاق اللين كفترة ترميم ضرورية ترفع من قدرة الطائر على الهروب من المفترسات. ثانياً، يعمل هذا الأسلوب على تعزيز ما يُعرف بـ "الارتباط بالموقع"، فبما أن البلبل كائن ذكي يربط المكان بالسلامة، فإن فترة التأقلم في منطقة محمية تدفعه للاستقرار والتكاثر فيها بدلاً من التشتت في المجهول، مما يساهم في خلق "بؤر تكاثرية" ترفع من أعداد الجماعة بشكل تراكمي. وأخيراً، يسهم هذا المنهج في كسر "صدمة النفور الغذائي"؛ إذ يتعلم الطائر بالتجربة والخطأ كيفية التمييز بين الغذاء الاصطناعي والموارد الطبيعية كالحشرات والثمار، وهو ما يقلل بشكل حاد من مخاطر سوء التغذية بعد الإطلاق.</p>
-                        <p class="main-text">إن حماية البلبل العراقي بهذا الأسلوب هي استثمار في استدامة بيئتنا؛ فالانتقال من حب الطيور في الأقفاص إلى احترامها في فضاءاتها الطبيعية هو السبيل الوحيد لضمان مستقبل مزدهر. إن تبني بروتوكولات الإطلاق اللين كمنهج يعني أننا لا ننقذ طائراً فحسب، بل نحمي التوازن البيئي الذي يربطنا بهذه الأرض، لتظل أغصان بساتيننا عامرة بحياة نساهم جميعاً في استعادتها.</p>
+
+                <!-- عرض قائمة البطاقات -->
+                <div id="blog-list-view">
+                    <div class="blog-cards-grid">
+                        <div class="blog-card" onclick="openBlogPost('post2')">
+                            <span class="blog-card-badge" id="txt-blog2-card-badge">توعية بيئية</span>
+                            <h3 class="blog-card-title" id="txt-blog2-card-title">البلبل العراقي في مواجهة الاندثار: لماذا نحتاج إلى "الإطلاق اللين"؟</h3>
+                            <span class="blog-card-date" id="txt-blog2-card-date">٢٨ حزيران، ٢٠٢٦</span>
+                            <p class="blog-card-excerpt" id="txt-blog2-card-excerpt">يُعرف الإطلاق اللين علمياً باسم "طوق النجاة البيئي"، وهو منهجية علمية لإعادة توطين الطيور تعتمد على مرحلة انتقالية تمنحها فرصة لاستعادة لياقتها والتأقلم قبل الاعتماد الكلي على نفسها...</p>
+                            <span class="blog-card-readmore" id="txt-readmore-2">اقرأ المقال كاملاً ←</span>
+                        </div>
+
+                        <div class="blog-card" onclick="openBlogPost('post1')">
+                            <span class="blog-card-badge" id="txt-blog1-card-badge">زراعة ومناخ</span>
+                            <h3 class="blog-card-title" id="txt-blog1-card-title">البداية الحقيقية: لماذا الألبيزيا والسدر؟</h3>
+                            <span class="blog-card-date" id="txt-blog1-card-date">١٨ حزيران، ٢٠٢٦</span>
+                            <p class="blog-card-excerpt" id="txt-blog1-card-excerpt">تعتبر أشجار الألبيزيا والسدر خيارات استراتيجية لمواجهة التغير المناخي؛ نظراً لقدرتها الفائقة على تحمل الحرارة ومقاومة الجفاف ودورها في تثبيت التربة...</p>
+                            <span class="blog-card-readmore" id="txt-readmore-1">اقرأ المقال كاملاً ←</span>
+                        </div>
                     </div>
                 </div>
 
-                <!-- المقال القديم -->
-                <div class="blog-item">
-                    <h2 class="blog-item-title" id="text-blog-title">البداية الحقيقية: لماذا الألبيزيا والسدر؟</h2>
-                    <span class="blog-item-date" id="text-blog-date">١٨ حزيران، ٢٠٢٦</span>
-                    <p class="main-text" id="text-blog-body">تعتبر أشجار الألبيزيا والسدر خيارات استراتيجية لمواجهة التغير المناخي في بيئتنا المحلية؛ نظراً لقدرتها الفائقة على تحمل درجات الحرارة المرتفعة، ومقاومة الجفاف، بالإضافة إلى دورها الحيوي في تثبيت التربة وتحسين خصوبتها، مما يجعلها حجر الأساس في مشروعنا للتحول من التشجير المؤقت إلى الاستدامة الدائمة.</p>
+                <!-- عرض تفاصيل المقال المفتوح -->
+                <div id="blog-detail-view" class="blog-detail-view">
+                    <span class="back-to-blog" onclick="closeBlogPost()" id="text-back-btn">→ العودة إلى قائمة المدونة</span>
+                    <div id="blog-detail-content"></div>
                 </div>
+
             </div>
 
             <!-- زر التليغرام -->
@@ -383,6 +479,7 @@
 
     <script>
         let currentLang = 'ar';
+        let currentBlogPost = null; // 'post1' | 'post2' | null
 
         function navigateTo(page) {
             document.getElementById('home-content-area').classList.toggle('active', page === 'home');
@@ -397,6 +494,10 @@
 
             document.getElementById('step-thermal').classList.remove('highlight-step');
             document.getElementById('step-mechanical').classList.remove('highlight-step');
+
+            // عند الدخول لصفحة المدونة من القائمة، ارجع دائماً لعرض البطاقات
+            if (page === 'blog') { closeBlogPost(); }
+
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
@@ -412,10 +513,48 @@
             }, 100);
         }
 
+        // فتح مقال معيّن من البطاقة
+        function openBlogPost(id) {
+            currentBlogPost = id;
+            document.getElementById('blog-list-view').style.display = 'none';
+            document.getElementById('blog-detail-view').style.display = 'block';
+            renderBlogDetail();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // الرجوع لقائمة البطاقات
+        function closeBlogPost() {
+            currentBlogPost = null;
+            document.getElementById('blog-detail-view').style.display = 'none';
+            document.getElementById('blog-list-view').style.display = 'block';
+        }
+
+        // رسم محتوى المقال المفتوح حسب اللغة الحالية
+        function renderBlogDetail() {
+            if (!currentBlogPost) return;
+            const data = languages[currentLang];
+            const container = document.getElementById('blog-detail-content');
+
+            if (currentBlogPost === 'post2') {
+                container.innerHTML = `
+                    <h2 class="blog-item-title">${data.blog2Title}</h2>
+                    <span class="blog-item-date">${data.blog2Date}</span>
+                    ${data.blog2Body}
+                `;
+            } else {
+                container.innerHTML = `
+                    <h2 class="blog-item-title">${data.blogTitle}</h2>
+                    <span class="blog-item-date">${data.blogDate}</span>
+                    <p class="main-text">${data.blogBody}</p>
+                `;
+            }
+        }
+
         const languages = {
             ar: {
                 brandTop: "أرْض", brandBottom: "السَّــــــــــــــــــــــــوَاد", 
                 navHome: "الرئيسية", navBirds: "طيورنا الوطنية", navGuide: "الدليل العلمي", navBlog: "المدونة",
+                subThermal: "أنواع التخديد: الحراري", subMechanical: "أنواع التخديد: الميكانيكي",
                 homeTitle: "تنهض رؤيتنا من مفارقة معاصرة", 
                 homeHighlight: "الفكرة علمية.. والتنفيذ بسواعدنا.",
                 birdsTitle: "رحيل الألحان: حين تصمت بساتيننا",
@@ -432,10 +571,23 @@
                 guideTableTitle: "جدول المراقبة المعرفي ومعدلات النمو المتوقعة:",
                 thPeriod: "المرحلة الزمنية", thAlbizia: "معدل نمو الألبيزيا المتوقع", thLeucaena: "معدل نمو السدر المتوقع",
                 tableBody: `<tr><td>الأسبوع الأول</td><td>بروز الجذير وانشقاق التربة (٢-٤ سم)</td><td>ظهور الأوراق الأولى والنمو الحذر (٣-٥ سم)</td></tr><tr><td>الأسبوع الثاني</td><td>ظهور الأوراق الريشية المركبة (٦-١٠ سم)</td><td>استطالة الساق وزيادة التفرع الجذري (٨-١٤ سم)</td></tr>`,
+
+                // بطاقات المدونة
+                blog1CardBadge: "زراعة ومناخ",
+                blog1CardTitle: "البداية الحقيقية: لماذا الألبيزيا والسدر؟",
+                blog1CardExcerpt: "تعتبر أشجار الألبيزيا والسدر خيارات استراتيجية لمواجهة التغير المناخي؛ نظراً لقدرتها الفائقة على تحمل الحرارة ومقاومة الجفاف ودورها في تثبيت التربة...",
+                blog2CardBadge: "توعية بيئية",
+                blog2CardTitle: `البلبل العراقي في مواجهة الاندثار: لماذا نحتاج إلى "الإطلاق اللين"؟`,
+                blog2CardExcerpt: `يُعرف الإطلاق اللين علمياً باسم "طوق النجاة البيئي"، وهو منهجية علمية لإعادة توطين الطيور تعتمد على مرحلة انتقالية تمنحها فرصة لاستعادة لياقتها والتأقلم قبل الاعتماد الكلي على نفسها...`,
+                readMore: "اقرأ المقال كاملاً ←",
+                backToBlog: "→ العودة إلى قائمة المدونة",
+
+                // المقال الأول كامل
                 blogTitle: "البداية الحقيقية: لماذا الألبيزيا والسدر؟", 
+                blogDate: "١٨ حزيران، ٢٠٢٦",
                 blogBody: "تعتبر أشجار الألبيزيا والسدر خيارات استراتيجية لمواجهة التغير المناخي في بيئتنا المحلية؛ نظراً لقدرتها الفائقة على تحمل درجات الحرارة المرتفعة، ومقاومة الجفاف، بالإضافة إلى دورها الحيوي في تثبيت التربة وتحسين خصوبتها، مما يجعلها حجر الأساس في مشروعنا للتحول من التشجير المؤقت إلى الاستدامة الدائمة.",
                 
-                // ترجمة المقال الجديد للعربية
+                // المقال الثاني كامل
                 blog2Title: "البلبل العراقي في مواجهة الاندثار: لماذا نحتاج إلى \"الإطلاق اللين\" لاستعادة توازننا البيئي؟",
                 blog2Date: "٢٨ حزيران، ٢٠٢٦",
                 blog2Body: `<p class="main-text">يُعرف الإطلاق اللين علمياً باسم "طوق النجاة البيئي" (Ecological Lifeline Strategy)، وهو منهجية علمية لإعادة توطين الطيور تعتمد على مرحلة انتقالية بدلاً من إطلاقها المباشر. في هذه العملية، تُوضع البلابل في أقفاص تأقلم ضمن بيئتها الطبيعية، حيث يُقدم لها الغذاء والماء تدريجياً؛ مما يمنحها فرصة لاستعادة لياقتها البدنية التي تضررت بسبب الأسر، والتعود على أصوات ومناخ محيطها، وتشكيل "خريطة ذهنية" للمكان قبل الاعتماد الكلي على نفسها.</p><p class="main-text">يمثل هذا الأسلوب الحل العلمي الأمثل، فهو يعالج أولاً الاستشفاء الفسيولوجي والسلوكي، حيث تخرج الطيور من الأسر وهي تعاني من ضمور في العضلات وإجهاد فسيولوجي، ليأتي الإطلاق اللين كفترة ترميم ضرورية ترفع من قدرة الطائر على الهروب من المفترسات. ثانياً، يعمل هذا الأسلوب على تعزيز ما يُعرف بـ "الارتباط بالموقع"، فبما أن البلبل كائن ذكي يربط المكان بالسلامة، فإن فترة التأقلم في منطقة محمية تدفعه للاستقرار والتكاثر فيها بدلاً من التشتت في المجهول، مما يساهم في خلق "بؤر تكاثرية" ترفع من أعداد الجماعة بشكل تراكمي. وأخيراً، يسهم هذا المنهج في كسر "صدمة النفور الغذائي"؛ إذ يتعلم الطائر بالتجربة والخطأ كيفية التمييز بين الغذاء الاصطناعي والموارد الطبيعية كالحشرات والثمار، وهو ما يقلل بشكل حاد من مخاطر سوء التغذية بعد الإطلاق.</p><p class="main-text">إن حماية البلبل العراقي بهذا الأسلوب هي استثمار في استدامة بيئتنا؛ فالانتقال من حب الطيور في الأقفاص إلى احترامها في فضاءاتها الطبيعية هو السبيل الوحيد لضمان مستقبل مزدهر. إن تبني بروتوكولات الإطلاق اللين كمنهج يعني أننا لا ننقذ طائراً فحسب، بل نحمي التوازن البيئي الذي يربطنا بهذه الأرض، لتظل أغصان بساتيننا عامرة بحياة نساهم جميعاً في استعادتها.</p>`,
@@ -445,6 +597,7 @@
             en: {
                 brandTop: "Land of", brandBottom: "Al-Sawad", 
                 navHome: "Home", navBirds: "National Birds", navGuide: "Scientific Guide", navBlog: "Blog",
+                subThermal: "Types of Scarification: Thermal", subMechanical: "Types of Scarification: Mechanical",
                 homeTitle: "Our Vision Rises From a Modern Paradox", 
                 homeHighlight: "The idea is scientific.. and the execution is by our hands.",
                 birdsTitle: "The Departure of Melodies: When Our Orchards Fall Silent",
@@ -461,10 +614,21 @@
                 guideTableTitle: "Cognitive Monitoring Table & Expected Growth Rates:",
                 thPeriod: "Time Period", thAlbizia: "Expected Albizia Growth Rate", thLeucaena: "Expected Sidr Growth Rate",
                 tableBody: `<tr><td>Week 1</td><td>Radicle emergence and soil breakthrough (2-4 cm)</td><td>First leaves appearance and cautious growth (3-5 cm)</td></tr><tr><td>Week 2</td><td>Appearance of compound pinnate leaves (6-10 cm)</td><td>Stem elongation and increased root branching (8-14 cm)</td></tr>`,
+
+                // Blog cards
+                blog1CardBadge: "Planting & Climate",
+                blog1CardTitle: "The True Beginning: Why Albizia and Sidr?",
+                blog1CardExcerpt: "Albizia and Sidr trees are strategic choices to combat climate change locally, thanks to their heat tolerance, drought resistance, and vital role in soil stabilization...",
+                blog2CardBadge: "Environmental Awareness",
+                blog2CardTitle: "The Iraqi Bulbul Facing Extinction: Why Do We Need 'Soft Release'?",
+                blog2CardExcerpt: "Known scientifically as the Ecological Lifeline Strategy, soft release relies on a transitional phase that helps birds regain fitness and adapt before full independence...",
+                readMore: "Read Full Article →",
+                backToBlog: "← Back to Blog List",
+
                 blogTitle: "The True Beginning: Why Albizia and Sidr?", 
+                blogDate: "June 18, 2026",
                 blogBody: "Albizia and Sidr trees represent strategic choices to combat climate change locally. Due to their superior capacity to endure extreme temperatures, resist drought, and enhance soil fertility, they serve as the foundation of our shift from temporary planting to permanent sustainability.",
                 
-                // ترجمة المقال الجديد للإنجليزية
                 blog2Title: "The Iraqi Bulbul Facing Extinction: Why Do We Need 'Soft Release' to Restore Ecological Balance?",
                 blog2Date: "June 28, 2026",
                 blog2Body: `<p class="main-text">Scientifically known as the "Ecological Lifeline Strategy", soft release is a scientific approach to bird reintroduction that relies on a transitional phase rather than immediate release. In this process, bulbuls are placed in acclimatization aviaries within their natural habitat, where food and water are provided gradually. This grants them the opportunity to restore physical fitness degraded by captivity, adapt to local climate and sounds, and establish a "mental map" of the locality before achieving full self-reliance.</p><p class="main-text">This strategy stands as the optimal scientific solution. First, it addresses physiological and behavioral rehabilitation; birds emerge from captivity suffering from muscle atrophy and physiological stress, making soft release a vital restoration period that enhances their ability to evade predators. Second, it strengthens "site fidelity." Since the bulbul is an intelligent creature that associates locality with safety, this adaptation phase in a protected zone encourages it to settle and breed there instead of dispersing into the unknown, fostering "breeding hotspots" that gradually multiply the population. Finally, this method breaks "dietary aversion shock." Through trial and error, the bird learns to distinguish between artificial feed and natural resources such as insects and fruits, sharply reducing malnutrition risks post-release.</p><p class="main-text">Protecting the Iraqi Bulbul through this approach is a direct investment in the sustainability of our environment. Shifting from loving birds in cages to respecting them within their natural domains is the only pathway to a flourishing future. Adopting soft release protocols as a core methodology implies that we are not merely saving a bird; we are safeguarding the ecological balance that connects us to this land, ensuring that the branches of our orchards remain vibrant with life we all help restore.</p>`,
@@ -490,6 +654,10 @@
             document.getElementById('nav-guide').innerText = data.navGuide;
             document.getElementById('nav-blog').innerText = data.navBlog;
             document.getElementById('lang-toggle-btn').innerText = data.toggleBtn;
+
+            // القائمة المنسدلة (تم إصلاحها لتترجم الآن)
+            document.getElementById('sub-thermal').innerText = data.subThermal;
+            document.getElementById('sub-mechanical').innerText = data.subMechanical;
 
             // الصفحة الرئيسية
             document.getElementById('text-home-title').innerText = data.homeTitle;
@@ -521,13 +689,23 @@
             document.getElementById('th-leucaena').innerText = data.thLeucaena;
             document.getElementById('guide-table-body').innerHTML = data.tableBody;
 
-            // صفحة المدونة (المقال الجديد والمقال القديم) والفوتر والزر
-            document.getElementById('text-blog2-title').innerText = data.blog2Title;
-            document.getElementById('text-blog2-date').innerText = data.blog2Date;
-            document.getElementById('text-blog2-body').innerHTML = data.blog2Body;
+            // بطاقات المدونة
+            document.getElementById('txt-blog2-card-badge').innerText = data.blog2CardBadge;
+            document.getElementById('txt-blog2-card-title').innerText = data.blog2CardTitle;
+            document.getElementById('txt-blog2-card-date').innerText = data.blog2Date;
+            document.getElementById('txt-blog2-card-excerpt').innerText = data.blog2CardExcerpt;
+            document.getElementById('txt-readmore-2').innerText = data.readMore;
 
-            document.getElementById('text-blog-title').innerText = data.blogTitle;
-            document.getElementById('text-blog-body').innerText = data.blogBody;
+            document.getElementById('txt-blog1-card-badge').innerText = data.blog1CardBadge;
+            document.getElementById('txt-blog1-card-title').innerText = data.blog1CardTitle;
+            document.getElementById('txt-blog1-card-date').innerText = data.blogDate;
+            document.getElementById('txt-blog1-card-excerpt').innerText = data.blog1CardExcerpt;
+            document.getElementById('txt-readmore-1').innerText = data.readMore;
+
+            document.getElementById('text-back-btn').innerText = data.backToBlog;
+
+            // إعادة رسم المقال المفتوح (إن وجد) باللغة الجديدة
+            renderBlogDetail();
             
             document.getElementById('text-telegram-btn').innerText = data.telegramBtn;
             document.getElementById('text-footer').innerText = data.footer;
