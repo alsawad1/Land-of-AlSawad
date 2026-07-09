@@ -13,20 +13,55 @@
         body { background-color: #ffffff; font-family: 'Amiri', serif; color: #000000; transition: all 0.3s ease; -webkit-text-size-adjust: 100%; }
         body.lang-en { font-family: system-ui, -apple-system, sans-serif; }
 
-        .site-header { max-width: 1200px; margin: 0 auto; padding: 40px 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
-        .brand-name { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.3; font-family: 'Amiri', serif; }
-        .brand-name .line-top { font-size: 1.4rem; font-weight: 700; margin-bottom: 6px; }
-        .brand-name .line-bottom { font-size: 2.1rem; font-weight: 700; }
+        .site-header { 
+            position: sticky; top: 0; z-index: 200;
+            background: rgba(20, 20, 20, 0.85);
+            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            border-bottom: 0.5px solid #2d2d2d;
+        }
+        .site-header-inner { max-width: 1200px; margin: 0 auto; padding: 18px 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+        .brand-name { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.3; font-family: 'Amiri', serif; color: #ffffff; }
+        .brand-name .line-top { font-size: 1.2rem; font-weight: 700; margin-bottom: 4px; }
+        .brand-name .line-bottom { font-size: 1.7rem; font-weight: 700; }
         
         body.lang-en .brand-name { font-family: 'Playfair Display', serif; align-items: flex-start; }
-        body.lang-en .brand-name .line-top { font-size: 1.1rem; font-weight: 400; }
-        body.lang-en .brand-name .line-bottom { font-size: 1.6rem; font-weight: 800; }
+        body.lang-en .brand-name .line-top { font-size: 1rem; font-weight: 400; }
+        body.lang-en .brand-name .line-bottom { font-size: 1.4rem; font-weight: 800; }
         
-        .header-controls { display: flex; align-items: center; gap: 25px; flex-wrap: wrap; }
-        .nav-menu { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
-        .nav-link { cursor: pointer; font-size: 1.2rem; padding-bottom: 4px; white-space: nowrap; position: relative; }
-        .nav-link.active { font-weight: 700; border-bottom: 2px solid #2ecc71; color: #2ecc71; }
-        .nav-link#nav-birds.active { border-bottom: 2px solid #ff4d4d; color: #ff4d4d; }
+        .header-controls { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+        .nav-menu { display: flex; align-items: center; gap: 2px; background: #242424; border: 0.5px solid #333; border-radius: 999px; padding: 4px; flex-wrap: wrap; }
+        .nav-link { cursor: pointer; font-size: 1rem; padding: 8px 18px; white-space: nowrap; position: relative; color: #ccc; border-radius: 999px; transition: all 0.3s ease; }
+        .nav-link:hover { color: #fff; }
+        .nav-link.active { font-weight: 700; background: #2ecc71; color: #0a2e18; }
+        .nav-link#nav-birds.active { background: #ff4d4d; color: #3a0d0d; }
+
+        .hamburger-btn { display: none; background: none; border: 0.5px solid #444; color: #ccc; border-radius: 8px; padding: 8px 12px; cursor: pointer; font-size: 1.1rem; line-height: 1; }
+        .hamburger-btn:hover { border-color: #2ecc71; color: #2ecc71; }
+
+        .mobile-drawer-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 998; }
+        .mobile-drawer-overlay.active { display: block; }
+        .mobile-drawer {
+            position: fixed; top: 0; right: 0; height: 100%; width: 260px; max-width: 80vw;
+            background: #181818; border-left: 0.5px solid #333; z-index: 999;
+            padding: 25px 20px; display: flex; flex-direction: column; gap: 8px;
+            transform: translateX(100%); transition: transform 0.35s ease;
+        }
+        body.lang-en .mobile-drawer { right: auto; left: 0; border-left: none; border-right: 0.5px solid #333; transform: translateX(-100%); }
+        .mobile-drawer.active { transform: translateX(0); }
+        .mobile-drawer-close { align-self: flex-end; background: none; border: none; color: #888; font-size: 1.3rem; cursor: pointer; margin-bottom: 15px; }
+        .mobile-drawer .nav-link { display: block; text-align: right; font-size: 1.15rem; padding: 12px 10px; border-radius: 8px; background: none; }
+        body.lang-en .mobile-drawer .nav-link { text-align: left; }
+        .mobile-drawer .nav-link.active { background: rgba(46, 204, 113, 0.12); color: #2ecc71; }
+        .mobile-drawer .nav-link#mnav-birds.active { background: rgba(255, 77, 77, 0.12); color: #ff4d4d; }
+        .mobile-drawer .dropdown-content { position: static; display: block; background: none; border: none; box-shadow: none; padding-right: 15px; }
+        .mobile-drawer .dropdown-content span { color: #999; font-size: 0.95rem; padding: 8px 10px; }
+
+        /* Breadcrumbs */
+        .breadcrumb { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-family: 'Cairo', sans-serif; font-size: 0.85rem; color: #888; margin-bottom: 25px; }
+        body.lang-en .breadcrumb { font-family: system-ui, sans-serif; }
+        .breadcrumb .crumb-link { cursor: pointer; transition: color 0.2s ease; }
+        .breadcrumb .crumb-link:hover { color: #2ecc71; }
+        .breadcrumb .crumb-current { color: #2ecc71; font-weight: 700; }
 
         .dropdown { position: relative; display: inline-block; }
         .dropdown-content { display: none; position: absolute; background-color: #1a1a1a; min-width: 200px; box-shadow: 0px 8px 16px rgba(0,0,0,0.2); z-index: 100; border: 1px solid #333; border-radius: 6px; top: 100%; right: 0; }
@@ -317,14 +352,11 @@
 
         /* متجاوب مع الجوال */
         @media (max-width: 768px) {
-            .site-header { padding: 25px 15px; flex-direction: column; align-items: center; text-align: center; }
-            .brand-name { align-items: center; }
-            body.lang-en .brand-name { align-items: center; }
-            .brand-name .line-bottom { font-size: 1.8rem; letter-spacing: -1px; }
+            .site-header-inner { padding: 14px 15px; }
+            .brand-name .line-bottom { font-size: 1.4rem; letter-spacing: -1px; }
             
-            .header-controls { flex-direction: column; gap: 15px; width: 100%; justify-content: center; }
-            .nav-menu { justify-content: center; width: 100%; gap: 12px; }
-            .nav-link { font-size: 1.1rem; }
+            .nav-menu { display: none; }
+            .hamburger-btn { display: block; }
             
             .dropdown-content { right: 50%; transform: translateX(50%); text-align: center; }
             body.lang-en .dropdown-content { left: 50%; right: auto; transform: translateX(-50%); }
@@ -362,28 +394,46 @@
 <body>
 
     <header class="site-header">
-        <div class="brand-name" id="text-brand">
-            <span class="line-top" id="text-brand-top">أرْض</span>
-            <span class="line-bottom" id="text-brand-bottom">السَّــــــــــــــــــــــــوَاد</span>
-        </div>
-        <div class="header-controls">
-            <nav class="nav-menu">
-                <span class="nav-link active" id="nav-home" onclick="navigateTo('home')">الرئيسية</span>
-                <span class="nav-link" id="nav-birds" onclick="navigateTo('birds')">طيورنا الوطنية</span>
-                
-                <div class="dropdown">
-                    <span class="nav-link" id="nav-guide" onclick="navigateTo('guide')">الدليل العلمي</span>
-                    <div class="dropdown-content">
-                        <span id="sub-thermal" onclick="navigateToGuideAndHighlight('thermal')">أنواع التخديد: الحراري</span>
-                        <span id="sub-mechanical" onclick="navigateToGuideAndHighlight('mechanical')">أنواع التخديد: الميكانيكي</span>
+        <div class="site-header-inner">
+            <div class="brand-name" id="text-brand">
+                <span class="line-top" id="text-brand-top">أرْض</span>
+                <span class="line-bottom" id="text-brand-bottom">السَّــــــــــــــــــــــــوَاد</span>
+            </div>
+            <div class="header-controls">
+                <nav class="nav-menu">
+                    <span class="nav-link active" id="nav-home" onclick="navigateTo('home')">الرئيسية</span>
+                    <span class="nav-link" id="nav-birds" onclick="navigateTo('birds')">طيورنا الوطنية</span>
+                    
+                    <div class="dropdown">
+                        <span class="nav-link" id="nav-guide" onclick="navigateTo('guide')">الدليل العلمي</span>
+                        <div class="dropdown-content">
+                            <span id="sub-thermal" onclick="navigateToGuideAndHighlight('thermal')">أنواع التخديد: الحراري</span>
+                            <span id="sub-mechanical" onclick="navigateToGuideAndHighlight('mechanical')">أنواع التخديد: الميكانيكي</span>
+                        </div>
                     </div>
-                </div>
 
-                <span class="nav-link" id="nav-blog" onclick="navigateTo('blog')">المدونة</span>
-            </nav>
-            <button class="lang-switch-btn" id="lang-toggle-btn" onclick="toggleLanguage()">English</button>
+                    <span class="nav-link" id="nav-blog" onclick="navigateTo('blog')">المدونة</span>
+                </nav>
+                <button class="lang-switch-btn" id="lang-toggle-btn" onclick="toggleLanguage()">English</button>
+                <button class="hamburger-btn" id="hamburger-btn" onclick="toggleMobileMenu()">☰</button>
+            </div>
         </div>
     </header>
+
+    <div class="mobile-drawer-overlay" id="mobile-drawer-overlay" onclick="closeMobileMenu()"></div>
+    <nav class="mobile-drawer" id="mobile-drawer">
+        <button class="mobile-drawer-close" onclick="closeMobileMenu()">✕</button>
+        <span class="nav-link active" id="mnav-home" onclick="navigateTo('home'); closeMobileMenu();">الرئيسية</span>
+        <span class="nav-link" id="mnav-birds" onclick="navigateTo('birds'); closeMobileMenu();">طيورنا الوطنية</span>
+        <div class="dropdown">
+            <span class="nav-link" id="mnav-guide" onclick="navigateTo('guide'); closeMobileMenu();">الدليل العلمي</span>
+            <div class="dropdown-content">
+                <span id="msub-thermal" onclick="navigateToGuideAndHighlight('thermal'); closeMobileMenu();">أنواع التخديد: الحراري</span>
+                <span id="msub-mechanical" onclick="navigateToGuideAndHighlight('mechanical'); closeMobileMenu();">أنواع التخديد: الميكانيكي</span>
+            </div>
+        </div>
+        <span class="nav-link" id="mnav-blog" onclick="navigateTo('blog'); closeMobileMenu();">المدونة</span>
+    </nav>
 
     <main class="dark-content-section">
         <div class="content-container">
@@ -470,7 +520,6 @@
 
                 <!-- عرض تفاصيل الطائر المفتوح -->
                 <div id="birds-detail-view" class="blog-detail-view">
-                    <span class="back-to-birds" onclick="closeBirdPost()" id="text-back-birds-btn">→ العودة إلى طيورنا الوطنية</span>
                     <div id="birds-detail-content"></div>
                 </div>
             </div>
@@ -550,7 +599,6 @@
 
                 <!-- عرض تفاصيل المقال المفتوح -->
                 <div id="blog-detail-view" class="blog-detail-view">
-                    <span class="back-to-blog" onclick="closeBlogPost()" id="text-back-btn">→ العودة إلى قائمة المدونة</span>
                     <div id="blog-detail-content"></div>
                 </div>
 
@@ -576,10 +624,10 @@
             document.getElementById('guide-content-area').classList.toggle('active', page === 'guide');
             document.getElementById('blog-content-area').classList.toggle('active', page === 'blog');
             
-            document.getElementById('nav-home').classList.toggle('active', page === 'home');
-            document.getElementById('nav-birds').classList.toggle('active', page === 'birds');
-            document.getElementById('nav-guide').classList.toggle('active', page === 'guide');
-            document.getElementById('nav-blog').classList.toggle('active', page === 'blog');
+            ['nav-home','nav-birds','nav-guide','nav-blog','mnav-home','mnav-birds','mnav-guide','mnav-blog'].forEach(id => {
+                const key = id.replace('mnav-', 'nav-').replace('nav-', '');
+                document.getElementById(id).classList.toggle('active', page === key);
+            });
 
             document.getElementById('step-thermal').classList.remove('highlight-step');
             document.getElementById('step-mechanical').classList.remove('highlight-step');
@@ -588,7 +636,30 @@
             if (page === 'blog') { closeBlogPost(); }
             if (page === 'birds') { closeBirdPost(); }
 
+            closeMobileMenu();
             window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // القائمة الجانبية للجوال
+        function toggleMobileMenu() {
+            document.getElementById('mobile-drawer').classList.toggle('active');
+            document.getElementById('mobile-drawer-overlay').classList.toggle('active');
+        }
+        function closeMobileMenu() {
+            document.getElementById('mobile-drawer').classList.remove('active');
+            document.getElementById('mobile-drawer-overlay').classList.remove('active');
+        }
+
+        // بناء شريط التنقل التفصيلي (Breadcrumb)
+        function buildBreadcrumb(sectionKey, sectionLabel, closeFnName, currentTitle) {
+            const data = languages[currentLang];
+            return `<div class="breadcrumb">
+                <span class="crumb-link" onclick="navigateTo('home')">${data.navHome}</span>
+                <span>/</span>
+                <span class="crumb-link" onclick="${closeFnName}()">${sectionLabel}</span>
+                <span>/</span>
+                <span class="crumb-current">${currentTitle}</span>
+            </div>`;
         }
 
         function navigateToGuideAndHighlight(type) {
