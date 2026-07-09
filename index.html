@@ -3,982 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>أرْض السَّــــــــــــــــــــــــوَاد</title>
+    <title data-i18n-title-ar="أرض السواد — بنك المعلومات البيئي العراقي" data-i18n-title-en="Land of Al-Sawad — Iraqi Environmental Info Bank">أرض السواد — بنك المعلومات البيئي العراقي</title>
+    <meta name="description" content="مبادرة شبابية عراقية للتشجير المستدام ومكافحة التصحر، تجمع 5000 شجرة ألبيزيا و5000 شجرة سدر عبر خطط علمية حقيقية.">
+    <link rel="canonical" href="https://alsawad1.github.io/Land-of-AlSawad/index.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="أرض السواد — بنك المعلومات البيئي العراقي">
+    <meta property="og:description" content="مبادرة شبابية عراقية للتشجير المستدام ومكافحة التصحر، تجمع 5000 شجرة ألبيزيا و5000 شجرة سدر عبر خطط علمية حقيقية.">
+    <meta property="og:url" content="https://alsawad1.github.io/Land-of-AlSawad/index.html">
+    <meta property="og:image" content="https://alsawad1.github.io/Land-of-AlSawad/BilbalJPG.jpeg">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cairo:wght@400;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-    
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background-color: #ffffff; font-family: 'Amiri', serif; color: #000000; transition: all 0.3s ease; -webkit-text-size-adjust: 100%; }
-        body.lang-en { font-family: system-ui, -apple-system, sans-serif; }
-
-        .site-header { 
-            position: sticky; top: 0; z-index: 200;
-            background: rgba(20, 20, 20, 0.85);
-            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-            border-bottom: 0.5px solid #2d2d2d;
-        }
-        .site-header-inner { max-width: 1200px; margin: 0 auto; padding: 18px 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
-        .brand-name { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.3; font-family: 'Amiri', serif; color: #ffffff; }
-        .brand-name .line-top { font-size: 1.2rem; font-weight: 700; margin-bottom: 4px; }
-        .brand-name .line-bottom { font-size: 1.7rem; font-weight: 700; }
-        
-        body.lang-en .brand-name { font-family: 'Playfair Display', serif; align-items: flex-start; }
-        body.lang-en .brand-name .line-top { font-size: 1rem; font-weight: 400; }
-        body.lang-en .brand-name .line-bottom { font-size: 1.4rem; font-weight: 800; }
-        
-        .header-controls { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
-        .nav-menu { display: flex; align-items: center; gap: 2px; background: #242424; border: 0.5px solid #333; border-radius: 999px; padding: 4px; flex-wrap: wrap; }
-        .nav-link { cursor: pointer; font-size: 1rem; padding: 8px 18px; white-space: nowrap; position: relative; color: #ccc; border-radius: 999px; transition: all 0.3s ease; }
-        .nav-link:hover { color: #fff; }
-        .nav-link.active { font-weight: 700; background: #2ecc71; color: #0a2e18; }
-        .nav-link#nav-birds.active { background: #ff4d4d; color: #3a0d0d; }
-
-        .hamburger-btn { display: none; background: none; border: 0.5px solid #444; color: #ccc; border-radius: 8px; padding: 8px 12px; cursor: pointer; font-size: 1.1rem; line-height: 1; }
-        .hamburger-btn:hover { border-color: #2ecc71; color: #2ecc71; }
-
-        .mobile-drawer-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 998; }
-        .mobile-drawer-overlay.active { display: block; }
-        .mobile-drawer {
-            position: fixed; top: 0; right: 0; height: 100%; width: 260px; max-width: 80vw;
-            background: #181818; border-left: 0.5px solid #333; z-index: 999;
-            padding: 25px 20px; display: flex; flex-direction: column; gap: 8px;
-            transform: translateX(100%); transition: transform 0.35s ease;
-        }
-        body.lang-en .mobile-drawer { right: auto; left: 0; border-left: none; border-right: 0.5px solid #333; transform: translateX(-100%); }
-        .mobile-drawer.active { transform: translateX(0); }
-        .mobile-drawer-close { align-self: flex-end; background: none; border: none; color: #888; font-size: 1.3rem; cursor: pointer; margin-bottom: 15px; }
-        .mobile-drawer .nav-link { display: block; text-align: right; font-size: 1.15rem; padding: 12px 10px; border-radius: 8px; background: none; }
-        body.lang-en .mobile-drawer .nav-link { text-align: left; }
-        .mobile-drawer .nav-link.active { background: rgba(46, 204, 113, 0.12); color: #2ecc71; }
-        .mobile-drawer .nav-link#mnav-birds.active { background: rgba(255, 77, 77, 0.12); color: #ff4d4d; }
-        .mobile-drawer .dropdown-content { position: static; display: block; background: none; border: none; box-shadow: none; padding-right: 15px; }
-        .mobile-drawer .dropdown-content span { color: #999; font-size: 0.95rem; padding: 8px 10px; }
-
-        /* Breadcrumbs */
-        .breadcrumb { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-family: 'Cairo', sans-serif; font-size: 0.85rem; color: #888; margin-bottom: 25px; }
-        body.lang-en .breadcrumb { font-family: system-ui, sans-serif; }
-        .breadcrumb .crumb-link { cursor: pointer; transition: color 0.2s ease; }
-        .breadcrumb .crumb-link:hover { color: #2ecc71; }
-        .breadcrumb .crumb-current { color: #2ecc71; font-weight: 700; }
-
-        .dropdown { position: relative; display: inline-block; }
-        .dropdown-content { display: none; position: absolute; background-color: #1a1a1a; min-width: 200px; box-shadow: 0px 8px 16px rgba(0,0,0,0.2); z-index: 100; border: 1px solid #333; border-radius: 6px; top: 100%; right: 0; }
-        body.lang-en .dropdown-content { right: auto; left: 0; }
-        .dropdown-content span { color: #fff; padding: 12px 16px; text-decoration: none; display: block; font-size: 1.05rem; font-family: 'Cairo', sans-serif; cursor: pointer; text-align: right; }
-        body.lang-en .dropdown-content span { text-align: left; }
-        .dropdown-content span:hover { background-color: #2c2c2c; color: #2ecc71; }
-        .dropdown:hover .dropdown-content { display: block; }
-
-        .lang-switch-btn { background: none; border: 1px solid #000; padding: 4px 12px; cursor: pointer; font-family: 'Amiri', serif; white-space: nowrap; }
-        body.lang-en .lang-switch-btn { font-family: system-ui, sans-serif; }
-        
-        .dark-content-section { background-color: #1a1a1a; color: #ffffff; padding: 60px 20px; min-height: 600px; }
-        .content-container { max-width: 850px; margin: 0 auto; }
-        .section-title { font-family: 'Amiri', serif; font-size: 3.2rem; color: #2ecc71; margin-bottom: 35px; line-height: 1.2; }
-        body.lang-en .section-title { font-family: 'Playfair Display', serif; font-size: 2.8rem; }
-        
-        .main-text { font-family: 'Amiri', serif; font-size: 1.45rem; color: #f3f4f6; line-height: 2.1; text-align: justify; margin-bottom: 30px; }
-        body.lang-en .main-text { font-family: system-ui, sans-serif; font-size: 1.15rem; text-align: left; }
-        .main-text.highlight { color: #2ecc71; font-weight: 700; text-align: center; margin-bottom: 40px; }
-
-        /* صورة داخل مقالات المدونة (مثل صورة الأهوار) */
-        .article-img-wrapper { display: block; margin: 30px auto 8px; max-width: 100%; border-radius: 12px; overflow: hidden; border: 1px solid #333; }
-        .article-img-wrapper img { width: 100%; height: auto; display: block; }
-        .article-img-caption { text-align: center; color: #888; font-family: 'Cairo', sans-serif; font-size: 0.85rem; margin-top: 8px; margin-bottom: 25px; }
-        body.lang-en .article-img-caption { font-family: system-ui, sans-serif; }
-
-        /* كرت العرض التفصيلي الكامل للطائر (البلبل / الصقر) */
-        .bulbul-card { 
-            background: #222; 
-            border: 1px solid #333; 
-            border-radius: 16px; 
-            padding: 40px; 
-            text-align: center; 
-            margin-top: 20px; 
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
-            overflow: hidden;
-        }
-        .bulbul-card::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255, 77, 77, 0.03) 10px, rgba(255, 77, 77, 0.03) 20px);
-            pointer-events: none;
-        }
-        .alert-badge { display: inline-block; background: rgba(255, 77, 77, 0.1); color: #ff4d4d; padding: 4px 14px; border-radius: 50px; font-family: 'Cairo', sans-serif; font-size: 0.9rem; font-weight: 700; margin-bottom: 20px; border: 1px solid rgba(255, 77, 77, 0.2); position: relative; z-index: 2; }
-        
-        .bulbul-img-wrapper { 
-            display: inline-block; 
-            margin-bottom: 25px; 
-            border-radius: 12px; 
-            overflow: hidden; 
-            border: 2px dashed #ff4d4d; 
-            padding: 8px;
-            background: rgba(255, 77, 77, 0.02);
-            position: relative;
-        }
-        .bulbul-img-wrapper::after {
-            content: "⚠️";
-            position: absolute;
-            font-size: 5rem;
-            opacity: 0.15;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 1;
-            pointer-events: none;
-        }
-        .bulbul-img-wrapper img { max-width: 100%; width: 320px; height: auto; display: block; border-radius: 6px; position: relative; z-index: 2; }
-
-        .bird-detail-title { color: #ff4d4d; font-family: 'Amiri', serif; font-size: 1.9rem; margin-bottom: 20px; position: relative; z-index: 2; }
-        body.lang-en .bird-detail-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; }
-
-        /* ============== بطاقات طيورنا الوطنية التفاعلية ============== */
-        .bird-cards-grid { display: grid; grid-template-columns: 1fr; gap: 25px; margin-top: 10px; }
-        @media (min-width: 769px) { .bird-cards-grid { grid-template-columns: 1fr 1fr; } }
-
-        .bird-card {
-            background: #222;
-            border: 1px solid #333;
-            border-radius: 16px;
-            padding: 30px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
-            overflow: hidden;
-        }
-        .bird-card::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255, 77, 77, 0.03) 10px, rgba(255, 77, 77, 0.03) 20px);
-            pointer-events: none;
-        }
-        .bird-card:hover { border-color: #ff4d4d; box-shadow: 0 0 30px rgba(255, 77, 77, 0.3); transform: translateY(-4px); }
-
-        .bird-card-badge { display: inline-block; background: rgba(255, 77, 77, 0.1); color: #ff4d4d; padding: 4px 14px; border-radius: 50px; font-family: 'Cairo', sans-serif; font-size: 0.85rem; font-weight: 700; margin-bottom: 18px; border: 1px solid rgba(255, 77, 77, 0.2); position: relative; z-index: 2; }
-
-        .bird-card-img-wrapper { display: inline-block; margin-bottom: 20px; border-radius: 12px; overflow: hidden; border: 2px dashed #ff4d4d; padding: 6px; background: rgba(255, 77, 77, 0.02); position: relative; z-index: 2; }
-        .bird-card-img-wrapper img { width: 220px; max-width: 100%; height: auto; display: block; border-radius: 6px; }
-
-        .bird-card-title { font-family: 'Amiri', serif; font-size: 1.5rem; color: #ffffff; margin-bottom: 12px; position: relative; z-index: 2; }
-        body.lang-en .bird-card-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; }
-
-        .bird-card-excerpt { font-family: 'Amiri', serif; font-size: 1.05rem; color: #ccc; line-height: 1.7; text-align: justify; margin-bottom: 16px; position: relative; z-index: 2; }
-        body.lang-en .bird-card-excerpt { font-family: system-ui, sans-serif; font-size: 0.95rem; text-align: left; }
-
-        .bird-card-readmore { color: #ff4d4d; font-family: 'Cairo', sans-serif; font-weight: 700; font-size: 0.95rem; position: relative; z-index: 2; display: inline-block; transition: transform 0.3s; }
-        .bird-card:hover .bird-card-readmore { transform: translateX(-4px); }
-        body.lang-en .bird-card:hover .bird-card-readmore { transform: translateX(4px); }
-
-        .back-to-birds {
-            display: inline-block;
-            cursor: pointer;
-            color: #ff4d4d;
-            font-family: 'Cairo', sans-serif;
-            font-weight: 700;
-            font-size: 1.05rem;
-            margin-bottom: 30px;
-            padding: 8px 18px;
-            border: 1px solid #ff4d4d;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-        }
-        .back-to-birds:hover { background: #ff4d4d; color: #1a1a1a; }
-        /* ============================================================ */
-
-        /* بيئة شبكة الأهداف الموسمية - إشعاع وتوهج أخضر */
-        .goals-grid { display: grid; grid-template-columns: 1fr; gap: 25px; margin: 50px 0 20px 0; }
-        @media (min-width: 769px) { .goals-grid { grid-template-columns: 1fr 1fr; } }
-        
-        .goal-container { 
-            display: flex; 
-            align-items: center; 
-            justify-content: space-between; 
-            background: #222; 
-            border: 1px solid #333; 
-            padding: 25px; 
-            border-radius: 16px; 
-            gap: 15px;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
-        }
-        .goal-container:hover {
-            border-color: #2ecc71;
-            background: #202521;
-            box-shadow: 0 0 25px rgba(46, 204, 113, 0.25);
-            transform: translateY(-2px);
-        }
-
-        .goal-info { flex: 1; }
-        .goal-badge { display: inline-block; background: rgba(46, 204, 113, 0.1); color: #2ecc71; padding: 3px 10px; border-radius: 50px; font-family: 'Cairo', sans-serif; font-size: 0.8rem; font-weight: 700; margin-bottom: 10px; letter-spacing: 0.5px; }
-        .goal-title { font-family: 'Cairo', sans-serif; font-size: 1.35rem; font-weight: 700; color: #ffffff; margin-bottom: 6px; }
-        .goal-subtitle { font-family: 'Amiri', serif; font-size: 1.1rem; color: #aaa; line-height: 1.4; text-align: justify; }
-        body.lang-en .goal-subtitle { font-family: system-ui, sans-serif; font-size: 0.9rem; text-align: left; }
-        
-        .goal-visual { position: relative; width: 110px; height: 110px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-        .goal-visual svg { transform: rotate(-90deg); width: 110px; height: 110px; }
-        .circle-bg { fill: none; stroke: #2a2a2a; stroke-width: 8; }
-        .circle-progress { fill: none; stroke: #2ecc71; stroke-width: 8; stroke-linecap: round; transition: stroke-dashoffset 1s ease-in-out; opacity: 0.4; }
-        
-        .goal-container:hover .circle-progress {
-            filter: drop-shadow(0 0 5px #2ecc71);
-            opacity: 1;
-        }
-
-        .goal-counter-text { position: absolute; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; line-height: 1.1; }
-        .counter-number { font-family: 'Cairo', sans-serif; font-size: 1.25rem; font-weight: 700; color: #ffffff; }
-        .counter-label { font-family: 'Cairo', sans-serif; font-size: 0.7rem; color: #888; margin-top: 1px; }
-
-        .page-view-section { display: none; }
-        .page-view-section.active { display: block; }
-
-        /* ============== بطاقات المدونة التفاعلية ============== */
-        .blog-cards-grid { display: grid; grid-template-columns: 1fr; gap: 25px; }
-        @media (min-width: 769px) { .blog-cards-grid { grid-template-columns: 1fr 1fr; } }
-
-        .blog-card {
-            background: #222;
-            border: 1px solid #333;
-            border-radius: 16px;
-            padding: 30px;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-        .blog-card:hover {
-            border-color: #2ecc71;
-            background: #202521;
-            box-shadow: 0 0 25px rgba(46, 204, 113, 0.25);
-            transform: translateY(-4px);
-        }
-        .blog-card-badge {
-            align-self: flex-start;
-            background: rgba(46, 204, 113, 0.1);
-            color: #2ecc71;
-            padding: 3px 12px;
-            border-radius: 50px;
-            font-family: 'Cairo', sans-serif;
-            font-size: 0.8rem;
-            font-weight: 700;
-        }
-        body.lang-en .blog-card-badge { align-self: flex-start; }
-        .blog-card-title {
-            font-family: 'Amiri', serif;
-            font-size: 1.7rem;
-            color: #ffffff;
-            line-height: 1.3;
-        }
-        body.lang-en .blog-card-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; }
-        .blog-card-date {
-            color: #888;
-            font-family: 'Cairo', sans-serif;
-            font-size: 0.85rem;
-        }
-        body.lang-en .blog-card-date { font-family: system-ui, sans-serif; }
-        .blog-card-excerpt {
-            font-family: 'Amiri', serif;
-            font-size: 1.1rem;
-            color: #ccc;
-            line-height: 1.7;
-            text-align: justify;
-        }
-        body.lang-en .blog-card-excerpt { font-family: system-ui, sans-serif; font-size: 0.95rem; text-align: left; }
-        .blog-card-readmore {
-            margin-top: auto;
-            color: #2ecc71;
-            font-family: 'Cairo', sans-serif;
-            font-weight: 700;
-            font-size: 0.95rem;
-            align-self: flex-start;
-            transition: transform 0.3s;
-        }
-        .blog-card:hover .blog-card-readmore { transform: translateX(-4px); }
-        body.lang-en .blog-card:hover .blog-card-readmore { transform: translateX(4px); }
-
-        .blog-detail-view { display: none; }
-        .back-to-blog {
-            display: inline-block;
-            cursor: pointer;
-            color: #2ecc71;
-            font-family: 'Cairo', sans-serif;
-            font-weight: 700;
-            font-size: 1.05rem;
-            margin-bottom: 30px;
-            padding: 8px 18px;
-            border: 1px solid #2ecc71;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-        }
-        .back-to-blog:hover { background: #2ecc71; color: #1a1a1a; }
-        /* ============================================================ */
-
-        /* صفحة المدونة (المقال الفردي) */
-        .blog-item-title { color: #2ecc71; font-size: 2.5rem; margin-bottom: 10px; line-height: 1.2; font-family: 'Amiri', serif; }
-        body.lang-en .blog-item-title { font-family: 'Playfair Display', serif; font-size: 2rem; }
-        .blog-item-date { color: #888; text-decoration: underline; display: block; margin-bottom: 20px; font-family: 'Cairo', sans-serif; font-size: 0.95rem; }
-        body.lang-en .blog-item-date { font-family: system-ui, sans-serif; }
-
-        .telegram-action { margin-top: 50px; text-align: center; }
-        .telegram-link-btn { display: inline-block; padding: 12px 35px; border: 2px solid #2ecc71; color: #2ecc71; text-decoration: none; font-size: 1.3rem; font-weight: 700; text-align: center; max-width: 100%; transition: all 0.3s ease; }
-        .telegram-link-btn:hover { background-color: #2ecc71; color: #1a1a1a; }
-        
-        /* دليل الإنبات المعرفي */
-        .growth-guide-box { border: 1px solid #333; background: #222; border-radius: 16px; padding: 35px; margin-top: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
-        .guide-steps-ol { list-style: none; margin: 25px 0 35px 0; font-size: 1.25rem; line-height: 1.9; }
-        body.lang-en .guide-steps-ol { font-family: system-ui, sans-serif; font-size: 1.05rem; }
-        .guide-steps-ol li { margin-bottom: 15px; color: #e5e7eb; padding: 10px; border-radius: 8px; transition: background-color 0.3s; }
-        .guide-steps-ol li.highlight-step { background-color: #2d2d2d; border-right: 4px solid #2ecc71; }
-        body.lang-en .guide-steps-ol li.highlight-step { border-right: none; border-left: 4px solid #2ecc71; }
-        .guide-steps-ol strong { color: #2ecc71; font-family: 'Cairo', sans-serif; font-size: 1.1rem; }
-        body.lang-en .guide-steps-ol strong { font-family: system-ui, sans-serif; font-size: 1.05rem; }
-        
-        /* جداول الإنبات */
-        .table-responsive-container { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; margin-top: 20px; border-radius: 8px; }
-        .growth-table { width: 100%; border-collapse: collapse; font-family: 'Cairo', sans-serif; font-size: 0.95rem; background: #151515; min-width: 550px; }
-        body.lang-en .growth-table { font-family: system-ui, sans-serif; }
-        .growth-table th, .growth-table td { padding: 14px 18px; text-align: right; border-bottom: 1px solid #2d2d2d; color: #ffffff !important; }
-        body.lang-en .growth-table th, body.lang-en .growth-table td { text-align: left; }
-        .growth-table th { background: #2c2c2c; color: #2ecc71 !important; }
-
-        .site-footer { margin-top: 60px; border-top: 1px solid #333; padding-top: 30px; color: #666; font-size: 0.95rem; text-align: center; }
-
-        /* متجاوب مع الجوال */
-        @media (max-width: 768px) {
-            .site-header-inner { padding: 14px 15px; }
-            .brand-name .line-bottom { font-size: 1.4rem; letter-spacing: -1px; }
-            
-            .nav-menu { display: none; }
-            .hamburger-btn { display: block; }
-            
-            .dropdown-content { right: 50%; transform: translateX(50%); text-align: center; }
-            body.lang-en .dropdown-content { left: 50%; right: auto; transform: translateX(-50%); }
-
-            .goals-grid { grid-template-columns: 1fr; gap: 20px; }
-            .goal-container { flex-direction: column; text-align: center; padding: 20px; }
-            .goal-subtitle { text-align: center; }
-            body.lang-en .goal-subtitle { text-align: center; }
-            .goal-visual { order: -1; }
-
-            .dark-content-section { padding: 40px 15px; }
-            .section-title { font-size: 2.2rem; margin-bottom: 25px; }
-            body.lang-en .section-title { font-size: 2.0rem; }
-            
-            .blog-item-title { font-size: 1.8rem; }
-            .main-text { font-size: 1.2rem; line-height: 1.8; text-align: justify; margin-bottom: 20px; }
-            body.lang-en .main-text { text-align: left; }
-
-            .blog-cards-grid { grid-template-columns: 1fr; gap: 18px; }
-            .blog-card { padding: 22px; }
-            .blog-card-title { font-size: 1.4rem; }
-
-            .bird-cards-grid { grid-template-columns: 1fr; gap: 18px; }
-            .bird-card { padding: 22px; }
-            .bird-card-title { font-size: 1.3rem; }
-
-            .growth-guide-box { padding: 20px 15px; border-radius: 12px; }
-            .guide-steps-ol { margin: 15px 0 25px 0; font-size: 1.1rem; }
-            
-            .telegram-action { margin-top: 40px; text-align: center; }
-            .telegram-link-btn { width: 100%; padding: 12px 20px; font-size: 1.1rem; }
-        }
-    </style>
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-
-    <header class="site-header">
-        <div class="site-header-inner">
-            <div class="brand-name" id="text-brand">
-                <span class="line-top" id="text-brand-top">أرْض</span>
-                <span class="line-bottom" id="text-brand-bottom">السَّــــــــــــــــــــــــوَاد</span>
-            </div>
-            <div class="header-controls">
-                <nav class="nav-menu">
-                    <span class="nav-link active" id="nav-home" onclick="navigateTo('home')">الرئيسية</span>
-                    <span class="nav-link" id="nav-birds" onclick="navigateTo('birds')">طيورنا الوطنية</span>
-                    
-                    <div class="dropdown">
-                        <span class="nav-link" id="nav-guide" onclick="navigateTo('guide')">الدليل العلمي</span>
-                        <div class="dropdown-content">
-                            <span id="sub-thermal" onclick="navigateToGuideAndHighlight('thermal')">أنواع التخديد: الحراري</span>
-                            <span id="sub-mechanical" onclick="navigateToGuideAndHighlight('mechanical')">أنواع التخديد: الميكانيكي</span>
-                        </div>
+<header class="site-header">
+    <div class="site-header-inner">
+        <a href="index.html" class="brand-name">
+            <span class="line-top" data-i18n="brandTop">أرْض</span>
+            <span class="line-bottom" data-i18n="brandBottom">السَّــــــــــــــــــــــــوَاد</span>
+        </a>
+        <div class="header-controls">
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link active" data-i18n="navHome">الرئيسية</a>
+                <a href="birds.html" class="nav-link" data-i18n="navBirds">طيورنا الوطنية</a>
+                <div class="dropdown">
+                    <a href="guide.html" class="nav-link" data-i18n="navGuide">الدليل العلمي</a>
+                    <div class="dropdown-content">
+                        <a href="guide.html#step-thermal" data-i18n="subThermal">أنواع التخديد: الحراري</a>
+                        <a href="guide.html#step-mechanical" data-i18n="subMechanical">أنواع التخديد: الميكانيكي</a>
                     </div>
+                </div>
+                <a href="blog.html" class="nav-link" data-i18n="navBlog">المدونة</a>
+            </nav>
+            <button class="lang-switch-btn" data-i18n="langBtn" onclick="toggleLanguage()">English</button>
+            <button class="hamburger-btn" onclick="toggleMobileMenu()">☰</button>
+        </div>
+    </div>
+</header>
 
-                    <span class="nav-link" id="nav-blog" onclick="navigateTo('blog')">المدونة</span>
-                </nav>
-                <button class="lang-switch-btn" id="lang-toggle-btn" onclick="toggleLanguage()">English</button>
-                <button class="hamburger-btn" id="hamburger-btn" onclick="toggleMobileMenu()">☰</button>
+<div class="mobile-drawer-overlay" id="mobile-drawer-overlay" onclick="closeMobileMenu()"></div>
+<nav class="mobile-drawer" id="mobile-drawer">
+    <button class="mobile-drawer-close" onclick="closeMobileMenu()">✕</button>
+    <a href="index.html" class="nav-link active" data-i18n="navHome">الرئيسية</a>
+    <a href="birds.html" class="nav-link" data-i18n="navBirds">طيورنا الوطنية</a>
+    <div class="dropdown">
+        <a href="guide.html" class="nav-link" data-i18n="navGuide">الدليل العلمي</a>
+        <div class="dropdown-content">
+            <a href="guide.html#step-thermal" data-i18n="subThermal">أنواع التخديد: الحراري</a>
+            <a href="guide.html#step-mechanical" data-i18n="subMechanical">أنواع التخديد: الميكانيكي</a>
+        </div>
+    </div>
+    <a href="blog.html" class="nav-link" data-i18n="navBlog">المدونة</a>
+</nav>
+<main class="dark-content-section">
+<div class="content-container">
+
+<h1 class="section-title">
+    <span data-lang="ar">تنهض رؤيتنا من مفارقة معاصرة</span>
+    <span data-lang="en">Our Vision Rises From a Modern Paradox</span>
+</h1>
+
+<div data-lang="ar">
+    <p class="main-text">"نلتقي كرابطة رقمية موحدة خلف الشاشات، لكننا نتحرك كإرادات فردية تغير أرض الواقع. إن أزمة المناخ والتصحر التي يعيشها العراق اليوم تفرض علينا كشباب أن نترك عاطفة 'التشجير الموسمي' المحدودة بالمكان والميزانيات، وننتقل فوراً إلى فضاء 'التنمية المستدامة' المبني على خطط علمية حقيقية."</p>
+    <p class="main-text">"فبناء المدن الخضراء يحتاج وعياً معرفياً يتجاوز الحلول الترقيعية العابرة ليصبح إرثاً حياً تحتمي به الأجيال القادمة. ومن هنا، تفتح هذه المنصة العلمية الباب لكل أبناء وبنات شعبنا العراقي أينما وجدوا؛ من جبال زاخو في أقصى الشمال إلى شواطئ الفاو في أقصى الجنوب، ومن صحراء الرطبة غرباً إلى مرتفعات بنجوين شرقاً."</p>
+    <p class="main-text">"لم يعد بُعد المسافة عائقاً، سنطوي مسافات جغرافيتنا رقمياً لنلتحم في غرس واقعي، ونعيد معاً صياغة الهوية البيئية لأرضنا العراقية الجَمَّاء."</p>
+</div>
+<div data-lang="en">
+    <p class="main-text">"We gather as a digital union behind screens, yet we operate as individual forces transforming reality. Iraq's current climate and desertification crisis demand that we leave behind the emotion of 'seasonal planting'—limited by geography and budgets—and pivot immediately toward 'Sustainable Development' anchored in genuine scientific plans."</p>
+    <p class="main-text">"Building green cities requires a cognitive awareness that transcends brief, cosmetic patches to become a living legacy for future generations. Thus, this scientific platform opens its doors to every citizen across Iraq: from the peaks of Zakho in the far north to the shores of Faw in the deep south, from the Rutba desert in the west to the Penjwen heights in the east."</p>
+    <p class="main-text">"Distance is no longer a barrier; we will bridge our geography digitally to unite in physical sowing, rewriting the ecological identity of our beautiful Mesopotamian land together."</p>
+</div>
+
+<p class="main-text highlight">
+    <span data-lang="ar">الفكرة علمية.. والتنفيذ بسواعدنا.</span>
+    <span data-lang="en">The idea is scientific.. and the execution is by our hands.</span>
+</p>
+
+<div class="goals-grid">
+    <div class="goal-container">
+        <div class="goal-info">
+            <span class="goal-badge"><span data-lang="ar">هدف التنوع البيولوجي</span><span data-lang="en">Biodiversity Goal</span></span>
+            <h3 class="goal-title"><span data-lang="ar">5,000 شجرة ألبيزيا</span><span data-lang="en">5,000 Albizia Trees</span></h3>
+            <p class="goal-subtitle">
+                <span data-lang="ar">إقامة أحزمة وقائية مستدامة لكسر حدة الرياح الصحراوية وتثبيت التربة.</span>
+                <span data-lang="en">Establishing sustainable protective belts to break desert winds and stabilize the soil.</span>
+            </p>
+        </div>
+        <div class="goal-visual">
+            <svg viewBox="0 0 110 110">
+                <circle class="circle-bg" cx="55" cy="55" r="45"></circle>
+                <circle class="circle-progress" cx="55" cy="55" r="45" stroke-dasharray="282.7" stroke-dashoffset="282.7"></circle>
+            </svg>
+            <div class="goal-counter-text">
+                <span class="counter-number">5k</span>
+                <span class="counter-label"><span data-lang="ar">مستهدف</span><span data-lang="en">Target</span></span>
             </div>
         </div>
-    </header>
+    </div>
 
-    <div class="mobile-drawer-overlay" id="mobile-drawer-overlay" onclick="closeMobileMenu()"></div>
-    <nav class="mobile-drawer" id="mobile-drawer">
-        <button class="mobile-drawer-close" onclick="closeMobileMenu()">✕</button>
-        <span class="nav-link active" id="mnav-home" onclick="navigateTo('home'); closeMobileMenu();">الرئيسية</span>
-        <span class="nav-link" id="mnav-birds" onclick="navigateTo('birds'); closeMobileMenu();">طيورنا الوطنية</span>
-        <div class="dropdown">
-            <span class="nav-link" id="mnav-guide" onclick="navigateTo('guide'); closeMobileMenu();">الدليل العلمي</span>
-            <div class="dropdown-content">
-                <span id="msub-thermal" onclick="navigateToGuideAndHighlight('thermal'); closeMobileMenu();">أنواع التخديد: الحراري</span>
-                <span id="msub-mechanical" onclick="navigateToGuideAndHighlight('mechanical'); closeMobileMenu();">أنواع التخديد: الميكانيكي</span>
+    <div class="goal-container">
+        <div class="goal-info">
+            <span class="goal-badge"><span data-lang="ar">هدف التنوع البيولوجي</span><span data-lang="en">Biodiversity Goal</span></span>
+            <h3 class="goal-title"><span data-lang="ar">5,000 شجرة سدر</span><span data-lang="en">5,000 Sidr Trees</span></h3>
+            <p class="goal-subtitle">
+                <span data-lang="ar">تعزيز الغطاء الأصيل المقاوم للجفاف وإعادة التوازن البيئي للبيئة المحلية.</span>
+                <span data-lang="en">Enhancing native, drought-resistant canopy to restore ecological balance locally.</span>
+            </p>
+        </div>
+        <div class="goal-visual">
+            <svg viewBox="0 0 110 110">
+                <circle class="circle-bg" cx="55" cy="55" r="45"></circle>
+                <circle class="circle-progress" cx="55" cy="55" r="45" stroke-dasharray="282.7" stroke-dashoffset="282.7"></circle>
+            </svg>
+            <div class="goal-counter-text">
+                <span class="counter-number">5k</span>
+                <span class="counter-label"><span data-lang="ar">مستهدف</span><span data-lang="en">Target</span></span>
             </div>
         </div>
-        <span class="nav-link" id="mnav-blog" onclick="navigateTo('blog'); closeMobileMenu();">المدونة</span>
-    </nav>
+    </div>
+</div>
 
-    <main class="dark-content-section">
-        <div class="content-container">
-            
-            <!-- 1. الصفحة الرئيسية -->
-            <div id="home-content-area" class="page-view-section active">
-                <h1 class="section-title" id="text-home-title">تنهض رؤيتنا من مفارقة معاصرة</h1>
-                
-                <div id="text-home-body">
-                    <p class="main-text">"نلتقي كرابطة رقمية موحدة خلف الشاشات، لكننا نتحرك كإرادات فردية تغير أرض الواقع. إن أزمة المناخ والتصحر التي يعيشها العراق اليوم تفرض علينا كشباب أن نترك عاطفة 'التشجير الموسمي' المحدودة بالمكان والميزانيات، وننتقل فوراً إلى فضاء 'التنمية المستدامة' المبني على خطط علمية حقيقية."</p>
-                    <p class="main-text">"فبناء المدن الخضراء يحتاج وعياً معرفياً يتجاوز الحلول الترقيعية العابرة ليصبح إرثاً حياً تحتمي به الأجيال القادمة. ومن هنا، تفتح هذه المنصة العلمية الباب لكل أبناء وبنات شعبنا العراقي أينما وجدوا؛ من جبال زاخو في أقصى الشمال إلى شواطئ الفاو في أقصى الجنوب، ومن صحراء الرطبة غرباً إلى مرتفعات بنجوين شرقاً."</p>
-                    <p class="main-text">"لم يعد بُعد المسافة عائقاً، سنطوي مسافات جغرافيتنا رقمياً لنلتحم في غرس واقعي، ونعيد معاً صياغة الهوية البيئية لأرضنا العراقية الجَمَّاء."</p>
-                </div>
-                
-                <p class="main-text highlight" id="text-home-highlight">الفكرة علمية.. والتنفيذ بسواعدنا.</p>
-                
-                <div class="goals-grid">
-                    <div class="goal-container">
-                        <div class="goal-info">
-                            <span class="goal-badge" id="txt-goal1-badge">هدف التنوع البيولوجي</span>
-                            <h3 class="goal-title" id="txt-goal1-title">5,000 شجرة ألبيزيا</h3>
-                            <p class="goal-subtitle" id="txt-goal1-subtitle">إقامة أحزمة وقائية مستدامة لكسر حدة الرياح الصحراوية وتثبيت التربة.</p>
-                        </div>
-                        <div class="goal-visual">
-                            <svg>
-                                <circle class="circle-bg" cx="55" cy="55" r="45"></circle>
-                                <circle class="circle-progress" cx="55" cy="55" r="45" stroke-dasharray="282.7" stroke-dashoffset="282.7"></circle>
-                            </svg>
-                            <div class="goal-counter-text">
-                                <span class="counter-number" id="txt-counter1-num">5k</span>
-                                <span class="counter-label" id="txt-counter1-label">مستهدف</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="goal-container">
-                        <div class="goal-info">
-                            <span class="goal-badge" id="txt-goal2-badge">هدف التنوع البيولوجي</span>
-                            <h3 class="goal-title" id="txt-goal2-title">5,000 شجرة سدر</h3>
-                            <p class="goal-subtitle" id="txt-goal2-subtitle">تعزيز الغطاء الأصيل المقاوم للجفاف وإعادة التوازن البيئي للبيئة المحلية.</p>
-                        </div>
-                        <div class="goal-visual">
-                            <svg>
-                                <circle class="circle-bg" cx="55" cy="55" r="45"></circle>
-                                <circle class="circle-progress" cx="55" cy="55" r="45" stroke-dasharray="282.7" stroke-dashoffset="282.7"></circle>
-                            </svg>
-                            <div class="goal-counter-text">
-                                <span class="counter-number" id="txt-counter2-num">5k</span>
-                                <span class="counter-label" id="txt-counter2-label">مستهدف</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 2. صفحة طيورنا الوطنية (بطاقات تفاعلية) -->
-            <div id="birds-content-area" class="page-view-section">
-                <h1 class="section-title" id="text-birds-title" style="color: #ff4d4d;">رحيل الألحان: حين تصمت بساتيننا</h1>
-
-                <!-- عرض قائمة بطاقات الطيور -->
-                <div id="birds-list-view">
-                    <div class="bird-cards-grid">
-                        <div class="bird-card" onclick="openBirdPost('bulbul')">
-                            <span class="bird-card-badge" id="txt-bulbul-card-badge">⚠️ مهدد بخطر الانقراض</span>
-                            <div class="bird-card-img-wrapper">
-                                <img src="BilbalJPG.jpeg" alt="البلبل العراقي">
-                            </div>
-                            <h3 class="bird-card-title" id="txt-bulbul-card-title">البلبل العراقي</h3>
-                            <p class="bird-card-excerpt" id="txt-bulbul-card-excerpt">لم يعد البلبل العراقي يغرد كما كان في صباحات بغداد والبصرة؛ يواجه اليوم تهديدات وجودية من تجريف البساتين والصيد الجائر وموجات الجفاف الشديدة...</p>
-                            <span class="bird-card-readmore" id="txt-bird-readmore-1">تعرّف على القصة كاملة ←</span>
-                        </div>
-
-                        <div class="bird-card" onclick="openBirdPost('falcon')">
-                            <span class="bird-card-badge" id="txt-falcon-card-badge">⚠️ مهدد بالتهريب والاستنزاف</span>
-                            <div class="bird-card-img-wrapper">
-                                <img src="الصقر الحر.jpg" alt="الصقر الحر العراقي">
-                            </div>
-                            <h3 class="bird-card-title" id="txt-falcon-card-title">الصقر الحر العراقي</h3>
-                            <p class="bird-card-excerpt" id="txt-falcon-card-excerpt">يتربع الصقر الحر العراقي كرمزٍ للشموخ والهوية الوطنية، لكنه يواجه اليوم أشرس حملات الصيد الجائر والتهريب عبر الحدود إلى دول الخليج...</p>
-                            <span class="bird-card-readmore" id="txt-bird-readmore-2">تعرّف على القصة كاملة ←</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- عرض تفاصيل الطائر المفتوح -->
-                <div id="birds-detail-view" class="blog-detail-view">
-                    <div id="birds-detail-content"></div>
-                </div>
-            </div>
-
-            <!-- 3. صفحة الدليل العلمي -->
-            <div id="guide-content-area" class="page-view-section">
-                <div class="growth-guide-box">
-                    <h2 class="section-title" id="guide-main-title" style="font-size: 2rem; margin-bottom: 10px;">دليل الإنبات العلمي (Scarification Guide)</h2>
-                    <p id="guide-main-desc" style="color: #ccc; margin-bottom: 20px;">كيف ننتقل من العاطفة العابرة إلى المعرفة الاستراتيجية لرفع نسب نجاح البذور القاسية?</p>
-                    
-                    <ol class="guide-steps-ol" id="guide-steps-list">
-                        <li id="step-thermal"><strong>١. التخديد المائي (Thermal Scarification):</strong> بذور الألبيزيا تمتلك غلافاً شمعياً سميكاً يمنع دخول الماء. يُنصح بنقع البذور في ماء ساخن (وليس مغلي) لمدة ١٢-٢٤ ساعة حتى تتفتح وتنتفخ وتصبح جاهزة للزراعة.</li>
-                        <li id="step-mechanical"><strong>٢. التخديد الميكانيكي (Mechanical Scarification):</strong> كبديل سريع ومثالي للمجموعات الصغيرة، يمكن خدش أو كشط طرف الغلاف الخارجي الصلب للبذرة برفق باستخدام مقص أظافر أو ورق سنفرة (دون مساس الجنين الداخلي) للسماح بنفاذ الماء الفوري وسرعة الإنبات.</li>
-                        <li id="step-depth"><strong>٣. عمق الغرس العلمي (Systematic Depth):</strong> تُزرع البذور المعالجة على عمق سطحي حذر لا يتجاوز ١ إلى ٢ سم في تربة جيدة التصريف لتأمين الأكسجين الكافي للنمو.</li>
-                        <li id="step-watering"><strong>٤. مراقبة الرطوبة الحذرة (Measured Watering):</strong> الحفاظ على رطوبة التربة خفيفة وبدون إغراق، لتفادي تعفن الجذور في مراحل الإنبات الحرجة الأولى.</li>
-                    </ol>
-
-                    <h4 id="guide-table-title" style="font-family: 'Cairo', sans-serif; font-size: 1.1rem; color: #2ecc71; margin-bottom: 15px;">جدول المراقبة المعرفي ومعدلات النمو المتوقعة:</h4>
-                    
-                    <div class="table-responsive-container">
-                        <table class="growth-table">
-                            <thead>
-                                <tr>
-                                    <th id="th-period">المرحلة الزمنية</th>
-                                    <th id="th-albizia">معدل نمو الألبيزيا المتوقع</th>
-                                    <th id="th-leucaena">معدل نمو السدر المتوقع</th>
-                                </tr>
-                            </thead>
-                            <tbody id="guide-table-body">
-                                <tr>
-                                    <td>الأسبوع الأول</td>
-                                    <td>بروز الجذير وانشقاق التربة (٢-٤ سم)</td>
-                                    <td>ظهور الأوراق الأولى والنمو الحذر (٣-٥ سم)</td>
-                                </tr>
-                                <tr>
-                                    <td>الأسبوع الثاني</td>
-                                    <td>ظهور الأوراق الريشية المركبة (٦-١٠ سم)</td>
-                                    <td>استطالة الساق وزيادة التفرع الجذري (٨-١٤ سم)</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 4. صفحة المدونة -->
-            <div id="blog-content-area" class="page-view-section">
-
-                <!-- عرض قائمة البطاقات -->
-                <div id="blog-list-view">
-                    <div class="blog-cards-grid">
-                        <div class="blog-card" onclick="openBlogPost('post3')">
-                            <span class="blog-card-badge" id="txt-blog3-card-badge">سياسة بيئية</span>
-                            <h3 class="blog-card-title" id="txt-blog3-card-title">بين مطرقة الضغوط السياسية وسندان الاندثار البيئي</h3>
-                            <span class="blog-card-date" id="txt-blog3-card-date">٨ تموز، ٢٠٢٦</span>
-                            <p class="blog-card-excerpt" id="txt-blog3-card-excerpt">ما نشهده اليوم ليس مجرد تغير مناخي عالمي، بل "تجريف ممنهج" للهوية البيئية للعراق، استغل فيه المتربصون هشاشة السلطة الرقابية لفرض واقع بيئي قاتم...</p>
-                            <span class="blog-card-readmore" id="txt-readmore-3">اقرأ المقال كاملاً ←</span>
-                        </div>
-
-                        <div class="blog-card" onclick="openBlogPost('post2')">
-                            <span class="blog-card-badge" id="txt-blog2-card-badge">توعية بيئية</span>
-                            <h3 class="blog-card-title" id="txt-blog2-card-title">البلبل العراقي في مواجهة الاندثار: لماذا نحتاج إلى "الإطلاق اللين"؟</h3>
-                            <span class="blog-card-date" id="txt-blog2-card-date">٢٨ حزيران، ٢٠٢٦</span>
-                            <p class="blog-card-excerpt" id="txt-blog2-card-excerpt">يُعرف الإطلاق اللين علمياً باسم "طوق النجاة البيئي"، وهو منهجية علمية لإعادة توطين الطيور تعتمد على مرحلة انتقالية تمنحها فرصة لاستعادة لياقتها والتأقلم قبل الاعتماد الكلي على نفسها...</p>
-                            <span class="blog-card-readmore" id="txt-readmore-2">اقرأ المقال كاملاً ←</span>
-                        </div>
-
-                        <div class="blog-card" onclick="openBlogPost('post1')">
-                            <span class="blog-card-badge" id="txt-blog1-card-badge">زراعة ومناخ</span>
-                            <h3 class="blog-card-title" id="txt-blog1-card-title">البداية الحقيقية: لماذا الألبيزيا والسدر؟</h3>
-                            <span class="blog-card-date" id="txt-blog1-card-date">١٨ حزيران، ٢٠٢٦</span>
-                            <p class="blog-card-excerpt" id="txt-blog1-card-excerpt">تعتبر أشجار الألبيزيا والسدر خيارات استراتيجية لمواجهة التغير المناخي؛ نظراً لقدرتها الفائقة على تحمل الحرارة ومقاومة الجفاف ودورها في تثبيت التربة...</p>
-                            <span class="blog-card-readmore" id="txt-readmore-1">اقرأ المقال كاملاً ←</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- عرض تفاصيل المقال المفتوح -->
-                <div id="blog-detail-view" class="blog-detail-view">
-                    <div id="blog-detail-content"></div>
-                </div>
-
-            </div>
-
-            <!-- زر التليغرام -->
             <div class="telegram-action">
-                <a href="https://t.me/alsawad1qr" target="_blank" class="telegram-link-btn" id="text-telegram-btn">الانضمام إلى القناة الرسمية في تليغرام ←</a>
+                <a href="https://t.me/alsawad1qr" target="_blank" class="telegram-link-btn" data-i18n="telegramBtn">الانضمام إلى القناة الرسمية في تليغرام ←</a>
             </div>
-
-            <footer class="site-footer" id="text-footer">جميع الحقوق محفوظة © أرض السَّواد ٢٠٢٦</footer>
+            <footer class="site-footer" data-i18n="footer">جميع الحقوق محفوظة © أرض السَّواد ٢٠٢٦</footer>
         </div>
     </main>
-
-    <script>
-        let currentLang = 'ar';
-        let currentBlogPost = null; // 'post1' | 'post2' | 'post3' | null
-        let currentBirdPost = null; // 'bulbul' | 'falcon' | null
-
-        function navigateTo(page) {
-            document.getElementById('home-content-area').classList.toggle('active', page === 'home');
-            document.getElementById('birds-content-area').classList.toggle('active', page === 'birds');
-            document.getElementById('guide-content-area').classList.toggle('active', page === 'guide');
-            document.getElementById('blog-content-area').classList.toggle('active', page === 'blog');
-            
-            ['nav-home','nav-birds','nav-guide','nav-blog','mnav-home','mnav-birds','mnav-guide','mnav-blog'].forEach(id => {
-                const key = id.replace('mnav-', 'nav-').replace('nav-', '');
-                document.getElementById(id).classList.toggle('active', page === key);
-            });
-
-            document.getElementById('step-thermal').classList.remove('highlight-step');
-            document.getElementById('step-mechanical').classList.remove('highlight-step');
-
-            // عند الدخول لصفحة المدونة أو الطيور من القائمة، ارجع دائماً لعرض البطاقات
-            if (page === 'blog') { closeBlogPost(); }
-            if (page === 'birds') { closeBirdPost(); }
-
-            closeMobileMenu();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // القائمة الجانبية للجوال
-        function toggleMobileMenu() {
-            document.getElementById('mobile-drawer').classList.toggle('active');
-            document.getElementById('mobile-drawer-overlay').classList.toggle('active');
-        }
-        function closeMobileMenu() {
-            document.getElementById('mobile-drawer').classList.remove('active');
-            document.getElementById('mobile-drawer-overlay').classList.remove('active');
-        }
-
-        // بناء شريط التنقل التفصيلي (Breadcrumb)
-        function buildBreadcrumb(sectionKey, sectionLabel, closeFnName, currentTitle) {
-            const data = languages[currentLang];
-            return `<div class="breadcrumb">
-                <span class="crumb-link" onclick="navigateTo('home')">${data.navHome}</span>
-                <span>/</span>
-                <span class="crumb-link" onclick="${closeFnName}()">${sectionLabel}</span>
-                <span>/</span>
-                <span class="crumb-current">${currentTitle}</span>
-            </div>`;
-        }
-
-        function navigateToGuideAndHighlight(type) {
-            navigateTo('guide');
-            const targetId = type === 'thermal' ? 'step-thermal' : 'step-mechanical';
-            const otherId = type === 'thermal' ? 'step-mechanical' : 'step-thermal';
-            
-            setTimeout(() => {
-                document.getElementById(targetId).classList.add('highlight-step');
-                document.getElementById(otherId).classList.remove('highlight-step');
-                document.getElementById(targetId).scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }, 100);
-        }
-
-        // فتح مقال معيّن من البطاقة
-        function openBlogPost(id) {
-            currentBlogPost = id;
-            document.getElementById('blog-list-view').style.display = 'none';
-            document.getElementById('blog-detail-view').style.display = 'block';
-            renderBlogDetail();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // الرجوع لقائمة بطاقات المدونة
-        function closeBlogPost() {
-            currentBlogPost = null;
-            document.getElementById('blog-detail-view').style.display = 'none';
-            document.getElementById('blog-list-view').style.display = 'block';
-        }
-
-        // فتح بطاقة طائر معيّن
-        function openBirdPost(id) {
-            currentBirdPost = id;
-            document.getElementById('birds-list-view').style.display = 'none';
-            document.getElementById('birds-detail-view').style.display = 'block';
-            renderBirdDetail();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // الرجوع لقائمة بطاقات الطيور
-        function closeBirdPost() {
-            currentBirdPost = null;
-            document.getElementById('birds-detail-view').style.display = 'none';
-            document.getElementById('birds-list-view').style.display = 'block';
-        }
-
-        // رسم محتوى المقال المفتوح حسب اللغة الحالية
-        function renderBlogDetail() {
-            if (!currentBlogPost) return;
-            const data = languages[currentLang];
-            const container = document.getElementById('blog-detail-content');
-
-            if (currentBlogPost === 'post3') {
-                container.innerHTML = `
-                    <h2 class="blog-item-title">${data.blog3Title}</h2>
-                    <span class="blog-item-date">${data.blog3Date}</span>
-                    ${data.blog3Body}
-                `;
-            } else if (currentBlogPost === 'post2') {
-                container.innerHTML = `
-                    <h2 class="blog-item-title">${data.blog2Title}</h2>
-                    <span class="blog-item-date">${data.blog2Date}</span>
-                    ${data.blog2Body}
-                `;
-            } else {
-                container.innerHTML = `
-                    <h2 class="blog-item-title">${data.blogTitle}</h2>
-                    <span class="blog-item-date">${data.blogDate}</span>
-                    <p class="main-text">${data.blogBody}</p>
-                `;
-            }
-        }
-
-        // رسم محتوى الطائر المفتوح حسب اللغة الحالية
-        function renderBirdDetail() {
-            if (!currentBirdPost) return;
-            const data = languages[currentLang];
-            const container = document.getElementById('birds-detail-content');
-
-            if (currentBirdPost === 'falcon') {
-                container.innerHTML = `
-                    <div class="bulbul-card">
-                        <span class="alert-badge">${data.falconBadge}</span>
-                        <div class="bulbul-img-wrapper">
-                            <img src="الصقر الحر.jpg" alt="${data.falconTitle}">
-                        </div>
-                        <h3 class="bird-detail-title">${data.falconTitle}</h3>
-                        ${data.falconBody}
-                    </div>
-                `;
-            } else {
-                container.innerHTML = `
-                    <div class="bulbul-card">
-                        <span class="alert-badge">${data.bulbulBadge}</span>
-                        <div class="bulbul-img-wrapper">
-                            <img src="BilbalJPG.jpeg" alt="${data.bulbulCardTitle}">
-                        </div>
-                        <h3 class="bird-detail-title">${data.bulbulCardTitle}</h3>
-                        ${data.birdsBody}
-                    </div>
-                `;
-            }
-        }
-
-        const languages = {
-            ar: {
-                brandTop: "أرْض", brandBottom: "السَّــــــــــــــــــــــــوَاد", 
-                navHome: "الرئيسية", navBirds: "طيورنا الوطنية", navGuide: "الدليل العلمي", navBlog: "المدونة",
-                subThermal: "أنواع التخديد: الحراري", subMechanical: "أنواع التخديد: الميكانيكي",
-                homeTitle: "تنهض رؤيتنا من مفارقة معاصرة", 
-                homeHighlight: "الفكرة علمية.. والتنفيذ بسواعدنا.",
-                birdsTitle: "رحيل الألحان: حين تصمت بساتيننا",
-
-                bulbulBadge: "⚠️ مهدد بخطر الانقراض",
-                bulbulCardTitle: "البلبل العراقي",
-                bulbulCardExcerpt: "لم يعد البلبل العراقي يغرد كما كان في صباحات بغداد والبصرة؛ يواجه اليوم تهديدات وجودية من تجريف البساتين والصيد الجائر وموجات الجفاف الشديدة...",
-
-                falconBadge: "⚠️ مهدد بالتهريب والاستنزاف",
-                falconTitle: "الصقر الحر العراقي - ثروةٌ تُستباح",
-                falconCardTitle: "الصقر الحر العراقي",
-                falconCardExcerpt: "يتربع الصقر الحر العراقي كرمزٍ للشموخ والهوية الوطنية، لكنه يواجه اليوم أشرس حملات الصيد الجائر والتهريب عبر الحدود إلى دول الخليج...",
-                falconBody: `<p class="main-text" style="text-align: justify; color: #f3f4f6;">في قلب بادية العراق الفسيحة، من السماوة إلى الأنبار والنجف، يتربع الصقر الحر العراقي (الاسم العلمي: Falco cherrug) كرمزٍ للشموخ والهوية الوطنية. إلا أن هذا الكائن النبيل يواجه اليوم أشرس حملات الاستنزاف؛ إذ يتعرض لعمليات صيد جائر وممنهج لا تكتفي بتهديد وجوده فحسب، بل تحوله إلى سلعةٍ في سوقٍ دوليةٍ محمومة.</p><p class="main-text" style="text-align: justify; color: #f3f4f6;">تُمارس عمليات الصيد هذه تحت غطاء ضعف الرقابة، حيث يتم اصطياد هذه الطيور الفريدة وتهريبها عبر الحدود إلى دول الخليج العربي. إن المحرك الأساسي لهذه التجارة هو الطلب المتزايد على الصقور في رياضات الصيد والسباقات التنافسية، حيث تصل قيمة الطير الواحد إلى مئات الآلاف من الدولارات. هذا التدفق المالي الضخم حوّل الصقر العراقي من "إرثٍ طبيعي" إلى "ثروةٍ مهربة"، مما يعمق الفجوة بين استنزاف مواردنا الوطنية وتراكم الأرباح في جيوب شبكات الصيد غير القانونية، تاركاً بيئتنا أكثر فقراً ووحشة.</p>`,
-
-                birdReadMore: "تعرّف على القصة كاملة ←",
-                backToBirds: "→ العودة إلى طيورنا الوطنية",
-
-                goal1Badge: "هدف التنوع البيولوجي", goal1Title: "5,000 شجرة ألبيزيا", goal1Subtitle: "إقامة أحزمة وقائية مستدامة لكسر حدة الرياح الصحراوية وتثبيت التربة.",
-                counter1Num: "5k", counter1Label: "مستهدف",
-                goal2Badge: "هدف التنوع البيولوجي", goal2Title: "5,000 شجرة سدر", goal2Subtitle: "تعزيز الغطاء الأصيل المقاوم للجفاف وإعادة التوازن البيئي للبيئة المحلية.",
-                counter2Num: "5k", counter2Label: "مستهدف",
-                homeBody: `<p class="main-text">"نلتقي كرابطة رقمية موحدة خلف الشاشات، لكننا نتحرك كإرادات فردية تغير أرض الواقع. إن أزمة المناخ والتصحر التي يعيشها العراق اليوم تفرض علينا كشباب أن نترك عاطفة 'التشجير الموسمي' المحدودة بالمكان والميزانيات، وننتقل فوراً إلى فضاء 'التنمية المستدامة' المبني على خطط علمية حقيقية."</p><p class="main-text">"فبناء المدن الخضراء يحتاج وعياً معرفياً يتجاوز الحلول الترقيعية العابرة ليصبح إرثاً حياً تحتمي به الأجيال القادمة. ومن هنا، تفتح هذه المنصة العلمية الباب لكل أبناء وبنات شعبنا العراقي أينما وجدوا؛ من جبال زاخو في أقصى الشمال إلى شواطئ الفاو في أقصى الجنوب، ومن صحراء الرطبة غرباً إلى مرتفعات بنجوين شرقاً."</p><p class="main-text">"لم يعد بُعد المسافة عائقاً، سنطوي مسافات جغرافيتنا رقمياً لنلتحم في غرس واقعي، ونعيد معاً صياغة الهوية البيئية لأرضنا العراقية الجَمَّاء."</p>`,
-                birdsBody: `<p class="main-text" style="text-align: justify; color: #f3f4f6;">"لم يعد البلبل العراقي يغرد كما كان في صباحات بغداد والبصرة. هذا الطائر الذي ارتبط في وجداننا بظلال النخيل وهدوء البساتين، بدأ يتوارى بصمت تحت وطأة التغيرات القاسية التي أصابت بيئتنا."</p><p class="main-text" style="text-align: justify; color: #f3f4f6;"><strong style="color: #ff4d4d;">أسباب التهديد بالانقراض:</strong> يواجه البلبل العراقي تحديات وجودية جسيمة، أبرزها تجريف البساتين والمساحات الخضراء الأصيلة واستبدالها بالمجمعات السكنية، والصيد الجائر غير المنظم لغرض التجارة، فضلاً عن موجات الجفاف الشديدة وارتفاع درجات الحرارة القياسية التي تدمر موائله الطبيعية ومصادر غذائه.</p>`,
-                guideMainTitle: "دليل الإنبات العلمي (Scarification Guide)", 
-                guideMainDesc: "كيف ننتقل من العاطفة العابرة إلى المعرفة الاستراتيجية لرفع نسب نجاح البذور القاسية؟",
-                guideSteps: `<li id="step-thermal"><strong>١. التخديد المائي (Thermal Scarification):</strong> بذور الألبيزيا تمتلك غلافاً شمعياً سميكاً يمنع دخول الماء. يُنصح بنقع البذور في ماء ساخن (وليس مغلي) لمدة ١٢-٢٤ ساعة حتى تتفتح وتنتفخ وتصبح جاهزة للزراعة.</li><li id="step-mechanical"><strong>٢. التخديد الميكانيكي (Mechanical Scarification):</strong> كبديل سريع ومثالي للمجموعات الصغيرة، يمكن خدش أو كشط طرف الغلاف الخارجي الصلب للبذرة برفق باستخدام مقص أظافر أو ورق سنفرة (دون مساس الجنين الداخلي) للسماح بنفاذ الماء الفوري وسرعة الإنبات.</li><li id="step-depth"><strong>٣. عمق الغرس العلمي (Systematic Depth):</strong> تُزرع البذور المعالجة على عمق سطحي حذر لا يتجاوز ١ إلى ٢ سم في تربة جيدة التصريف لتأمين الأكسجين الكافي للنمو.</li><li id="step-watering"><strong>٤. مراقبة الرطوبة الحذرة (Measured Watering):</strong> الحفاظ على رطوبة التربة خفيفة وبدون إغراق، لتفادي تعفن الجذور في مراحل الإنبات الحرجة الأولى.</li>`,
-                guideTableTitle: "جدول المراقبة المعرفي ومعدلات النمو المتوقعة:",
-                thPeriod: "المرحلة الزمنية", thAlbizia: "معدل نمو الألبيزيا المتوقع", thLeucaena: "معدل نمو السدر المتوقع",
-                tableBody: `<tr><td>الأسبوع الأول</td><td>بروز الجذير وانشقاق التربة (٢-٤ سم)</td><td>ظهور الأوراق الأولى والنمو الحذر (٣-٥ سم)</td></tr><tr><td>الأسبوع الثاني</td><td>ظهور الأوراق الريشية المركبة (٦-١٠ سم)</td><td>استطالة الساق وزيادة التفرع الجذري (٨-١٤ سم)</td></tr>`,
-
-                blog3CardBadge: "سياسة بيئية",
-                blog3CardTitle: "بين مطرقة الضغوط السياسية وسندان الاندثار البيئي",
-                blog3CardExcerpt: `ما نشهده اليوم ليس مجرد تغير مناخي عالمي، بل "تجريف ممنهج" للهوية البيئية للعراق، استغل فيه المتربصون هشاشة السلطة الرقابية لفرض واقع بيئي قاتم...`,
-                blog1CardBadge: "زراعة ومناخ",
-                blog1CardTitle: "البداية الحقيقية: لماذا الألبيزيا والسدر؟",
-                blog1CardExcerpt: "تعتبر أشجار الألبيزيا والسدر خيارات استراتيجية لمواجهة التغير المناخي؛ نظراً لقدرتها الفائقة على تحمل الحرارة ومقاومة الجفاف ودورها في تثبيت التربة...",
-                blog2CardBadge: "توعية بيئية",
-                blog2CardTitle: `البلبل العراقي في مواجهة الاندثار: لماذا نحتاج إلى "الإطلاق اللين"؟`,
-                blog2CardExcerpt: `يُعرف الإطلاق اللين علمياً باسم "طوق النجاة البيئي"، وهو منهجية علمية لإعادة توطين الطيور تعتمد على مرحلة انتقالية تمنحها فرصة لاستعادة لياقتها والتأقلم قبل الاعتماد الكلي على نفسها...`,
-                readMore: "اقرأ المقال كاملاً ←",
-                backToBlog: "→ العودة إلى قائمة المدونة",
-
-                blogTitle: "البداية الحقيقية: لماذا الألبيزيا والسدر؟", 
-                blogDate: "١٨ حزيران، ٢٠٢٦",
-                blogBody: "تعتبر أشجار الألبيزيا والسدر خيارات استراتيجية لمواجهة التغير المناخي في بيئتنا المحلية؛ نظراً لقدرتها الفائقة على تحمل درجات الحرارة المرتفعة، ومقاومة الجفاف، بالإضافة إلى دورها الحيوي في تثبيت التربة وتحسين خصوبتها، مما يجعلها حجر الأساس في مشروعنا للتحول من التشجير المؤقت إلى الاستدامة الدائمة.",
-                
-                blog2Title: "البلبل العراقي في مواجهة الاندثار: لماذا نحتاج إلى \"الإطلاق اللين\" لاستعادة توازننا البيئي؟",
-                blog2Date: "٢٨ حزيران، ٢٠٢٦",
-                blog2Body: `<p class="main-text">يُعرف الإطلاق اللين علمياً باسم "طوق النجاة البيئي" (Ecological Lifeline Strategy)، وهو منهجية علمية لإعادة توطين الطيور تعتمد على مرحلة انتقالية بدلاً من إطلاقها المباشر. في هذه العملية، تُوضع البلابل في أقفاص تأقلم ضمن بيئتها الطبيعية، حيث يُقدم لها الغذاء والماء تدريجياً؛ مما يمنحها فرصة لاستعادة لياقتها البدنية التي تضررت بسبب الأسر، والتعود على أصوات ومناخ محيطها، وتشكيل "خريطة ذهنية" للمكان قبل الاعتماد الكلي على نفسها.</p><p class="main-text">يمثل هذا الأسلوب الحل العلمي الأمثل، فهو يعالج أولاً الاستشفاء الفسيولوجي والسلوكي، حيث تخرج الطيور من الأسر وهي تعاني من ضمور في العضلات وإجهاد فسيولوجي، ليأتي الإطلاق اللين كفترة ترميم ضرورية ترفع من قدرة الطائر على الهروب من المفترسات. ثانياً، يعمل هذا الأسلوب على تعزيز ما يُعرف بـ "الارتباط بالموقع"، فبما أن البلبل كائن ذكي يربط المكان بالسلامة، فإن فترة التأقلم في منطقة محمية تدفعه للاستقرار والتكاثر فيها بدلاً من التشتت في المجهول، مما يساهم في خلق "بؤر تكاثرية" ترفع من أعداد الجماعة بشكل تراكمي. وأخيراً، يسهم هذا المنهج في كسر "صدمة النفور الغذائي"؛ إذ يتعلم الطائر بالتجربة والخطأ كيفية التمييز بين الغذاء الاصطناعي والموارد الطبيعية كالحشرات والثمار، وهو ما يقلل بشكل حاد من مخاطر سوء التغذية بعد الإطلاق.</p><p class="main-text">إن حماية البلبل العراقي بهذا الأسلوب هي استثمار في استدامة بيئتنا؛ فالانتقال من حب الطيور في الأقفاص إلى احترامها في فضاءاتها الطبيعية هو السبيل الوحيد لضمان مستقبل مزدهر. إن تبني بروتوكولات الإطلاق اللين كمنهج يعني أننا لا ننقذ طائراً فحسب، بل نحمي التوازن البيئي الذي يربطنا بهذه الأرض، لتظل أغصان بساتيننا عامرة بحياة نساهم جميعاً في استعادتها.</p>`,
-                
-                blog3Title: "بين مطرقة الضغوط السياسية وسندان الاندثار البيئي",
-                blog3Date: "٨ تموز، ٢٠٢٦",
-                blog3Body: `<p class="main-text">لا يمكن قراءة المشهد البيئي المتردي في العراق اليوم بمعزل عن سياقه التاريخي والسياسي الذي تشكل عقب عام 2003؛ فما نشهده ليس مجرد ظاهرة طبيعية ناتجة عن التغير المناخي العالمي فحسب، بل هو "تجريف ممنهج" للهوية البيئية للعراق، استغل فيه المتربصون حالة الهشاشة السياسية وغياب السلطة الرقابية الفاعلة لفرض واقع بيئي قاتم.</p><p class="main-text"><strong style="color: #2ecc71;">التجفيف المائي كأداة ضغط سياسي</strong><br><br>لقد تحولت المياه في المنطقة إلى "سلاح جيوسياسي". إن قيام دول الجوار بإنشاء مشاريع سدود كبرى أدى إلى تقليص الحصص المائية التاريخية للعراق، وهو إجراء يتجاوز كونه صراعاً على الموارد؛ إنه إعادة تشكيل للواقع الديموغرافي والاقتصادي. إن انحسار مياه دجلة والفرات لم يؤدِّ فقط إلى تصحر الأراضي الزراعية، بل تسبب في "موت بطيء" لأهوار العراق؛ ذلك الإرث الحضاري والطبيعي الذي أُدرج على لائحة التراث العالمي، ليتحول اليوم إلى مناطق شبه قاحلة، مهدداً التنوع البيولوجي الذي صمد لآلاف السنين.</p>
-                <div class="article-img-wrapper">
-                    <img src="اهوار العراق.jpg" alt="أهوار العراق">
-                </div>
-                <p class="article-img-caption">أهوار العراق: إرث طبيعي وحضاري عالمي يواجه اليوم خطر الاندثار</p>
-                <p class="main-text"><strong style="color: #2ecc71;">الحياة الفطرية في مهب "الصيد الجائر"</strong><br><br>ولم تقف الانتهاكات عند حدود الموارد المائية، بل امتدت لتطال الحياة الفطرية والبرية، التي أصبحت مستباحة في ظل ضعف تطبيق القانون. إن صحاري السماوة، والأنبار، والنجف، التي كانت تمثل يوماً ملاذاً آمناً للصقور والطيور المهاجرة، أصبحت اليوم مسرحاً لعمليات صيد جائر منظمة. تتعرض أنواع نادرة وذات قيمة رمزية، مثل الشاهين الجبلي (الاسم العلمي: Falco peregrinus) وطير الحر العراقي (الاسم العلمي: Falco cherrug)، لعمليات صيد مفرطة باستخدام تقنيات حديثة تتجاوز أساليب الصيد التقليدي، مما وضع هذه الطيور على حافة الانقراض المحلي. إن استنزاف هذه الثروات ليس عملاً عشوائياً، بل هو استغلال لغياب سلطة الدولة، حيث تُنتهك المحميات الطبيعية وتُدمر الموائل البرية دون وازع من قانون أو حماية للمستقبل البيئي للبلاد.</p><p class="main-text"><strong style="color: #2ecc71;">الخلاصة: استعادة الأرض هي استعادة للسيادة</strong><br><br>إن "أرض السواد" التي سُمي بها العراق قديماً لخصوبة أرضه وكثافة أشجاره، تواجه اليوم خطر التلاشي تحت وطأة تقاطع المصالح السياسية والإهمال المؤسسي. إننا نؤمن أن مواجهة هذه الكارثة تبدأ بوعي وطني يتجاوز الخطابات، وينتقل إلى الفعل العلمي والميداني.</p><p class="main-text">إن مشروعنا ليس مجرد محاولة لإعادة غرس الأشجار، بل هو صرخة احتجاج ضد هذا التدمير الممنهج، ومبادرة لإثبات أن استعادة الأرض والحفاظ على تنوعنا البيئي هما جزء لا يتجزأ من استعادة سيادة العراق. إن كل بذرة تُزرع، وكل طائر يُحمى، هو فعل سياسي وأخلاقي يعلن رفضنا القاطع لتحويل وطننا إلى قاعٍ صفصف.</p>`,
-
-                telegramBtn: "الانضمام إلى القناة الرسمية في تليغرام ←", footer: "جميع الحقوق محفوظة © أرض السَّواد ٢٠٢٦", toggleBtn: "English"
-            },
-            en: {
-                brandTop: "Land of", brandBottom: "Al-Sawad", 
-                navHome: "Home", navBirds: "National Birds", navGuide: "Scientific Guide", navBlog: "Blog",
-                subThermal: "Types of Scarification: Thermal", subMechanical: "Types of Scarification: Mechanical",
-                homeTitle: "Our Vision Rises From a Modern Paradox", 
-                homeHighlight: "The idea is scientific.. and the execution is by our hands.",
-                birdsTitle: "The Departure of Melodies: When Our Orchards Fall Silent",
-
-                bulbulBadge: "⚠️ Endangered Species",
-                bulbulCardTitle: "The Iraqi Bulbul",
-                bulbulCardExcerpt: "The Iraqi Bulbul no longer sings as it once did in the mornings of Baghdad and Basra; it faces today existential threats from orchard clearing, illegal hunting, and severe droughts...",
-
-                falconBadge: "⚠️ Threatened by Smuggling & Exploitation",
-                falconTitle: "The Iraqi Saker Falcon - A Plundered Treasure",
-                falconCardTitle: "The Iraqi Saker Falcon",
-                falconCardExcerpt: "The Iraqi Saker Falcon stands as a symbol of pride and national identity, yet it faces today the fiercest campaigns of illegal hunting and cross-border smuggling to the Gulf...",
-                falconBody: `<p class="main-text">In the heart of Iraq's vast desert plains, from Samawah to Anbar and Najaf, the Iraqi Saker Falcon (scientific name: Falco cherrug) stands as a symbol of pride and national identity. Yet this noble creature faces today the fiercest campaigns of depletion — subjected to organized illegal hunting that not only threatens its existence but turns it into a commodity in a frenzied international market.</p><p class="main-text">These hunting operations are carried out under the cover of weak oversight, with these unique birds captured and smuggled across borders to Gulf Arab states. The primary driver of this trade is the rising demand for falcons in hunting sports and competitive races, where a single bird can fetch hundreds of thousands of dollars. This massive financial flow has transformed the Iraqi falcon from a "natural heritage" into a "smuggled treasure," deepening the gap between the depletion of our national resources and the accumulation of profits in the pockets of illegal hunting networks — leaving our environment poorer and more desolate.</p>`,
-
-                birdReadMore: "Learn the Full Story →",
-                backToBirds: "← Back to National Birds",
-
-                goal1Badge: "Biodiversity Goal", goal1Title: "5,000 Albizia Trees", goal1Subtitle: "Establishing sustainable protective belts to break desert winds and stabilize the soil.",
-                counter1Num: "5k", counter1Label: "Target",
-                goal2Badge: "Biodiversity Goal", goal2Title: "5,000 Sidr Trees", goal2Subtitle: "Enhancing native, drought-resistant canopy to restore ecological balance locally.",
-                counter2Num: "5k", counter2Label: "Target",
-                homeBody: `<p class="main-text">"We gather as a digital union behind screens, yet we operate as individual forces transforming reality. Iraq's current climate and desertification crisis demand that we leave behind the emotion of 'seasonal planting'—limited by geography and budgets—and pivot immediately toward 'Sustainable Development' anchored in genuine scientific plans."</p><p class="main-text">"Building green cities requires a cognitive awareness that transcends brief, cosmetic patches to become a living legacy for future generations. Thus, this scientific platform opens its doors to every citizen across Iraq: from the peaks of Zakho in the far north to the shores of Faw in the deep south, from the Rutba desert in the west to the Penjwen heights in the east."</p><p class="main-text">"Distance is no longer a barrier; we will bridge our geography digitally to unite in physical sowing, rewriting the ecological identity of our beautiful Mesopotamian land together."</p>`,
-                birdsBody: `<p class="main-text">"The Iraqi Bulbul no longer sings as it once did in the mornings of Baghdad and Basra. This bird, deeply woven into our consciousness alongside palm shadows and peaceful orchards, has begun to quietly vanish under the weight of harsh environmental changes."</p><p class="main-text"><strong style="color: #ff4d4d;">Threat Factors:</strong> The Iraqi Bulbul faces severe existential threats, primarily the clearing of authentic orchards for housing complexes, unregulated poaching for trade, severe droughts, and record high temperatures that destroy its natural habitats and food sources."</p>`,
-                guideMainTitle: "Scientific Scarification Guide", 
-                guideMainDesc: "How do we move past casual sentiment to strategic knowledge to increase the success rates of hard coats?",
-                guideSteps: `<li id="step-thermal"><strong>1. Thermal Scarification:</strong> Albizia seeds possess a thick, waxy coat that blocks water intake. It is recommended to soak seeds in hot (not boiling) water for 12–24 hours until they swell and become ready for planting.</li><li id="step-mechanical"><strong>2. Mechanical Scarification:</strong> An ideal, swift alternative for small batches is gently filing or clipping the outer hard coat with a nail clipper or sandpaper (without harming the internal embryo) to allow instant water infiltration.</li><li id="step-depth"><strong>3. Systematic Depth:</strong> Plant treated seeds at a cautious, shallow depth of 1 to 2 cm in well-draining soil to secure sufficient oxygen for development.</li><li id="step-watering"><strong>4. Measured Watering:</strong> Keep the soil lightly moist without flooding it, preventing root rot during the critical early stages of germination.</li>`,
-                guideTableTitle: "Cognitive Monitoring Table & Expected Growth Rates:",
-                thPeriod: "Time Period", thAlbizia: "Expected Albizia Growth Rate", thLeucaena: "Expected Sidr Growth Rate",
-                tableBody: `<tr><td>Week 1</td><td>Radicle emergence and soil breakthrough (2-4 cm)</td><td>First leaves appearance and cautious growth (3-5 cm)</td></tr><tr><td>Week 2</td><td>Appearance of compound pinnate leaves (6-10 cm)</td><td>Stem elongation and increased root branching (8-14 cm)</td></tr>`,
-
-                blog3CardBadge: "Environmental Politics",
-                blog3CardTitle: "Between the Hammer of Political Pressure and the Anvil of Environmental Extinction",
-                blog3CardExcerpt: "What we are witnessing today is not merely global climate change, but a 'systematic degradation' of Iraq's environmental identity, exploited amid the fragility of regulatory authority...",
-                blog1CardBadge: "Planting & Climate",
-                blog1CardTitle: "The True Beginning: Why Albizia and Sidr?",
-                blog1CardExcerpt: "Albizia and Sidr trees are strategic choices to combat climate change locally, thanks to their heat tolerance, drought resistance, and vital role in soil stabilization...",
-                blog2CardBadge: "Environmental Awareness",
-                blog2CardTitle: "The Iraqi Bulbul Facing Extinction: Why Do We Need 'Soft Release'?",
-                blog2CardExcerpt: "Known scientifically as the Ecological Lifeline Strategy, soft release relies on a transitional phase that helps birds regain fitness and adapt before full independence...",
-                readMore: "Read Full Article →",
-                backToBlog: "← Back to Blog List",
-
-                blogTitle: "The True Beginning: Why Albizia and Sidr?", 
-                blogDate: "June 18, 2026",
-                blogBody: "Albizia and Sidr trees represent strategic choices to combat climate change locally. Due to their superior capacity to endure extreme temperatures, resist drought, and enhance soil fertility, they serve as the foundation of our shift from temporary planting to permanent sustainability.",
-                
-                blog2Title: "The Iraqi Bulbul Facing Extinction: Why Do We Need 'Soft Release' to Restore Ecological Balance?",
-                blog2Date: "June 28, 2026",
-                blog2Body: `<p class="main-text">Scientifically known as the "Ecological Lifeline Strategy", soft release is a scientific approach to bird reintroduction that relies on a transitional phase rather than immediate release. In this process, bulbuls are placed in acclimatization aviaries within their natural habitat, where food and water are provided gradually. This grants them the opportunity to restore physical fitness degraded by captivity, adapt to local climate and sounds, and establish a "mental map" of the locality before achieving full self-reliance.</p><p class="main-text">This strategy stands as the optimal scientific solution. First, it addresses physiological and behavioral rehabilitation; birds emerge from captivity suffering from muscle atrophy and physiological stress, making soft release a vital restoration period that enhances their ability to evade predators. Second, it strengthens "site fidelity." Since the bulbul is an intelligent creature that associates locality with safety, this adaptation phase in a protected zone encourages it to settle and breed there instead of dispersing into the unknown, fostering "breeding hotspots" that gradually multiply the population. Finally, this method breaks "dietary aversion shock." Through trial and error, the bird learns to distinguish between artificial feed and natural resources such as insects and fruits, sharply reducing malnutrition risks post-release.</p><p class="main-text">Protecting the Iraqi Bulbul through this approach is a direct investment in the sustainability of our environment. Shifting from loving birds in cages to respecting them within their natural domains is the only pathway to a flourishing future. Adopting soft release protocols as a core methodology implies that we are not merely saving a bird; we are safeguarding the ecological balance that connects us to this land, ensuring that the branches of our orchards remain vibrant with life we all help restore.</p>`,
-                
-                blog3Title: "Between the Hammer of Political Pressure and the Anvil of Environmental Extinction",
-                blog3Date: "July 8, 2026",
-                blog3Body: `<p class="main-text">Iraq's deteriorating environmental scene today cannot be read apart from its historical and political context that took shape after 2003. What we are witnessing is not merely a natural phenomenon resulting from global climate change; it is a "systematic degradation" of Iraq's environmental identity, exploited by opportunists amid political fragility and the absence of effective regulatory authority to impose a bleak environmental reality.</p><p class="main-text"><strong style="color: #2ecc71;">Water Depletion as a Tool of Political Pressure</strong><br><br>Water in the region has become a "geopolitical weapon." Neighboring countries' construction of major dam projects has reduced Iraq's historical water shares — a measure that goes beyond a struggle over resources; it is a reshaping of demographic and economic reality. The recession of the Tigris and Euphrates has not only turned agricultural land to desert, but has caused the "slow death" of Iraq's marshes — that civilizational and natural heritage inscribed on the World Heritage list — now turning into near-barren land, threatening biodiversity that has endured for thousands of years.</p>
-                <div class="article-img-wrapper">
-                    <img src="اهوار العراق.jpg" alt="Iraqi Marshes">
-                </div>
-                <p class="article-img-caption">The Iraqi Marshes: a natural and cultural world heritage now facing the risk of disappearance</p>
-                <p class="main-text"><strong style="color: #2ecc71;">Wildlife at the Mercy of Poaching</strong><br><br>Violations have not stopped at water resources; they have extended to wildlife, left unprotected amid weak law enforcement. The deserts of Samawah, Anbar, and Najaf, once a safe haven for falcons and migratory birds, have today become a stage for organized poaching. Rare, symbolically significant species such as the Peregrine Falcon (scientific name: Falco peregrinus) and the Iraqi Saker Falcon (scientific name: Falco cherrug) are subjected to excessive hunting using modern techniques that go beyond traditional methods, pushing these birds toward local extinction. This depletion is not random; it is an exploitation of the absence of state authority, where nature reserves are violated and wild habitats destroyed without legal deterrent or protection for the country's environmental future.</p><p class="main-text"><strong style="color: #2ecc71;">Conclusion: Restoring the Land Is Restoring Sovereignty</strong><br><br>"Land of Al-Sawad," the ancient name given to Iraq for the fertility of its land and density of its trees, today faces the risk of vanishing under the weight of intersecting political interests and institutional neglect. We believe that confronting this catastrophe begins with a national awareness that transcends rhetoric and moves into scientific and field action.</p><p class="main-text">Our project is not merely an attempt to replant trees; it is a cry of protest against this systematic destruction, and an initiative to prove that restoring the land and preserving our environmental diversity are inseparable parts of restoring Iraq's sovereignty. Every seed planted, and every bird protected, is a political and moral act declaring our absolute refusal to let our homeland become a barren waste.</p>`,
-
-                telegramBtn: "Join the Official Telegram Channel ←", footer: "All Rights Reserved © Land of Al-Sawad 2026", toggleBtn: "العربية"
-            }
-        };
-
-        function toggleLanguage() {
-            currentLang = currentLang === 'ar' ? 'en' : 'ar';
-            const data = languages[currentLang];
-            
-            document.documentElement.lang = currentLang;
-            document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
-            document.body.className = currentLang === 'en' ? 'lang-en' : '';
-
-            document.getElementById('text-brand-top').innerText = data.brandTop;
-            document.getElementById('text-brand-bottom').innerText = data.brandBottom;
-            document.getElementById('nav-home').innerText = data.navHome;
-            document.getElementById('nav-birds').innerText = data.navBirds;
-            document.getElementById('nav-guide').innerText = data.navGuide;
-            document.getElementById('nav-blog').innerText = data.navBlog;
-            document.getElementById('lang-toggle-btn').innerText = data.toggleBtn;
-
-            document.getElementById('sub-thermal').innerText = data.subThermal;
-            document.getElementById('sub-mechanical').innerText = data.subMechanical;
-
-            document.getElementById('text-home-title').innerText = data.homeTitle;
-            document.getElementById('text-home-body').innerHTML = data.homeBody;
-            document.getElementById('text-home-highlight').innerText = data.homeHighlight;
-            
-            document.getElementById('txt-goal1-badge').innerText = data.goal1Badge;
-            document.getElementById('txt-goal1-title').innerText = data.goal1Title;
-            document.getElementById('txt-goal1-subtitle').innerText = data.goal1Subtitle;
-            document.getElementById('txt-counter1-label').innerText = data.counter1Label;
-
-            document.getElementById('txt-goal2-badge').innerText = data.goal2Badge;
-            document.getElementById('txt-goal2-title').innerText = data.goal2Title;
-            document.getElementById('txt-goal2-subtitle').innerText = data.goal2Subtitle;
-            document.getElementById('txt-counter2-label').innerText = data.counter2Label;
-
-            document.getElementById('text-birds-title').innerText = data.birdsTitle;
-
-            document.getElementById('txt-bulbul-card-badge').innerText = data.bulbulBadge;
-            document.getElementById('txt-bulbul-card-title').innerText = data.bulbulCardTitle;
-            document.getElementById('txt-bulbul-card-excerpt').innerText = data.bulbulCardExcerpt;
-            document.getElementById('txt-bird-readmore-1').innerText = data.birdReadMore;
-
-            document.getElementById('txt-falcon-card-badge').innerText = data.falconBadge;
-            document.getElementById('txt-falcon-card-title').innerText = data.falconCardTitle;
-            document.getElementById('txt-falcon-card-excerpt').innerText = data.falconCardExcerpt;
-            document.getElementById('txt-bird-readmore-2').innerText = data.birdReadMore;
-
-            document.getElementById('text-back-birds-btn').innerText = data.backToBirds;
-
-            document.getElementById('guide-main-title').innerText = data.guideMainTitle;
-            document.getElementById('guide-main-desc').innerText = data.guideMainDesc;
-            document.getElementById('guide-steps-list').innerHTML = data.guideSteps;
-            document.getElementById('guide-table-title').innerText = data.guideTableTitle;
-            document.getElementById('th-period').innerText = data.thPeriod;
-            document.getElementById('th-albizia').innerText = data.thAlbizia;
-            document.getElementById('th-leucaena').innerText = data.thLeucaena;
-            document.getElementById('guide-table-body').innerHTML = data.tableBody;
-
-            document.getElementById('txt-blog3-card-badge').innerText = data.blog3CardBadge;
-            document.getElementById('txt-blog3-card-title').innerText = data.blog3CardTitle;
-            document.getElementById('txt-blog3-card-date').innerText = data.blog3Date;
-            document.getElementById('txt-blog3-card-excerpt').innerText = data.blog3CardExcerpt;
-            document.getElementById('txt-readmore-3').innerText = data.readMore;
-
-            document.getElementById('txt-blog2-card-badge').innerText = data.blog2CardBadge;
-            document.getElementById('txt-blog2-card-title').innerText = data.blog2CardTitle;
-            document.getElementById('txt-blog2-card-date').innerText = data.blog2Date;
-            document.getElementById('txt-blog2-card-excerpt').innerText = data.blog2CardExcerpt;
-            document.getElementById('txt-readmore-2').innerText = data.readMore;
-
-            document.getElementById('txt-blog1-card-badge').innerText = data.blog1CardBadge;
-            document.getElementById('txt-blog1-card-title').innerText = data.blog1CardTitle;
-            document.getElementById('txt-blog1-card-date').innerText = data.blogDate;
-            document.getElementById('txt-blog1-card-excerpt').innerText = data.blog1CardExcerpt;
-            document.getElementById('txt-readmore-1').innerText = data.readMore;
-
-            document.getElementById('text-back-btn').innerText = data.backToBlog;
-
-            renderBlogDetail();
-            renderBirdDetail();
-            
-            document.getElementById('text-telegram-btn').innerText = data.telegramBtn;
-            document.getElementById('text-footer').innerText = data.footer;
-        }
-    </script>
+    <script src="assets/main.js"></script>
 </body>
 </html>
