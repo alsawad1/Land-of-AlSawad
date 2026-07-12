@@ -1,0 +1,200 @@
+[
+  {
+    "url": "index.html",
+    "category_ar": "الرئيسية",
+    "category_en": "Home",
+    "title_ar": "أرض السواد — الصفحة الرئيسية",
+    "title_en": "Land of Al-Sawad — Home",
+    "excerpt_ar": "مبادرة شبابية عراقية للتشجير المستدام ومكافحة التصحر",
+    "excerpt_en": "A youth-led Iraqi initiative for sustainable reforestation"
+  },
+  {
+    "url": "birds.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "طيورنا الوطنية",
+    "title_en": "National Birds",
+    "excerpt_ar": "طيور عراقية مهددة بالانقراض وأسباب تراجع أعدادها",
+    "excerpt_en": "Iraq's endangered bird species and the causes of their decline"
+  },
+  {
+    "url": "guide.html",
+    "category_ar": "ديوان الأشجار",
+    "category_en": "Tree Almanac",
+    "title_ar": "ديوان الأشجار",
+    "title_en": "Tree Almanac",
+    "excerpt_ar": "أشجار الألبيزيا والسدر وطرق إنباتها العلمية",
+    "excerpt_en": "Albizia and Sidr trees and their scientific germination methods"
+  },
+  {
+    "url": "blog.html",
+    "category_ar": "المدونة",
+    "category_en": "Blog",
+    "title_ar": "المدونة",
+    "title_en": "Blog",
+    "excerpt_ar": "مقالات أرض السواد بالسياسة البيئية وإعادة توطين الطيور والتشجير",
+    "excerpt_en": "Land of Al-Sawad articles on environmental politics, bird reintroduction, and reforestation"
+  },
+  {
+    "url": "map.html",
+    "category_ar": "الخريطة",
+    "category_en": "Map",
+    "title_ar": "خريطة مناطق المشروع",
+    "title_en": "Project Regions Map",
+    "excerpt_ar": "خريطة تفاعلية لمناطق المشروع عبر محافظات العراق",
+    "excerpt_en": "Interactive map of project regions across Iraq's governorates"
+  },
+  {
+    "url": "birds/iraqi-bulbul.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "البلبل العراقي",
+    "title_en": "The Iraqi Bulbul",
+    "excerpt_ar": "لم يعد البلبل العراقي يغرد كما كان؛ يواجه تهديدات وجودية من تجريف البساتين والصيد الجائر",
+    "excerpt_en": "The Iraqi Bulbul no longer sings as it once did; facing threats from orchard clearing and illegal hunting"
+  },
+  {
+    "url": "birds/iraqi-saker-falcon.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "الصقر الحر العراقي",
+    "title_en": "The Iraqi Saker Falcon",
+    "excerpt_ar": "رمز الشموخ والهوية الوطنية، مهدد بالصيد الجائر والتهريب عبر الحدود",
+    "excerpt_en": "A symbol of national pride, threatened by illegal hunting and cross-border smuggling"
+  },
+  {
+    "url": "birds/basra-reed-warbler.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "دخلة البصرة",
+    "title_en": "Basra Reed Warbler",
+    "excerpt_ar": "جوهرة الأهوار، يحتضن العراق نحو 90٪ من تعدادها العالمي",
+    "excerpt_en": "The jewel of the marshes; Iraq hosts nearly 90% of its global population"
+  },
+  {
+    "url": "birds/marbled-duck.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "البط الرخامي",
+    "title_en": "Marbled Duck",
+    "excerpt_ar": "طائر أنيق بريش منقّط، مهدد بالانقراض بسبب جفاف الأهوار",
+    "excerpt_en": "An elegant mottled-plumage bird, endangered by marsh drying"
+  },
+  {
+    "url": "birds/white-headed-duck.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "البط أبيض الرأس",
+    "title_en": "White-headed Duck",
+    "excerpt_ar": "طائر مائي فريد برأس أبيض ومنقار أزرق، يواجه تهديداً مرتفعاً",
+    "excerpt_en": "A distinctive waterbird with a white head and blue bill, facing high threat"
+  },
+  {
+    "url": "birds/sociable-lapwing.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "الزقزاق الاجتماعي",
+    "title_en": "Sociable Lapwing",
+    "excerpt_ar": "أحد أكثر طيور العالم عرضة للخطر، يمر بالعراق كزائر شتوي",
+    "excerpt_en": "One of the world's most endangered birds, a winter visitor to Iraq"
+  },
+  {
+    "url": "birds/northern-bald-ibis.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "أبو منجل الأصلع الشمالي",
+    "title_en": "Northern Bald Ibis",
+    "excerpt_ar": "طائر أسطوري كان يعشش بجبال كردستان، حالته حرجة جداً",
+    "excerpt_en": "A legendary bird once nesting in Kurdistan's mountains, now critically endangered"
+  },
+  {
+    "url": "birds/egyptian-vulture.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "النسر المصري",
+    "title_en": "Egyptian Vulture",
+    "excerpt_ar": "منظف طبيعي للبيئة، مهدد بالتسمم الثانوي من الجيف المعالجة",
+    "excerpt_en": "Nature's own cleaner, threatened by secondary poisoning from treated carcasses"
+  },
+  {
+    "url": "birds/griffon-vulture.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "النسر الأسمر",
+    "title_en": "Griffon Vulture",
+    "excerpt_ar": "رمز جبال كردستان الشاهقة، تهديده منخفض عالمياً",
+    "excerpt_en": "A symbol of Kurdistan's towering mountains, globally low-risk"
+  },
+  {
+    "url": "birds/bearded-vulture.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "النسر الملتحي",
+    "title_en": "Bearded Vulture",
+    "excerpt_ar": "الأكثر انعزالاً بين النسور، يعيش بأقسى قمم كردستان الثلجية",
+    "excerpt_en": "The most isolated of all vultures, living on Kurdistan's harshest peaks"
+  },
+  {
+    "url": "birds/greater-spotted-eagle.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "العقاب الأبقع الأكبر",
+    "title_en": "Greater Spotted Eagle",
+    "excerpt_ar": "زائر شتوي مهيب للأهوار، ارتفع تصنيفه لمهدد بالانقراض",
+    "excerpt_en": "A majestic winter visitor to the marshes, recently uplisted to Endangered"
+  },
+  {
+    "url": "birds/ferruginous-duck.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "البط أحمر العين",
+    "title_en": "Ferruginous Duck",
+    "excerpt_ar": "يختبئ ببحيرات صغيرة ومستنقعات هادئة، بلونه الكستنائي المميز",
+    "excerpt_en": "Hides in small lakes and calm marshes, distinguished by its chestnut color"
+  },
+  {
+    "url": "trees/sidr.html",
+    "category_ar": "ديوان الأشجار",
+    "category_en": "Tree Almanac",
+    "title_ar": "شجرة السدر",
+    "title_en": "Sidr Tree",
+    "excerpt_ar": "أيقونة الطبيعة العراقية، تواجه تهديداً مرتفعاً من القطع الجائر",
+    "excerpt_en": "An icon of Iraq's natural landscape, facing a high threat from indiscriminate logging"
+  },
+  {
+    "url": "trees/albizia.html",
+    "category_ar": "ديوان الأشجار",
+    "category_en": "Tree Almanac",
+    "title_ar": "شجرة الألبيزيا",
+    "title_en": "Albizia Tree",
+    "excerpt_ar": "شجرة مستأنسة سريعة النمو، تحتاج إدارة مائية ذكية",
+    "excerpt_en": "A fast-growing naturalized tree requiring smart water management"
+  },
+  {
+    "url": "blog/albizia-and-sidr.html",
+    "category_ar": "المدونة",
+    "category_en": "Blog",
+    "title_ar": "البداية الحقيقية: لماذا الألبيزيا والسدر؟",
+    "title_en": "The True Beginning: Why Albizia and Sidr?",
+    "excerpt_ar": "خيارات استراتيجية لمواجهة التغير المناخي بقدرتها على تحمل الحرارة",
+    "excerpt_en": "Strategic choices to combat climate change through heat and drought tolerance"
+  },
+  {
+    "url": "blog/bulbul-soft-release.html",
+    "category_ar": "المدونة",
+    "category_en": "Blog",
+    "title_ar": "البلبل العراقي في مواجهة الاندثار: الإطلاق اللين",
+    "title_en": "The Iraqi Bulbul Facing Extinction: Soft Release",
+    "excerpt_ar": "منهجية علمية لإعادة توطين الطيور عبر مرحلة انتقالية",
+    "excerpt_en": "A scientific method for bird reintroduction through a transitional phase"
+  },
+  {
+    "url": "blog/political-pressure-and-environment.html",
+    "category_ar": "المدونة",
+    "category_en": "Blog",
+    "title_ar": "بين مطرقة الضغوط السياسية وسندان الاندثار البيئي",
+    "title_en": "Between the Hammer of Political Pressure and the Anvil of Environmental Extinction",
+    "excerpt_ar": "تجفيف الأهوار والصيد الجائر كأدوات استنزاف بيئي ممنهج",
+    "excerpt_en": "The draining of marshes and poaching as tools of systematic environmental depletion"
+  }
+]
