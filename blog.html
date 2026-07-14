@@ -33,13 +33,7 @@
             <nav class="nav-menu">
                 <a href="index.html" class="nav-link" data-i18n="navHome">الرئيسية</a>
                 <a href="birds.html" class="nav-link" data-i18n="navBirds">طيورنا الوطنية</a>
-                <div class="dropdown">
-                    <a href="guide.html" class="nav-link" data-i18n="navGuide">ديوان الأشجار</a>
-                    <div class="dropdown-content">
-                        <a href="trees/sidr.html" data-i18n="subSidr">شجرة السدر</a>
-                        <a href="trees/albizia.html" data-i18n="subAlbizia">شجرة الألبيزيا</a>
-                    </div>
-                </div>
+                <a href="guide.html" class="nav-link" data-i18n="navGuide">ديوان الأشجار</a>
                 <a href="blog.html" class="nav-link active" data-i18n="navBlog">المدونة</a>
             </nav>
             <button class="lang-switch-btn" data-i18n="langBtn" onclick="toggleLanguage()">English</button>
@@ -53,13 +47,7 @@
     <button class="mobile-drawer-close" onclick="closeMobileMenu()">✕</button>
     <a href="index.html" class="nav-link" data-i18n="navHome">الرئيسية</a>
     <a href="birds.html" class="nav-link" data-i18n="navBirds">طيورنا الوطنية</a>
-    <div class="dropdown">
-        <a href="guide.html" class="nav-link" data-i18n="navGuide">ديوان الأشجار</a>
-        <div class="dropdown-content">
-            <a href="trees/sidr.html" data-i18n="subSidr">شجرة السدر</a>
-            <a href="trees/albizia.html" data-i18n="subAlbizia">شجرة الألبيزيا</a>
-        </div>
-    </div>
+    <a href="guide.html" class="nav-link" data-i18n="navGuide">ديوان الأشجار</a>
     <a href="blog.html" class="nav-link active" data-i18n="navBlog">المدونة</a>
 </nav>
 <main class="dark-content-section">
@@ -68,7 +56,20 @@
 <h1 class="section-title"><span data-lang="ar">المدونة</span><span data-lang="en">Blog</span></h1>
 
 <div class="blog-cards-grid">
+    <a href="blog/norias.html" class="blog-card">
+        <div class="blog-card-img-wrapper"><img src="ناعور 90.jpg" alt="النواعير"></div>
+        <span class="blog-card-badge"><span data-lang="ar">تراث هندسي</span><span data-lang="en">Engineering Heritage</span></span>
+        <h3 class="blog-card-title"><span data-lang="ar">هندسة الخلود: النواعير في العراق كمنظومة هيدروليكية مستدامة</span><span data-lang="en">The Engineering of Eternity: Iraq's Norias as a Sustainable Hydraulic System</span></h3>
+        <span class="blog-card-date"><span data-lang="ar">١٢ تموز، ٢٠٢٦</span><span data-lang="en">July 12, 2026</span></span>
+        <p class="blog-card-excerpt">
+            <span data-lang="ar">تعتبر الناعورة ذروة التطور الهندسي بالعصور القديمة، منظومة صفرية الكربون تحوّل جريان النهر إلى ري مستمر دون طاقة خارجية...</span>
+            <span data-lang="en">The noria represents the pinnacle of ancient engineering — a zero-carbon system converting river flow into continuous irrigation without external power...</span>
+        </p>
+        <span class="blog-card-readmore"><span data-lang="ar">اقرأ المقال كاملاً ←</span><span data-lang="en">Read Full Article →</span></span>
+    </a>
+
     <a href="blog/political-pressure-and-environment.html" class="blog-card">
+        <div class="blog-card-img-wrapper"><img src="اهوار العراق.jpg" alt="أهوار العراق"></div>
         <span class="blog-card-badge"><span data-lang="ar">سياسة بيئية</span><span data-lang="en">Environmental Politics</span></span>
         <h3 class="blog-card-title"><span data-lang="ar">بين مطرقة الضغوط السياسية وسندان الاندثار البيئي</span><span data-lang="en">Between the Hammer of Political Pressure and the Anvil of Environmental Extinction</span></h3>
         <span class="blog-card-date"><span data-lang="ar">٨ تموز، ٢٠٢٦</span><span data-lang="en">July 8, 2026</span></span>
@@ -80,6 +81,7 @@
     </a>
 
     <a href="blog/bulbul-soft-release.html" class="blog-card">
+        <div class="blog-card-img-wrapper"><img src="BilbalJPG.jpeg" alt="البلبل العراقي"></div>
         <span class="blog-card-badge"><span data-lang="ar">توعية بيئية</span><span data-lang="en">Environmental Awareness</span></span>
         <h3 class="blog-card-title"><span data-lang="ar">البلبل العراقي في مواجهة الاندثار: لماذا نحتاج إلى "الإطلاق اللين"؟</span><span data-lang="en">The Iraqi Bulbul Facing Extinction: Why Do We Need 'Soft Release'?</span></h3>
         <span class="blog-card-date"><span data-lang="ar">٢٨ حزيران، ٢٠٢٦</span><span data-lang="en">June 28, 2026</span></span>
@@ -91,6 +93,7 @@
     </a>
 
     <a href="blog/albizia-and-sidr.html" class="blog-card">
+        <div class="blog-card-img-wrapper"><img src="شجرة السدر.jpg" alt="شجرة السدر"></div>
         <span class="blog-card-badge"><span data-lang="ar">زراعة ومناخ</span><span data-lang="en">Planting &amp; Climate</span></span>
         <h3 class="blog-card-title"><span data-lang="ar">البداية الحقيقية: لماذا الألبيزيا والسدر؟</span><span data-lang="en">The True Beginning: Why Albizia and Sidr?</span></h3>
         <span class="blog-card-date"><span data-lang="ar">١٨ حزيران، ٢٠٢٦</span><span data-lang="en">June 18, 2026</span></span>
