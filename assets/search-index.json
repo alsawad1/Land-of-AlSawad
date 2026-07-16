@@ -171,6 +171,132 @@
     "excerpt_en": "A fast-growing naturalized tree requiring smart water management"
   },
   {
+    "url": "trees/sidr.html",
+    "category_ar": "ديوان الأشجار",
+    "category_en": "Diwan Al-Ashjar",
+    "title_ar": "شجرة السدر",
+    "title_en": "Sidr Tree",
+    "excerpt_ar": "أيقونة الطبيعة العراقية، تواجه تهديداً مرتفعاً من القطع الجائر",
+    "excerpt_en": "An icon of Iraq's natural landscape, facing a high threat from indiscriminate logging"
+  },
+  {
+    "url": "trees/albizia.html",
+    "category_ar": "ديوان الأشجار",
+    "category_en": "Diwan Al-Ashjar",
+    "title_ar": "شجرة الألبيزيا",
+    "title_en": "Albizia Tree",
+    "excerpt_ar": "شجرة مستأنسة سريعة النمو، تحتاج إدارة مائية ذكية",
+    "excerpt_en": "A fast-growing naturalized tree requiring smart water management"
+  },
+  {
+    "url": "trees/date-palm.html",
+    "category_ar": "ديوان الأشجار",
+    "category_en": "Diwan Al-Ashjar",
+    "title_ar": "نخلة التمر",
+    "title_en": "Date Palm",
+    "excerpt_ar": "الأيقونة البوتانيكية لبلاد الرافدين، تواجه تجريفاً عمرانياً لبساتينها التاريخية",
+    "excerpt_en": "The botanical icon of Mesopotamia, facing urban clearing of its historic orchards"
+  },
+  {
+    "url": "trees/euphrates-poplar.html",
+    "category_ar": "ديوان الأشجار",
+    "category_en": "Diwan Al-Ashjar",
+    "title_ar": "الحور الفراتي",
+    "title_en": "Euphrates Poplar",
+    "excerpt_ar": "صمود استثنائي بوجه الملوحة والجفاف، مهدد بالارتهان المائي",
+    "excerpt_en": "Exceptional resilience against salinity and drought, threatened by water dependency"
+  },
+  {
+    "url": "trees/athl-tamarisk.html",
+    "category_ar": "ديوان الأشجار",
+    "category_en": "Diwan Al-Ashjar",
+    "title_ar": "الأثل (الطرفاء)",
+    "title_en": "Athl (Tamarisk)",
+    "excerpt_ar": "الحارس الجيني للأراضي القاحلة ومصد رياح طبيعي",
+    "excerpt_en": "A genetic guardian of arid lands and natural windbreak"
+  },
+  {
+    "url": "trees/iraqi-willow.html",
+    "category_ar": "ديوان الأشجار",
+    "category_en": "Diwan Al-Ashjar",
+    "title_ar": "الصفصاف العراقي",
+    "title_en": "Iraqi Willow",
+    "excerpt_ar": "منقّي طبيعي للمجاري المائية عبر المعالجة الحيوية",
+    "excerpt_en": "A natural purifier of waterways through phytoremediation"
+  },
+  {
+    "url": "trees/oak.html",
+    "category_ar": "ديوان الأشجار",
+    "category_en": "Diwan Al-Ashjar",
+    "title_ar": "البلوط (السنديان)",
+    "title_en": "Oak",
+    "excerpt_ar": "ركيزة التوازن الجبلي بكردستان، تتعرض لقطع جائر وحرائق",
+    "excerpt_en": "A pillar of mountain balance in Kurdistan, facing logging and wildfires"
+  },
+  {
+    "url": "trees/pistacia.html",
+    "category_ar": "ديوان الأشجار",
+    "category_en": "Diwan Al-Ashjar",
+    "title_ar": "البطم (الملول)",
+    "title_en": "Pistacia (Terebinth)",
+    "excerpt_ar": "شجرة رائدة بطيئة النمو تفتت الصخور لتكوّن التربة",
+    "excerpt_en": "A slow-growing pioneer species that breaks down rock to form soil"
+  },
+  {
+    "url": "trees/eucalyptus.html",
+    "category_ar": "ديوان الأشجار",
+    "category_en": "Diwan Al-Ashjar",
+    "title_ar": "الأوكالبتوس (الكافور)",
+    "title_en": "Eucalyptus",
+    "excerpt_ar": "نتح عالي جداً يجفف المستنقعات لكنه منافس مائي بالعراق",
+    "excerpt_en": "Extremely high transpiration, effective at drying swamps but a water competitor in Iraq"
+  },
+  {
+    "url": "trees/melia-azedarach.html",
+    "category_ar": "ديوان الأشجار",
+    "category_en": "Diwan Al-Ashjar",
+    "title_ar": "الزنزلخت",
+    "title_en": "Melia Azedarach",
+    "excerpt_ar": "كيمياء طبيعية طاردة للحشرات وقدرة تكيف عالية",
+    "excerpt_en": "Natural insect-repelling chemistry and high adaptability"
+  },
+  {
+    "url": "trees/neem.html",
+    "category_ar": "ديوان الأشجار",
+    "category_en": "Diwan Al-Ashjar",
+    "title_ar": "النيم",
+    "title_en": "Neem",
+    "excerpt_ar": "مخزن للمركبات النشطة بيولوجياً كالأزاديراكتين",
+    "excerpt_en": "A reservoir of bioactive compounds like azadirachtin"
+  },
+  {
+    "url": "trees/conocarpus.html",
+    "category_ar": "ديوان الأشجار",
+    "category_en": "Diwan Al-Ashjar",
+    "title_ar": "الكونوكاربس",
+    "title_en": "Conocarpus",
+    "excerpt_ar": "قدرة استثنائية بامتصاص الكربون لكن جذوره تضر البنية التحتية",
+    "excerpt_en": "Exceptional carbon absorption but its roots damage infrastructure"
+  },
+  {
+    "url": "blog/al-ghazl-market.html",
+    "category_ar": "المدونة",
+    "category_en": "Blog",
+    "title_ar": "تجارة الموت المشرعنة: مأساة سوق الغزل",
+    "title_en": "The Legalized Trade of Death: Al-Ghazl Market",
+    "excerpt_ar": "طيور مهاجرة ومستوطنة تُسلب حريتها وتُعرض للموت البطيء بسوق الغزل ببغداد",
+    "excerpt_en": "Migratory and native birds stripped of freedom and left to die slowly at Baghdad's Al-Ghazl Market"
+  },
+  {
+    "url": "blog/norias.html",
+    "category_ar": "المدونة",
+    "category_en": "Blog",
+    "title_ar": "هندسة الخلود: النواعير في العراق",
+    "title_en": "The Engineering of Eternity: Iraq's Norias",
+    "excerpt_ar": "منظومة هيدروليكية صفرية الكربون تحول جريان النهر إلى ري مستمر بمدينة هيت",
+    "excerpt_en": "A zero-carbon hydraulic system converting river flow into continuous irrigation in Hit"
+  },
+  {
     "url": "blog/albizia-and-sidr.html",
     "category_ar": "المدونة",
     "category_en": "Blog",
