@@ -75,13 +75,9 @@ function injectSocialIcons() {
     const footerEl = document.querySelector('.site-footer');
     if (!footerEl || document.querySelector('.social-follow-box')) return;
 
-    const lang = document.documentElement.lang === 'en' ? 'en' : 'ar';
-  ;
-
     const box = document.createElement('div');
     box.className = 'social-follow-box';
     box.innerHTML =
-        '<div class="social-follow-title">' + title + '</div>' +
         '<div class="social-icons">' +
         SOCIAL_LINKS.map(s =>
             `<a href="${s.url}" target="_blank" rel="noopener" aria-label="${s.name}" class="social-icon-link">${s.icon}</a>`
