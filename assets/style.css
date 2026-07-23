@@ -250,7 +250,38 @@ body.lang-en .tree-practical-box { text-align: left; }
     .guide-steps-ol { margin: 15px 0 25px 0; font-size: 1.1rem; }
     .telegram-link-btn { width: 100%; padding: 12px 20px; font-size: 1.1rem; }
 }
-/* ===== أيقونات التواصل الاجتماعي بالفوتر ===== */
-.social-icons { display: flex; justify-content: center; gap: 18px; margin: 30px 0 15px; }
-.social-icon-link { color: #888; transition: color 0.3s ease, transform 0.3s ease; display: inline-flex; }
-.social-icon-link:hover { color: #2ecc71; transform: translateY(-3px); }
+/* ===== صندوق التواصل الاجتماعي بالفوتر ===== */
+.social-follow-box {
+    max-width: 320px;
+    margin: 30px auto 20px;
+    padding: 22px 25px;
+    border: 1px solid #333;
+    border-radius: 16px;
+    text-align: center;
+    background: rgba(46, 204, 113, 0.03);
+}
+.social-follow-title {
+    font-family: 'Cairo', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 18px;
+}
+.social-icons { display: flex; justify-content: center; align-items: center; gap: 14px; }
+.social-icon-link {
+    width: 44px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1.5px solid #2ecc71;
+    border-radius: 50%;
+    color: #2ecc71;
+    transition: all 0.3s ease;
+}
+.social-icon-link:hover {
+    background: #2ecc71;
+    color: #0a2e18;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.4);
+}
