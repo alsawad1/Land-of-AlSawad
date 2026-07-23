@@ -63,3 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
     try { saved = localStorage.getItem('siteLang') || 'ar'; } catch (e) { /* ignore */ }
     setLanguage(saved);
 });
+/* ===== أيقونات التواصل الاجتماعي بالفوتر ===== */
+.social-icons { display: flex; justify-content: center; gap: 18px; margin: 30px 0 15px; }
+.social-icon-link { color: #888; transition: color 0.3s ease, transform 0.3s ease; display: inline-flex; }
+.social-icon-link:hover { color: #2ecc71; transform: translateY(-3px); }
