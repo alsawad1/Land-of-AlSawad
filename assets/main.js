@@ -76,7 +76,7 @@ function injectSocialIcons() {
     if (!footerEl || document.querySelector('.social-follow-box')) return;
 
     const lang = document.documentElement.lang === 'en' ? 'en' : 'ar';
-    const title = lang === 'en' ? 'Follow Us' : 'تابعونا على';
+  ;
 
     const box = document.createElement('div');
     box.className = 'social-follow-box';
