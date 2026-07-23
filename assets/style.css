@@ -250,3 +250,7 @@ body.lang-en .tree-practical-box { text-align: left; }
     .guide-steps-ol { margin: 15px 0 25px 0; font-size: 1.1rem; }
     .telegram-link-btn { width: 100%; padding: 12px 20px; font-size: 1.1rem; }
 }
+/* ===== أيقونات التواصل الاجتماعي بالفوتر ===== */
+.social-icons { display: flex; justify-content: center; gap: 18px; margin: 30px 0 15px; }
+.social-icon-link { color: #888; transition: color 0.3s ease, transform 0.3s ease; display: inline-flex; }
+.social-icon-link:hover { color: #2ecc71; transform: translateY(-3px); }
