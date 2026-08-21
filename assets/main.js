@@ -89,3 +89,35 @@ function injectSocialIcons() {
 }
 
 document.addEventListener('DOMContentLoaded', injectSocialIcons);
+// ===== إضافة رابط الخريطة للقائمة تلقائياً (بدون تعديل كل صفحة يدوياً) =====
+NAV_LABELS.ar.navMap = "الخريطة";
+NAV_LABELS.en.navMap = "Map";
+
+function injectMapNavLink() {
+    var lang = document.documentElement.lang === 'en' ? 'en' : 'ar';
+    var isMapPage = location.pathname.indexOf('map.html') !== -1;
+
+    document.querySelectorAll('.nav-menu, .mobile-drawer').forEach(function(container) {
+        if (container.querySelector('.map-nav-link')) return;
+
+        var homeLink = container.querySelector('a[data-i18n="navHome"]');
+        if (!homeLink) return;
+        var prefix = homeLink.getAttribute('href').replace('index.html', '');
+
+        var blogLink = container.querySelector('a[data-i18n="navBlog"]');
+
+        var mapLink = document.createElement('a');
+        mapLink.href = prefix + 'map.html';
+        mapLink.className = 'nav-link map-nav-link' + (isMapPage ? ' active' : '');
+        mapLink.setAttribute('data-i18n', 'navMap');
+        mapLink.textContent = NAV_LABELS[lang].navMap;
+
+        if (blogLink) {
+            blogLink.insertAdjacentElement('afterend', mapLink);
+        } else {
+            container.appendChild(mapLink);
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', injectMapNavLink);
