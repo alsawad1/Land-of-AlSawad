@@ -17,9 +17,14 @@
         .leaflet-popup-content-wrapper { background: #222; color: #fff; border-radius: 10px; }
         .leaflet-popup-tip { background: #222; }
         .map-legend { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 20px; font-family: 'Cairo', sans-serif; font-size: 0.9rem; color: #ccc; }
-        .map-legend span { display: flex; align-items: center; gap: 8px; }
+        .map-legend > span { display: flex; align-items: center; gap: 8px; }
         .legend-line { width: 22px; height: 0; border-top: 4px solid #2ecc71; display: inline-block; }
         .legend-sapling { width: 16px; height: 16px; }
+        .legend-well { width: 16px; height: 16px; }
+        .map-zoom-btn { display: inline-block; margin-top: 16px; padding: 9px 22px; background: transparent; border: 1.5px solid #2ecc71; color: #2ecc71; border-radius: 999px; font-family: 'Cairo', sans-serif; font-size: 0.9rem; font-weight: 700; cursor: pointer; transition: all 0.25s ease; }
+        .map-zoom-btn:hover { background: #2ecc71; color: #1a1a1a; }
+        body.lang-en .sapling-popup-inner { direction: ltr; text-align: left; }
+        body.lang-en .sapling-popup-inner td:first-child { padding-left: 0; padding-right: 12px; }
         .area-popup-inner { font-family: 'Cairo', sans-serif; text-align: center; min-width: 150px; }
         .area-popup-inner strong { color: #2ecc71; font-size: 1rem; display: block; margin-bottom: 4px; }
         .area-popup-inner span { color: #ccc; font-size: 0.85rem; }
@@ -86,13 +91,25 @@
         </svg>
         <span data-lang="ar">شتلة مزروعة</span><span data-lang="en">Planted Sapling</span>
     </span>
+    <span>
+        <svg class="legend-well" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="46" fill="#12324a" stroke="#4fb3ff" stroke-width="6"/>
+            <path d="M50 20 C 38,38 30,48 30,60 A 20 20 0 0 0 70,60 C 70,48 62,38 50,20 Z" fill="#4fb3ff"/>
+        </svg>
+        <span data-lang="ar">بئر السقي</span><span data-lang="en">Irrigation Well</span>
+    </span>
 </div>
+
+<button type="button" class="map-zoom-btn" id="zoom-to-plantings">
+    <span data-lang="ar">تقريب إلى مواقع الزراعة</span><span data-lang="en">Zoom to Planting Sites</span>
+</button>
 
             <footer class="site-footer" data-i18n="footer">جميع الحقوق محفوظة © أرض السَّواد ٢٠٢٦</footer>
         </div>
     </main>
     <script src="assets/main.js"></script>
 
+<script src="assets/plantings.js"></script>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
 (function() {
@@ -106,31 +123,16 @@
         [44.3036181,33.291371],[44.3079214,33.2921854]
     ].map(function(c){ return [c[1], c[0]]; });
 
-    /* ============================================================
-       بيانات الشتلات المزروعة — أضف عنصر جديد لكل شتلة حقيقية:
-       lat, lng: إحداثيات الموقع بالضبط
-       species_ar / species_en: نوع الشتلة
-       date_ar / date_en: تاريخ الزراعة
-       location_ar / location_en: وصف الموقع بالتفصيل
-       watered_ar / watered_en: تاريخ آخر سقي
-       ============================================================ */
-    var SAPLINGS = [
-        // مثال — احذف هذا العنصر وأضف بياناتك الحقيقية بنفس الشكل:
-        // {
-        //     lat: 33.2960, lng: 44.2950,
-        //     species_ar: "شجرة السدر", species_en: "Sidr Tree",
-        //     date_ar: "٢ تموز، ٢٠٢٦", date_en: "July 2, 2026",
-        //     location_ar: "قرب حديقة حي 302، شارع الأميرات", location_en: "Near Hay 302 Park, Al-Ameerat Street",
-        //     watered_ar: "١٨ تموز، ٢٠٢٦", watered_en: "July 18, 2026"
-        // }
-    ];
+    // بيانات الأشجار والآبار تُقرأ من assets/plantings.js (نفس المصدر الذي يحسب منه عدّاد الصفحة الرئيسية)
+    var PLANTINGS = window.PLANTINGS || { species: {}, trees: [], wells: [] };
 
-    var map = L.map('activity-map', { zoomControl: true, scrollWheelZoom: false });
+    var map = L.map('activity-map', { zoomControl: true, scrollWheelZoom: false, maxZoom: 22 });
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; OpenStreetMap contributors',
         subdomains: 'abc',
-        maxZoom: 19
+        maxNativeZoom: 19,
+        maxZoom: 22
     }).addTo(map);
 
     var poly = L.polygon(boundary, {
@@ -146,37 +148,68 @@
     map.fitBounds(poly.getBounds(), { padding: [30, 30] });
 
     var saplingSvg =
-        '<svg width="30" height="30" viewBox="0 0 100 100" style="filter: drop-shadow(0 1px 3px rgba(0,0,0,0.5));">' +
+        '<svg width="26" height="26" viewBox="0 0 100 100" style="filter: drop-shadow(0 1px 3px rgba(0,0,0,0.5));">' +
         '<path d="M50 85 L50 55" stroke="#2ecc71" stroke-width="6" stroke-linecap="round" fill="none"/>' +
         '<path d="M50 50 C 38,35 38,15 50,3 C 62,15 62,35 50,50 Z" fill="#2ecc71" stroke="#173404" stroke-width="2"/>' +
         '<path d="M50 58 C 35,52 18,42 12,25 C 30,28 45,40 50,58 Z" fill="#2ecc71" stroke="#173404" stroke-width="2"/>' +
         '<path d="M50 52 C 65,48 82,38 88,21 C 70,25 55,36 50,52 Z" fill="#2ecc71" stroke="#173404" stroke-width="2"/>' +
         '</svg>';
 
-    var treeIcon = L.divIcon({
-        className: '',
-        html: saplingSvg,
-        iconSize: [30, 30], iconAnchor: [15, 28]
+    var wellSvg =
+        '<svg width="30" height="30" viewBox="0 0 100 100" style="filter: drop-shadow(0 1px 3px rgba(0,0,0,0.6));">' +
+        '<circle cx="50" cy="50" r="46" fill="#12324a" stroke="#4fb3ff" stroke-width="6"/>' +
+        '<path d="M50 20 C 38,38 30,48 30,60 A 20 20 0 0 0 70,60 C 70,48 62,38 50,20 Z" fill="#4fb3ff"/>' +
+        '</svg>';
+
+    var treeIcon = L.divIcon({ className: '', html: saplingSvg, iconSize: [26, 26], iconAnchor: [13, 24], popupAnchor: [0, -22] });
+    var wellIcon = L.divIcon({ className: '', html: wellSvg, iconSize: [30, 30], iconAnchor: [15, 15], popupAnchor: [0, -14] });
+
+    function currentLang() { return document.documentElement.lang === 'en' ? 'en' : 'ar'; }
+
+    function popupHtml(title, rows) {
+        var body = rows.filter(function(r) { return r[1]; }).map(function(r) {
+            return '<tr><td>' + r[0] + '</td><td>' + r[1] + '</td></tr>';
+        }).join('');
+        return '<div class="sapling-popup-inner"><h4>' + title + '</h4>' + (body ? '<table>' + body + '</table>' : '') + '</div>';
+    }
+
+    function coordsText(p) { return '<span dir="ltr">' + p.lat.toFixed(6) + ', ' + p.lng.toFixed(6) + '</span>'; }
+
+    var plantingPoints = [];
+
+    PLANTINGS.trees.forEach(function(t) {
+        plantingPoints.push([t.lat, t.lng]);
+        // المحتوى يُبنى عند فتح النافذة حتى يتبع لغة الموقع الحالية
+        L.marker([t.lat, t.lng], { icon: treeIcon }).addTo(map).bindPopup(function() {
+            var en = currentLang() === 'en';
+            var sp = PLANTINGS.species[t.species] || {};
+            return popupHtml(en ? (sp.en || t.species) : (sp.ar || t.species), [
+                [en ? 'Planting Date' : 'تاريخ الزراعة', en ? t.date_en : t.date_ar],
+                [en ? 'Location' : 'الموقع', en ? t.location_en : t.location_ar],
+                [en ? 'Last Watered' : 'آخر سقي', en ? t.watered_en : t.watered_ar],
+                [en ? 'Coordinates' : 'الإحداثيات', coordsText(t)]
+            ]);
+        });
     });
 
-    SAPLINGS.forEach(function(s) {
-        var currentLang = document.documentElement.lang === 'en' ? 'en' : 'ar';
-        var species = currentLang === 'en' ? s.species_en : s.species_ar;
-        var date = currentLang === 'en' ? s.date_en : s.date_ar;
-        var location = currentLang === 'en' ? s.location_en : s.location_ar;
-        var watered = currentLang === 'en' ? s.watered_en : s.watered_ar;
-        var dateLabel = currentLang === 'en' ? 'Planting Date' : 'تاريخ الزراعة';
-        var locLabel = currentLang === 'en' ? 'Location' : 'الموقع';
-        var waterLabel = currentLang === 'en' ? 'Last Watered' : 'آخر سقي';
-
-        var html = '<div class="sapling-popup-inner"><h4>' + species + '</h4><table>' +
-            '<tr><td>' + dateLabel + '</td><td>' + date + '</td></tr>' +
-            '<tr><td>' + locLabel + '</td><td>' + location + '</td></tr>' +
-            '<tr><td>' + waterLabel + '</td><td>' + watered + '</td></tr>' +
-            '</table></div>';
-
-        L.marker([s.lat, s.lng], { icon: treeIcon }).addTo(map).bindPopup(html);
+    PLANTINGS.wells.forEach(function(w) {
+        plantingPoints.push([w.lat, w.lng]);
+        L.marker([w.lat, w.lng], { icon: wellIcon, zIndexOffset: 500 }).addTo(map).bindPopup(function() {
+            var en = currentLang() === 'en';
+            return popupHtml(en ? w.name_en : w.name_ar, [
+                [en ? 'Coordinates' : 'الإحداثيات', coordsText(w)]
+            ]);
+        });
     });
+
+    var zoomBtn = document.getElementById('zoom-to-plantings');
+    if (zoomBtn) {
+        if (!plantingPoints.length) zoomBtn.style.display = 'none';
+        zoomBtn.addEventListener('click', function() {
+            map.fitBounds(L.latLngBounds(plantingPoints), { padding: [50, 50], maxZoom: 21 });
+            document.getElementById('activity-map').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+    }
 })();
 </script>
 </body>
