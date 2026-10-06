@@ -45,6 +45,616 @@
     "excerpt_en": "Interactive map of project regions across Iraq's governorates"
   },
   {
+    "url": "birds/barn-swallow.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "السنونو",
+    "title_en": "Barn Swallow",
+    "excerpt_ar": "يُعرف السنونو علميًا باسم Hirundo rustica، وينتمي إلى فصيلة السنونيات (Hirundinidae) ضمن رتبة العصفوريات...",
+    "excerpt_en": "The Barn Swallow is scientifically known as Hirundo rustica, belonging to the swallow family (Hirundinidae) within the...",
+    "keywords": "Hirundo rustica"
+  },
+  {
+    "url": "birds/basra-reed-warbler.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "دخلة البصرة",
+    "title_en": "Basra Reed Warbler",
+    "excerpt_ar": "جوهرة الأهوار، يحتضن العراق نحو 90٪ من تعدادها العالمي",
+    "excerpt_en": "The jewel of the marshes; Iraq hosts nearly 90% of its global population",
+    "keywords": "Acrocephalus griseldis"
+  },
+  {
+    "url": "birds/bearded-vulture.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "النسر الملتحي",
+    "title_en": "Bearded Vulture",
+    "excerpt_ar": "الأكثر انعزالاً بين النسور، يعيش بأقسى قمم كردستان الثلجية",
+    "excerpt_en": "The most isolated of all vultures, living on Kurdistan's harshest peaks",
+    "keywords": "Gypaetus barbatus"
+  },
+  {
+    "url": "birds/black-bellied-sandgrouse.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "القطا أسود البطن",
+    "title_en": "Black-bellied Sandgrouse",
+    "excerpt_ar": "يتميز ببطن أسود واضح أثناء الطيران، مستوطن بهضاب العراق وسهوله شبه الصحراوية، ويُستخدم تقليديًا كدليل على المياه الجوفية",
+    "excerpt_en": "Distinguished by a striking black belly in flight, resident across Iraq's semi-desert plateaus, and traditionally used...",
+    "keywords": "Pterocles orientalis"
+  },
+  {
+    "url": "birds/black-crowned-night-heron.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "البلشون الليلي",
+    "title_en": "Black-crowned Night-heron",
+    "excerpt_ar": "يُعرف البلشون الليلي علميًا باسم Nycticorax nycticorax، وينتمي إلى فصيلة البلشونيات (Ardeidae) ضمن رتبة البلشوناويات...",
+    "excerpt_en": "The Black-crowned Night-heron is scientifically known as Nycticorax nycticorax, belonging to the heron family...",
+    "keywords": "Nycticorax nycticorax"
+  },
+  {
+    "url": "birds/black-headed-gull.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "النورس أسود الرأس",
+    "title_en": "Black-headed Gull",
+    "excerpt_ar": "من أكثر النوارس انتشاراً بالعالم القديم، زائر شتوي بأعداد كبيرة على دجلة والفرات والأهوار، مؤشر على وفرة الموارد...",
+    "excerpt_en": "One of the most widespread gulls in the Old World, a large-scale winter visitor to the Tigris, Euphrates, and marshes —...",
+    "keywords": "Chroicocephalus ridibundus"
+  },
+  {
+    "url": "birds/black-kite.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "الحدأة السوداء",
+    "title_en": "Black Kite",
+    "excerpt_ar": "تُعرف الحدأة السوداء علميًا باسم Milvus migrans، وتنتمي إلى فصيلة الصقرياويات (Accipitridae) ضمن رتبة الصقرياويات...",
+    "excerpt_en": "The Black Kite is scientifically known as Milvus migrans, belonging to the hawk family (Accipitridae) within the order...",
+    "keywords": "Milvus migrans"
+  },
+  {
+    "url": "birds/black-tailed-godwit.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "اللقلق أسود الذيل",
+    "title_en": "Black-tailed Godwit",
+    "excerpt_ar": "يُعرف هذا الطائر علميًا باسم Limosa limosa (المعروف أيضًا بالفردة سوداء الذيل)، وينتمي إلى فصيلة القطاعيات...",
+    "excerpt_en": "This bird is scientifically known as Limosa limosa (also known as the Black-tailed Godwit), belonging to the sandpiper...",
+    "keywords": "Limosa limosa"
+  },
+  {
+    "url": "birds/black-winged-stilt.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "أبو فروخ",
+    "title_en": "Black-winged Stilt",
+    "excerpt_ar": "يُعرف أبو فروخ علميًا باسم Himantopus himantopus، وينتمي إلى فصيلة أبو فروخيات (Recurvirostridae) ضمن رتبة الخوّاضاويات...",
+    "excerpt_en": "The Black-winged Stilt is scientifically known as Himantopus himantopus, belonging to the stilt family...",
+    "keywords": "Himantopus himantopus"
+  },
+  {
+    "url": "birds/blue-cheeked-bee-eater.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "الوروار أزرق الخد",
+    "title_en": "Blue-cheeked Bee-eater",
+    "excerpt_ar": "يُعرف الوروار أزرق الخد علميًا باسم Merops persicus، وينتمي إلى فصيلة الورواريات (Meropidae) ضمن رتبة الرفرافاويات...",
+    "excerpt_en": "The Blue-cheeked Bee-eater is scientifically known as Merops persicus, belonging to the bee-eater family (Meropidae)...",
+    "keywords": "Merops persicus"
+  },
+  {
+    "url": "birds/booted-eagle.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "العقاب المسربل",
+    "title_en": "Booted Eagle",
+    "excerpt_ar": "يُعرف العقاب المسربل علميًا باسم Hieraaetus pennatus، وينتمي إلى فصيلة الصقرياويات (Accipitridae) ضمن رتبة الصقرياويات...",
+    "excerpt_en": "The Booted Eagle is scientifically known as Hieraaetus pennatus, belonging to the hawk family (Accipitridae) within the...",
+    "keywords": "Hieraaetus pennatus"
+  },
+  {
+    "url": "birds/caspian-tern.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "خطاف البحر القزويني",
+    "title_en": "Caspian Tern",
+    "excerpt_ar": "يُعرف خطاف البحر القزويني علميًا باسم Hydroprogne caspia، وينتمي إلى فصيلة النورسيات (Laridae) ضمن رتبة الخوّاضاويات...",
+    "excerpt_en": "The Caspian Tern is scientifically known as Hydroprogne caspia, belonging to the gull family (Laridae) within the order...",
+    "keywords": "Hydroprogne caspia"
+  },
+  {
+    "url": "birds/cattle-egret.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "أبو قردان",
+    "title_en": "Cattle Egret",
+    "excerpt_ar": "يُعرف أبو قردان علميًا باسم Bubulcus ibis، وينتمي إلى فصيلة البلشونيات (Ardeidae) ضمن رتبة البلشوناويات...",
+    "excerpt_en": "The Cattle Egret is scientifically known as Bubulcus ibis, belonging to the heron family (Ardeidae) within the order...",
+    "keywords": "Bubulcus ibis"
+  },
+  {
+    "url": "birds/chukar-partridge.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "الحجل (الشنار)",
+    "title_en": "Chukar Partridge",
+    "excerpt_ar": "طائر صيد بري معروف بمرتفعات كردستان الصخرية، من أكثر طيور الحجل شيوعاً بالعراق، وله أهمية اقتصادية واجتماعية تقليدية",
+    "excerpt_en": "A well-known game bird of Kurdistan's rocky highlands, among the most common partridge species in Iraq, with...",
+    "keywords": "Alectoris chukar"
+  },
+  {
+    "url": "birds/common-crane.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "الكركي",
+    "title_en": "Common Crane",
+    "excerpt_ar": "يُعرف الكركي علميًا باسم Grus grus، وينتمي إلى فصيلة الكركيات (Gruidae) ضمن رتبة الغلالياويات (Gruiformes)، وهو طائر...",
+    "excerpt_en": "The Common Crane is scientifically known as Grus grus, belonging to the crane family (Gruidae) within the order...",
+    "keywords": "Grus grus"
+  },
+  {
+    "url": "birds/common-cuckoo.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "الوقواق",
+    "title_en": "Common Cuckoo",
+    "excerpt_ar": "يُعرف الوقواق علميًا باسم Cuculus canorus، وينتمي إلى فصيلة الوقواقيات (Cuculidae) ضمن رتبة الوقواقاويات...",
+    "excerpt_en": "The Common Cuckoo is scientifically known as Cuculus canorus, belonging to the cuckoo family (Cuculidae) within the...",
+    "keywords": "Cuculus canorus"
+  },
+  {
+    "url": "birds/common-greenshank.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "أخضر الساق",
+    "title_en": "Common Greenshank",
+    "excerpt_ar": "يُعرف أخضر الساق علميًا باسم Tringa nebularia، وينتمي إلى فصيلة القطاعيات (Scolopacidae) ضمن رتبة الخوّاضاويات...",
+    "excerpt_en": "The Common Greenshank is scientifically known as Tringa nebularia, belonging to the sandpiper family (Scolopacidae)...",
+    "keywords": "Tringa nebularia"
+  },
+  {
+    "url": "birds/common-house-martin.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "السنونو المنزلي",
+    "title_en": "Common House-martin",
+    "excerpt_ar": "يُعرف السنونو المنزلي علميًا باسم Delichon urbicum، وينتمي إلى فصيلة السنونيات (Hirundinidae) ضمن رتبة العصفوريات...",
+    "excerpt_en": "The Common House-martin is scientifically known as Delichon urbicum, belonging to the swallow family (Hirundinidae)...",
+    "keywords": "Delichon urbicum"
+  },
+  {
+    "url": "birds/common-kestrel.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "الباشق",
+    "title_en": "Common Kestrel",
+    "excerpt_ar": "يُعرف الباشق علميًا باسم Falco tinnunculus، وينتمي إلى فصيلة الصقريات (Falconidae) ضمن رتبة الصقرياويات...",
+    "excerpt_en": "The Common Kestrel is scientifically known as Falco tinnunculus, belonging to the falcon family (Falconidae) within the...",
+    "keywords": "Falco tinnunculus"
+  },
+  {
+    "url": "birds/common-kingfisher.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "الرفراف",
+    "title_en": "Common Kingfisher",
+    "excerpt_ar": "يُعرف الرفراف علميًا باسم Alcedo atthis، وينتمي إلى فصيلة الرفرافيات (Alcedinidae) ضمن رتبة الرفرافاويات...",
+    "excerpt_en": "The Common Kingfisher is scientifically known as Alcedo atthis, belonging to the kingfisher family (Alcedinidae) within...",
+    "keywords": "Alcedo atthis"
+  },
+  {
+    "url": "birds/common-moorhen.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "دجاجة الماء",
+    "title_en": "Common Moorhen",
+    "excerpt_ar": "تُعرف دجاجة الماء علميًا باسم Gallinula chloropus، وتنتمي إلى فصيلة الغلاليات (Rallidae) ضمن رتبة الغلالياويات...",
+    "excerpt_en": "The Common Moorhen is scientifically known as Gallinula chloropus, belonging to the rail family (Rallidae) within the...",
+    "keywords": "Gallinula chloropus"
+  },
+  {
+    "url": "birds/common-raven.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "الغراب الأسود الكبير",
+    "title_en": "Common Raven",
+    "excerpt_ar": "يُعرف الغراب الأسود الكبير علميًا باسم Corvus corax، وينتمي إلى فصيلة الغرابيات (Corvidae) ضمن رتبة العصفوريات...",
+    "excerpt_en": "The Common Raven is scientifically known as Corvus corax, belonging to the crow family (Corvidae) within the order...",
+    "keywords": "Corvus corax"
+  },
+  {
+    "url": "birds/common-redshank.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "أحمر الساق",
+    "title_en": "Common Redshank",
+    "excerpt_ar": "يُعرف أحمر الساق علميًا باسم Tringa totanus، وينتمي إلى فصيلة القطاعيات (Scolopacidae) ضمن رتبة الخوّاضاويات...",
+    "excerpt_en": "The Common Redshank is scientifically known as Tringa totanus, belonging to the sandpiper family (Scolopacidae) within...",
+    "keywords": "Tringa totanus"
+  },
+  {
+    "url": "birds/common-shelduck.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "الشلندرة",
+    "title_en": "Common Shelduck",
+    "excerpt_ar": "تُعرف الشلندرة علميًا باسم Tadorna tadorna، وتنتمي إلى فصيلة البطيات (Anatidae) ضمن رتبة الإوزاويات (Anseriformes)، وهي...",
+    "excerpt_en": "The Common Shelduck is scientifically known as Tadorna tadorna, belonging to the duck family (Anatidae) within the...",
+    "keywords": "Tadorna tadorna"
+  },
+  {
+    "url": "birds/common-snipe.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "البكاسين",
+    "title_en": "Common Snipe",
+    "excerpt_ar": "يُعرف البكاسين علميًا باسم Gallinago gallinago، وينتمي إلى فصيلة القطاعيات (Scolopacidae) ضمن رتبة الخوّاضاويات...",
+    "excerpt_en": "The Common Snipe is scientifically known as Gallinago gallinago, belonging to the sandpiper family (Scolopacidae)...",
+    "keywords": "Gallinago gallinago"
+  },
+  {
+    "url": "birds/common-swift.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "السمامة",
+    "title_en": "Common Swift",
+    "excerpt_ar": "تُعرف السمامة علميًا باسم Apus apus، وتنتمي إلى فصيلة السماميات (Apodidae) ضمن رتبة السماميات (Apodiformes)، وهي طائر...",
+    "excerpt_en": "The Common Swift is scientifically known as Apus apus, belonging to the swift family (Apodidae) within the order...",
+    "keywords": "Apus apus"
+  },
+  {
+    "url": "birds/common-teal.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "البط البحري الصغير",
+    "title_en": "Common Teal",
+    "excerpt_ar": "يُعرف البط البحري الصغير أو البط الصفصاف علميًا باسم Anas crecca، وينتمي إلى فصيلة البطيات (Anatidae) ضمن رتبة...",
+    "excerpt_en": "The Common Teal, also known as the Eurasian Teal, is scientifically known as Anas crecca, belonging to the duck family...",
+    "keywords": "Anas crecca"
+  },
+  {
+    "url": "birds/corn-crake.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "مرعة الغيط",
+    "title_en": "Corn Crake",
+    "excerpt_ar": "تُعرف مرعة الغيط علميًا باسم Crex crex، وتنتمي إلى فصيلة الغلاليات (Rallidae) ضمن رتبة الغلالياويات (Gruiformes)، وهي...",
+    "excerpt_en": "The Corn Crake is scientifically known as Crex crex, belonging to the rail family (Rallidae) within the order...",
+    "keywords": "Crex crex"
+  },
+  {
+    "url": "birds/crested-lark.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "القنبرة المتوجة",
+    "title_en": "Crested Lark",
+    "excerpt_ar": "تُعرف القنبرة المتوجة علميًا باسم Galerida cristata، وتنتمي إلى فصيلة القنبريات (Alaudidae) ضمن رتبة العصفوريات...",
+    "excerpt_en": "The Crested Lark is scientifically known as Galerida cristata, belonging to the lark family (Alaudidae) within the...",
+    "keywords": "Galerida cristata"
+  },
+  {
+    "url": "birds/eastern-imperial-eagle.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "العقاب الإمبراطوري",
+    "title_en": "Eastern Imperial Eagle",
+    "excerpt_ar": "يُعرف العقاب الإمبراطوري علميًا باسم Aquila heliaca، وينتمي إلى فصيلة الصقرياويات (Accipitridae) ضمن رتبة الصقرياويات...",
+    "excerpt_en": "The Eastern Imperial Eagle is scientifically known as Aquila heliaca, belonging to the hawk family (Accipitridae)...",
+    "keywords": "Aquila heliaca"
+  },
+  {
+    "url": "birds/egyptian-vulture.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "النسر المصري (الرخمة)",
+    "title_en": "Egyptian Vulture",
+    "excerpt_ar": "منظف طبيعي للبيئة، مهدد بالتسمم الثانوي من الجيف المعالجة",
+    "excerpt_en": "Nature's own cleaner, threatened by secondary poisoning from treated carcasses",
+    "keywords": "Neophron percnopterus"
+  },
+  {
+    "url": "birds/eurasian-collared-dove.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "اليمامة المطوقة",
+    "title_en": "Eurasian Collared-dove",
+    "excerpt_ar": "تُعرف اليمامة المطوقة علميًا باسم Streptopelia decaocto، وتنتمي إلى فصيلة الحماميات (Columbidae) ضمن رتبة الحماميات...",
+    "excerpt_en": "The Eurasian Collared-dove is scientifically known as Streptopelia decaocto, belonging to the pigeon family...",
+    "keywords": "Streptopelia decaocto"
+  },
+  {
+    "url": "birds/eurasian-coot.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "الغرّة",
+    "title_en": "Eurasian Coot",
+    "excerpt_ar": "تُعرف الغرّة علميًا باسم Fulica atra، وتنتمي إلى فصيلة الغلاليات (Rallidae) ضمن رتبة الغلالياويات (Gruiformes)، وهي...",
+    "excerpt_en": "The Eurasian Coot is scientifically known as Fulica atra, belonging to the rail family (Rallidae) within the order...",
+    "keywords": "Fulica atra"
+  },
+  {
+    "url": "birds/eurasian-curlew.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "الكروان الأوروبي",
+    "title_en": "Eurasian Curlew",
+    "excerpt_ar": "يُعرف الكروان الأوروبي علميًا باسم Numenius arquata، وينتمي إلى فصيلة القطاعيات (Scolopacidae) ضمن رتبة الخوّاضاويات...",
+    "excerpt_en": "The Eurasian Curlew is scientifically known as Numenius arquata, belonging to the sandpiper family (Scolopacidae)...",
+    "keywords": "Numenius arquata"
+  },
+  {
+    "url": "birds/eurasian-eagle-owl.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "أم قويق",
+    "title_en": "Eurasian Eagle-owl",
+    "excerpt_ar": "تُعرف أم قويق علميًا باسم Bubo bubo، وتنتمي إلى فصيلة البوميات الحقيقية (Strigidae) ضمن رتبة البومياويات...",
+    "excerpt_en": "The Eurasian Eagle-owl is scientifically known as Bubo bubo, belonging to the true owl family (Strigidae) within the...",
+    "keywords": "Bubo bubo"
+  },
+  {
+    "url": "birds/eurasian-golden-oriole.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "الصفير الذهبي",
+    "title_en": "Eurasian Golden Oriole",
+    "excerpt_ar": "يُعرف الصفير الذهبي علميًا باسم Oriolus oriolus، وينتمي إلى فصيلة الصفيريات (Oriolidae) ضمن رتبة العصفوريات...",
+    "excerpt_en": "The Eurasian Golden Oriole is scientifically known as Oriolus oriolus, belonging to the oriole family (Oriolidae)...",
+    "keywords": "Oriolus oriolus"
+  },
+  {
+    "url": "birds/eurasian-hobby.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "شاهين الحمام",
+    "title_en": "Eurasian Hobby",
+    "excerpt_ar": "يُعرف شاهين الحمام علميًا باسم Falco subbuteo، وينتمي إلى فصيلة الصقريات (Falconidae) ضمن رتبة الصقرياويات...",
+    "excerpt_en": "The Eurasian Hobby is scientifically known as Falco subbuteo, belonging to the falcon family (Falconidae) within the...",
+    "keywords": "Falco subbuteo"
+  },
+  {
+    "url": "birds/eurasian-hoopoe.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "الهدهد",
+    "title_en": "Eurasian Hoopoe",
+    "excerpt_ar": "يُعرف الهدهد علميًا باسم Upupa epops، وينتمي إلى فصيلة الهداهيديات (Upupidae) ضمن رتبة الهداهيدياويات (Bucerotiformes)...",
+    "excerpt_en": "The Eurasian Hoopoe is scientifically known as Upupa epops, belonging to the hoopoe family (Upupidae) within the order...",
+    "keywords": "Upupa epops"
+  },
+  {
+    "url": "birds/eurasian-jay.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "القيق",
+    "title_en": "Eurasian Jay",
+    "excerpt_ar": "يُعرف القيق علميًا باسم Garrulus glandarius، وينتمي إلى فصيلة الغرابيات (Corvidae) ضمن رتبة العصفوريات (Passeriformes)...",
+    "excerpt_en": "The Eurasian Jay is scientifically known as Garrulus glandarius, belonging to the crow family (Corvidae) within the...",
+    "keywords": "Garrulus glandarius"
+  },
+  {
+    "url": "birds/eurasian-magpie.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "العقعق",
+    "title_en": "Eurasian Magpie",
+    "excerpt_ar": "يُعرف العقعق علميًا باسم Pica pica، وينتمي إلى فصيلة الغرابيات (Corvidae) ضمن رتبة العصفوريات (Passeriformes)، وهو طائر...",
+    "excerpt_en": "The Eurasian Magpie is scientifically known as Pica pica, belonging to the crow family (Corvidae) within the order...",
+    "keywords": "Pica pica"
+  },
+  {
+    "url": "birds/eurasian-scops-owl.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "بومة الأدغال",
+    "title_en": "Eurasian Scops-owl",
+    "excerpt_ar": "تُعرف بومة الأدغال علميًا باسم Otus scops، وتنتمي إلى فصيلة البوميات الحقيقية (Strigidae) ضمن رتبة البومياويات...",
+    "excerpt_en": "The Eurasian Scops-owl is scientifically known as Otus scops, belonging to the true owl family (Strigidae) within the...",
+    "keywords": "Otus scops"
+  },
+  {
+    "url": "birds/eurasian-wigeon.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "البط الصفار",
+    "title_en": "Eurasian Wigeon",
+    "excerpt_ar": "يُعرف البط الصفار علميًا باسم Mareca penelope، وينتمي إلى فصيلة البطيات (Anatidae) ضمن رتبة الإوزاويات (Anseriformes)...",
+    "excerpt_en": "The Eurasian Wigeon is scientifically known as Mareca penelope, belonging to the duck family (Anatidae) within the...",
+    "keywords": "Mareca penelope"
+  },
+  {
+    "url": "birds/european-bee-eater.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "الوروار الأوروبي",
+    "title_en": "European Bee-eater",
+    "excerpt_ar": "يُعرف الوروار الأوروبي علميًا باسم Merops apiaster، وينتمي إلى فصيلة الورواريات (Meropidae) ضمن رتبة الرفرافاويات...",
+    "excerpt_en": "The European Bee-eater is scientifically known as Merops apiaster, belonging to the bee-eater family (Meropidae) within...",
+    "keywords": "Merops apiaster"
+  },
+  {
+    "url": "birds/european-roller.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "الشرقرق الأوروبي",
+    "title_en": "European Roller",
+    "excerpt_ar": "يُعرف الشرقرق الأوروبي علميًا باسم Coracias garrulus، وينتمي إلى فصيلة الشرقرقيات (Coraciidae) ضمن رتبة الرفرافاويات...",
+    "excerpt_en": "The European Roller is scientifically known as Coracias garrulus, belonging to the roller family (Coraciidae) within...",
+    "keywords": "Coracias garrulus"
+  },
+  {
+    "url": "birds/european-turtle-dove.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "اليمامة الأوروبية",
+    "title_en": "European Turtle-dove",
+    "excerpt_ar": "تُعرف اليمامة الأوروبية علميًا باسم Streptopelia turtur، وتنتمي إلى فصيلة الحماميات (Columbidae) ضمن رتبة الحماميات...",
+    "excerpt_en": "The European Turtle-dove is scientifically known as Streptopelia turtur, belonging to the pigeon family (Columbidae)...",
+    "keywords": "Streptopelia turtur"
+  },
+  {
+    "url": "birds/ferruginous-duck.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "البط أحمر العين",
+    "title_en": "Ferruginous Duck",
+    "excerpt_ar": "يختبئ ببحيرات صغيرة ومستنقعات هادئة، بلونه الكستنائي المميز",
+    "excerpt_en": "Hides in small lakes and calm marshes, distinguished by its chestnut color",
+    "keywords": "Aythya nyroca"
+  },
+  {
+    "url": "birds/gadwall.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "البط الرمادي",
+    "title_en": "Gadwall",
+    "excerpt_ar": "يُعرف البط الرمادي علميًا باسم Mareca strepera، وينتمي إلى فصيلة البطيات (Anatidae) ضمن رتبة الإوزاويات (Anseriformes)...",
+    "excerpt_en": "The Gadwall is scientifically known as Mareca strepera, belonging to the duck family (Anatidae) within the order...",
+    "keywords": "Mareca strepera"
+  },
+  {
+    "url": "birds/garganey.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "البط الصيفي (الغرغري)",
+    "title_en": "Garganey",
+    "excerpt_ar": "يُعرف البط الصيفي أو الغرغري علميًا باسم Spatula querquedula، وينتمي إلى فصيلة البطيات (Anatidae) ضمن رتبة الإوزاويات...",
+    "excerpt_en": "The Garganey is scientifically known as Spatula querquedula, belonging to the duck family (Anatidae) within the order...",
+    "keywords": "Spatula querquedula"
+  },
+  {
+    "url": "birds/glossy-ibis.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "أبو منجل الأسود",
+    "title_en": "Glossy Ibis",
+    "excerpt_ar": "يُعرف أبو منجل الأسود علميًا باسم Plegadis falcinellus، وينتمي إلى فصيلة أبو منجليات (Threskiornithidae) ضمن رتبة...",
+    "excerpt_en": "The Glossy Ibis is scientifically known as Plegadis falcinellus, belonging to the ibis family (Threskiornithidae)...",
+    "keywords": "Plegadis falcinellus"
+  },
+  {
+    "url": "birds/golden-eagle.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "العقاب الذهبي",
+    "title_en": "Golden Eagle",
+    "excerpt_ar": "يُعرف العقاب الذهبي علميًا باسم Aquila chrysaetos، وينتمي إلى فصيلة الصقرياويات (Accipitridae) ضمن رتبة الصقرياويات...",
+    "excerpt_en": "The Golden Eagle is scientifically known as Aquila chrysaetos, belonging to the hawk family (Accipitridae) within the...",
+    "keywords": "Aquila chrysaetos"
+  },
+  {
+    "url": "birds/great-bittern.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "الوقّاق الكبير",
+    "title_en": "Great Bittern",
+    "excerpt_ar": "يُعرف الوقّاق الكبير علميًا باسم Botaurus stellaris، وينتمي إلى فصيلة البلشونيات (Ardeidae) ضمن رتبة البلشوناويات...",
+    "excerpt_en": "The Great Bittern is scientifically known as Botaurus stellaris, belonging to the heron family (Ardeidae) within the...",
+    "keywords": "Botaurus stellaris"
+  },
+  {
+    "url": "birds/great-crested-grebe.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "الغطاس المتوّج",
+    "title_en": "Great Crested Grebe",
+    "excerpt_ar": "يُعرف الغطاس المتوّج علميًا باسم Podiceps cristatus، وينتمي إلى فصيلة الغطاسيات (Podicipedidae) ضمن رتبة الغطاسياويات...",
+    "excerpt_en": "The Great Crested Grebe is scientifically known as Podiceps cristatus, belonging to the grebe family (Podicipedidae)...",
+    "keywords": "Podiceps cristatus"
+  },
+  {
+    "url": "birds/great-egret.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "البلشون الأبيض الكبير",
+    "title_en": "Great Egret",
+    "excerpt_ar": "يُعرف البلشون الأبيض الكبير علميًا باسم Ardea alba، وينتمي إلى فصيلة البلشونيات (Ardeidae) ضمن رتبة البلشوناويات...",
+    "excerpt_en": "The Great Egret is scientifically known as Ardea alba, belonging to the heron family (Ardeidae) within the order...",
+    "keywords": "Ardea alba"
+  },
+  {
+    "url": "birds/great-spotted-cuckoo.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "الوقواق المرقّط",
+    "title_en": "Great Spotted Cuckoo",
+    "excerpt_ar": "يُعرف الوقواق المرقّط علميًا باسم Clamator glandarius، وينتمي إلى فصيلة الوقواقيات (Cuculidae) ضمن رتبة الوقواقاويات...",
+    "excerpt_en": "The Great Spotted Cuckoo is scientifically known as Clamator glandarius, belonging to the cuckoo family (Cuculidae)...",
+    "keywords": "Clamator glandarius"
+  },
+  {
+    "url": "birds/greater-flamingo.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "النحام الكبير",
+    "title_en": "Greater Flamingo",
+    "excerpt_ar": "يُعرف النحام الكبير علميًا باسم Phoenicopterus roseus، وينتمي إلى فصيلة النحاميات (Phoenicopteridae) ضمن رتبة...",
+    "excerpt_en": "The Greater Flamingo is scientifically known as Phoenicopterus roseus, belonging to the flamingo family...",
+    "keywords": "Phoenicopterus roseus"
+  },
+  {
+    "url": "birds/greater-spotted-eagle.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "العقاب الأبقع الأكبر",
+    "title_en": "Greater Spotted Eagle",
+    "excerpt_ar": "زائر شتوي مهيب للأهوار، ارتفع تصنيفه لمهدد بالانقراض",
+    "excerpt_en": "A majestic winter visitor to the marshes, recently uplisted to Endangered",
+    "keywords": "Clanga clanga"
+  },
+  {
+    "url": "birds/grey-heron.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "مالك الحزين الرمادي",
+    "title_en": "Grey Heron",
+    "excerpt_ar": "يُعرف مالك الحزين الرمادي علميًا باسم Ardea cinerea، وينتمي إلى فصيلة البلشونيات (Ardeidae) ضمن رتبة البلشوناويات...",
+    "excerpt_en": "The Grey Heron is scientifically known as Ardea cinerea, belonging to the heron family (Ardeidae) within the order...",
+    "keywords": "Ardea cinerea"
+  },
+  {
+    "url": "birds/greylag-goose.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "الإوز الرمادي",
+    "title_en": "Greylag Goose",
+    "excerpt_ar": "يُعرف الإوز الرمادي علميًا باسم Anser anser، وينتمي إلى فصيلة البطيات (Anatidae) ضمن رتبة الإوزاويات (Anseriformes)...",
+    "excerpt_en": "The Greylag Goose is scientifically known as Anser anser, belonging to the duck family (Anatidae) within the order...",
+    "keywords": "Anser anser"
+  },
+  {
+    "url": "birds/griffon-vulture.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "النسر الأسمر",
+    "title_en": "Griffon Vulture",
+    "excerpt_ar": "رمز جبال كردستان الشاهقة، تهديده منخفض عالمياً",
+    "excerpt_en": "A symbol of Kurdistan's towering mountains, globally low-risk",
+    "keywords": "Gyps fulvus"
+  },
+  {
+    "url": "birds/gull-billed-tern.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "خطاف البحر عريض المنقار",
+    "title_en": "Gull-billed Tern",
+    "excerpt_ar": "يُعرف خطاف البحر عريض المنقار علميًا باسم Gelochelidon nilotica، وينتمي إلى فصيلة النورسيات (Laridae) ضمن رتبة...",
+    "excerpt_en": "The Gull-billed Tern is scientifically known as Gelochelidon nilotica, belonging to the gull family (Laridae) within...",
+    "keywords": "Gelochelidon nilotica"
+  },
+  {
+    "url": "birds/hooded-crow.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "الغراب الرمادي",
+    "title_en": "Hooded Crow",
+    "excerpt_ar": "يُعرف الغراب الرمادي علميًا باسم Corvus cornix، وينتمي إلى فصيلة الغرابيات (Corvidae) ضمن رتبة العصفوريات...",
+    "excerpt_en": "The Hooded Crow is scientifically known as Corvus cornix, belonging to the crow family (Corvidae) within the order...",
+    "keywords": "Corvus cornix"
+  },
+  {
     "url": "birds/iraqi-bulbul.html",
     "category_ar": "طيورنا الوطنية",
     "category_en": "National Birds",
@@ -54,22 +664,104 @@
     "excerpt_en": "The Iraqi Bulbul no longer sings as it once did; facing threats from orchard clearing and illegal hunting"
   },
   {
-    "url": "birds/iraqi-saker-falcon.html",
+    "url": "birds/kentish-plover.html",
     "category_ar": "طيورنا الوطنية",
     "category_en": "National Birds",
-    "title_ar": "الصقر الحر العراقي",
-    "title_en": "The Iraqi Saker Falcon",
-    "excerpt_ar": "رمز الشموخ والهوية الوطنية، مهدد بالصيد الجائر والتهريب عبر الحدود",
-    "excerpt_en": "A symbol of national pride, threatened by illegal hunting and cross-border smuggling"
+    "title_ar": "زقزاق كنتي",
+    "title_en": "Kentish Plover",
+    "excerpt_ar": "يُعرف زقزاق كنتي علميًا باسم Charadrius alexandrinus، وينتمي إلى فصيلة الزقزاقيات (Charadriidae) ضمن رتبة الخوّاضاويات...",
+    "excerpt_en": "The Kentish Plover is scientifically known as Charadrius alexandrinus, belonging to the plover family (Charadriidae)...",
+    "keywords": "Charadrius alexandrinus"
   },
   {
-    "url": "birds/basra-reed-warbler.html",
+    "url": "birds/laughing-dove.html",
     "category_ar": "طيورنا الوطنية",
     "category_en": "National Birds",
-    "title_ar": "دخلة البصرة",
-    "title_en": "Basra Reed Warbler",
-    "excerpt_ar": "جوهرة الأهوار، يحتضن العراق نحو 90٪ من تعدادها العالمي",
-    "excerpt_en": "The jewel of the marshes; Iraq hosts nearly 90% of its global population"
+    "title_ar": "اليمامة الضاحكة",
+    "title_en": "Laughing Dove",
+    "excerpt_ar": "تُعرف اليمامة الضاحكة علميًا باسم Streptopelia senegalensis (وتُصنَّف حديثًا أحيانًا ضمن الجنس Spilopelia)، وتنتمي إلى...",
+    "excerpt_en": "The Laughing Dove is scientifically known as Streptopelia senegalensis (sometimes recently classified under the genus...",
+    "keywords": "Streptopelia senegalensis"
+  },
+  {
+    "url": "birds/lesser-kestrel.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "الباشق الصغير",
+    "title_en": "Lesser Kestrel",
+    "excerpt_ar": "يُعرف الباشق الصغير علميًا باسم Falco naumanni، وينتمي إلى فصيلة الصقريات (Falconidae) ضمن رتبة الصقرياويات...",
+    "excerpt_en": "The Lesser Kestrel is scientifically known as Falco naumanni, belonging to the falcon family (Falconidae) within the...",
+    "keywords": "Falco naumanni"
+  },
+  {
+    "url": "birds/little-bittern.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "الوقّاق الصغير",
+    "title_en": "Little Bittern",
+    "excerpt_ar": "يُعرف الوقّاق الصغير علميًا باسم Ixobrychus minutus، وينتمي إلى فصيلة البلشونيات (Ardeidae) ضمن رتبة البلشوناويات...",
+    "excerpt_en": "The Little Bittern is scientifically known as Ixobrychus minutus, belonging to the heron family (Ardeidae) within the...",
+    "keywords": "Ixobrychus minutus"
+  },
+  {
+    "url": "birds/little-bustard.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "الحُبارى الصغرى",
+    "title_en": "Little Bustard",
+    "excerpt_ar": "زائرة عابرة أو شتوية بسهول العراق الزراعية، أصغر وأكثر اكتنازاً من الحبارى الكبرى، تتراجع أعدادها بفقدان الأراضي...",
+    "excerpt_en": "A passage or winter visitor to Iraq's agricultural plains, smaller and stockier than MacQueen's Bustard, declining with...",
+    "keywords": "Tetrax tetrax"
+  },
+  {
+    "url": "birds/little-grebe.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "الغطاس الصغير",
+    "title_en": "Little Grebe",
+    "excerpt_ar": "يُعرف الغطاس الصغير علميًا باسم Tachybaptus ruficollis، وينتمي إلى فصيلة الغطاسيات (Podicipedidae) ضمن رتبة الغطاسياويات",
+    "excerpt_en": "The Little Grebe is scientifically known as Tachybaptus ruficollis, belonging to the grebe family (Podicipedidae)...",
+    "keywords": "Tachybaptus ruficollis"
+  },
+  {
+    "url": "birds/little-owl.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "بومة اللوند",
+    "title_en": "Little Owl",
+    "excerpt_ar": "تُعرف بومة اللوند علميًا باسم Athene noctua، وتنتمي إلى فصيلة البوميات الحقيقية (Strigidae) ضمن رتبة البومياويات...",
+    "excerpt_en": "The Little Owl is scientifically known as Athene noctua, belonging to the true owl family (Strigidae) within the order...",
+    "keywords": "Athene noctua"
+  },
+  {
+    "url": "birds/long-legged-buzzard.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "الصقر طويل الساق",
+    "title_en": "Long-legged Buzzard",
+    "excerpt_ar": "يُعرف الصقر طويل الساق علميًا باسم Buteo rufinus، وينتمي إلى فصيلة الصقرياويات (Accipitridae) ضمن رتبة الصقرياويات...",
+    "excerpt_en": "The Long-legged Buzzard is scientifically known as Buteo rufinus, belonging to the hawk family (Accipitridae) within...",
+    "keywords": "Buteo rufinus"
+  },
+  {
+    "url": "birds/macqueens-bustard.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "الحُبارى",
+    "title_en": "MacQueen's Bustard",
+    "excerpt_ar": "طائر السهوب المتوّج ثقافياً وتراثياً، تتناقص أعداده بسبب الصيد الجائر وصيد الصقارة غير المنظم، قد يستحق تصنيف أعلى...",
+    "excerpt_en": "The culturally revered bird of the steppe, its numbers declining from poaching and unregulated falconry hunting —...",
+    "keywords": "Chlamydotis macqueenii"
+  },
+  {
+    "url": "birds/mallard.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "البط أخضر الرأس",
+    "title_en": "Mallard",
+    "excerpt_ar": "يُعرف البط أخضر الرأس علميًا باسم Anas platyrhynchos، وينتمي إلى فصيلة البطيات (Anatidae) ضمن رتبة الإوزاويات...",
+    "excerpt_en": "The Mallard is scientifically known as Anas platyrhynchos, belonging to the duck family (Anatidae) within the order...",
+    "keywords": "Anas platyrhynchos"
   },
   {
     "url": "birds/marbled-duck.html",
@@ -78,25 +770,8 @@
     "title_ar": "البط الرخامي",
     "title_en": "Marbled Duck",
     "excerpt_ar": "طائر أنيق بريش منقّط، مهدد بالانقراض بسبب جفاف الأهوار",
-    "excerpt_en": "An elegant mottled-plumage bird, endangered by marsh drying"
-  },
-  {
-    "url": "birds/white-headed-duck.html",
-    "category_ar": "طيورنا الوطنية",
-    "category_en": "National Birds",
-    "title_ar": "البط أبيض الرأس",
-    "title_en": "White-headed Duck",
-    "excerpt_ar": "طائر مائي فريد برأس أبيض ومنقار أزرق، يواجه تهديداً مرتفعاً",
-    "excerpt_en": "A distinctive waterbird with a white head and blue bill, facing high threat"
-  },
-  {
-    "url": "birds/sociable-lapwing.html",
-    "category_ar": "طيورنا الوطنية",
-    "category_en": "National Birds",
-    "title_ar": "الزقزاق الاجتماعي",
-    "title_en": "Sociable Lapwing",
-    "excerpt_ar": "أحد أكثر طيور العالم عرضة للخطر، يمر بالعراق كزائر شتوي",
-    "excerpt_en": "One of the world's most endangered birds, a winter visitor to Iraq"
+    "excerpt_en": "An elegant mottled-plumage bird, endangered by marsh drying",
+    "keywords": "Marmaronetta angustirostris"
   },
   {
     "url": "birds/northern-bald-ibis.html",
@@ -105,61 +780,298 @@
     "title_ar": "أبو منجل الأصلع الشمالي",
     "title_en": "Northern Bald Ibis",
     "excerpt_ar": "طائر أسطوري كان يعشش بجبال كردستان، حالته حرجة جداً",
-    "excerpt_en": "A legendary bird once nesting in Kurdistan's mountains, now critically endangered"
+    "excerpt_en": "A legendary bird once nesting in Kurdistan's mountains, now critically endangered",
+    "keywords": "Geronticus eremita"
   },
   {
-    "url": "birds/egyptian-vulture.html",
+    "url": "birds/northern-lapwing.html",
     "category_ar": "طيورنا الوطنية",
     "category_en": "National Birds",
-    "title_ar": "النسر المصري",
-    "title_en": "Egyptian Vulture",
-    "excerpt_ar": "منظف طبيعي للبيئة، مهدد بالتسمم الثانوي من الجيف المعالجة",
-    "excerpt_en": "Nature's own cleaner, threatened by secondary poisoning from treated carcasses"
+    "title_ar": "زقزاق الشمال",
+    "title_en": "Northern Lapwing",
+    "excerpt_ar": "يُعرف زقزاق الشمال علميًا باسم Vanellus vanellus، وينتمي إلى فصيلة الزقزاقيات (Charadriidae) ضمن رتبة الخوّاضاويات...",
+    "excerpt_en": "The Northern Lapwing is scientifically known as Vanellus vanellus, belonging to the plover family (Charadriidae) within...",
+    "keywords": "Vanellus vanellus"
   },
   {
-    "url": "birds/griffon-vulture.html",
+    "url": "birds/northern-pintail.html",
     "category_ar": "طيورنا الوطنية",
     "category_en": "National Birds",
-    "title_ar": "النسر الأسمر",
-    "title_en": "Griffon Vulture",
-    "excerpt_ar": "رمز جبال كردستان الشاهقة، تهديده منخفض عالمياً",
-    "excerpt_en": "A symbol of Kurdistan's towering mountains, globally low-risk"
+    "title_ar": "البط أسود الذيل",
+    "title_en": "Northern Pintail",
+    "excerpt_ar": "يُعرف البط أسود الذيل علميًا باسم Anas acuta، وينتمي إلى فصيلة البطيات (Anatidae) ضمن رتبة الإوزاويات (Anseriformes)...",
+    "excerpt_en": "The Northern Pintail is scientifically known as Anas acuta, belonging to the duck family (Anatidae) within the order...",
+    "keywords": "Anas acuta"
   },
   {
-    "url": "birds/bearded-vulture.html",
+    "url": "birds/osprey.html",
     "category_ar": "طيورنا الوطنية",
     "category_en": "National Birds",
-    "title_ar": "النسر الملتحي",
-    "title_en": "Bearded Vulture",
-    "excerpt_ar": "الأكثر انعزالاً بين النسور، يعيش بأقسى قمم كردستان الثلجية",
-    "excerpt_en": "The most isolated of all vultures, living on Kurdistan's harshest peaks"
+    "title_ar": "العقاب الصياد",
+    "title_en": "Osprey",
+    "excerpt_ar": "يُعرف العقاب الصياد علميًا باسم Pandion haliaetus، وينتمي إلى فصيلة العقابيات الصيادة (Pandionidae) ضمن رتبة...",
+    "excerpt_en": "The Osprey is scientifically known as Pandion haliaetus, belonging to the osprey family (Pandionidae) within the order...",
+    "keywords": "Pandion haliaetus"
   },
   {
-    "url": "birds/greater-spotted-eagle.html",
+    "url": "birds/pallass-gull.html",
     "category_ar": "طيورنا الوطنية",
     "category_en": "National Birds",
-    "title_ar": "العقاب الأبقع الأكبر",
-    "title_en": "Greater Spotted Eagle",
-    "excerpt_ar": "زائر شتوي مهيب للأهوار، ارتفع تصنيفه لمهدد بالانقراض",
-    "excerpt_en": "A majestic winter visitor to the marshes, recently uplisted to Endangered"
+    "title_ar": "النورس الأبقع",
+    "title_en": "Pallas's Gull",
+    "excerpt_ar": "ثالث أكبر أنواع النوارس بالعالم، زائر شتوي لأهوار جنوب العراق، ووجوده الموسمي يعكس أهمية الأهوار كمحطة رئيسية بطريق...",
+    "excerpt_en": "The third-largest gull species in the world, a winter visitor to southern Iraq's marshes, its seasonal presence...",
+    "keywords": "Ichthyaetus ichthyaetus"
   },
   {
-    "url": "birds/ferruginous-duck.html",
+    "url": "birds/pallid-harrier.html",
     "category_ar": "طيورنا الوطنية",
     "category_en": "National Birds",
-    "title_ar": "البط أحمر العين",
-    "title_en": "Ferruginous Duck",
-    "excerpt_ar": "يختبئ ببحيرات صغيرة ومستنقعات هادئة، بلونه الكستنائي المميز",
-    "excerpt_en": "Hides in small lakes and calm marshes, distinguished by its chestnut color"
+    "title_ar": "المرزة الشاحبة",
+    "title_en": "Pallid Harrier",
+    "excerpt_ar": "تُعرف المرزة الشاحبة علميًا باسم Circus macrourus، وتنتمي إلى فصيلة الصقرياويات (Accipitridae) ضمن رتبة الصقرياويات...",
+    "excerpt_en": "The Pallid Harrier is scientifically known as Circus macrourus, belonging to the hawk family (Accipitridae) within the...",
+    "keywords": "Circus macrourus"
   },
   {
-    "url": "trees/sidr.html",
-    "category_ar": "ديوان الأشجار",
-    "category_en": "Tree Almanac",
-    "title_ar": "شجرة السدر",
-    "title_en": "Sidr Tree",
-    "excerpt_ar": "أيقونة الطبيعة العراقية، تواجه تهديداً مرتفعاً من القطع الجائر",
-    "excerpt_en": "An icon of Iraq's natural landscape, facing a high threat from indiscriminate logging"
+    "url": "birds/pied-avocet.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "النكات",
+    "title_en": "Pied Avocet",
+    "excerpt_ar": "يُعرف النكات علميًا باسم Recurvirostra avosetta، وينتمي إلى فصيلة أبو فروخيات (Recurvirostridae) ضمن رتبة الخوّاضاويات...",
+    "excerpt_en": "The Pied Avocet is scientifically known as Recurvirostra avosetta, belonging to the stilt family (Recurvirostridae)...",
+    "keywords": "Recurvirostra avosetta"
+  },
+  {
+    "url": "birds/pin-tailed-sandgrouse.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "القطا المذنّب",
+    "title_en": "Pin-tailed Sandgrouse",
+    "excerpt_ar": "طائر أرضي مستوطن بسهول العراق الصحراوية الغربية، يعتمد بشدة على مصادر مياه دائمة يقصدها عند الفجر",
+    "excerpt_en": "A ground-dwelling resident of Iraq's western desert plains, relying heavily on permanent water sources visited at dawn",
+    "keywords": "Pterocles alchata"
+  },
+  {
+    "url": "birds/purple-heron.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "مالك الحزين الأرجواني",
+    "title_en": "Purple Heron",
+    "excerpt_ar": "يُعرف مالك الحزين الأرجواني علميًا باسم Ardea purpurea، وينتمي إلى فصيلة البلشونيات (Ardeidae) ضمن رتبة البلشوناويات...",
+    "excerpt_en": "The Purple Heron is scientifically known as Ardea purpurea, belonging to the heron family (Ardeidae) within the order...",
+    "keywords": "Ardea purpurea"
+  },
+  {
+    "url": "birds/red-wattled-lapwing.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "الزقزاق أحمر الوجه",
+    "title_en": "Red-wattled Lapwing",
+    "excerpt_ar": "يُعرف الزقزاق أحمر الوجه علميًا باسم Vanellus indicus، وينتمي إلى فصيلة الزقزاقيات (Charadriidae) ضمن رتبة الخوّاضاويات...",
+    "excerpt_en": "The Red-wattled Lapwing is scientifically known as Vanellus indicus, belonging to the plover family (Charadriidae)...",
+    "keywords": "Vanellus indicus"
+  },
+  {
+    "url": "birds/rock-pigeon.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "حمام الصخر",
+    "title_en": "Rock Pigeon",
+    "excerpt_ar": "يُعرف حمام الصخر علميًا باسم Columba livia، وينتمي إلى فصيلة الحماميات (Columbidae) ضمن رتبة الحماميات (Columbiformes)...",
+    "excerpt_en": "The Rock Pigeon is scientifically known as Columba livia, belonging to the pigeon family (Columbidae) within the order...",
+    "keywords": "Columba livia"
+  },
+  {
+    "url": "birds/ruddy-shelduck.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "الشلندرة الحمراء",
+    "title_en": "Ruddy Shelduck",
+    "excerpt_ar": "تُعرف الشلندرة الحمراء علميًا باسم Tadorna ferruginea، وتنتمي إلى فصيلة البطيات (Anatidae) ضمن رتبة الإوزاويات...",
+    "excerpt_en": "The Ruddy Shelduck is scientifically known as Tadorna ferruginea, belonging to the duck family (Anatidae) within the...",
+    "keywords": "Tadorna ferruginea"
+  },
+  {
+    "url": "birds/see-see-partridge.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "الحجل الرملي",
+    "title_en": "See-see Partridge",
+    "excerpt_ar": "طائر أرضي مكتنز يفضل الجري على الطيران، مستوطن بالتلال الحجرية الجافة شمال وغرب العراق، ودوره غذائي مهم للثعالب...",
+    "excerpt_en": "A stocky ground bird that prefers running to flying, resident on the dry rocky hills of northern and western Iraq, and...",
+    "keywords": "Ammoperdix griseogularis"
+  },
+  {
+    "url": "birds/short-eared-owl.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "بومة قصيرة الأذن",
+    "title_en": "Short-eared Owl",
+    "excerpt_ar": "تُعرف بومة قصيرة الأذن علميًا باسم Asio flammeus، وتنتمي إلى فصيلة البوميات الحقيقية (Strigidae) ضمن رتبة البومياويات...",
+    "excerpt_en": "The Short-eared Owl is scientifically known as Asio flammeus, belonging to the true owl family (Strigidae) within the...",
+    "keywords": "Asio flammeus"
+  },
+  {
+    "url": "birds/short-toed-snake-eagle.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "عقاب الحيّات",
+    "title_en": "Short-toed Snake-eagle",
+    "excerpt_ar": "يُعرف عقاب الحيّات علميًا باسم Circaetus gallicus، وينتمي إلى فصيلة الصقرياويات (Accipitridae) ضمن رتبة الصقرياويات...",
+    "excerpt_en": "The Short-toed Snake-eagle is scientifically known as Circaetus gallicus, belonging to the hawk family (Accipitridae)...",
+    "keywords": "Circaetus gallicus"
+  },
+  {
+    "url": "birds/slender-billed-gull.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "النورس رفيع المنقار",
+    "title_en": "Slender-billed Gull",
+    "excerpt_ar": "يُعرف النورس رفيع المنقار علميًا باسم Chroicocephalus genei، وينتمي إلى فصيلة النورسيات (Laridae) ضمن رتبة الخوّاضاويات...",
+    "excerpt_en": "The Slender-billed Gull is scientifically known as Chroicocephalus genei, belonging to the gull family (Laridae) within...",
+    "keywords": "Chroicocephalus genei"
+  },
+  {
+    "url": "birds/sociable-lapwing.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "الزقزاق الاجتماعي",
+    "title_en": "Sociable Lapwing",
+    "excerpt_ar": "أحد أكثر طيور العالم عرضة للخطر، يمر بالعراق كزائر شتوي",
+    "excerpt_en": "One of the world's most endangered birds, a winter visitor to Iraq",
+    "keywords": "Vanellus gregarius"
+  },
+  {
+    "url": "birds/spotted-sandgrouse.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "القطا المرقّط",
+    "title_en": "Spotted Sandgrouse",
+    "excerpt_ar": "الأكثر تكيّفًا مع شح الماء بين أنواع القطا، مستوطن بالكثبان الرملية جنوب غرب العراق، وريشه المرقط يمنحه تمويهًا فائق...",
+    "excerpt_en": "The most water-scarcity-adapted sandgrouse species, resident in the sand dunes of southwestern Iraq, with mottled...",
+    "keywords": "Pterocles senegallus"
+  },
+  {
+    "url": "birds/spur-winged-lapwing.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "الزقزاق المهمّز",
+    "title_en": "Spur-winged Lapwing",
+    "excerpt_ar": "يُعرف الزقزاق المهمّز علميًا باسم Vanellus spinosus، وينتمي إلى فصيلة الزقزاقيات (Charadriidae) ضمن رتبة الخوّاضاويات...",
+    "excerpt_en": "The Spur-winged Lapwing is scientifically known as Vanellus spinosus, belonging to the plover family (Charadriidae)...",
+    "keywords": "Vanellus spinosus"
+  },
+  {
+    "url": "birds/squacco-heron.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "البلشون الصدئي",
+    "title_en": "Squacco Heron",
+    "excerpt_ar": "يُعرف البلشون الصدئي علميًا باسم Ardeola ralloides، وينتمي إلى فصيلة البلشونيات (Ardeidae) ضمن رتبة البلشوناويات...",
+    "excerpt_en": "The Squacco Heron is scientifically known as Ardeola ralloides, belonging to the heron family (Ardeidae) within the...",
+    "keywords": "Ardeola ralloides"
+  },
+  {
+    "url": "birds/steppe-eagle.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "عقاب السهوب",
+    "title_en": "Steppe Eagle",
+    "excerpt_ar": "يُعرف عقاب السهوب علميًا باسم Aquila nipalensis، وينتمي إلى فصيلة الصقرياويات (Accipitridae) ضمن رتبة الصقرياويات...",
+    "excerpt_en": "The Steppe Eagle is scientifically known as Aquila nipalensis, belonging to the hawk family (Accipitridae) within the...",
+    "keywords": "Aquila nipalensis"
+  },
+  {
+    "url": "birds/stone-curlew.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "كروان الماء",
+    "title_en": "Eurasian Stone-curlew",
+    "excerpt_ar": "يُعرف كروان الماء أو الكروان الحجري علميًا باسم Burhinus oedicnemus، وينتمي إلى فصيلة الكروانيات (Burhinidae) ضمن رتبة...",
+    "excerpt_en": "The Eurasian Stone-curlew is scientifically known as Burhinus oedicnemus, belonging to the thick-knee family...",
+    "keywords": "Burhinus oedicnemus"
+  },
+  {
+    "url": "birds/water-rail.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "مرعة الماء",
+    "title_en": "Water Rail",
+    "excerpt_ar": "تُعرف مرعة الماء علميًا باسم Rallus aquaticus، وتنتمي إلى فصيلة الغلاليات (Rallidae) ضمن رتبة الغلالياويات...",
+    "excerpt_en": "The Water Rail is scientifically known as Rallus aquaticus, belonging to the rail family (Rallidae) within the order...",
+    "keywords": "Rallus aquaticus"
+  },
+  {
+    "url": "birds/western-barn-owl.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "البومة الشراقية",
+    "title_en": "Western Barn Owl",
+    "excerpt_ar": "تُعرف البومة الشراقية علميًا باسم Tyto alba، وتنتمي إلى فصيلة البوميات الشراقية (Tytonidae) ضمن رتبة البومياويات...",
+    "excerpt_en": "The Western Barn Owl is scientifically known as Tyto alba, belonging to the barn owl family (Tytonidae) within the...",
+    "keywords": "Tyto alba"
+  },
+  {
+    "url": "birds/western-marsh-harrier.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "مرزة المستنقعات",
+    "title_en": "Western Marsh Harrier",
+    "excerpt_ar": "تُعرف مرزة المستنقعات علميًا باسم Circus aeruginosus، وتنتمي إلى فصيلة الصقرياويات (Accipitridae) ضمن رتبة الصقرياويات...",
+    "excerpt_en": "The Western Marsh Harrier is scientifically known as Circus aeruginosus, belonging to the hawk family (Accipitridae)...",
+    "keywords": "Circus aeruginosus"
+  },
+  {
+    "url": "birds/whiskered-tern.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "خطاف البحر المشارب",
+    "title_en": "Whiskered Tern",
+    "excerpt_ar": "يُعرف خطاف البحر المشارب علميًا باسم Chlidonias hybrida، وينتمي إلى فصيلة النورسيات (Laridae) ضمن رتبة الخوّاضاويات...",
+    "excerpt_en": "The Whiskered Tern is scientifically known as Chlidonias hybrida, belonging to the gull family (Laridae) within the...",
+    "keywords": "Chlidonias hybrida"
+  },
+  {
+    "url": "birds/white-headed-duck.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "البط أبيض الرأس",
+    "title_en": "White-headed Duck",
+    "excerpt_ar": "طائر مائي فريد برأس أبيض ومنقار أزرق، يواجه تهديداً مرتفعاً",
+    "excerpt_en": "A distinctive waterbird with a white head and blue bill, facing high threat",
+    "keywords": "Oxyura leucocephala"
+  },
+  {
+    "url": "birds/white-tailed-lapwing.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "الزقزاق أبيض الذيل",
+    "title_en": "White-tailed Lapwing",
+    "excerpt_ar": "يُعرف الزقزاق أبيض الذيل علميًا باسم Vanellus leucurus، وينتمي إلى فصيلة الزقزاقيات (Charadriidae) ضمن رتبة...",
+    "excerpt_en": "The White-tailed Lapwing is scientifically known as Vanellus leucurus, belonging to the plover family (Charadriidae)...",
+    "keywords": "Vanellus leucurus"
+  },
+  {
+    "url": "birds/white-throated-kingfisher.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "الرفراف أبيض الصدر",
+    "title_en": "White-throated Kingfisher",
+    "excerpt_ar": "يُعرف الرفراف أبيض الصدر علميًا باسم Halcyon smyrnensis، وينتمي إلى فصيلة الرفرافيات (Alcedinidae) ضمن رتبة...",
+    "excerpt_en": "The White-throated Kingfisher is scientifically known as Halcyon smyrnensis, belonging to the kingfisher family...",
+    "keywords": "Halcyon smyrnensis"
+  },
+  {
+    "url": "birds/wood-sandpiper.html",
+    "category_ar": "طيورنا الوطنية",
+    "category_en": "National Birds",
+    "title_ar": "طيطوي الغيط",
+    "title_en": "Wood Sandpiper",
+    "excerpt_ar": "يُعرف طيطوي الغيط علميًا باسم Tringa glareola، وينتمي إلى فصيلة القطاعيات (Scolopacidae) ضمن رتبة الخوّاضاويات...",
+    "excerpt_en": "The Wood Sandpiper is scientifically known as Tringa glareola, belonging to the sandpiper family (Scolopacidae) within...",
+    "keywords": "Tringa glareola"
   },
   {
     "url": "trees/albizia.html",
@@ -168,133 +1080,127 @@
     "title_ar": "شجرة الألبيزيا",
     "title_en": "Albizia Tree",
     "excerpt_ar": "شجرة مستأنسة سريعة النمو، تحتاج إدارة مائية ذكية",
-    "excerpt_en": "A fast-growing naturalized tree requiring smart water management"
-  },
-  {
-    "url": "trees/sidr.html",
-    "category_ar": "ديوان الأشجار",
-    "category_en": "Diwan Al-Ashjar",
-    "title_ar": "شجرة السدر",
-    "title_en": "Sidr Tree",
-    "excerpt_ar": "أيقونة الطبيعة العراقية، تواجه تهديداً مرتفعاً من القطع الجائر",
-    "excerpt_en": "An icon of Iraq's natural landscape, facing a high threat from indiscriminate logging"
-  },
-  {
-    "url": "trees/albizia.html",
-    "category_ar": "ديوان الأشجار",
-    "category_en": "Diwan Al-Ashjar",
-    "title_ar": "شجرة الألبيزيا",
-    "title_en": "Albizia Tree",
-    "excerpt_ar": "شجرة مستأنسة سريعة النمو، تحتاج إدارة مائية ذكية",
-    "excerpt_en": "A fast-growing naturalized tree requiring smart water management"
-  },
-  {
-    "url": "trees/date-palm.html",
-    "category_ar": "ديوان الأشجار",
-    "category_en": "Diwan Al-Ashjar",
-    "title_ar": "نخلة التمر",
-    "title_en": "Date Palm",
-    "excerpt_ar": "الأيقونة البوتانيكية لبلاد الرافدين، تواجه تجريفاً عمرانياً لبساتينها التاريخية",
-    "excerpt_en": "The botanical icon of Mesopotamia, facing urban clearing of its historic orchards"
-  },
-  {
-    "url": "trees/euphrates-poplar.html",
-    "category_ar": "ديوان الأشجار",
-    "category_en": "Diwan Al-Ashjar",
-    "title_ar": "الحور الفراتي",
-    "title_en": "Euphrates Poplar",
-    "excerpt_ar": "صمود استثنائي بوجه الملوحة والجفاف، مهدد بالارتهان المائي",
-    "excerpt_en": "Exceptional resilience against salinity and drought, threatened by water dependency"
+    "excerpt_en": "A fast-growing naturalized tree requiring smart water management",
+    "keywords": "Albizia lebbeck"
   },
   {
     "url": "trees/athl-tamarisk.html",
     "category_ar": "ديوان الأشجار",
-    "category_en": "Diwan Al-Ashjar",
+    "category_en": "Tree Almanac",
     "title_ar": "الأثل (الطرفاء)",
     "title_en": "Athl (Tamarisk)",
     "excerpt_ar": "الحارس الجيني للأراضي القاحلة ومصد رياح طبيعي",
-    "excerpt_en": "A genetic guardian of arid lands and natural windbreak"
-  },
-  {
-    "url": "trees/iraqi-willow.html",
-    "category_ar": "ديوان الأشجار",
-    "category_en": "Diwan Al-Ashjar",
-    "title_ar": "الصفصاف العراقي",
-    "title_en": "Iraqi Willow",
-    "excerpt_ar": "منقّي طبيعي للمجاري المائية عبر المعالجة الحيوية",
-    "excerpt_en": "A natural purifier of waterways through phytoremediation"
-  },
-  {
-    "url": "trees/oak.html",
-    "category_ar": "ديوان الأشجار",
-    "category_en": "Diwan Al-Ashjar",
-    "title_ar": "البلوط (السنديان)",
-    "title_en": "Oak",
-    "excerpt_ar": "ركيزة التوازن الجبلي بكردستان، تتعرض لقطع جائر وحرائق",
-    "excerpt_en": "A pillar of mountain balance in Kurdistan, facing logging and wildfires"
-  },
-  {
-    "url": "trees/pistacia.html",
-    "category_ar": "ديوان الأشجار",
-    "category_en": "Diwan Al-Ashjar",
-    "title_ar": "البطم (الملول)",
-    "title_en": "Pistacia (Terebinth)",
-    "excerpt_ar": "شجرة رائدة بطيئة النمو تفتت الصخور لتكوّن التربة",
-    "excerpt_en": "A slow-growing pioneer species that breaks down rock to form soil"
-  },
-  {
-    "url": "trees/eucalyptus.html",
-    "category_ar": "ديوان الأشجار",
-    "category_en": "Diwan Al-Ashjar",
-    "title_ar": "الأوكالبتوس (الكافور)",
-    "title_en": "Eucalyptus",
-    "excerpt_ar": "نتح عالي جداً يجفف المستنقعات لكنه منافس مائي بالعراق",
-    "excerpt_en": "Extremely high transpiration, effective at drying swamps but a water competitor in Iraq"
-  },
-  {
-    "url": "trees/melia-azedarach.html",
-    "category_ar": "ديوان الأشجار",
-    "category_en": "Diwan Al-Ashjar",
-    "title_ar": "الزنزلخت",
-    "title_en": "Melia Azedarach",
-    "excerpt_ar": "كيمياء طبيعية طاردة للحشرات وقدرة تكيف عالية",
-    "excerpt_en": "Natural insect-repelling chemistry and high adaptability"
-  },
-  {
-    "url": "trees/neem.html",
-    "category_ar": "ديوان الأشجار",
-    "category_en": "Diwan Al-Ashjar",
-    "title_ar": "النيم",
-    "title_en": "Neem",
-    "excerpt_ar": "مخزن للمركبات النشطة بيولوجياً كالأزاديراكتين",
-    "excerpt_en": "A reservoir of bioactive compounds like azadirachtin"
+    "excerpt_en": "A genetic guardian of arid lands and natural windbreak",
+    "keywords": "Tamarix aphylla"
   },
   {
     "url": "trees/conocarpus.html",
     "category_ar": "ديوان الأشجار",
-    "category_en": "Diwan Al-Ashjar",
+    "category_en": "Tree Almanac",
     "title_ar": "الكونوكاربس",
     "title_en": "Conocarpus",
     "excerpt_ar": "قدرة استثنائية بامتصاص الكربون لكن جذوره تضر البنية التحتية",
-    "excerpt_en": "Exceptional carbon absorption but its roots damage infrastructure"
+    "excerpt_en": "Exceptional carbon absorption but its roots damage infrastructure",
+    "keywords": "Conocarpus erectus"
+  },
+  {
+    "url": "trees/date-palm.html",
+    "category_ar": "ديوان الأشجار",
+    "category_en": "Tree Almanac",
+    "title_ar": "نخلة التمر",
+    "title_en": "Date Palm",
+    "excerpt_ar": "الأيقونة البوتانيكية لبلاد الرافدين، تواجه تجريفاً عمرانياً لبساتينها التاريخية",
+    "excerpt_en": "The botanical icon of Mesopotamia, facing urban clearing of its historic orchards",
+    "keywords": "Phoenix dactylifera"
+  },
+  {
+    "url": "trees/eucalyptus.html",
+    "category_ar": "ديوان الأشجار",
+    "category_en": "Tree Almanac",
+    "title_ar": "الأوكالبتوس (الكافور)",
+    "title_en": "Eucalyptus",
+    "excerpt_ar": "نتح عالي جداً يجفف المستنقعات لكنه منافس مائي بالعراق",
+    "excerpt_en": "Extremely high transpiration, effective at drying swamps but a water competitor in Iraq",
+    "keywords": "Eucalyptus camaldulensis"
+  },
+  {
+    "url": "trees/euphrates-poplar.html",
+    "category_ar": "ديوان الأشجار",
+    "category_en": "Tree Almanac",
+    "title_ar": "الحور الفراتي",
+    "title_en": "Euphrates Poplar",
+    "excerpt_ar": "صمود استثنائي بوجه الملوحة والجفاف، مهدد بالارتهان المائي",
+    "excerpt_en": "Exceptional resilience against salinity and drought, threatened by water dependency",
+    "keywords": "Populus euphratica"
+  },
+  {
+    "url": "trees/iraqi-willow.html",
+    "category_ar": "ديوان الأشجار",
+    "category_en": "Tree Almanac",
+    "title_ar": "الصفصاف العراقي",
+    "title_en": "Iraqi Willow",
+    "excerpt_ar": "منقّي طبيعي للمجاري المائية عبر المعالجة الحيوية",
+    "excerpt_en": "A natural purifier of waterways through phytoremediation",
+    "keywords": "Salix acmophylla"
+  },
+  {
+    "url": "trees/melia-azedarach.html",
+    "category_ar": "ديوان الأشجار",
+    "category_en": "Tree Almanac",
+    "title_ar": "الزنزلخت",
+    "title_en": "Melia Azedarach",
+    "excerpt_ar": "كيمياء طبيعية طاردة للحشرات وقدرة تكيف عالية",
+    "excerpt_en": "Natural insect-repelling chemistry and high adaptability",
+    "keywords": "Melia azedarach"
+  },
+  {
+    "url": "trees/neem.html",
+    "category_ar": "ديوان الأشجار",
+    "category_en": "Tree Almanac",
+    "title_ar": "النيم",
+    "title_en": "Neem",
+    "excerpt_ar": "مخزن للمركبات النشطة بيولوجياً كالأزاديراكتين",
+    "excerpt_en": "A reservoir of bioactive compounds like azadirachtin",
+    "keywords": "Azadirachta indica"
+  },
+  {
+    "url": "trees/oak.html",
+    "category_ar": "ديوان الأشجار",
+    "category_en": "Tree Almanac",
+    "title_ar": "البلوط (السنديان)",
+    "title_en": "Oak",
+    "excerpt_ar": "ركيزة التوازن الجبلي بكردستان، تتعرض لقطع جائر وحرائق",
+    "excerpt_en": "A pillar of mountain balance in Kurdistan, facing logging and wildfires",
+    "keywords": "Quercus infectoria"
+  },
+  {
+    "url": "trees/pistacia.html",
+    "category_ar": "ديوان الأشجار",
+    "category_en": "Tree Almanac",
+    "title_ar": "البطم (الملول)",
+    "title_en": "Pistacia (Terebinth)",
+    "excerpt_ar": "شجرة رائدة بطيئة النمو تفتت الصخور لتكوّن التربة",
+    "excerpt_en": "A slow-growing pioneer species that breaks down rock to form soil",
+    "keywords": "Pistacia atlantica"
+  },
+  {
+    "url": "trees/sidr.html",
+    "category_ar": "ديوان الأشجار",
+    "category_en": "Tree Almanac",
+    "title_ar": "شجرة السدر",
+    "title_en": "Sidr Tree",
+    "excerpt_ar": "أيقونة الطبيعة العراقية، تواجه تهديداً مرتفعاً من القطع الجائر",
+    "excerpt_en": "An icon of Iraq's natural landscape, facing a high threat from indiscriminate logging",
+    "keywords": "Ziziphus spina-christi"
   },
   {
     "url": "blog/al-ghazl-market.html",
     "category_ar": "المدونة",
     "category_en": "Blog",
-    "title_ar": "تجارة الموت المشرعنة: مأساة سوق الغزل",
-    "title_en": "The Legalized Trade of Death: Al-Ghazl Market",
+    "title_ar": "تجارة الموت المشرعنة: متى بدأت مأساة \"الغزل\" وكيف تبتلع طيورنا؟",
+    "title_en": "The Legalized Trade of Death: When Did the Al-Ghazl Tragedy Begin, and How Does It Devour Our Birds?",
     "excerpt_ar": "طيور مهاجرة ومستوطنة تُسلب حريتها وتُعرض للموت البطيء بسوق الغزل ببغداد",
     "excerpt_en": "Migratory and native birds stripped of freedom and left to die slowly at Baghdad's Al-Ghazl Market"
-  },
-  {
-    "url": "blog/norias.html",
-    "category_ar": "المدونة",
-    "category_en": "Blog",
-    "title_ar": "هندسة الخلود: النواعير في العراق",
-    "title_en": "The Engineering of Eternity: Iraq's Norias",
-    "excerpt_ar": "منظومة هيدروليكية صفرية الكربون تحول جريان النهر إلى ري مستمر بمدينة هيت",
-    "excerpt_en": "A zero-carbon hydraulic system converting river flow into continuous irrigation in Hit"
   },
   {
     "url": "blog/albizia-and-sidr.html",
@@ -306,13 +1212,40 @@
     "excerpt_en": "Strategic choices to combat climate change through heat and drought tolerance"
   },
   {
+    "url": "blog/amiriya-school-recognition.html",
+    "category_ar": "المدونة",
+    "category_en": "Blog",
+    "title_ar": "من الإعمار الكوني إلى التمكين المجتمعي: رحلة ستة أسابيع تتوج بالشرعية والمصداقية في إعدادية العامرية للبنين",
+    "title_en": "From Cosmic Stewardship to Community Empowerment: A Six-Week Journey Crowned with Legitimacy and Credibility at Al-Amiriya Preparatory School for Boys",
+    "excerpt_ar": "تكريم مبادرة أرض السواد في إعدادية العامرية للبنين بعد ستة أسابيع من العمل الميداني والتشجير",
+    "excerpt_en": "Land of Al-Sawad honored at Al-Amiriya Preparatory School for Boys after six weeks of fieldwork and tree planting"
+  },
+  {
     "url": "blog/bulbul-soft-release.html",
     "category_ar": "المدونة",
     "category_en": "Blog",
-    "title_ar": "البلبل العراقي في مواجهة الاندثار: الإطلاق اللين",
-    "title_en": "The Iraqi Bulbul Facing Extinction: Soft Release",
+    "title_ar": "البلبل العراقي في مواجهة الاندثار: لماذا نحتاج إلى \"الإطلاق اللين\" لاستعادة توازننا البيئي؟",
+    "title_en": "The Iraqi Bulbul Facing Extinction: Why Do We Need 'Soft Release' to Restore Ecological Balance?",
     "excerpt_ar": "منهجية علمية لإعادة توطين الطيور عبر مرحلة انتقالية",
     "excerpt_en": "A scientific method for bird reintroduction through a transitional phase"
+  },
+  {
+    "url": "blog/hugelkultur-iraq.html",
+    "category_ar": "المدونة",
+    "category_en": "Blog",
+    "title_ar": "هوگلكولتور في العراق: كيف نحقق أقصى استفادة من تقنية الأحواض الخشبية المدفونة",
+    "title_en": "Hugelkultur in Iraq: Making the Most of the Buried Wood Bed Technique",
+    "excerpt_ar": "تقنية عصور وسطى نشأت لحل مشكلة الأراضي المشبعة بالمياه بأوروبا، تتحول اليوم لحل عملي لمشكلة معاكسة تماماً: ندرة المياه...",
+    "excerpt_en": "A medieval technique born to solve waterlogged land in Europe, now transformed into a practical solution for the..."
+  },
+  {
+    "url": "blog/norias.html",
+    "category_ar": "المدونة",
+    "category_en": "Blog",
+    "title_ar": "هندسة الخلود: النواعير في العراق كمنظومة هيدروليكية مستدامة",
+    "title_en": "The Engineering of Eternity: Iraq's Norias as a Sustainable Hydraulic System",
+    "excerpt_ar": "منظومة هيدروليكية صفرية الكربون تحول جريان النهر إلى ري مستمر بمدينة هيت",
+    "excerpt_en": "A zero-carbon hydraulic system converting river flow into continuous irrigation in Hit"
   },
   {
     "url": "blog/political-pressure-and-environment.html",
@@ -324,12 +1257,12 @@
     "excerpt_en": "The draining of marshes and poaching as tools of systematic environmental depletion"
   },
   {
-    "url": "blog/amiriya-school-recognition.html",
+    "url": "blog/tree-day-king-faisal.html",
     "category_ar": "المدونة",
     "category_en": "Blog",
-    "title_ar": "من الإعمار الكوني إلى التمكين المجتمعي: إعدادية العامرية للبنين",
-    "title_en": "From Cosmic Stewardship to Community Empowerment: Al-Amiriya Preparatory School",
-    "excerpt_ar": "تكريم مبادرة أرض السواد في إعدادية العامرية للبنين بعد ستة أسابيع من العمل الميداني والتشجير",
-    "excerpt_en": "Land of Al-Sawad honored at Al-Amiriya Preparatory School for Boys after six weeks of fieldwork and tree planting"
+    "title_ar": "يوم الشجرة في العهد الملكي: حين غرس الملك فيصل الثاني بذور النهضة الخضراء في العراق",
+    "title_en": "Tree Day Under the Monarchy: When King Faisal II Planted the Seeds of Iraq's Green Renaissance",
+    "excerpt_ar": "في الخمسينيات، تحول يوم الشجرة من احتفالية رمزية إلى استراتيجية زراعية تقودها الدولة، بحضور الملك فيصل الثاني شخصياً...",
+    "excerpt_en": "In the 1950s, Tree Day evolved from a symbolic celebration into a state-led agricultural strategy, with King Faisal II..."
   }
 ]
