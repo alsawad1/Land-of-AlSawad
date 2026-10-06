@@ -200,4 +200,10 @@
        <changefreq>daily</changefreq>
        <priority>0.6400</priority>
   </url>
+  <url>
+       <loc>https://alsawad1.github.io/Land-of-AlSawad/blog/amiriya-school-recognition.html</loc>
+       <lastmod>2026-10-06T14:00:00+00:00</lastmod>
+       <changefreq>daily</changefreq>
+       <priority>0.6400</priority>
+  </url>
 </urlset>
