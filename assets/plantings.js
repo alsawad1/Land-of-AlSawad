@@ -20,11 +20,36 @@ window.PLANTINGS = {
         { lat: 33.293217, lng: 44.291574, species: "sidr" },
         { lat: 33.293616, lng: 44.291290, species: "sidr" },
         { lat: 33.293637, lng: 44.291776, species: "sidr" },
+        // الدفعة الثانية (١٠ تشرين الأول ٢٠٢٦)
+        { lat: 33.298077, lng: 44.284552, species: "sidr" },
+        { lat: 33.299087, lng: 44.283135, species: "sidr" },
+        { lat: 33.299029, lng: 44.283223, species: "sidr" },
+        { lat: 33.299050, lng: 44.283256, species: "sidr" },
+        { lat: 33.299033, lng: 44.283232, species: "sidr" },
+        { lat: 33.299061, lng: 44.283284, species: "sidr" },
+        { lat: 33.299085, lng: 44.283329, species: "sidr" },
 
         { lat: 33.293235, lng: 44.291559, species: "albizia" },
         { lat: 33.293254, lng: 44.291546, species: "albizia" },
         { lat: 33.293591, lng: 44.291256, species: "albizia" },
-        { lat: 33.293164, lng: 44.291554, species: "albizia" }
+        { lat: 33.293164, lng: 44.291554, species: "albizia" },
+        // الدفعة الثانية (١٠ تشرين الأول ٢٠٢٦)
+        { lat: 33.299009, lng: 44.282996, species: "albizia" },
+        { lat: 33.299188, lng: 44.282881, species: "albizia" },
+        { lat: 33.299178, lng: 44.282887, species: "albizia" },
+        { lat: 33.298971, lng: 44.283052, species: "albizia" },
+        { lat: 33.298957, lng: 44.283060, species: "albizia" },
+        { lat: 33.299022, lng: 44.283189, species: "albizia" },
+        { lat: 33.299039, lng: 44.283237, species: "albizia" },
+        { lat: 33.299062, lng: 44.283280, species: "albizia" },
+        { lat: 33.299081, lng: 44.283317, species: "albizia" },
+        { lat: 33.299097, lng: 44.283348, species: "albizia" },
+        { lat: 33.299124, lng: 44.283396, species: "albizia" },
+        { lat: 33.298036, lng: 44.284500, species: "albizia" },
+        { lat: 33.298012, lng: 44.284517, species: "albizia" },
+        { lat: 33.297986, lng: 44.284534, species: "albizia" },
+        { lat: 33.297762, lng: 44.284692, species: "albizia" },
+        { lat: 33.299661, lng: 44.283297, species: "albizia" }
     ],
 
     wells: [
