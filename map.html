@@ -21,13 +21,22 @@
         .legend-line { width: 22px; height: 0; border-top: 4px solid #2ecc71; display: inline-block; }
         .legend-sapling { width: 16px; height: 16px; }
         .legend-well { width: 16px; height: 16px; }
-        .map-zoom-btn { display: inline-block; margin-top: 16px; padding: 9px 22px; background: transparent; border: 1.5px solid #2ecc71; color: #2ecc71; border-radius: 999px; font-family: 'Cairo', sans-serif; font-size: 0.9rem; font-weight: 700; cursor: pointer; transition: all 0.25s ease; }
-        .map-zoom-btn:hover { background: #2ecc71; color: #1a1a1a; }
+        .map-view-btns { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+        .map-zoom-btn { display: inline-block; padding: 9px 22px; background: transparent; border: 1.5px solid #2ecc71; color: #2ecc71; border-radius: 999px; font-family: 'Cairo', sans-serif; font-size: 0.9rem; font-weight: 700; cursor: pointer; transition: all 0.25s ease; }
+        .map-zoom-btn:hover, .map-zoom-btn.is-active { background: #2ecc71; color: #1a1a1a; }
+        .leaflet-control-layers { background: #222; color: #eee; border: 1px solid #333 !important; border-radius: 10px !important; font-family: 'Cairo', sans-serif; }
+        .leaflet-control-layers-expanded { padding: 8px 12px; }
+        .leaflet-control-layers label { margin: 3px 0; cursor: pointer; }
+        .leaflet-control-layers input { accent-color: #2ecc71; }
+        .leaflet-bar a { background: #222; color: #eee; border-bottom-color: #333; }
+        .leaflet-bar a:hover { background: #2a2a2a; color: #2ecc71; }
+        .leaflet-container .leaflet-control-attribution { background: rgba(20,20,20,0.75); color: #aaa; }
+        .leaflet-container .leaflet-control-attribution a { color: #ccc; }
         body.lang-en .sapling-popup-inner { direction: ltr; text-align: left; }
         body.lang-en .sapling-popup-inner td:first-child { padding-left: 0; padding-right: 12px; }
         .area-popup-inner { font-family: 'Cairo', sans-serif; text-align: center; min-width: 150px; }
         .area-popup-inner strong { color: #2ecc71; font-size: 1rem; display: block; margin-bottom: 4px; }
-        .area-popup-inner span { color: #ccc; font-size: 0.85rem; }
+        .area-popup-inner > span { color: #ccc; font-size: 0.85rem; }
         .sapling-popup-inner { font-family: 'Cairo', sans-serif; font-size: 13px; min-width: 200px; direction: rtl; text-align: right; }
         .sapling-popup-inner h4 { margin: 0 0 8px; color: #2ecc71; font-size: 15px; }
         .sapling-popup-inner table { width: 100%; border-collapse: collapse; }
@@ -75,8 +84,8 @@
     <span data-lang="ar">خريطة منطقة النشاط</span>
     <span data-lang="en">Activity Area Map</span>
 </h1>
-<p class="main-text" data-lang="ar">نشاطنا الحالي يتركز بحي العامرية غرب بغداد. كل شتلة خضراء بالخريطة تمثل شجرة مزروعة فعلياً — اضغط عليها لمعرفة نوعها وتاريخ زراعتها وموقعها بالتفصيل وتاريخ آخر سقي لها.</p>
-<p class="main-text" data-lang="en">Our current activity is centered in the Al-Amiriyah neighborhood of western Baghdad. Each sapling icon on the map represents an actual planted tree — click it to see its species, planting date, detailed location, and last watering date.</p>
+<p class="main-text" data-lang="ar">نشاطنا الحالي يتركز بحي العامرية غرب بغداد. كل شتلة على الخريطة تمثل شجرة مزروعة فعلياً: الخضراء للسدر والوردية للألبيزيا، والقطرة الزرقاء لبئر السقي. اضغط على أي منها لمعرفة نوعها وإحداثياتها، ويمكنك التبديل إلى صور الأقمار الصناعية من زر الطبقات أعلى الخريطة.</p>
+<p class="main-text" data-lang="en">Our current activity is centered in the Al-Amiriyah neighborhood of western Baghdad. Each sapling on the map is an actual planted tree: green for Sidr and pink for Albizia, with the blue drop marking the irrigation well. Tap any of them to see its type and coordinates, and switch to satellite imagery from the layers button at the top of the map.</p>
 
 <div id="activity-map"></div>
 
@@ -89,7 +98,16 @@
             <path d="M50 58 C 35,52 18,42 12,25 C 30,28 45,40 50,58 Z" fill="#2ecc71" stroke="#173404" stroke-width="2"/>
             <path d="M50 52 C 65,48 82,38 88,21 C 70,25 55,36 50,52 Z" fill="#2ecc71" stroke="#173404" stroke-width="2"/>
         </svg>
-        <span data-lang="ar">شتلة مزروعة</span><span data-lang="en">Planted Sapling</span>
+        <span data-lang="ar">شجرة سدر</span><span data-lang="en">Sidr Tree</span>
+    </span>
+    <span>
+        <svg class="legend-sapling" viewBox="0 0 100 100">
+            <path d="M50 85 L50 55" stroke="#ff8fc8" stroke-width="7" stroke-linecap="round" fill="none"/>
+            <path d="M50 50 C 38,35 38,15 50,3 C 62,15 62,35 50,50 Z" fill="#ff8fc8" stroke="#5a1d3c" stroke-width="2"/>
+            <path d="M50 58 C 35,52 18,42 12,25 C 30,28 45,40 50,58 Z" fill="#ff8fc8" stroke="#5a1d3c" stroke-width="2"/>
+            <path d="M50 52 C 65,48 82,38 88,21 C 70,25 55,36 50,52 Z" fill="#ff8fc8" stroke="#5a1d3c" stroke-width="2"/>
+        </svg>
+        <span data-lang="ar">شجرة ألبيزيا</span><span data-lang="en">Albizia Tree</span>
     </span>
     <span>
         <svg class="legend-well" viewBox="0 0 100 100">
@@ -100,9 +118,14 @@
     </span>
 </div>
 
-<button type="button" class="map-zoom-btn" id="zoom-to-plantings">
-    <span data-lang="ar">تقريب إلى مواقع الزراعة</span><span data-lang="en">Zoom to Planting Sites</span>
-</button>
+<div class="map-view-btns">
+    <button type="button" class="map-zoom-btn is-active" id="zoom-to-plantings">
+        <span data-lang="ar">مواقع الزراعة</span><span data-lang="en">Planting Sites</span>
+    </button>
+    <button type="button" class="map-zoom-btn" id="zoom-to-area">
+        <span data-lang="ar">منطقة العامرية كاملة</span><span data-lang="en">Whole Al-Amiriyah Area</span>
+    </button>
+</div>
 
             <footer class="site-footer" data-i18n="footer">جميع الحقوق محفوظة © أرض السَّواد ٢٠٢٦</footer>
         </div>
@@ -128,32 +151,47 @@
 
     var map = L.map('activity-map', { zoomControl: true, scrollWheelZoom: false, maxZoom: 22 });
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; OpenStreetMap contributors',
-        subdomains: 'abc',
-        maxNativeZoom: 19,
+    // خريطة داكنة تتناسق مع ألوان الموقع (افتراضية)
+    var darkLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+        subdomains: 'abcd',
+        maxNativeZoom: 20,
         maxZoom: 22
     }).addTo(map);
 
+    // صور الأقمار الصناعية
+    var satelliteLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+        attribution: 'Imagery &copy; Esri, Maxar, Earthstar Geographics',
+        maxNativeZoom: 18,
+        maxZoom: 22
+    });
+
+    // الأسماء بالعربي والإنجليزي معاً، ويُظهر الموقع اللغة الحالية فقط
+    var baseLayers = {};
+    baseLayers['<span data-lang="ar">خريطة داكنة</span><span data-lang="en">Dark map</span>'] = darkLayer;
+    baseLayers['<span data-lang="ar">أقمار صناعية</span><span data-lang="en">Satellite</span>'] = satelliteLayer;
+    L.control.layers(baseLayers, null, { position: 'topright', collapsed: false }).addTo(map);
+
     var poly = L.polygon(boundary, {
-        color: '#2ecc71', weight: 5, fillColor: '#2ecc71', fillOpacity: 0.1
+        color: '#2ecc71', weight: 3, dashArray: '8 6', fillColor: '#2ecc71', fillOpacity: 0.06
     }).addTo(map);
 
-    var lang = document.documentElement.lang === 'en' ? 'en' : 'ar';
-    var areaPopupHtml = '<div class="area-popup-inner"><strong>' +
-        (lang === 'en' ? 'Al-Amiriyah' : 'العامرية') + '</strong><span>' +
-        (lang === 'en' ? 'Current Activity Area' : 'منطقة النشاط الحالية') + '</span></div>';
+    var areaPopupHtml = '<div class="area-popup-inner">' +
+        '<strong><span data-lang="ar">العامرية</span><span data-lang="en">Al-Amiriyah</span></strong>' +
+        '<span><span data-lang="ar">منطقة النشاط الحالية</span><span data-lang="en">Current Activity Area</span></span></div>';
     poly.bindPopup(areaPopupHtml);
 
-    map.fitBounds(poly.getBounds(), { padding: [30, 30] });
+    map.fitBounds(poly.getBounds(), { padding: [30, 30] }); // يُستبدل بالتقريب على مواقع الزراعة أدناه إن وُجدت
 
-    var saplingSvg =
-        '<svg width="26" height="26" viewBox="0 0 100 100" style="filter: drop-shadow(0 1px 3px rgba(0,0,0,0.5));">' +
-        '<path d="M50 85 L50 55" stroke="#2ecc71" stroke-width="6" stroke-linecap="round" fill="none"/>' +
-        '<path d="M50 50 C 38,35 38,15 50,3 C 62,15 62,35 50,50 Z" fill="#2ecc71" stroke="#173404" stroke-width="2"/>' +
-        '<path d="M50 58 C 35,52 18,42 12,25 C 30,28 45,40 50,58 Z" fill="#2ecc71" stroke="#173404" stroke-width="2"/>' +
-        '<path d="M50 52 C 65,48 82,38 88,21 C 70,25 55,36 50,52 Z" fill="#2ecc71" stroke="#173404" stroke-width="2"/>' +
-        '</svg>';
+    function saplingSvg(color, stroke) {
+        return '<svg width="26" height="26" viewBox="0 0 100 100" style="filter: drop-shadow(0 1px 3px rgba(0,0,0,0.7));">' +
+            '<path d="M50 85 L50 55" stroke="' + color + '" stroke-width="6" stroke-linecap="round" fill="none"/>' +
+            '<path d="M50 50 C 38,35 38,15 50,3 C 62,15 62,35 50,50 Z" fill="' + color + '" stroke="' + stroke + '" stroke-width="2"/>' +
+            '<path d="M50 58 C 35,52 18,42 12,25 C 30,28 45,40 50,58 Z" fill="' + color + '" stroke="' + stroke + '" stroke-width="2"/>' +
+            '<path d="M50 52 C 65,48 82,38 88,21 C 70,25 55,36 50,52 Z" fill="' + color + '" stroke="' + stroke + '" stroke-width="2"/>' +
+            '</svg>';
+    }
+    var SPECIES_COLORS = { sidr: ['#2ecc71', '#173404'], albizia: ['#ff8fc8', '#5a1d3c'] };
 
     var wellSvg =
         '<svg width="30" height="30" viewBox="0 0 100 100" style="filter: drop-shadow(0 1px 3px rgba(0,0,0,0.6));">' +
@@ -161,7 +199,14 @@
         '<path d="M50 20 C 38,38 30,48 30,60 A 20 20 0 0 0 70,60 C 70,48 62,38 50,20 Z" fill="#4fb3ff"/>' +
         '</svg>';
 
-    var treeIcon = L.divIcon({ className: '', html: saplingSvg, iconSize: [26, 26], iconAnchor: [13, 24], popupAnchor: [0, -22] });
+    var treeIcons = {};
+    function treeIconFor(species) {
+        if (!treeIcons[species]) {
+            var c = SPECIES_COLORS[species] || SPECIES_COLORS.sidr;
+            treeIcons[species] = L.divIcon({ className: '', html: saplingSvg(c[0], c[1]), iconSize: [26, 26], iconAnchor: [13, 24], popupAnchor: [0, -22] });
+        }
+        return treeIcons[species];
+    }
     var wellIcon = L.divIcon({ className: '', html: wellSvg, iconSize: [30, 30], iconAnchor: [15, 15], popupAnchor: [0, -14] });
 
     function currentLang() { return document.documentElement.lang === 'en' ? 'en' : 'ar'; }
@@ -180,7 +225,7 @@
     PLANTINGS.trees.forEach(function(t) {
         plantingPoints.push([t.lat, t.lng]);
         // المحتوى يُبنى عند فتح النافذة حتى يتبع لغة الموقع الحالية
-        L.marker([t.lat, t.lng], { icon: treeIcon }).addTo(map).bindPopup(function() {
+        L.marker([t.lat, t.lng], { icon: treeIconFor(t.species) }).addTo(map).bindPopup(function() {
             var en = currentLang() === 'en';
             var sp = PLANTINGS.species[t.species] || {};
             return popupHtml(en ? (sp.en || t.species) : (sp.ar || t.species), [
@@ -202,14 +247,29 @@
         });
     });
 
-    var zoomBtn = document.getElementById('zoom-to-plantings');
-    if (zoomBtn) {
-        if (!plantingPoints.length) zoomBtn.style.display = 'none';
-        zoomBtn.addEventListener('click', function() {
-            map.fitBounds(L.latLngBounds(plantingPoints), { padding: [50, 50], maxZoom: 21 });
-            document.getElementById('activity-map').scrollIntoView({ behavior: 'smooth', block: 'center' });
-        });
+    var plantBtn = document.getElementById('zoom-to-plantings');
+    var areaBtn = document.getElementById('zoom-to-area');
+
+    function setActive(btn) {
+        [plantBtn, areaBtn].forEach(function(b) { if (b) b.classList.toggle('is-active', b === btn); });
     }
+    function showPlantings() {
+        map.fitBounds(L.latLngBounds(plantingPoints), { padding: [60, 60], maxZoom: 20 });
+        setActive(plantBtn);
+    }
+    function showArea() {
+        map.fitBounds(poly.getBounds(), { padding: [30, 30] });
+        setActive(areaBtn);
+    }
+
+    if (plantingPoints.length) {
+        showPlantings(); // تفتح الخريطة مباشرة على مواقع الزراعة
+    } else {
+        if (plantBtn) plantBtn.style.display = 'none';
+        setActive(areaBtn);
+    }
+    if (plantBtn) plantBtn.addEventListener('click', showPlantings);
+    if (areaBtn) areaBtn.addEventListener('click', showArea);
 })();
 </script>
 </body>
