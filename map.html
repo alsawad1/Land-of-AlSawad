@@ -128,10 +128,10 @@
 
     var map = L.map('activity-map', { zoomControl: true, scrollWheelZoom: false, maxZoom: 22 });
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; OpenStreetMap contributors',
-        subdomains: 'abc',
-        maxNativeZoom: 19,
+    // صور الأقمار الصناعية
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+        attribution: 'Imagery &copy; Esri, Maxar, Earthstar Geographics',
+        maxNativeZoom: 18,
         maxZoom: 22
     }).addTo(map);
 
