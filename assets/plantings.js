@@ -26,7 +26,7 @@ window.PLANTINGS = {
         { lat: 33.299029, lng: 44.283223, species: "sidr" },
         { lat: 33.299050, lng: 44.283256, species: "sidr" },
         { lat: 33.299033, lng: 44.283232, species: "sidr" },
-        { lat: 33.299061, lng: 44.283284, species: "sidr" },
+        { lat: 33.299069, lng: 44.283300, species: "sidr" },
         { lat: 33.299085, lng: 44.283329, species: "sidr" },
 
         { lat: 33.293235, lng: 44.291559, species: "albizia" },
