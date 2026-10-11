@@ -25,6 +25,21 @@ function escapeSearchHtml(text) {
     ));
 }
 
+function titleWords(text) {
+    return text.split(/[\s:،,.\-—()"'؟?!]+/).filter(Boolean).map(w => ({ raw: w, bare: w.replace(/^ال/, "") }));
+}
+
+// عند كتابة حرف أو حرفين: نطابق فقط بداية كلمات العنوان، حتى لا تظهر كل الصفحات
+function matchesTitleStart(entry, q, lang) {
+    const bareOnly = q.length === 1; // حرف واحد: نتجاهل "ال" وإلا طابقت كل الكلمات العربية
+    const hit = words => words.some(w => (!bareOnly && w.raw.startsWith(q)) || w.bare.startsWith(q));
+    const main = lang === 'en' ? entry.wordsEn : entry.wordsAr;
+    const other = lang === 'en' ? entry.wordsAr : entry.wordsEn;
+    if (hit(main)) return 0;
+    if (hit(other)) return 1;
+    return -1;
+}
+
 function prepareSearchIndex(data) {
     return data.map(item => {
         const titleAr = normalizeSearchText(item.title_ar);
@@ -35,6 +50,11 @@ function prepareSearchIndex(data) {
             titleEn: titleEn,
             // بدون "ال" التعريف حتى تطابق "هدهد" بداية "الهدهد"
             titleArBare: titleAr.replace(/^ال/, ""),
+            // كلمات العنوان، للبحث بالحرف الأول من الكلمة
+            wordsAr: titleWords(titleAr),
+            wordsEn: titleWords(titleEn),
+            // الصفحات الرئيسية (الطيور، الأشجار، المدونة، الخريطة...) تأتي بعد المحتوى
+            isSection: item.url.indexOf('/') === -1,
             all: [
                 titleAr, titleEn,
                 normalizeSearchText(item.excerpt_ar), normalizeSearchText(item.excerpt_en),
@@ -82,11 +102,22 @@ function runSiteSearch(query) {
 
     const lang = document.documentElement.lang === 'en' ? 'en' : 'ar';
     const words = q.split(" ");
+    const shortQuery = q.length < 3;
 
     const matches = SEARCH_INDEX_DATA
-        .filter(entry => words.every(word => entry.all.includes(word)))
-        .map((entry, order) => ({ entry: entry, score: scoreSearchEntry(entry, q, lang), order: order }))
-        .sort((a, b) => a.score - b.score || a.order - b.order)
+        .map((entry, order) => {
+            let score;
+            if (shortQuery) {
+                score = matchesTitleStart(entry, q, lang);
+            } else {
+                score = words.every(word => entry.all.includes(word)) ? scoreSearchEntry(entry, q, lang) : -1;
+            }
+            return { entry: entry, score: score, order: order };
+        })
+        .filter(m => m.score >= 0)
+        .sort((a, b) => a.score - b.score ||
+            (a.entry.isSection ? 1 : 0) - (b.entry.isSection ? 1 : 0) ||
+            a.order - b.order)
         .slice(0, SEARCH_MAX_RESULTS);
 
     if (matches.length === 0) {
