@@ -22,12 +22,11 @@ window.PLANTINGS = {
         { lat: 33.293637, lng: 44.291776, species: "sidr" },
         // الدفعة الثانية (١٠ تشرين الأول ٢٠٢٦)
         { lat: 33.298077, lng: 44.284552, species: "sidr" },
-        // صف المنتزه: ١٠ أشجار بالتناوب على خط مستقيم (من 33.299026, 44.283203 إلى 33.299140, 44.283411)
-        { lat: 33.299026, lng: 44.283203, species: "sidr" },
-        { lat: 33.299051, lng: 44.283249, species: "sidr" },
-        { lat: 33.299077, lng: 44.283295, species: "sidr" },
-        { lat: 33.299102, lng: 44.283342, species: "sidr" },
-        { lat: 33.299127, lng: 44.283388, species: "sidr" },
+        // صف المنتزه: ٩ أشجار بالتناوب، ٣ أمتار بين كل شتلة، تبدأ من 33.299140, 44.283411
+        { lat: 33.299125, lng: 44.283384, species: "sidr" },
+        { lat: 33.299096, lng: 44.283330, species: "sidr" },
+        { lat: 33.299066, lng: 44.283276, species: "sidr" },
+        { lat: 33.299037, lng: 44.283222, species: "sidr" },
 
         { lat: 33.293235, lng: 44.291559, species: "albizia" },
         { lat: 33.293254, lng: 44.291546, species: "albizia" },
@@ -39,11 +38,11 @@ window.PLANTINGS = {
         { lat: 33.298957, lng: 44.283060, species: "albizia" },
         { lat: 33.299088, lng: 44.283156, species: "albizia" },
         // صف المنتزه
-        { lat: 33.299039, lng: 44.283226, species: "albizia" },
-        { lat: 33.299064, lng: 44.283272, species: "albizia" },
-        { lat: 33.299089, lng: 44.283319, species: "albizia" },
-        { lat: 33.299115, lng: 44.283365, species: "albizia" },
         { lat: 33.299140, lng: 44.283411, species: "albizia" },
+        { lat: 33.299110, lng: 44.283357, species: "albizia" },
+        { lat: 33.299081, lng: 44.283303, species: "albizia" },
+        { lat: 33.299051, lng: 44.283249, species: "albizia" },
+        { lat: 33.299022, lng: 44.283195, species: "albizia" },
         { lat: 33.298036, lng: 44.284500, species: "albizia" },
         { lat: 33.298012, lng: 44.284517, species: "albizia" },
         { lat: 33.297986, lng: 44.284534, species: "albizia" },
