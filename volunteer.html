@@ -19,7 +19,10 @@
     <link rel="stylesheet" href="assets/style.css">
     <script defer src="assets/search.js" data-prefix=""></script>
     <style>
-        .vol-facts { display: grid; grid-template-columns: 1fr; gap: 14px; margin: 10px 0 35px; }
+        .vol-intro { font-family: 'Cairo', sans-serif; font-size: 1.15rem; font-weight: 400; color: #e6e6e6; line-height: 2; text-align: right; max-width: 760px; margin: 0 0 18px; }
+        body.lang-en .vol-intro { font-family: system-ui, sans-serif; font-size: 1.08rem; line-height: 1.8; text-align: left; }
+        @media (max-width: 768px) { .vol-intro { font-size: 1.05rem; line-height: 1.9; } }
+        .vol-facts { display: grid; grid-template-columns: 1fr; gap: 14px; margin: 28px 0 35px; }
         @media (min-width: 769px) { .vol-facts { grid-template-columns: 1fr 1fr; } }
         .vol-fact { background: #222; border: 1px solid #333; border-radius: 14px; padding: 18px 20px; font-family: 'Cairo', sans-serif; }
         .vol-fact strong { display: block; color: #2ecc71; font-size: 1.05rem; margin-bottom: 4px; }
@@ -72,10 +75,10 @@
 
 <h1 class="section-title"><span data-lang="ar">تطوّع معنا</span><span data-lang="en">Volunteer With Us</span></h1>
 
-<p class="main-text" data-lang="ar">أرض السواد مبادرة تنموية بيئية رائدة ومستقلة، تستلهم إطارها الأكاديمي من جامعة إيسكس البريطانية لتحدث تغييراً جذرياً ومستداماً؛ إذ تعتمد على زراعة الأشجار الأصيلة، التوثيق الجغرافي الرقمي، وحلول المياه الجوفية المبتكرة كحفر الآبار، رافضةً التبرعات المالية المباشرة لصالح المساهمات العينية والمجتمعية. وتتجسد خطتها الخمسية في قيادة نموذج المدارس المستدامة انطلاقاً من إعدادية العامرية ببغداد للوصول إلى زراعة 30 ألف شجرة، حيث تتأهب المبادرة الآن لصنع علامة فارقة وبلوغ ذروتها الكبرى في منتصف آذار 2027 من قلب العامرية في بغداد.</p>
-<p class="main-text" data-lang="ar">ونبحث عن متطوعين يشاركوننا هذا العمل على الأرض.</p>
-<p class="main-text" data-lang="en">Land of Al-Sawad is a pioneering, independent environmental development initiative that draws its academic framework from the University of Essex in the United Kingdom to bring about deep and lasting change. It relies on planting native trees, digital geographic documentation, and innovative groundwater solutions such as digging wells, and it declines direct cash donations in favour of in-kind and community contributions. Its five-year plan is to lead a sustainable schools model, starting from Al-Amiriya Preparatory School in Baghdad, toward planting 30,000 trees, and the initiative is now preparing to make its mark and reach its major peak in mid-March 2027 from the heart of Al-Amiriya, Baghdad.</p>
-<p class="main-text" data-lang="en">We are looking for volunteers to join us on the ground.</p>
+<p class="vol-intro" data-lang="ar">أرض السواد مبادرة تنموية بيئية مستقلة، تستلهم إطارها الأكاديمي من جامعة إيسكس البريطانية. نزرع الأشجار الأصيلة ونوثّقها جغرافياً بشكل رقمي، ونحفر الآبار لسقيها، ونعتمد على المساهمات العينية والمجتمعية بدل التبرعات المالية.</p>
+<p class="vol-intro" data-lang="ar">هدفنا خلال خمس سنوات: 30 ألف شجرة، ونموذج للمدارس المستدامة ينطلق من إعدادية العامرية. ونبحث عن متطوعين يشاركوننا هذا العمل على الأرض.</p>
+<p class="vol-intro" data-lang="en">Land of Al-Sawad is an independent environmental development initiative that draws its academic framework from the University of Essex in the United Kingdom. We plant native trees, document them digitally on the map, and dig wells to water them, relying on in-kind and community contributions rather than cash donations.</p>
+<p class="vol-intro" data-lang="en">Our five-year goal: 30,000 trees and a sustainable schools model starting from Al-Amiriya Preparatory School. We are looking for volunteers to join us on the ground.</p>
 
 <div class="vol-facts">
     <div class="vol-fact">
