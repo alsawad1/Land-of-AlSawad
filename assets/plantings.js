@@ -51,7 +51,7 @@ window.PLANTINGS = {
     ],
 
     wells: [
-        { lat: 33.293436, lng: 44.291846, name_ar: "بئر السقي", name_en: "Irrigation Well" }
+        { lat: 33.293436, lng: 44.291846, name_ar: "بئر السقي في إعدادية العامرية للبنين", name_en: "Irrigation Well, Al-Amiriya Preparatory School for Boys" }
     ]
 };
 
