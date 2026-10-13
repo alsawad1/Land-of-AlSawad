@@ -121,3 +121,35 @@ function injectMapNavLink() {
 }
 
 document.addEventListener('DOMContentLoaded', injectMapNavLink);
+
+// ===== إضافة رابط "تطوّع معنا" للقائمة تلقائياً بكل الصفحات =====
+NAV_LABELS.ar.navVolunteer = "تطوّع معنا";
+NAV_LABELS.en.navVolunteer = "Volunteer";
+
+function injectVolunteerNavLink() {
+    var lang = document.documentElement.lang === 'en' ? 'en' : 'ar';
+    var isVolunteerPage = location.pathname.indexOf('volunteer.html') !== -1;
+
+    document.querySelectorAll('.nav-menu, .mobile-drawer').forEach(function(container) {
+        if (container.querySelector('.volunteer-nav-link')) return;
+
+        var homeLink = container.querySelector('a[data-i18n="navHome"]');
+        if (!homeLink) return;
+        var prefix = homeLink.getAttribute('href').replace('index.html', '');
+
+        var link = document.createElement('a');
+        link.href = prefix + 'volunteer.html';
+        link.className = 'nav-link volunteer-nav-link' + (isVolunteerPage ? ' active' : '');
+        link.setAttribute('data-i18n', 'navVolunteer');
+        link.textContent = NAV_LABELS[lang].navVolunteer;
+
+        var after = container.querySelector('.map-nav-link') || container.querySelector('a[data-i18n="navBlog"]');
+        if (after) {
+            after.insertAdjacentElement('afterend', link);
+        } else {
+            container.appendChild(link);
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', injectVolunteerNavLink);
