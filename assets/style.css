@@ -302,3 +302,28 @@ body.lang-en .tree-practical-box { text-align: left; }
     transform: translateY(-3px);
     box-shadow: 0 4px 15px rgba(46, 204, 113, 0.4);
 }
+
+/* ===== عدّاد الذروة الميدانية (الصفحة الرئيسية) ===== */
+.peak-countdown { text-align: center; background: radial-gradient(120% 140% at 50% 0%, rgba(46,204,113,0.12), rgba(46,204,113,0) 60%), #1f1f1f; border: 1px solid rgba(46,204,113,0.35); border-radius: 20px; padding: 34px 20px 30px; margin: 10px 0 50px; }
+.peak-badge { display: inline-block; background: rgba(46,204,113,0.12); color: #2ecc71; padding: 3px 12px; border-radius: 999px; font-family: 'Cairo', sans-serif; font-size: 0.8rem; font-weight: 700; margin-bottom: 10px; }
+.peak-title { font-family: 'Cairo', sans-serif; font-size: 1.35rem; font-weight: 700; color: #fff; margin: 0 0 22px; }
+.peak-units { display: flex; justify-content: center; gap: 12px; direction: rtl; }
+body.lang-en .peak-units { direction: ltr; }
+.peak-unit { min-width: 86px; background: #262626; border: 1px solid #333; border-radius: 14px; padding: 14px 8px 10px; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.peak-num { font-family: 'Cairo', sans-serif; font-size: 2.3rem; font-weight: 700; color: #2ecc71; line-height: 1; font-variant-numeric: tabular-nums; }
+.peak-label { font-family: 'Cairo', sans-serif; font-size: 0.8rem; color: #999; }
+body.lang-en .peak-title, body.lang-en .peak-label, body.lang-en .peak-sub, body.lang-en .peak-cta, body.lang-en .peak-badge { font-family: system-ui, sans-serif; }
+.peak-sub { font-family: 'Cairo', sans-serif; color: #aaa; font-size: 0.95rem; margin: 18px 0 16px; }
+.peak-cta { display: inline-block; padding: 10px 26px; border-radius: 999px; background: #2ecc71; color: #0a2e18; font-family: 'Cairo', sans-serif; font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.peak-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(46,204,113,0.35); }
+.peak-live { display: none; font-family: 'Cairo', sans-serif; font-size: 1.5rem; font-weight: 700; color: #2ecc71; margin: 0; }
+.peak-countdown.is-live .peak-units { display: none; }
+.peak-countdown.is-live .peak-live { display: block; }
+.peak-countdown.is-live .peak-title { display: none; }
+@media (max-width: 768px) {
+    .peak-countdown { padding: 26px 12px 24px; margin-bottom: 36px; }
+    .peak-title { font-size: 1.15rem; }
+    .peak-units { gap: 8px; }
+    .peak-unit { min-width: 0; flex: 1; padding: 12px 4px 8px; }
+    .peak-num { font-size: 1.7rem; }
+}
