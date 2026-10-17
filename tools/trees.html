@@ -64,8 +64,12 @@
         <button id="btn-undo">↶ تراجع</button>
     </div>
     <div class="row">
+        <button class="primary" id="btn-publish">🚀 نشر على الموقع</button>
+    </div>
+    <div class="row">
         <button id="btn-reset">إعادة للبيانات المنشورة</button>
-        <button class="primary" id="btn-export">✓ انتهيت: انسخ النتيجة</button>
+        <button id="btn-export">نسخ النتيجة كنص</button>
+        <button id="btn-settings">⚙️ إعدادات النشر</button>
     </div>
 </div>
 
@@ -75,6 +79,13 @@
     <p><b>تم النسخ.</b> الصق هذا النص في المحادثة مع Claude وسيحدّث الخريطة على الموقع. إذا لم يُنسخ تلقائياً، حدّد النص وانسخه بنفسك.</p>
     <textarea id="export-text" readonly></textarea>
     <div class="row" style="margin-top:10px"><button id="btn-copy-again">نسخ مرة أخرى</button><button id="btn-close">إغلاق</button></div>
+</dialog>
+
+<dialog id="settings-dialog">
+    <p><b>إعدادات النشر</b> (مرة واحدة على هذا الجهاز)</p>
+    <p>الصق هنا مفتاح GitHub الخاص بالنشر. يُحفظ على هذا الجهاز فقط ولا يُرسل لأي مكان غير GitHub.</p>
+    <input id="token-input" type="password" autocomplete="off" placeholder="github_pat_..." style="width:100%;padding:10px;border-radius:10px;border:1px solid #333;background:#111;color:#eee;direction:ltr;font-family:monospace">
+    <div class="row" style="margin-top:10px"><button class="primary" id="btn-token-save">حفظ</button><button id="btn-token-clear">حذف المفتاح من هذا الجهاز</button><button id="btn-settings-close">إغلاق</button></div>
 </dialog>
 
 <script src="../assets/plantings.js"></script>
@@ -231,11 +242,79 @@
     document.getElementById('btn-copy-again').onclick = function () { copy(document.getElementById('export-text').value).then(function () { toast('تم النسخ'); }); };
     document.getElementById('btn-close').onclick = function () { dlg.close(); };
 
+    // ---------- النشر المباشر على GitHub ----------
+    var GH = { repo: 'alsawad1/Land-of-AlSawad', branch: 'main', path: 'assets/plantings.js' };
+    var TOKEN_KEY = 'alsawad-gh-token';
+    function getToken() { try { return localStorage.getItem(TOKEN_KEY) || ''; } catch (e) { return ''; } }
+    var sdlg = document.getElementById('settings-dialog');
+    document.getElementById('btn-settings').onclick = function () { document.getElementById('token-input').value = getToken(); sdlg.showModal(); };
+    document.getElementById('btn-settings-close').onclick = function () { sdlg.close(); };
+    document.getElementById('btn-token-save').onclick = function () {
+        var v = document.getElementById('token-input').value.trim();
+        try { localStorage.setItem(TOKEN_KEY, v); } catch (e) {}
+        sdlg.close(); toast(v ? 'تم حفظ المفتاح' : 'المفتاح فارغ');
+    };
+    document.getElementById('btn-token-clear').onclick = function () {
+        try { localStorage.removeItem(TOKEN_KEY); } catch (e) {}
+        document.getElementById('token-input').value = ''; toast('حُذف المفتاح من هذا الجهاز');
+    };
+
+    function b64decode(b) { return decodeURIComponent(escape(atob(b.replace(/\s/g, '')))); }
+    function b64encode(t) { return btoa(unescape(encodeURIComponent(t))); }
+
+    function buildFile(oldText) {
+        var today = new Date().toISOString().slice(0, 10);
+        var fmt = function (p, kind) { return '        { lat: ' + p.lat.toFixed(6) + ', lng: ' + p.lng.toFixed(6) + ', species: "' + kind + '" }'; };
+        var trees = points.filter(function (p) { return p.kind !== 'well'; });
+        var treeLines = ['        // آخر تحديث من أداة التوثيق: ' + today];
+        ['sidr', 'albizia'].forEach(function (k) {
+            trees.filter(function (p) { return p.kind === k; }).forEach(function (p) { treeLines.push(fmt(p, k)); });
+        });
+        var wellLines = points.filter(function (p) { return p.kind === 'well'; }).map(function (p) {
+            return '        { lat: ' + p.lat.toFixed(6) + ', lng: ' + p.lng.toFixed(6) + ', name_ar: ' + JSON.stringify(p.name_ar || 'بئر السقي') + ', name_en: ' + JSON.stringify(p.name_en || 'Irrigation Well') + ' }';
+        });
+        var join = function (lines) { return lines.map(function (l, i) { return (i === lines.length - 1 || /^\s*\/\//.test(l)) ? l : l + ','; }).join('\n'); };
+        var re = /(\n    trees: \[)[\s\S]*?(\n    \],\s*\n\s*wells: \[)[\s\S]*?(\n    \]\n\};)/;
+        if (!re.test(oldText)) throw new Error('شكل ملف البيانات غير متوقع، لم يُنشر شيء');
+        return oldText.replace(re, function (_, a, b, c) { return a + '\n' + join(treeLines) + b + (wellLines.length ? '\n' + join(wellLines) : '') + c; });
+    }
+
+    function gh(method, url, body) {
+        return fetch('https://api.github.com/repos/' + GH.repo + url, {
+            method: method,
+            headers: { 'Authorization': 'Bearer ' + getToken(), 'Accept': 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28' },
+            body: body ? JSON.stringify(body) : undefined
+        }).then(function (r) { return r.json().then(function (j) { if (!r.ok) { var e = new Error(j.message || ('HTTP ' + r.status)); e.status = r.status; throw e; } return j; }); });
+    }
+
+    var publishing = false;
+    document.getElementById('btn-publish').onclick = function () {
+        if (publishing) return;
+        if (!getToken()) { toast('أضف مفتاح النشر أولاً'); document.getElementById('btn-settings').click(); return; }
+        var c = { sidr: 0, albizia: 0, well: 0 }; points.forEach(function (p) { c[p.kind]++; });
+        if (!confirm('سيتم نشر الخريطة على الموقع:\nسدر ' + c.sidr + ' | ألبيزيا ' + c.albizia + ' | آبار ' + c.well + '\n\nمتأكد؟')) return;
+        publishing = true; toast('جارٍ النشر...');
+        gh('GET', '/contents/' + GH.path + '?ref=' + GH.branch)
+            .then(function (file) {
+                var next = buildFile(b64decode(file.content));
+                return gh('PUT', '/contents/' + GH.path, {
+                    message: 'Update plantings from tree tool (سدر ' + c.sidr + '، ألبيزيا ' + c.albizia + ')',
+                    content: b64encode(next), sha: file.sha, branch: GH.branch
+                });
+            })
+            .then(function () { toast('✓ تم النشر. يظهر على الموقع خلال دقيقة أو دقيقتين'); })
+            .catch(function (e) {
+                var msg = e.status === 401 ? 'المفتاح غير صحيح أو منتهي' : e.status === 403 || e.status === 404 ? 'المفتاح لا يملك صلاحية الكتابة على المستودع' : e.status === 409 ? 'تغيّر الملف للتو، حاول مرة أخرى' : (e.message || 'حدث خطأ');
+                toast('لم يُنشر: ' + msg);
+            })
+            .then(function () { publishing = false; });
+    };
+
     // ---------- رسائل ----------
     var tt;
     function toast(msg) {
         var el = document.getElementById('toast'); el.textContent = msg; el.style.display = 'block';
-        clearTimeout(tt); tt = setTimeout(function () { el.style.display = 'none'; }, 2600);
+        clearTimeout(tt); tt = setTimeout(function () { el.style.display = 'none'; }, 4000);
     }
 })();
 </script>
