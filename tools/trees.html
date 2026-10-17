@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>أداة توثيق الشتلات | أرض السواد</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <style>
+        :root { --green: #2ecc71; --pink: #ff8fc8; --blue: #4fb3ff; --bg: #161616; --panel: #1f1f1f; --line: #333; --text: #eee; --muted: #999; }
+        * { box-sizing: border-box; }
+        html, body { margin: 0; height: 100%; background: var(--bg); color: var(--text); font-family: 'Cairo', sans-serif; }
+        body { display: flex; flex-direction: column; }
+        header { padding: 10px 14px; border-bottom: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+        header h1 { margin: 0; font-size: 1.05rem; color: var(--green); }
+        header .counts { font-size: 0.85rem; color: var(--muted); }
+        header .counts b { color: var(--text); }
+        #map { flex: 1; min-height: 300px; background: #222; }
+        .toolbar { background: var(--panel); border-top: 1px solid var(--line); padding: 10px; display: flex; flex-direction: column; gap: 8px; }
+        .row { display: flex; gap: 8px; flex-wrap: wrap; }
+        .row > * { flex: 1 1 auto; }
+        button { font-family: inherit; font-size: 0.95rem; font-weight: 700; border-radius: 12px; border: 1.5px solid var(--line); background: #262626; color: var(--text); padding: 10px 12px; cursor: pointer; min-height: 44px; }
+        button:active { transform: scale(0.98); }
+        .mode.active[data-mode="sidr"] { background: var(--green); border-color: var(--green); color: #0a2e18; }
+        .mode.active[data-mode="albizia"] { background: var(--pink); border-color: var(--pink); color: #3b0f26; }
+        .mode.active[data-mode="well"] { background: var(--blue); border-color: var(--blue); color: #08263d; }
+        .mode.active[data-mode="move"] { background: #fff; border-color: #fff; color: #111; }
+        .mode[data-mode="sidr"] { border-color: var(--green); color: var(--green); }
+        .mode[data-mode="albizia"] { border-color: var(--pink); color: var(--pink); }
+        .mode[data-mode="well"] { border-color: var(--blue); color: var(--blue); }
+        .primary { background: var(--green); border-color: var(--green); color: #0a2e18; }
+        .hint { font-size: 0.85rem; color: var(--muted); text-align: center; min-height: 1.4em; }
+        .toast { position: fixed; bottom: 150px; left: 50%; transform: translateX(-50%); background: #000c; color: #fff; padding: 8px 16px; border-radius: 999px; font-size: 0.9rem; z-index: 1000; display: none; }
+        .leaflet-popup-content { font-family: 'Cairo', sans-serif; text-align: center; margin: 10px 12px; }
+        .leaflet-popup-content button { min-height: 34px; padding: 4px 12px; font-size: 0.85rem; margin-top: 6px; background: #c0392b; border-color: #c0392b; color: #fff; }
+        dialog { background: var(--panel); color: var(--text); border: 1px solid var(--line); border-radius: 16px; width: min(560px, 94vw); padding: 16px; }
+        dialog::backdrop { background: #000a; }
+        dialog textarea { width: 100%; height: 220px; background: #111; color: #ddd; border: 1px solid var(--line); border-radius: 10px; padding: 10px; font-family: monospace; font-size: 12px; direction: ltr; }
+        dialog p { margin: 0 0 10px; font-size: 0.9rem; color: #ccc; }
+    </style>
+</head>
+<body>
+<header>
+    <h1>🌱 أداة توثيق الشتلات</h1>
+    <div class="counts">سدر <b id="c-sidr">0</b> · ألبيزيا <b id="c-albizia">0</b> · آبار <b id="c-well">0</b></div>
+</header>
+
+<div id="map"></div>
+
+<div class="toolbar">
+    <div class="row">
+        <button class="mode" data-mode="sidr">+ سدر</button>
+        <button class="mode" data-mode="albizia">+ ألبيزيا</button>
+        <button class="mode" data-mode="well">+ بئر</button>
+        <button class="mode" data-mode="move">تحريك فقط</button>
+    </div>
+    <div class="hint" id="hint">اختر نوع الشتلة، ثم اضغط على مكانها في الخريطة</div>
+    <div class="row">
+        <button id="btn-locate">📍 موقعي</button>
+        <button id="btn-here">+ شتلة في موقعي</button>
+        <button id="btn-undo">↶ تراجع</button>
+    </div>
+    <div class="row">
+        <button id="btn-reset">إعادة للبيانات المنشورة</button>
+        <button class="primary" id="btn-export">✓ انتهيت: انسخ النتيجة</button>
+    </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<dialog id="export-dialog">
+    <p><b>تم النسخ.</b> الصق هذا النص في المحادثة مع Claude وسيحدّث الخريطة على الموقع. إذا لم يُنسخ تلقائياً، حدّد النص وانسخه بنفسك.</p>
+    <textarea id="export-text" readonly></textarea>
+    <div class="row" style="margin-top:10px"><button id="btn-copy-again">نسخ مرة أخرى</button><button id="btn-close">إغلاق</button></div>
+</dialog>
+
+<script src="../assets/plantings.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+(function () {
+    var STORE_KEY = 'alsawad-tree-tool-v1';
+    var COLORS = { sidr: ['#2ecc71', '#173404'], albizia: ['#ff8fc8', '#5a1d3c'] };
+    var NAMES = { sidr: 'سدر', albizia: 'ألبيزيا', well: 'بئر' };
+    var published = window.PLANTINGS || { trees: [], wells: [] };
+
+    // ---------- البيانات ----------
+    function fromPublished() {
+        var pts = published.trees.map(function (t) { return { kind: t.species, lat: t.lat, lng: t.lng }; });
+        (published.wells || []).forEach(function (w) { pts.push({ kind: 'well', lat: w.lat, lng: w.lng, name_ar: w.name_ar, name_en: w.name_en }); });
+        return pts;
+    }
+    var points = null;
+    try { var saved = JSON.parse(localStorage.getItem(STORE_KEY) || 'null'); if (saved && saved.length) points = saved; } catch (e) {}
+    if (!points) points = fromPublished();
+    var history = [];
+    function save() { try { localStorage.setItem(STORE_KEY, JSON.stringify(points)); } catch (e) {} }
+    function snapshot() { history.push(JSON.stringify(points)); if (history.length > 100) history.shift(); }
+
+    // ---------- الخريطة ----------
+    var map = L.map('map', { zoomControl: true, maxZoom: 22, tap: true });
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+        attribution: 'Imagery &copy; Esri, Maxar, Earthstar Geographics', maxNativeZoom: 18, maxZoom: 22
+    }).addTo(map);
+
+    function saplingSvg(c) {
+        return '<svg width="28" height="28" viewBox="0 0 100 100" style="filter:drop-shadow(0 1px 3px rgba(0,0,0,.8))">' +
+            '<path d="M50 85 L50 55" stroke="' + c[0] + '" stroke-width="7" stroke-linecap="round" fill="none"/>' +
+            '<path d="M50 50 C 38,35 38,15 50,3 C 62,15 62,35 50,50 Z" fill="' + c[0] + '" stroke="' + c[1] + '" stroke-width="2"/>' +
+            '<path d="M50 58 C 35,52 18,42 12,25 C 30,28 45,40 50,58 Z" fill="' + c[0] + '" stroke="' + c[1] + '" stroke-width="2"/>' +
+            '<path d="M50 52 C 65,48 82,38 88,21 C 70,25 55,36 50,52 Z" fill="' + c[0] + '" stroke="' + c[1] + '" stroke-width="2"/></svg>';
+    }
+    var wellSvg = '<svg width="30" height="30" viewBox="0 0 100 100" style="filter:drop-shadow(0 1px 3px rgba(0,0,0,.8))"><circle cx="50" cy="50" r="46" fill="#12324a" stroke="#4fb3ff" stroke-width="6"/><path d="M50 20 C 38,38 30,48 30,60 A 20 20 0 0 0 70,60 C 70,48 62,38 50,20 Z" fill="#4fb3ff"/></svg>';
+    var icons = {
+        sidr: L.divIcon({ className: '', html: saplingSvg(COLORS.sidr), iconSize: [28, 28], iconAnchor: [14, 26], popupAnchor: [0, -24] }),
+        albizia: L.divIcon({ className: '', html: saplingSvg(COLORS.albizia), iconSize: [28, 28], iconAnchor: [14, 26], popupAnchor: [0, -24] }),
+        well: L.divIcon({ className: '', html: wellSvg, iconSize: [30, 30], iconAnchor: [15, 15], popupAnchor: [0, -14] })
+    };
+
+    var layer = L.layerGroup().addTo(map);
+    function render() {
+        layer.clearLayers();
+        var c = { sidr: 0, albizia: 0, well: 0 };
+        points.forEach(function (p, i) {
+            c[p.kind] = (c[p.kind] || 0) + 1;
+            var m = L.marker([p.lat, p.lng], { icon: icons[p.kind], draggable: true, zIndexOffset: p.kind === 'well' ? 500 : 0 }).addTo(layer);
+            m.on('dragstart', snapshot);
+            m.on('dragend', function () { var ll = m.getLatLng(); p.lat = ll.lat; p.lng = ll.lng; save(); toast('تم تحريك ال' + NAMES[p.kind]); });
+            m.bindPopup(function () {
+                var d = document.createElement('div');
+                d.innerHTML = '<b>' + NAMES[p.kind] + '</b><br><span dir="ltr" style="font-size:12px;color:#666">' + p.lat.toFixed(6) + ', ' + p.lng.toFixed(6) + '</span><br>';
+                var b = document.createElement('button'); b.textContent = 'حذف';
+                b.onclick = function () { snapshot(); points.splice(points.indexOf(p), 1); save(); render(); toast('تم الحذف'); };
+                d.appendChild(b); return d;
+            });
+        });
+        document.getElementById('c-sidr').textContent = c.sidr;
+        document.getElementById('c-albizia').textContent = c.albizia;
+        document.getElementById('c-well').textContent = c.well;
+    }
+    render();
+
+    if (points.length) map.fitBounds(L.latLngBounds(points.map(function (p) { return [p.lat, p.lng]; })), { padding: [40, 40], maxZoom: 19 });
+    else map.setView([33.2965, 44.288], 15);
+
+    // ---------- الأوضاع ----------
+    var mode = 'sidr';
+    var hints = {
+        sidr: 'اضغط على مكان شجرة السدر في الخريطة', albizia: 'اضغط على مكان شجرة الألبيزيا في الخريطة',
+        well: 'اضغط على مكان البئر في الخريطة', move: 'اسحب أي شتلة لتصحيح مكانها، أو اضغط عليها لحذفها'
+    };
+    function setMode(m) {
+        mode = m;
+        document.querySelectorAll('.mode').forEach(function (b) { b.classList.toggle('active', b.dataset.mode === m); });
+        document.getElementById('hint').textContent = hints[m];
+    }
+    document.querySelectorAll('.mode').forEach(function (b) { b.onclick = function () { setMode(b.dataset.mode); }; });
+    setMode('sidr');
+
+    function addPoint(kind, lat, lng) {
+        snapshot();
+        var p = { kind: kind, lat: lat, lng: lng };
+        if (kind === 'well') { p.name_ar = 'بئر السقي'; p.name_en = 'Irrigation Well'; }
+        points.push(p); save(); render();
+        toast('أُضيفت ' + NAMES[kind]);
+    }
+    map.on('click', function (e) { if (mode !== 'move') addPoint(mode, e.latlng.lat, e.latlng.lng); });
+
+    // ---------- GPS ----------
+    var here = null, hereMarker = null, hereCircle = null;
+    function locate(cb) {
+        if (!navigator.geolocation) { toast('الجهاز لا يدعم تحديد الموقع'); return; }
+        toast('جارٍ تحديد موقعك... انتظر قليلاً');
+        navigator.geolocation.getCurrentPosition(function (pos) {
+            here = { lat: pos.coords.latitude, lng: pos.coords.longitude, acc: pos.coords.accuracy };
+            if (hereMarker) { map.removeLayer(hereMarker); map.removeLayer(hereCircle); }
+            hereCircle = L.circle([here.lat, here.lng], { radius: here.acc, color: '#4fb3ff', weight: 1, fillOpacity: 0.12 }).addTo(map);
+            hereMarker = L.circleMarker([here.lat, here.lng], { radius: 7, color: '#fff', weight: 2, fillColor: '#4fb3ff', fillOpacity: 1 }).addTo(map);
+            map.setView([here.lat, here.lng], 20);
+            toast('دقة الموقع: ±' + Math.round(here.acc) + ' م');
+            if (cb) cb(here);
+        }, function () { toast('تعذّر تحديد الموقع. اسمح للمتصفح باستخدام الموقع'); }, { enableHighAccuracy: true, timeout: 20000, maximumAge: 0 });
+    }
+    document.getElementById('btn-locate').onclick = function () { locate(); };
+    document.getElementById('btn-here').onclick = function () {
+        var kind = mode === 'move' ? 'sidr' : mode;
+        locate(function (h) {
+            if (h.acc > 15) toast('الدقة ضعيفة (±' + Math.round(h.acc) + ' م). يُفضّل الضغط على المكان في الخريطة');
+            addPoint(kind, h.lat, h.lng);
+        });
+    };
+
+    // ---------- تراجع / إعادة ----------
+    document.getElementById('btn-undo').onclick = function () {
+        if (!history.length) { toast('لا يوجد ما يمكن التراجع عنه'); return; }
+        points = JSON.parse(history.pop()); save(); render(); toast('تم التراجع');
+    };
+    document.getElementById('btn-reset').onclick = function () {
+        if (!confirm('سيتم حذف كل تعديلاتك غير المرسلة والرجوع لما هو منشور على الموقع. متأكد؟')) return;
+        snapshot(); points = fromPublished(); save(); render(); toast('رجعت للبيانات المنشورة');
+    };
+
+    // ---------- التصدير ----------
+    function exportText() {
+        var c = { sidr: 0, albizia: 0, well: 0 };
+        points.forEach(function (p) { c[p.kind]++; });
+        var lines = ['أرض السواد: تحديث الشتلات', 'سدر ' + c.sidr + ' | ألبيزيا ' + c.albizia + ' | آبار ' + c.well, '---'];
+        ['sidr', 'albizia', 'well'].forEach(function (k) {
+            points.filter(function (p) { return p.kind === k; }).forEach(function (p) {
+                lines.push(k + ', ' + p.lat.toFixed(6) + ', ' + p.lng.toFixed(6));
+            });
+        });
+        return lines.join('\n');
+    }
+    function copy(text) {
+        var ta = document.getElementById('export-text');
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            return navigator.clipboard.writeText(text).then(function () { return true; }, function () { ta.select(); try { return document.execCommand('copy'); } catch (e) { return false; } });
+        }
+        ta.select(); try { return Promise.resolve(document.execCommand('copy')); } catch (e) { return Promise.resolve(false); }
+    }
+    var dlg = document.getElementById('export-dialog');
+    document.getElementById('btn-export').onclick = function () {
+        var t = exportText();
+        document.getElementById('export-text').value = t;
+        dlg.showModal();
+        copy(t);
+    };
+    document.getElementById('btn-copy-again').onclick = function () { copy(document.getElementById('export-text').value).then(function () { toast('تم النسخ'); }); };
+    document.getElementById('btn-close').onclick = function () { dlg.close(); };
+
+    // ---------- رسائل ----------
+    var tt;
+    function toast(msg) {
+        var el = document.getElementById('toast'); el.textContent = msg; el.style.display = 'block';
+        clearTimeout(tt); tt = setTimeout(function () { el.style.display = 'none'; }, 2600);
+    }
+})();
+</script>
+</body>
+</html>
