@@ -327,3 +327,15 @@ body.lang-en .peak-title, body.lang-en .peak-label, body.lang-en .peak-sub, body
     .peak-unit { min-width: 0; flex: 1; padding: 12px 4px 8px; }
     .peak-num { font-size: 1.7rem; }
 }
+
+/* ===== زر الرجوع ===== */
+.brand-wrap { display: flex; align-items: center; gap: 12px; }
+.back-btn { display: inline-flex; align-items: center; gap: 4px; background: #242424; color: #fff; border: 0.5px solid #3a3a3a; border-radius: 999px; padding: 7px 14px 7px 12px; font-family: inherit; font-size: 0.95rem; cursor: pointer; transition: all 0.25s ease; }
+.back-btn:hover { background: #2ecc71; color: #0a2e18; border-color: #2ecc71; }
+.back-btn svg { flex-shrink: 0; }
+/* بالعربي السهم يؤشر لليمين (اتجاه الرجوع بالقراءة من اليمين) */
+html[dir="rtl"] .back-btn svg { transform: scaleX(-1); }
+@media (max-width: 600px) {
+    .back-btn { padding: 8px; }
+    .back-btn span { display: none; }
+}

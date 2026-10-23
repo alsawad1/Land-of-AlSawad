@@ -8,7 +8,8 @@ const NAV_LABELS = {
         langBtn: "English",
         telegramBtn: "الانضمام إلى القناة الرسمية في تليغرام ←",
         footer: "جميع الحقوق محفوظة © أرض السَّواد ٢٠٢٦",
-        searchPlaceholder: "بحث بالموقع..."
+        searchPlaceholder: "بحث بالموقع...",
+        backBtn: "رجوع"
     },
     en: {
         brandTop: "Land of", brandBottom: "Al-Sawad",
@@ -17,7 +18,8 @@ const NAV_LABELS = {
         langBtn: "العربية",
         telegramBtn: "Join the Official Telegram Channel ←",
         footer: "All Rights Reserved © Land of Al-Sawad 2026",
-        searchPlaceholder: "Search the site..."
+        searchPlaceholder: "Search the site...",
+        backBtn: "Back"
     }
 };
 
@@ -35,6 +37,9 @@ function setLanguage(lang) {
         const key = el.getAttribute('data-i18n-placeholder');
         if (NAV_LABELS[lang][key] !== undefined) el.placeholder = NAV_LABELS[lang][key];
     });
+
+    const back = document.querySelector('.back-btn');
+    if (back) back.setAttribute('aria-label', NAV_LABELS[lang].backBtn);
 
     if (typeof runSiteSearch === 'function') {
         const input = document.getElementById('site-search-input');
@@ -58,7 +63,44 @@ function closeMobileMenu() {
     document.getElementById('mobile-drawer-overlay').classList.remove('active');
 }
 
+// ===== زر الرجوع للصفحة السابقة (يظهر بكل الصفحات ما عدا الرئيسية) =====
+function backFallbackUrl() {
+    const path = location.pathname;
+    const inSub = /\/(birds|trees|blog)\/[^/]+$/.test(path);
+    if (/\/birds\/[^/]+$/.test(path)) return '../birds.html';
+    if (/\/trees\/[^/]+$/.test(path)) return '../guide.html';
+    if (/\/blog\/[^/]+$/.test(path)) return '../blog.html';
+    return inSub ? '../index.html' : 'index.html';
+}
+
+function injectBackButton() {
+    const inner = document.querySelector('.site-header-inner');
+    const brand = inner && inner.querySelector('.brand-name');
+    if (!brand || document.querySelector('.back-btn')) return;
+    const file = location.pathname.split('/').pop();
+    if (file === '' || file === 'index.html') return;
+
+    const wrap = document.createElement('div');
+    wrap.className = 'brand-wrap';
+    brand.parentNode.insertBefore(wrap, brand);
+
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'back-btn';
+    btn.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg><span data-i18n="backBtn">رجوع</span>';
+    btn.addEventListener('click', () => {
+        let sameSite = false;
+        try { sameSite = document.referrer && new URL(document.referrer).origin === location.origin; } catch (e) { /* ignore */ }
+        if (sameSite && history.length > 1) history.back();
+        else location.href = backFallbackUrl();
+    });
+
+    wrap.appendChild(btn);
+    wrap.appendChild(brand);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+    injectBackButton();
     let saved = 'ar';
     try { saved = localStorage.getItem('siteLang') || 'ar'; } catch (e) { /* ignore */ }
     setLanguage(saved);
