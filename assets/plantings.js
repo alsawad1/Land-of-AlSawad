@@ -13,7 +13,7 @@ window.PLANTINGS = {
     },
 
     trees: [
-        // آخر تحديث من أداة التوثيق: 2026-10-17
+        // آخر تحديث من أداة التوثيق: 2026-10-30
         { lat: 33.293198, lng: 44.291542, species: "sidr" },
         { lat: 33.293208, lng: 44.291562, species: "sidr" },
         { lat: 33.293190, lng: 44.291527, species: "sidr" },
@@ -33,6 +33,14 @@ window.PLANTINGS = {
         { lat: 33.295961, lng: 44.281665, species: "sidr" },
         { lat: 33.295795, lng: 44.281785, species: "sidr" },
         { lat: 33.299263, lng: 44.283381, species: "sidr" },
+        { lat: 33.295659, lng: 44.281498, species: "sidr" },
+        { lat: 33.295584, lng: 44.281559, species: "sidr" },
+        { lat: 33.299346, lng: 44.283130, species: "sidr" },
+        { lat: 33.299328, lng: 44.283096, species: "sidr" },
+        { lat: 33.299314, lng: 44.283069, species: "sidr" },
+        { lat: 33.299267, lng: 44.283029, species: "sidr" },
+        { lat: 33.299244, lng: 44.283049, species: "sidr" },
+        { lat: 33.299221, lng: 44.283073, species: "sidr" },
         { lat: 33.293235, lng: 44.291559, species: "albizia" },
         { lat: 33.293254, lng: 44.291546, species: "albizia" },
         { lat: 33.293591, lng: 44.291256, species: "albizia" },
@@ -71,7 +79,13 @@ window.PLANTINGS = {
         { lat: 33.295917, lng: 44.281855, species: "albizia" },
         { lat: 33.295864, lng: 44.281905, species: "albizia" },
         { lat: 33.295744, lng: 44.281938, species: "albizia" },
-        { lat: 33.299227, lng: 44.283412, species: "albizia" }
+        { lat: 33.299227, lng: 44.283412, species: "albizia" },
+        { lat: 33.295736, lng: 44.281431, species: "albizia" },
+        { lat: 33.299365, lng: 44.283168, species: "albizia" },
+        { lat: 33.299187, lng: 44.283098, species: "albizia" },
+        { lat: 33.301433, lng: 44.284310, species: "albizia" },
+        { lat: 33.301429, lng: 44.284484, species: "albizia" },
+        { lat: 33.301099, lng: 44.283951, species: "albizia" }
     ],
 
     wells: [
